@@ -9,7 +9,7 @@ from tempfile import TemporaryDirectory
 from unittest.mock import patch
 
 from src import live_server as live
-from src.listeners import register
+from src.listeners import CORE, register
 
 
 class LiveServerTests(unittest.TestCase):
@@ -55,6 +55,36 @@ class LiveServerTests(unittest.TestCase):
                 return result
             time.sleep(0.01)
         self.fail("Worker did not finish")
+
+    def test_reset_archives_the_entire_session_and_clears_the_live_roster(self):
+        listener = "wildcard-nl-0123456789ab"
+        register(self.private, dict(id=listener, name="Jan", role="Retiree", language="nl"))
+        manifest = (self.private / "listeners.json").read_bytes()
+        (self.private / listener).mkdir()
+        (self.private / listener / "briefing.mp3").write_bytes(b"audio")
+        (self.private / "profiles_wildcard.yaml").write_bytes(b"profiles")
+        (self.private / ".session").write_bytes(b"log")
+        live.reset_live()
+        parent = self.private.parent / "live-archive"
+        archive, = parent.iterdir()
+        self.assertRegex(archive.name, r"^\d{8}T\d{12}Z$")
+        self.assertEqual((archive / "listeners.json").read_bytes(), manifest)
+        self.assertEqual((archive / listener / "briefing.mp3").read_bytes(), b"audio")
+        self.assertEqual((archive / "profiles_wildcard.yaml").read_bytes(), b"profiles")
+        self.assertEqual((archive / ".session").read_bytes(), b"log")
+        self.assertEqual(list(self.private.iterdir()), [])
+        self.assertEqual(self.request("GET", "/out/listeners.json"), (200, CORE))
+        self.assertEqual(self.request("GET", f"/out/{listener}/briefing.mp3")[0], 404)
+        live.reset_live()
+        self.assertEqual(list(parent.iterdir()), [archive])
+
+    def test_reset_requires_a_successful_bind(self):
+        with patch("sys.argv", ["src.live_server", "--reset"]), patch.object(live, "load_dotenv"), \
+             patch.object(live.ThreadingHTTPServer, "server_bind", side_effect=OSError("occupied")), \
+             patch.object(live, "reset_live") as reset:
+            with self.assertRaisesRegex(SystemExit, "already using that port"):
+                live.main()
+            reset.assert_not_called()
 
     def test_job_progress_and_private_delivery(self):
         writing, finish = threading.Event(), threading.Event()

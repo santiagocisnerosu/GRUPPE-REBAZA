@@ -10,8 +10,9 @@ import threading
 import time
 import traceback
 import uuid
-from argparse import Namespace
+from argparse import ArgumentParser, Namespace
 from dataclasses import dataclass, field
+from datetime import datetime, timezone
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -115,6 +116,22 @@ def local_roster():
     return published + [entry for entry in roster(LIVE) if entry["id"] not in frozen]
 
 
+def reset_live():
+    output = LIVE.parent.resolve()
+    live = output / LIVE.name
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+    archive = output / "live-archive" / timestamp
+    if live.resolve() != live or archive.resolve() != archive:
+        raise ValueError("Expected the live directory and archive inside the local output directory")
+    if live.exists() and any(live.iterdir()):
+        archive.parent.mkdir(exist_ok=True)
+        if archive.exists():
+            raise FileExistsError(f"Archive already exists: {archive}")
+        live.rename(archive)
+        print(f"Archived live listeners to {archive}", flush=True)
+    live.mkdir(parents=True, exist_ok=True)
+
+
 class Handler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(DOCS), **kwargs)
@@ -200,6 +217,10 @@ class Handler(SimpleHTTPRequestHandler):
 
 
 def main():
+    parser = ArgumentParser(description=__doc__)
+    parser.add_argument("--reset", action="store_true",
+                        help="Archive all of out/live and start with only the three core listeners")
+    args = parser.parse_args()
     load_dotenv(ROOT / ".env", override=True)
     with ThreadingHTTPServer(("127.0.0.1", 8000), Handler, bind_and_activate=False) as server:
         server.allow_reuse_port = False
@@ -211,6 +232,8 @@ def main():
             server.server_activate()
         except OSError as exc:
             raise SystemExit(f"Cannot listen on 127.0.0.1:8000. Stop the server already using that port and retry. ({exc})") from None
+        if args.reset:
+            reset_live()
         server.jobs = Jobs()
         print("Morning Edition is live at http://localhost:8000", flush=True)
         try:
