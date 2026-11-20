@@ -17,7 +17,7 @@ from .conflicts import detect_conflicts, figure_key, write_conflicts
 from .costs import CACHE_DIR, write_json
 from .extract import cache_path, selected_articles, verified_claims
 from .model_calls import structured
-from .script_reports import export_reports
+from .script_reports import append_receipt_closing, export_reports
 from .verify import FIGURE, NUMBER_WORD, is_word_figure, normalize_text, normalized_figures
 
 ROOT = CACHE_DIR.parents[1]
@@ -72,7 +72,7 @@ class Repair(BaseModel):
 
 
 def score_stories(stories, profiles, articles, client, model):
-    profiles_payload = [{k: v for k, v in p.items() if k != "editor_pins"} for p in profiles.values()]
+    profiles_payload = [{k: v for k, v in p.items() if k not in {"editor_pins", "voice_id", "voice_settings"}} for p in profiles.values()]
 
     def score(story):
         payload = {
@@ -675,6 +675,7 @@ def validate_script(profile, chosen, source_windows, client, model, day, facts, 
     }
     out = ROOT / "out" / profile["id"]
     write_json(out / "caught.json", caught)
+    append_receipt_closing(result, len(used_numbers))
     write_json(out / "script.json", result)
     print(f"{profile['id']}: {word_count} words | {len(sentences)} sentences | "
           f"{len(result['facts'])} cited facts | {len(caught)} caught issues")

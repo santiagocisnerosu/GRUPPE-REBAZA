@@ -5,6 +5,19 @@ from .conflicts import figure_key
 from .costs import write_json
 
 
+def append_receipt_closing(script, figures_total):
+    narration = [sentence for sentence in script["sentences"]
+                 if not sentence.get("receipt_closing")]
+    sources_total = len({i for sentence in narration for i in sentence["article_ids"]})
+    text = (f"Every figure in this briefing, all {figures_total} of them, was checked "
+            f"against {sources_total} source articles. Your receipts are in the app.")
+    script["sentences"] = [*narration, {
+        "text": text, "story_id": "receipt_closing", "article_ids": [], "fact_ids": [],
+        "receipt_closing": True,
+    }]
+    return sources_total
+
+
 def export_reports(out, scripts, sources, spoken_citations):
     by_fact = defaultdict(dict)
     for listener, script in scripts.items():

@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Receipts / Audio briefing</title>
+  <style>
+    :root {
+      font-family: "Aptos", "Segoe UI", system-ui, sans-serif;
+      color: #101a16;
+      background: #edf0e9;
+      --ink: #101a16;
+      --paper: #fafbf6;
+      --border: #b8c4b9;
+      --muted: #44554b;
+      --mint: #d7f57d;
+      --forest: #113629;
+      --rust: #91352a;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    button, a, audio { font: inherit; }
+    button { cursor: pointer; }
+    :focus-visible { outline: 3px solid #237b55; outline-offset: 4px; }
+    .dark :focus-visible { outline-color: var(--mint); }
+    [hidden] { display: none !important; }
+    .wrap { width: min(1260px, calc(100% - 64px)); margin-inline: auto; }
+    .dark { background: var(--ink); color: var(--paper); }
+    .masthead { display: flex; justify-content: space-between; align-items: center; padding-block: 22px; border-bottom: 1px solid #4c5f53; }
+    .brand { font-size: 1.45rem; font-weight: 800; letter-spacing: -.05em; }
+    .edition { color: #c9d8ce; font-size: .95rem; font-weight: 650; }
+    .intro { padding-block: 30px 34px; display: grid; grid-template-columns: 1.1fr 1fr; align-items: end; gap: 24px 48px; }
+    .intro h1 { margin: 0 0 18px; font-size: clamp(2.7rem, 5vw, 4.8rem); line-height: .96; letter-spacing: -.07em; font-weight: 800; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tabs button { background: transparent; color: #edf4ea; border: 1px solid #75887a; padding: 8px 18px; min-height: 44px; border-radius: 999px; font-weight: 750; }
+    .tabs button[aria-selected="true"] { color: var(--ink); background: var(--mint); border-color: var(--mint); }
+    .listen { display: grid; gap: 12px; align-self: end; }
+    .listen audio { width: 100%; min-height: 54px; }
+    .verify { color: var(--mint); margin: 0; font-weight: 800; font-size: clamp(1rem, 1.6vw, 1.24rem); }
+    .receipt-button { justify-self: start; background: var(--mint); color: var(--ink); border: 1px solid var(--mint); padding: 9px 17px; min-height: 42px; font-weight: 800; border-radius: 7px; }
+    .receipt-button:disabled { opacity: .45; cursor: default; }
+    .content { display: grid; grid-template-columns: minmax(0, 1.8fr) minmax(280px, 1fr); align-items: start; gap: 20px; padding-block: 24px 42px; }
+    .card { background: var(--paper); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .heading { padding: 17px 20px; margin: 0; font-size: 1.32rem; letter-spacing: -.04em; border-bottom: 1px solid var(--border); }
+    .rows { position: relative; max-height: min(60vh, 690px); min-height: 180px; overflow: auto; overscroll-behavior: contain; scrollbar-gutter: stable; }
+    .line { padding: 12px 16px 14px; border-left: 5px solid transparent; border-bottom: 1px solid #d4ddd3; }
+    .line:last-child { border-bottom: 0; }
+    .line.active { background: #e4f5c4; border-left-color: #17613f; }
+    .jump { display: grid; grid-template-columns: 3.4rem 1fr; width: 100%; align-items: start; gap: 8px; text-align: left; border: 0; background: transparent; padding: 4px 0; color: inherit; font-weight: 660; font-size: clamp(1.06rem, 1.63vw, 1.35rem); line-height: 1.42; }
+    .clock { color: var(--forest); padding-top: .3em; font: 750 .86rem/1.4 ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+    .sources { margin: 8px 0 0 3.9rem; display: flex; flex-wrap: wrap; gap: 6px; }
+    a { color: #164c35; text-underline-offset: .18em; }
+    .chip { background: #e8eee7; color: #173e2b; border: 1px solid #b7c9bd; border-radius: 5px; padding: 5px 8px; font-size: .88rem; font-weight: 650; max-width: 100%; overflow-wrap: anywhere; }
+    .audit { display: grid; gap: 13px; }
+    .audit details { background: var(--paper); border: 1px solid var(--border); border-radius: 12px; }
+    .audit summary { cursor: pointer; color: var(--ink); padding: 15px; font-weight: 800; font-size: 1.1rem; }
+    .count { border-radius: 999px; background: #e8eee7; padding: 3px 8px; color: var(--forest); font-size: .88rem; margin-left: 5px; }
+    .items { max-height: 400px; overflow: auto; padding: 0 15px 12px; }
+    .audit-row { border-top: 1px solid #d4ddd3; padding: 12px 0 8px; }
+    .audit-row p { margin: 5px 0; line-height: 1.4; }
+    .audit-row strong { color: var(--rust); }
+    .audit-row a { display: inline-block; margin: 4px 9px 4px 0; font-weight: 650; }
+    .used { font-weight: 750; color: #1e583e; }
+    .placeholder, .status { padding: 12px 16px; color: var(--muted); }
+    .status { background: #f4eede; border: 1px solid #c6b486; border-radius: 8px; margin: 16px 0 0; color: #3c2c13; font-weight: 650; }
+    dialog { width: min(560px, calc(100% - 28px)); max-height: 88vh; background: #fffef5; color: var(--ink); border: 0; padding: 0; box-shadow: 0 18px 50px #00150e66; }
+    dialog::backdrop { background: #0a1711ba; }
+    .ticket { padding: 22px 26px 26px; font-family: ui-monospace, "Consolas", monospace; }
+    .ticket-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 12px; border-bottom: 2px dashed #718478; }
+    .ticket-header h2 { font-size: 1.55rem; margin: 0; letter-spacing: -.05em; }
+    .ticket-header button { border: 1px solid var(--forest); border-radius: 4px; padding: 7px 11px; background: transparent; color: var(--forest); }
+    .ticket-meta { color: var(--muted); }
+    .receipt-list { list-style: none; padding: 0; }
+    .receipt-list li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px; padding: 11px 0; border-top: 1px dashed #a9b8ab; overflow-wrap: anywhere; }
+    .check { font-weight: 900; color: #156441; }
+    .receipt-list a { display: block; margin-top: 5px; }
+    @media (max-width: 760px) {
+      .wrap { width: calc(100% - 28px); }
+      .intro, .content { grid-template-columns: 1fr; }
+      .intro { gap: 22px; }
+      .content { padding-top: 14px; }
+      .rows { position: relative; max-height: 55vh; }
+      .sources { margin-left: 0; }
+      .jump { grid-template-columns: 2.9rem 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="dark">
+    <div class="wrap">
+      <div class="masthead">
+        <span class="brand">Receipts</span>
+        <time class="edition" id="edition"></time>
+      </div>
+      <div class="intro">
+        <div>
+          <h1>Your morning<br>briefing.</h1>
+          <div class="tabs" role="tablist" aria-label="Listener">
+            <button type="button" role="tab" id="tab-mara" data-listener="mara" aria-selected="true" aria-controls="briefing-panel">Mara</button>
+            <button type="button" role="tab" id="tab-jordan" data-listener="jordan" aria-selected="false" aria-controls="briefing-panel" tabindex="-1">Jordan</button>
+            <button type="button" role="tab" id="tab-priya" data-listener="priya" aria-selected="false" aria-controls="briefing-panel" tabindex="-1">Priya</button>
+          </div>
+        </div>
+        <div class="listen">
+          <p class="verify" id="stats" aria-live="polite"></p>
+          <audio id="audio" controls preload="metadata" aria-label="Briefing audio" hidden></audio>
+          <button type="button" class="receipt-button" id="open-receipt" disabled>Your receipt</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap" id="briefing-panel" role="tabpanel" aria-labelledby="tab-mara">
+    <p id="status" class="status" role="status" hidden></p>
+    <div class="content" id="content" hidden>
+      <section class="card" aria-labelledby="transcript-heading">
+        <h2 class="heading" id="transcript-heading">Transcript</h2>
+        <div class="rows" id="rows"></div>
+      </section>
+      <aside class="audit" aria-label="Source checks">
+        <details open>
+          <summary>Caught before it reached your ears <span id="caught-count" class="count"></span></summary>
+          <div class="items" id="caught"></div>
+        </details>
+        <details open>
+          <summary>Sources disagree <span id="conflict-count" class="count"></span></summary>
+          <div class="items" id="conflicts"></div>
+        </details>
+      </aside>
+    </div>
+  </main>
+
+  <dialog id="receipt" aria-labelledby="receipt-heading">
+    <article class="ticket">
+      <header class="ticket-header"><h2 id="receipt-heading">Your receipt</h2><form method="dialog"><button>Close</button></form></header>
+      <p class="ticket-meta" id="ticket-meta"></p>
+      <ol class="receipt-list" id="ticket-lines"></ol>
+    </article>
+  </dialog>
+
+  <script>
+    const AGENT_ID = "";
+    const audio = document.querySelector("#audio");
+    const rows = document.querySelector("#rows");
+    const tabs = [...document.querySelectorAll("[role=tab]")];
+    const receipt = document.querySelector("#receipt");
+    const receiptButton = document.querySelector("#open-receipt");
+    const status = document.querySelector("#status");
+    const content = document.querySelector("#content");
+    const labels = {
+      number_not_in_cited_facts: "Figure missing from the cited evidence",
+      copied_sequence_of_8_words: "Copied wording",
+      repeated_number: "Repeated figure",
+      repeated_meaning: "Repeated meaning",
+      word_budget: "Exceeded the script word budget",
+      missing_or_unknown_fact_id: "Missing or unknown citation"
+    };
+    let request;
+    let audioObjectUrl;
+    let active = -1;
+    let lines = [];
+    let transcript = [];
+
+    function element(tag, value, className) {
+      const node = document.createElement(tag);
+      if (value !== undefined) node.textContent = value;
+      if (className) node.className = className;
+      return node;
+    }
+
+    function sourceLink(label, href, className) {
+      let url;
+      try { url = new URL(href); } catch { return element("span", label, className); }
+      if (!["http:", "https:"].includes(url.protocol)) return element("span", label, className);
+      const node = element("a", label, className);
+      node.href = url.href;
+      node.target = "_blank";
+      node.rel = "noopener noreferrer";
+      return node;
+    }
+
+    function clock(seconds) {
+      const total = Math.floor(seconds);
+      return Math.floor(total / 60) + ":" + String(total % 60).padStart(2, "0");
+    }
+
+    function syncTranscript() {
+      const time = audio.currentTime + 0.015;
+      const next = transcript.findIndex((line, index) =>
+        time >= line.start && (time < (transcript[index + 1]?.start ?? line.end))
+      );
+      if (next === active) return;
+      if (active >= 0) {
+        lines[active].classList.remove("active");
+        lines[active].removeAttribute("aria-current");
+      }
+      active = next;
+      if (next < 0) return;
+      const line = lines[next];
+      line.classList.add("active");
+      line.setAttribute("aria-current", "true");
+      const top = line.offsetTop;
+      if (top < rows.scrollTop || top + line.offsetHeight > rows.scrollTop + rows.clientHeight) {
+        rows.scrollTo({ top: Math.max(0, top - 14), behavior: "smooth" });
+      }
+    }
+
+    function drawTranscript(data) {
+      transcript = data.sentences;
+      active = -1;
+      lines = transcript.map((sentence) => {
+        const line = element("article", undefined, "line");
+        const jump = element("button", undefined, "jump");
+        jump.type = "button";
+        jump.append(element("span", clock(sentence.start), "clock"), element("span", sentence.text));
+        jump.addEventListener("click", () => {
+          audio.currentTime = sentence.start;
+          syncTranscript();
+        });
+        line.append(jump);
+        if (sentence.sources.length) {
+          const sources = element("div", undefined, "sources");
+          sentence.sources.forEach((s) => sources.append(sourceLink(s.outlet + " / " + s.headline, s.link, "chip")));
+          line.append(sources);
+        }
+        return line;
+      });
+      rows.replaceChildren(...lines);
+      rows.scrollTop = 0;
+    }
+
+    function drawChecks(data) {
+      document.querySelector("#caught-count").textContent = data.caught.length;
+      document.querySelector("#conflict-count").textContent = data.conflicts.length;
+      const caught = data.caught.map((item) => {
+        const card = element("div", undefined, "audit-row");
+        const reason = labels[item.reason] ?? item.reason.replaceAll("_", " ");
+        card.append(element("strong", item.figure == null ? reason : item.figure + " / " + reason));
+        card.append(element("p", item.sentence));
+        return card;
+      });
+      const conflicts = data.conflicts.map((item) => {
+        const card = element("div", undefined, "audit-row");
+        card.append(
+          element("strong", item.measure),
+          element("p", item.value_a + " vs " + item.value_b),
+          sourceLink(item.outlet_a + " / " + item.value_a, item.link_a),
+          sourceLink(item.outlet_b + " / " + item.value_b, item.link_b),
+          element("p", item.used ? "Used in this briefing: " + item["value_" + item.used] : "Neither figure used", "used")
+        );
+        return card;
+      });
+      document.querySelector("#caught").replaceChildren(...(caught.length ? caught : [element("p", "No issues caught.")]));
+      document.querySelector("#conflicts").replaceChildren(...(conflicts.length ? conflicts : [element("p", "No conflicting figures reported.")]));
+    }
+
+    function drawReceipt(data) {
+      document.querySelector("#ticket-meta").textContent = data.name + " / " + data.date + " / " + data.receipt.length + " verified figures";
+      document.querySelector("#ticket-lines").replaceChildren(...data.receipt.map((item) => {
+        const entry = element("li");
+        const detail = element("div");
+        detail.append(element("strong", item.figure), element("div", item.measures),
+          sourceLink(item.outlet + " / " + item.headline, item.link));
+        entry.append(element("span", "\u2713", "check"), detail);
+        return entry;
+      }));
+    }
+
+    async function loadListener(tab) {
+      request?.abort();
+      request = new AbortController();
+      const current = request;
+      const listener = tab.dataset.listener;
+      tabs.forEach((node) => {
+        node.setAttribute("aria-selected", String(node === tab));
+        node.tabIndex = node === tab ? 0 : -1;
+      });
+      document.querySelector("#briefing-panel").setAttribute("aria-labelledby", tab.id);
+      audio.pause();
+      audio.removeAttribute("src");
+      audio.load();
+      if (audioObjectUrl) URL.revokeObjectURL(audioObjectUrl);
+      audioObjectUrl = undefined;
+      audio.hidden = true;
+      content.hidden = true;
+      receiptButton.disabled = true;
+      document.querySelector("#stats").textContent = "";
+      document.querySelector("#edition").textContent = "";
+      status.textContent = "Loading " + tab.textContent + "…";
+      status.hidden = false;
+      try {
+        const url = new URL("../out/" + listener + "/transcript.json", location.href);
+        const response = await fetch(url, { signal: current.signal, cache: "no-store" });
+        if (response.status === 404) {
+          status.textContent = tab.textContent + "’s audio hasn’t been generated yet.";
+          return;
+        }
+        if (!response.ok) throw new Error("Transcript request failed");
+        const data = await response.json();
+        const audioResponse = await fetch(new URL(data.audio, url), { signal: current.signal });
+        if (!audioResponse.ok) throw new Error("Audio request failed");
+        // The basic Python server does not support byte-range seeking.
+        const audioFile = await audioResponse.blob();
+        if (current.signal.aborted) return;
+        drawTranscript(data);
+        drawChecks(data);
+        drawReceipt(data);
+        const invented = data.figures_total - data.figures_verified;
+        document.querySelector("#stats").textContent =
+          data.figures_verified + " of " + data.figures_total + " figures verified · " +
+          data.sources_total + " sources · " + invented + " invented";
+        const date = document.querySelector("#edition");
+        date.dateTime = data.date;
+        date.textContent = new Intl.DateTimeFormat("en-GB", {
+          dateStyle: "long", timeZone: "UTC"
+        }).format(new Date(data.date + "T00:00:00Z"));
+        audioObjectUrl = URL.createObjectURL(audioFile);
+        audio.src = audioObjectUrl;
+        audio.hidden = false;
+        content.hidden = false;
+        receiptButton.disabled = false;
+        status.hidden = true;
+        syncTranscript();
+      } catch (error) {
+        if (!current.signal.aborted) {
+          status.textContent = "Couldn’t load this briefing. Open the player through the local HTTP server.";
+        }
+      }
+    }
+
+    audio.addEventListener("timeupdate", syncTranscript);
+    audio.addEventListener("seeked", syncTranscript);
+    receiptButton.addEventListener("click", () => receipt.showModal());
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => loadListener(tab));
+      tab.addEventListener("keydown", (event) => {
+        const offset = { ArrowLeft: -1, ArrowRight: 1 }[event.key];
+        if (!offset && !["Home", "End"].includes(event.key)) return;
+        event.preventDefault();
+        const next = event.key === "Home" ? tabs[0] : event.key === "End" ? tabs.at(-1)
+          : tabs[(index + offset + tabs.length) % tabs.length];
+        next.focus();
+        loadListener(next);
+      });
+    });
+
+    if (AGENT_ID.trim()) {
+      const widget = document.createElement("elevenlabs-convai");
+      widget.setAttribute("agent-id", AGENT_ID.trim());
+      const embed = document.createElement("script");
+      embed.src = "https://unpkg.com/@elevenlabs/convai-widget-embed";
+      embed.async = true;
+      document.body.append(widget, embed);
+    }
+    loadListener(tabs[0]);
+  </script>
+</body>
+</html>
