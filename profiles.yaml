@@ -1,0 +1,31 @@
+# Three clearly different listeners. Same day of news, different briefings.
+profiles:
+  - id: daan
+    name: Daan
+    description: Retail investor in Rotterdam, invests a little on the side, wants the gist on the way to work.
+    language: nl
+    minutes: 3
+    depth: simple          # explain jargon, max 1-2 figures per story
+    interests: [crypto, bitcoin, forex, dutch companies, interest rates]
+    avoid: [technical chart analysis]
+    tone: friendly, plain language
+
+  - id: sarah
+    name: Sarah
+    description: Portfolio manager in London, equities, needs numbers and context before the market opens.
+    language: en
+    minutes: 7
+    depth: dense           # all key figures, earnings, guidance, analyst views
+    interests: [earnings, equities, guidance, analyst ratings, US stocks, UK stocks]
+    avoid: [crypto]
+    tone: precise, fast, professional
+
+  - id: lukas
+    name: Lukas
+    description: FX trader in Frankfurt, only cares about currencies and macro drivers.
+    language: de
+    minutes: 2
+    depth: technical       # levels, ranges, central banks
+    interests: [EUR/USD, forex, ECB, Fed, inflation, technical levels]
+    avoid: [single stocks]
+    tone: concise, technical

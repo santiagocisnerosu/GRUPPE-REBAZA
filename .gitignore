@@ -1,0 +1,14 @@
+# Newstex data is licensed for the hackathon only: never commit it
+data/
+*.jsonl
+*.parquet
+
+# Secrets
+.env
+
+# Generated
+out/
+*.mp3
+__pycache__/
+.venv/
+.DS_Store

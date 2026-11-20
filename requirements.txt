@@ -1,0 +1,9 @@
+openai
+elevenlabs
+pandas
+pyarrow
+numpy
+scikit-learn
+pydantic
+pyyaml
+python-dotenv
