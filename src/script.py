@@ -455,8 +455,59 @@ INSTRUCTIONS = (
 )
 
 
+# ---------------------------------------------------------------- automatic mode (--auto)
+# In --auto mode nothing is hand-picked for a particular day: no editor_pins, no
+# include/exclude article IDs, no day-specific style notes or lineups. Story choice
+# comes only from the LLM fit score, outlet diversity, verified figures and urgency.
+AUTO = False
+DAY_SPECIFIC_EDITOR_KEYS = {"include_articles", "exclude_articles", "max_sentences", "lead_story", "style_notes"}
+DAY_SPECIFIC_PROFILE_KEYS = {"editor_pins", "target_lineup"}
+
+
+def auto_profile(profile):
+    clean = {k: v for k, v in profile.items() if k not in DAY_SPECIFIC_PROFILE_KEYS}
+    clean["editor"] = {k: v for k, v in profile.get("editor", {}).items() if k not in DAY_SPECIFIC_EDITOR_KEYS}
+    return clean
+
+
+AUTO_INSTRUCTIONS = INSTRUCTIONS
+for _old, _new in (
+    ("normally as its last sentence before the editorial sign-off; in the inflation block it must "
+     "come immediately after the sentence with 33.2%. ",
+     "normally as its last sentence before the editorial sign-off. "),
+    ("Pin bundles are single story blocks with multiple related reports. Cover their "
+     "constituents when their facts are available, distinguishing the reports. ", ""),
+    ("Honor the editor's style_notes and each story's max_sentences. "
+     "Use the facts from every article in editor.include_articles and cite them. ", ""),
+    ("For Jordan, the crypto block "
+     "must use the crypto pin, include the verified Bitcoin and XRP figures, and never "
+     "claim crypto data are absent. ",
+     "For Jordan, if a crypto story is selected, speak its verified price figures. "),
+    ("For Mara, explicitly cover each story marked editor_pin "
+     "with one or more sentences citing its facts. End her watch list with the Fed minutes. ",
+     "For Mara, end with a cited item to watch today. "),
+    ("Give central bankers' key cited figures aloud: specifically Waller's proposed 50bps "
+     "and, if supplied, the BoJ's current rate for Ueda. ",
+     "Give central bankers' key cited figures aloud. "),
+):
+    assert _old in AUTO_INSTRUCTIONS, _old[:50]
+    AUTO_INSTRUCTIONS = AUTO_INSTRUCTIONS.replace(_old, _new)
+
+AUTO_EXTRAS = {
+    "jordan": (" Open with the story that matters most to someone holding AI, tech stocks "
+               "and crypto. Save a cited final sentence for One thing to watch today."),
+    "priya": (" Give each story at least one verified spoken figure. Describe trade and "
+              "tariff effects conditionally unless a source states a change. Keep the "
+              "sign-off in the final story as prescribed."),
+    "mara": (" Start the first news sentence with Yesterday. Use short, distinct sentences. "
+             "The final news sentence starts Watch today: and includes a specific, cited detail."),
+}
+
+
 def script_instructions(profile):
     listener = profile["id"]
+    if AUTO:
+        return AUTO_INSTRUCTIONS + AUTO_EXTRAS[listener]
     extras = {
         "jordan": (
             " Anthropic is the lead. Keep retail to 2 sentences, Take-Two and crypto to 3 "
@@ -648,7 +699,7 @@ def validate_script(profile, chosen, source_windows, client, model, day, facts, 
         if profile["id"] in {"mara", "jordan"} and story["editor_pin"] and story["facts"]
         and not any(fact["fact_id"] in cited_ids for fact in story["facts"])
     ]
-    if profile["id"] == "mara" and any(g["topic"] == "fed_waller" for g in payload["stories"]):
+    if not AUTO and profile["id"] == "mara" and any(g["topic"] == "fed_waller" for g in payload["stories"]):
         if not any("waller" in sentence["text"].casefold() and
                    any(value and value[:2] == (50, "bps") for _, value in numeric_mentions(sentence["text"]))
                    for sentence in sentences):
@@ -703,7 +754,7 @@ def validate_script(profile, chosen, source_windows, client, model, day, facts, 
         missing.append("Start Mara news with Yesterday")
     if listener == "jordan":
         nvidia = [line["text"] for line in sentences if "nvidia" in line["text"].casefold()]
-        if not any(re.search(r"\b(?:fell|dropped|down|declined|slid)\b.*Wednesday|Wednesday.*\b(?:fell|dropped|down|declined|slid)\b", line, re.I) for line in nvidia):
+        if not AUTO and not any(re.search(r"\b(?:fell|dropped|down|declined|slid)\b.*Wednesday|Wednesday.*\b(?:fell|dropped|down|declined|slid)\b", line, re.I) for line in nvidia):
             missing.append("Say explicitly that Nvidia shares fell on Wednesday")
         used = spoken_figures({"sentences": sentences, "facts": list(facts.values())})
         for story in payload["stories"]:
@@ -727,7 +778,11 @@ def validate_script(profile, chosen, source_windows, client, model, day, facts, 
         )
         return validate_script(profile, chosen, source_windows, client, model, day, facts,
                                retry, payload, retry_budget=False, earlier_errors=caught, small_model=small_model)
-    if not minimum <= word_count <= maximum or missing:
+    warnings = []
+    if (not minimum <= word_count <= maximum or missing) and AUTO and sentences:
+        warnings = [f"{word_count} words (expected {minimum}-{maximum})"] + missing
+        print(f"{profile['id']}: WARNING, kept the validated sentences anyway: {warnings}")
+    elif not minimum <= word_count <= maximum or missing:
         write_json(ROOT / "out" / listener / "validation_issues.json", caught)
         raise RuntimeError(
             f"{profile['id']}: {word_count} words (expected {minimum}-{maximum}); "
@@ -743,6 +798,8 @@ def validate_script(profile, chosen, source_windows, client, model, day, facts, 
         "sentences": sentences,
         "number_mentions": len(used_numbers),
         "repeated_numbers": 0,
+        "mode": "auto" if AUTO else "editor",
+        "validation_warnings": warnings,
         "facts": [facts[i] for i in dict.fromkeys(i for s in sentences for i in s["fact_ids"])],
     }
     opener = profile.get("editor", {}).get("opener")
@@ -762,16 +819,45 @@ def validate_script(profile, chosen, source_windows, client, model, day, facts, 
           f"{len(result['facts'])} cited facts | {len(caught)} caught issues")
 
 
+def write_selection_log(listener, day, stories, fits, chosen):
+    """Every story with its score breakdown, so anyone can see why it was or was not picked."""
+    picked = {story["story_id"] for story, _, _ in chosen}
+    rows = []
+    for story, fit in zip(stories, fits, strict=True):
+        rating = fit[listener]
+        parts = {"fit_x2": 2 * rating["fit"], "extra_outlets_x2": 2 * (len(story["outlets"]) - 1),
+                 "has_verified_figure": int(bool(story["verified_figures"])),
+                 "changes_today": int(rating["changes_today"])}
+        rows.append({"story_id": story["story_id"], "title": story["title"], "fit": rating["fit"],
+                     "outlets": story["outlets"], "verified_figures": len(story["verified_figures"]),
+                     "score": sum(parts.values()), "parts": parts,
+                     "selected": story["story_id"] in picked or any(
+                         story["story_id"] in s.get("story_id", "") for s, _, _ in chosen)})
+    rows.sort(key=lambda r: (-r["selected"], -r["score"]))
+    write_json(ROOT / "out" / listener / "selection.json",
+               {"date": day.isoformat(), "listener": listener, "mode": "auto" if AUTO else "editor",
+                "formula": "2*fit + 2*(outlets-1) + has_verified_figure + changes_today; "
+                           "one story per topic; fit -10 (listener's never list) is excluded",
+                "stories": rows})
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--regenerate", action="store_true", help="Regenerate Mara even with unchanged stories")
     parser.add_argument("--overnight", action="store_true")
     parser.add_argument("--date", required=True, type=date.fromisoformat)
     parser.add_argument("--listener", required=True, choices=(*LISTENERS, "all"))
+    parser.add_argument("--auto", action="store_true",
+                        help="No editor pins or day-specific rules: story choice is fully algorithmic")
     args = parser.parse_args()
+    global AUTO
+    AUTO = args.auto
     profiles = {p["id"]: p for p in yaml.safe_load(
         (ROOT / "profiles.yaml").read_text(encoding="utf-8")
     )["profiles"]}
+    if AUTO:
+        profiles = {k: auto_profile(p) for k, p in profiles.items()}
+        print("AUTO mode: no pins, no hand-picked articles, no day-specific notes.")
     load_dotenv(ROOT / ".env", override=True)
     small = os.getenv("OPENAI_SMALL_MODEL")
     large = os.getenv("OPENAI_LARGE_MODEL")
@@ -830,6 +916,7 @@ def main():
         print(f"{listener} selected stories:")
         for story, score, _ in chosen:
             print(f"  {score:2d} | {story['title'][:90]}")
+        write_selection_log(listener, args.date, stories, fits, chosen)
         existing = read_script(listener, args.date)
         if not args.regenerate and args.listener == "all" and listener == "mara" and existing and (
             {item["story_id"] for item in existing["selected_stories"]}

@@ -1,0 +1,2443 @@
+{
+  "date": "2026-11-17",
+  "listener": "jordan",
+  "mode": "auto",
+  "formula": "2*fit + 2*(outlets-1) + has_verified_figure + changes_today; one story per topic; fit -10 (listener's never list) is excluded",
+  "stories": [
+    {
+      "story_id": "2026-11-17-d38470fbb910e4a0",
+      "title": "'Your Return Is Inevitable': Internet Reacts as Jensen Huang Breaks Silence Amid Chinese Spy Scandal",
+      "fit": 3,
+      "outlets": [
+        "International Business Times UK",
+        "Invezz"
+      ],
+      "verified_figures": 10,
+      "score": 9,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 2,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": true
+    },
+    {
+      "story_id": "2026-11-17-4e01729ba3e13778",
+      "title": "Deutsche Bank Leak Reveals $582M in Suspicious Epstein-Linked Transactions and New Trump Banking Details",
+      "fit": 3,
+      "outlets": [
+        "International Business Times UK",
+        "Invezz"
+      ],
+      "verified_figures": 10,
+      "score": 9,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 2,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": true
+    },
+    {
+      "story_id": "2026-11-17-f30e1a2704512e42",
+      "title": "Why is Baidu stock crashing to a five-year low despite 94% AI cloud growth?",
+      "fit": 3,
+      "outlets": [
+        "Invezz",
+        "Zacks Investment Research"
+      ],
+      "verified_figures": 10,
+      "score": 9,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 2,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": true
+    },
+    {
+      "story_id": "2026-11-17-2fe4356d31da36da",
+      "title": "Nvidia stock faces a $300 billion earnings gamble as options signal 8% swing",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 20,
+      "score": 8,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 1
+      },
+      "selected": true
+    },
+    {
+      "story_id": "2026-11-17-507db4c5de10b130",
+      "title": "Best \"Strong Buy\" Stocks Trading Near Their Highs to Buy as the Nasdaq Falls",
+      "fit": 3,
+      "outlets": [
+        "Zacks Investment Research"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": true
+    },
+    {
+      "story_id": "2026-11-17-032f8d227a5abdd6",
+      "title": "Micron stock falls 2%, why this analyst cut target price",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-09dc25b90e719008",
+      "title": "Ethereum price crashes below $1,800 as Tom Lee makes an $11B bet",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-0cf61e2948c1ac24",
+      "title": "Is Robinhood stock a buy after the crypto crash and new Kalshi competition fears?",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-0eafcae0c99a86c6",
+      "title": "Nike outlines $5B growth plan as turnaround faces challenges in China and sportswear",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-15a79c3f70b107b9",
+      "title": "Duos Technologies Group, Inc. (DUOT) Reports Q3 Loss, Misses Revenue Estimates",
+      "fit": 3,
+      "outlets": [
+        "Zacks Investment Research"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-19c75009716c955f",
+      "title": "Alibaba stock flashes the risky death cross pattern as earnings loom",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-215d91808fc2d768",
+      "title": "Tilray Brands stock has crashed to a record low: is this fallen angel a buy?",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-263bcf542cb07a59",
+      "title": "Will XRP price crash below $0.90 as whale selling pressure intensifies?",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-2b80060f501f8d17",
+      "title": "Best Growth Stocks to Buy for November 17th",
+      "fit": 3,
+      "outlets": [
+        "Zacks Investment Research"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-3332fa600fdefe49",
+      "title": "Zacks Industry Outlook Highlights Kinder Morgan, The Williams and MPLX LP",
+      "fit": 3,
+      "outlets": [
+        "Zacks Investment Research"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-36fc782b393ed5ad",
+      "title": "Can Europe Expansion Become a Long-Term Growth Driver for Lemonade?",
+      "fit": 3,
+      "outlets": [
+        "Zacks Investment Research"
+      ],
+      "verified_figures": 4,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-3a437ca6093ac08e",
+      "title": "AMD shares open higher on Tuesday: here's why",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-3d22d3c1a1db18b8",
+      "title": "Best Value Stocks to Buy for November 17th",
+      "fit": 3,
+      "outlets": [
+        "Zacks Investment Research"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-4d7314885f39314c",
+      "title": "Evening digest: Nvidia rules out Huang return, gold and oil prices fall",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-4fbfb58bc08ef420",
+      "title": "Should You Invest in the iShares Expanded Tech Sector ETF (IGM)?",
+      "fit": 3,
+      "outlets": [
+        "Zacks Investment Research"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-589d2b883736c84d",
+      "title": "Tesla stock falls 2.5% even as company plans $3.3B cybercab expansion",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-712870d77ebe723f",
+      "title": "Samsung and SK Hynix stocks sink as a 20% chip price shock hits home",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-73cd5344ee9ed21d",
+      "title": "Salesforce stock slides as technology outages rattle software sector",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-74bc8714c87c3754",
+      "title": "Netflix stock analysis: what next for this fallen angel?",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-756f8e1813b47a97",
+      "title": "Bear of the Day: Ethan Allen (ETD)",
+      "fit": 3,
+      "outlets": [
+        "Zacks Investment Research"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-780a0f74c29f99d6",
+      "title": "Why is Intel stock falling on Tuesday?",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-7e7935722f3314c1",
+      "title": "Interview: Nvidia's crisis could metastasize into broader selloff: B2BROKER CEO",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-807bf7372ee08fd4",
+      "title": "SLB Expands Norway Footprint With Var Energi Offshore Drilling Deal",
+      "fit": 3,
+      "outlets": [
+        "Zacks Investment Research"
+      ],
+      "verified_figures": 4,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-87f3ffade963a146",
+      "title": "CoreWeave stock falls 6% as Nvidia leadership uncertainty weighs",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-882cdbc3391664e4",
+      "title": "Why this analyst sees a 30% upside for Meta stock?",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-8bb07648e21f5163",
+      "title": "Aschenbrenner’s Situational Awareness in crisis as top portfolio stocks plunge",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-92c7a6a52709fe27",
+      "title": "Grvt launches Stable Funding Perps to reduce trading costs for real-world assets",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-9378c8ef0632bd84",
+      "title": "Hang Seng Index in focus ahead of Baidu, Alibaba, Tencent, Lenovo earnings",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-9cea0d9737939252",
+      "title": "Cathie Wood dumps $85M in Nvidia stock ahead of earnings to buy this instead",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-9dfd35ff9f81c8e1",
+      "title": "Meta shares slide over 2% on Monday: here's why",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-9e02ae72787ebf32",
+      "title": "3 Domestic Auto Stocks to Watch Amid Weak Demand, High Borrowing Costs",
+      "fit": 3,
+      "outlets": [
+        "Zacks Investment Research"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-a355716a8110fd24",
+      "title": "Bull of the Day: Ingram Micro (INGM)",
+      "fit": 3,
+      "outlets": [
+        "Zacks Investment Research"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-a4c4f8540b18a8ca",
+      "title": "Can the bull market extend into a fifth straight year in 2027?",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-a93de370baa94430",
+      "title": "Why is SLS stock soaring over 220% on Tuesday?",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-aa0a54968502838a",
+      "title": "Implied Volatility Surging for Southwest Airlines Stock Options",
+      "fit": 3,
+      "outlets": [
+        "Zacks Investment Research"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-aeda117e4c2f0687",
+      "title": "Wolverine World Wide, Inc. (WWW) Soars to 52-Week High, Time to Cash Out?",
+      "fit": 3,
+      "outlets": [
+        "Zacks Investment Research"
+      ],
+      "verified_figures": 4,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-af8eb5493174a4eb",
+      "title": "Coherent, Lumentum stocks gain on Tuesday: here’s why",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 4,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-b35ed44aaa2f5914",
+      "title": "Top Stock Picks for Week of November 16, 2026",
+      "fit": 3,
+      "outlets": [
+        "Zacks Investment Research"
+      ],
+      "verified_figures": 3,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-b6af35c2ef721efe",
+      "title": "Nebius stock is falling: Here’s why NBIS may plunge to $50 soon",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-c1210fee6febcdb8",
+      "title": "Bitcoin's $62,000 bottom may be an illusion: analysts sound the alarm",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-cf15bc2acc96db75",
+      "title": "Disney shares slip despite earnings beat and $3B cost cutting plans",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-da509f5333d46443",
+      "title": "Anthropic receives its first 'Buy' rating",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-e40592c31f5fb0c3",
+      "title": "Home Depot beats earnings and names new CEO: the bigger test is still ahead",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-e7606e8f0603921d",
+      "title": "Why SpaceX stock is rising on Tuesday?",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-ea6cc3e27bf89436",
+      "title": "Here’s why the Bill Holdings stock surging and what next",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-eec5dc920857d6c7",
+      "title": "Red Cat Holdings, Inc. (RCAT) Reports Q3 Loss, Lags Revenue Estimates",
+      "fit": 3,
+      "outlets": [
+        "Zacks Investment Research"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-f21a832707705268",
+      "title": "Here's how Donald Trump traded Nvidia stock in his second term",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-f2e7cb0d38a514d1",
+      "title": "SanDisk stock faces 8-for-1 split after 65% crash, but a bigger risk looms",
+      "fit": 3,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-f4cba4caf7bb6fcc",
+      "title": "Can Coeur's New Gold Deal Turn Canadian Ramp-Ups Into Cash Growth?",
+      "fit": 3,
+      "outlets": [
+        "Zacks Investment Research"
+      ],
+      "verified_figures": 5,
+      "score": 7,
+      "parts": {
+        "fit_x2": 6,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-f5eb99d16bfc18b6",
+      "title": "US Retail Sales Slow to 0.2%, but Ex-Auto Spending Shows Resilience",
+      "fit": 1,
+      "outlets": [
+        "ActionForex",
+        "Zacks Investment Research"
+      ],
+      "verified_figures": 10,
+      "score": 5,
+      "parts": {
+        "fit_x2": 2,
+        "extra_outlets_x2": 2,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-2d4c2be2e21d88a1",
+      "title": "Dollar Firms After Retail Sales as Markets Await Nvidia and Trump–Xi–Putin Talks",
+      "fit": 2,
+      "outlets": [
+        "ActionForex"
+      ],
+      "verified_figures": 5,
+      "score": 5,
+      "parts": {
+        "fit_x2": 4,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-8ab25aa5ccf08f96",
+      "title": "Tech Billionaires Suspect Possible Plot Behind Jensen Huang's Nvidia Exit as 185,000 Demand His Return",
+      "fit": 2,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 5,
+      "score": 5,
+      "parts": {
+        "fit_x2": 4,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-d08909721fb71c2a",
+      "title": "Chase Outage Sparks Cyberattack Fears as Thousands Report US Banking Problems",
+      "fit": 1,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 10,
+      "score": 3,
+      "parts": {
+        "fit_x2": 2,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-b082090c846f9589",
+      "title": "Markwayne Mullin Cites 'Guy That's Very Smart With Tech' on AI Theory After US Banks and Flights Are Disrupted",
+      "fit": 1,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 8,
+      "score": 3,
+      "parts": {
+        "fit_x2": 2,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-0035c5b0d8ad1861",
+      "title": "AI Music Company Running 500 YouTube Channels Gets a Real Musician's Original Song Taken Down Over Copyright Claim",
+      "fit": 1,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 5,
+      "score": 3,
+      "parts": {
+        "fit_x2": 2,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-0dba4584f95df1cc",
+      "title": "iPhone 20 Pro Could Look Radically Different as Leaked Video Hints at a Bold New Curved Display",
+      "fit": 1,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 3,
+      "score": 3,
+      "parts": {
+        "fit_x2": 2,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-1c92418ff189c3cb",
+      "title": "Chinese Envoy Says Dutch ASML Export Curbs Reflect Europe's Fear China Will 'Rob' Its Technology",
+      "fit": 1,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 4,
+      "score": 3,
+      "parts": {
+        "fit_x2": 2,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-3c487fd0d470c08b",
+      "title": "GTA 6 Hacker's Guilty Plea Reveals How He Breached Rockstar With Basic Hotel Gear",
+      "fit": 1,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 4,
+      "score": 3,
+      "parts": {
+        "fit_x2": 2,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-3c87d0b2d4fd9d30",
+      "title": "United Airlines Outage Disrupts Departing Flights Just Days After FAA Failure Grounded Thousands Nationwide",
+      "fit": 1,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 4,
+      "score": 3,
+      "parts": {
+        "fit_x2": 2,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-635adebcf58910d1",
+      "title": "California Sues OpenAI After Rogue AI Agents Hacked Hugging Face in One of 80 Alleged Security Incidents",
+      "fit": 1,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 5,
+      "score": 3,
+      "parts": {
+        "fit_x2": 2,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-6d81d61e8124e50f",
+      "title": "Capital.com study finds only 21% of European investors are confident making decisions",
+      "fit": 1,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 3,
+      "parts": {
+        "fit_x2": 2,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-7b58c4e0ccbeec75",
+      "title": "Is JPMorgan Diversified Return U.S. Mid Cap Equity ETF (JPME) a Strong ETF Right Now?",
+      "fit": 1,
+      "outlets": [
+        "Zacks Investment Research"
+      ],
+      "verified_figures": 5,
+      "score": 3,
+      "parts": {
+        "fit_x2": 2,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-8a5413a0c4b4a073",
+      "title": "David Beckham's Perfume Brand Sues Coty Over Claims It Failed To Report $123M in Sales",
+      "fit": 1,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 5,
+      "score": 3,
+      "parts": {
+        "fit_x2": 2,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-a0ca8f24cd227804",
+      "title": "Microsoft Apologises for Massive Global Outage and Reveals Three Factors Behind the Widespread Disruption",
+      "fit": 1,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 5,
+      "score": 3,
+      "parts": {
+        "fit_x2": 2,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-ba01dacaf3bdef8a",
+      "title": "Apple Outage: Users Report iCloud Sign-In Errors as App Store and Apple Pay Complaints Emerge",
+      "fit": 1,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 2,
+      "score": 3,
+      "parts": {
+        "fit_x2": 2,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-e3aad167ef809dea",
+      "title": "Should iShares S&P 100 ETF (OEF) Be on Your Investing Radar?",
+      "fit": 1,
+      "outlets": [
+        "Zacks Investment Research"
+      ],
+      "verified_figures": 5,
+      "score": 3,
+      "parts": {
+        "fit_x2": 2,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-f975ab53dcc22e1d",
+      "title": "Should You Invest in the Invesco Aerospace & Defense ETF (PPA)?",
+      "fit": 1,
+      "outlets": [
+        "Zacks Investment Research"
+      ],
+      "verified_figures": 5,
+      "score": 3,
+      "parts": {
+        "fit_x2": 2,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-c9e01b6655ca0f12",
+      "title": "Royal Family Welcomes Robert Pattinson to 'His Majesty's Secret Service' as New James Bond",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 17,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-8502594430491728",
+      "title": "John Summit Vows Never to Submit to the Grammys Again, Calling Dance Categories 'All a F**king Joke'",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 12,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-63e2e8e0ef58c5ce",
+      "title": "Protest Leader Calls Donald Trump 'Such a Loser' as Manila Demonstrators Demand Independent Foreign Policy",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 7,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-cbe6cad23dd32400",
+      "title": "Jeffrey Epstein Was Murdered, Not Dead by Suicide, Forensic Scientist Claims After Examining Autopsy Files",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 8,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-015ecffce87f3abc",
+      "title": "Pope Leo XIV Was Hit Near the Eye by a Rosary in Peru, and His Response Was Not What You Might Expect",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 4,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-0a4085563b15a75f",
+      "title": "Equinor Hit by Cyberattack as Concerns Grow Over European Gas Supplies",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 3,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-0bea0e14446de7bf",
+      "title": "Buy 2 GMO Mutual Funds for Portfolio Diversification",
+      "fit": 0,
+      "outlets": [
+        "Zacks Investment Research"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-0bea8e55afc2b754",
+      "title": "November 17 Blackout Panic Goes Global: What Really Happens When America's Emergency Alert Sounds?",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-0c7c6f13bbb15658",
+      "title": "UK Unemployment Falls to 4.6%, but Payroll Losses and Weaker Hiring Tell Different Story",
+      "fit": 0,
+      "outlets": [
+        "ActionForex"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-0d94f35a4cbcf24c",
+      "title": "King Charles Visits TikTok-Famous Spud Bros and Reveals What He Likes on His Jacket Potatoes",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 3,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-0e29a4f69ff1e3ee",
+      "title": "Trump's AI-Generated Video of Praying Troops Called 'Absolutely Sickening' as US Sailors Face Extended Iran War Deployment",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-11259125a3ab35a0",
+      "title": "Pregnant US Citizen Says ICE Agents Pepper-Sprayed Her and Threw Her Face-Down While She Filmed an Arrest",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 3,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-1132c2668bfb03de",
+      "title": "How Hackers Targeted 178 Websites Including CNN, Zoom and IKEA Through Optimizely",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 3,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-18c586bccd5f48c5",
+      "title": "Obsession Is Now on Netflix US After Turning a Tiny Budget Into a $524 Million Horror Success",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-19b18fe27ca55887",
+      "title": "'I Want Us to Be a Family': Mum Reveals Text From Ex Accused of Burying Their 11-Month-Old Baby Alive",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-1cf25ffbca50fc6d",
+      "title": "Gold gains slightly to recover from one-year low: what's next?",
+      "fit": 0,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-234c50bfa4ef6d85",
+      "title": "Markwayne Mullin Took Government Plane to LSU–Texas Game as Travellers Faced FAA Ground Stop Fallout",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-246a0e86f7549420",
+      "title": "Here's Why ANI Pharmaceuticals (ANIP) is a Strong Value Stock",
+      "fit": 0,
+      "outlets": [
+        "Zacks Investment Research"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-28218005c04187f1",
+      "title": "Josh O'Connor Reportedly Turned Down James Bond Role Before Robert Pattinson Announcement",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 4,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-31ef3d2e1f1faeba",
+      "title": "Trump's 'Human Printer' Natalie Harp Faces Court Bid That Could End Her Truth Social Reign",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 4,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-35fbd6d101be6237",
+      "title": "Russell Brand Rape Accuser Calls Prison Message 'Appalling' and 'Absolute Lies' After Denial on YouTube",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-371d1604f8648986",
+      "title": "Arizona Hospital Guard Convicted in Case Involving Sexual Conduct With 79-Year-Old Woman's Corpse",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-3c850a2f1b93803e",
+      "title": "Mormon Wives Star Avery Woods Says 'I'm Not Ashamed of My Past' After Old Onlyfans Photos Resurface",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 3,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-3ca2cf2d7636aa20",
+      "title": "RBNZ Survey Shows Near-Term Inflation Fears Rising, but Long-Term Expectations Ease",
+      "fit": 0,
+      "outlets": [
+        "ActionForex"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-3e7272b168e3d41b",
+      "title": "'What's Happened to His Hair?': Trump's Windblown Look Draws Attention During His ASEAN Arrival in Manila",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 4,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-43c8611343143aee",
+      "title": "JD Vance Promises Trump Will End Iran War by 2028 as Fears Grow Over Another US 'Forever War'",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-4cf85e23037e33c6",
+      "title": "Kate Middleton Shows 'Genuinely Enthusiastic' Side on India Tour After Mumbai Cricket Match, Expert Says",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 4,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-51d775f102bb1294",
+      "title": "Meghan Markle Faces Fresh 'Snub' Speculation as Anna Wintour Joins Prince William and Kate in Mumbai",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-5592ea24f05e0193",
+      "title": "Is Fidelity Equity Dividend Income (FEQTX) a Strong Mutual Fund Pick Right Now?",
+      "fit": 0,
+      "outlets": [
+        "Zacks Investment Research"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-574a1803dc16ffaa",
+      "title": "JD Vance Says Americans Don't Need Bunkers as He Warns 'You Have to Be Prepared for Everything' Amid Outages",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 1,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-5f8edcb63e4aa6ca",
+      "title": "Germany ZEW Sentiment Jumps to 35.6, but Recovery Remains Uneven",
+      "fit": 0,
+      "outlets": [
+        "ActionForex"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-61988a0511cefa6c",
+      "title": "2027 Grammys Add Five New Categories: What the Biggest Awards Shake-up Means for Artists",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 4,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-62f894e69c425c2e",
+      "title": "Alabama Man Accused of Killing Dog Sitter and Student Faces Third Charge After Partly Buried Remains Found",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 4,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-65c0a2bd663945ff",
+      "title": "RBA Minutes Reveal Hawkish Majority, but Three Dissenters Warn of Sharper Downturn",
+      "fit": 0,
+      "outlets": [
+        "ActionForex"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-6cb8f0169819c03b",
+      "title": "Amtrak Halts Service Around Washington, DC, After Local Officials Place Track Hold; No ETA Initially Given",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 2,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-6d9daf3137399c3c",
+      "title": "Motorcycle Racer Says OnlyFans Saved Her Career After Revealing She Pays £130,000 a Year To Race",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-70af68f7c475b7b0",
+      "title": "World Champion Runner Camille Herron Reveals She Made More on OnlyFans in One Month Than Nike Paid Her in a Year",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 4,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-71df9ace3ff3fa5b",
+      "title": "Two Men Wanted After Dumping Four Live Chickens on Store Counter While Filming Late-Night Prank",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 2,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-76b6fe7782df7e6f",
+      "title": "Massachusetts Divorce Lawyer Found Dead After Vanishing in Lexus SUV as Officials Withhold Further Details",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-7808b359ed490b20",
+      "title": "UK Blackout Rumours Debunked: What You Really Need To Do if Power Cuts Hit Your Area",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 2,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-7a462c6075002290",
+      "title": "Onlyfans Model Vera Dijkmans Detained by ICE After Calling Herself the 'World's Most Wanted Girlfriend'",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-7ddaabd21ae94ba2",
+      "title": "'She Tried To Push His Hand Away': New Video Appears To Show Putin's French Actor Ally Gérard Depardieu Groping Female Extra",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-89085ad95eb27afb",
+      "title": "MDU Resources Raises Five-Year Capital Investment Plan by 12%",
+      "fit": 0,
+      "outlets": [
+        "Zacks Investment Research"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-8aa41895297ef873",
+      "title": "Kentucky Fugitive Busted in Nashville After Allegedly Asking Police for a Ride",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-8e649419d74562bc",
+      "title": "Want To Retire in 2027? Experts Explain the Pension, Budget and Lifestyle Checks You Should Make Now",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-9695e41b6bdfeb88",
+      "title": "Man Who Murdered Girlfriend's Baby After Snapping Over His Crying Tried to Blame Grieving Mother for His Death",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 4,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-988c818794c4e3fe",
+      "title": "Trump Dismisses Chaos and Says 'It's Life' as America's Key Systems Face One Outage After Another",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-9a099d52ab349716",
+      "title": "3 Top-Ranked Large-Cap Blend Mutual Funds Worth Buying",
+      "fit": 0,
+      "outlets": [
+        "Zacks Investment Research"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-a225c781d314562e",
+      "title": "NASA Curiosity Rover Accidentally Uncovered Pure Sulphur on Mars and Scientists Are Still Piecing Together Why",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-a552dce35c9103f6",
+      "title": "Fed’s Musalem Calls for Several Rate Hikes by Spring as Inflation Risks Persist",
+      "fit": 0,
+      "outlets": [
+        "ActionForex"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-a65f1784d02c3f11",
+      "title": "Russian Model Stabbed to Death by Ex-Boyfriend Who Allegedly Posted Her Body on Instagram With 'Paid the Price' Message",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-a7fb0866d7c9a860",
+      "title": "Brent crude price analysis: will oil crash below $90 as supply glut grows?",
+      "fit": 0,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-af0d9374c4a5804f",
+      "title": "Florida's Property Tax Cut May Save Owners Money but Leave Local Budgets Facing an $11.8B Gap by 2031",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-b01cc879bda339f0",
+      "title": "Russian Military Plane Catches Fire Before Deadly Crash as Reports Say All on Board Were Killed",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 4,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-b696298cecffff8b",
+      "title": "'Who Was Protecting Them?': Brand's Conviction and David Walliams' Allegations Put UK Entertainment Under Fire",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-b9f5d3ac7569423d",
+      "title": "The Hunger Games: Sunrise on the Reaping Director Reveals Why the Film Changes Suzanne Collins' Book",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 3,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-bd99453c60de6e18",
+      "title": "50 Cent Says 'Leo S--- Was Crazy!' After Busload of Women Arrives at DiCaprio's 52nd Birthday Party",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 3,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-c3c7913605d89962",
+      "title": "Theo James Admits His Father Never Taught Him Greek as He Reveals His Dream of Owning a Home in Greece",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 3,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-c4739d4ce64792b7",
+      "title": "RBA’s Bullock Flags Triple Inflation Threat from AI Spending, Oil and Expectations",
+      "fit": 0,
+      "outlets": [
+        "ActionForex"
+      ],
+      "verified_figures": 2,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-cc8fa3f91c2cadf6",
+      "title": "Jared Kushner's Serbia Hotel Project Is Officially Dead After Protests and Legal Row: 'Love This for Him'",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-ceda8b8580c027ac",
+      "title": "Kalshi Offers Up to $135,000 to Play GTA 6, Says LinkedIn Pulled 'Illegitimate' Dream Job Post",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-da24b0081cdd5905",
+      "title": "Implied Volatility Surging for Capital Clean Energy Carriers Stock Options",
+      "fit": 0,
+      "outlets": [
+        "Zacks Investment Research"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-e30333decfdbd503",
+      "title": "Trump's Claims of Effective Defences Contrasted With Whistleblower's Account of Vulnerable Kuwait Base",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 5,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-e7a73a0e88f57773",
+      "title": "Melania Trump Could Face Epstein Subpoena as Robert Garcia Calls Her an 'Important Witness'",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 3,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-ee1f665b22762a2b",
+      "title": "Clavicular's Girlfriend Shaves Her Head to Help His Looksmaxxing Journey as He Calls Her Sacrifice the 'Bare Minimum'",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 1,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-f637dfa3d29564e2",
+      "title": "Jetblue Flight 1717 Lands in Florida After Turbulence Leaves Five People Needing Medical Evaluation",
+      "fit": 0,
+      "outlets": [
+        "International Business Times UK"
+      ],
+      "verified_figures": 2,
+      "score": 1,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-436edae17886da19",
+      "title": "Fed’s Hammack Sees Continued Tightening Need, Warsh Highlights AI Uncertainty",
+      "fit": 0,
+      "outlets": [
+        "ActionForex"
+      ],
+      "verified_figures": 0,
+      "score": 0,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 0,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-6376950e74135d02",
+      "title": "RBNZ Sees Rising Global Financial Risks, but New Zealand Banks Remain Resilient",
+      "fit": 0,
+      "outlets": [
+        "ActionForex"
+      ],
+      "verified_figures": 0,
+      "score": 0,
+      "parts": {
+        "fit_x2": 0,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 0,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-6505e6396a4cad0d",
+      "title": "NZD/USD Nears 2020 Low Despite Rising RBNZ Rate Hike Expectations",
+      "fit": -10,
+      "outlets": [
+        "ActionForex"
+      ],
+      "verified_figures": 5,
+      "score": -19,
+      "parts": {
+        "fit_x2": -20,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-97c661151c488a5a",
+      "title": "EUR/USD signal: forecast as the US Dollar Index rallies ahead of FOMC minutes",
+      "fit": -10,
+      "outlets": [
+        "Invezz"
+      ],
+      "verified_figures": 5,
+      "score": -19,
+      "parts": {
+        "fit_x2": -20,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    },
+    {
+      "story_id": "2026-11-17-bd1b31ad0cdcd497",
+      "title": "AUD/JPY Targets 105.22 as Risk Aversion Favors Yen, RBA–BoJ Rate Gap Set to Narrow",
+      "fit": -10,
+      "outlets": [
+        "ActionForex"
+      ],
+      "verified_figures": 5,
+      "score": -19,
+      "parts": {
+        "fit_x2": -20,
+        "extra_outlets_x2": 0,
+        "has_verified_figure": 1,
+        "changes_today": 0
+      },
+      "selected": false
+    }
+  ]
+}
