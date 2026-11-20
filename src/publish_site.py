@@ -10,6 +10,12 @@ from .script import LISTENERS, ROOT, WORD, normalize_text, word_windows
 
 PAGES_URL = "https://santiagocisnerosu.github.io/GRUPPE-REBAZA/"
 PUBLIC_FILES = {"briefing.mp3", "transcript.json"}
+PLAYER_ASSETS = {
+    "player.css", "player.js",
+    "fonts/newsreader-latin-wght-normal.woff2", "fonts/newsreader-latin-wght-italic.woff2",
+    "fonts/inter-latin-wght-normal.woff2", "fonts/jetbrains-mono-latin-wght-normal.woff2",
+    "fonts/newsreader-OFL.txt", "fonts/inter-OFL.txt", "fonts/jetbrains-mono-OFL.txt",
+}
 
 
 def redact_sentence(text, overlaps):
@@ -35,7 +41,7 @@ def build():
     output = ROOT / "out"
     shared = json.loads((output / "shared_facts.json").read_text(encoding="utf-8"))
     costs = output / "costs.json"
-    expected = {"index.html", "qr.png", "out/shared_facts.json"}
+    expected = {"index.html", "qr.png", "out/shared_facts.json"} | PLAYER_ASSETS
     if costs.is_file():
         expected.add("out/costs.json")
     elif (docs / "out/costs.json").is_file():
@@ -102,6 +108,10 @@ def build():
     if html.count('"../out/"') != 1:
         raise SystemExit("Could not identify the player's data path")
     docs.mkdir(exist_ok=True)
+    for asset in sorted(PLAYER_ASSETS):
+        destination = docs / asset
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(ROOT / "web" / asset, destination)
     (docs / "index.html").write_text(html.replace('"../out/"', '"./out/"'), encoding="utf-8")
     (docs / "out").mkdir(exist_ok=True)
     for fact in shared:
