@@ -1,31 +1,53 @@
-# Three clearly different listeners. Same day of news, different briefings.
+# Receipts: three English listeners, same day of news (18 Nov), three different briefings.
+# Scoring per story (done in code): +3 main_source match, +1 also_from match, -10 never match,
+# +2 per extra outlet covering the event, +1 has a verified figure, +1 changes something today.
+# Fill each listener's word budget with the top-scoring stories.
+
 profiles:
-  - id: daan
-    name: Daan
-    description: Retail investor in Rotterdam, invests a little on the side, wants the gist on the way to work.
-    language: nl
+  - id: mara
+    name: Mara
+    who: 34, trades interest rates and currencies on a London bank desk. Listens at 06:30 before the desk opens. Knows every term, has no time.
+    question: "What moves rates and currencies today?"
+    main_source: [ActionForex: central bank speakers, economic data, FX, gold, oil]
+    also_from: [Invezz commodities/gold/oil/EURUSD, Zacks macro data (retail sales, housing starts)]
+    never: [single stocks (except as market mood), crypto, celebrity]
     minutes: 3
-    depth: simple          # explain jargon, max 1-2 figures per story
-    interests: [crypto, bitcoin, forex, dutch companies, interest rates]
-    avoid: [technical chart analysis]
-    tone: friendly, plain language
+    words: 420
+    stories: 6-8, 1-2 sentences each
+    numbers: dense; actual vs previous, levels, basis points
+    running_order: [overnight story in one sentence, central bank speakers, data scorecard (actual vs previous), market reaction (dollar, gold, oil, yen), what to watch today]
+    rule: every story ends with a market consequence ("dollar firmer"); no consequence = cut
+    tone: short and number-first, jargon fine, no adjectives
+    voice: British female newsreader, slightly fast (speed ~1.1)
 
-  - id: sarah
-    name: Sarah
-    description: Portfolio manager in London, equities, needs numbers and context before the market opens.
-    language: en
-    minutes: 7
-    depth: dense           # all key figures, earnings, guidance, analyst views
-    interests: [earnings, equities, guidance, analyst ratings, US stocks, UK stocks]
-    avoid: [crypto]
-    tone: precise, fast, professional
+  - id: jordan
+    name: Jordan
+    who: 29, software engineer. Owns Nvidia, other AI stocks and some Bitcoin in a trading app. Listens at breakfast. Smart, not a finance professional.
+    question: "What happened to my stocks and crypto, and why?"
+    main_source: [Invezz EN stocks/AI/crypto, Zacks from 13 Nov]
+    also_from: [IBTimes business and tech stories about companies]
+    never: [FX detail, central bank detail beyond one line, sponsored crypto press releases (airdrops, exchange launches)]
+    minutes: 6
+    words: 850
+    stories: 4-5, 3-5 sentences each, with "why it matters to you"
+    numbers: moderate; price, % move, one valuation figure
+    running_order: [big story and what it means for his portfolio, three or four movers, crypto in 30 seconds, one thing to watch today]
+    rule: every story answers "so what for someone holding this?"; never says buy or sell
+    tone: smart friend, energetic, explains each term once
+    voice: upbeat American male, podcast style
 
-  - id: lukas
-    name: Lukas
-    description: FX trader in Frankfurt, only cares about currencies and macro drivers.
-    language: de
-    minutes: 2
-    depth: technical       # levels, ranges, central banks
-    interests: [EUR/USD, forex, ECB, Fed, inflation, technical levels]
-    avoid: [single stocks]
-    tone: concise, technical
+  - id: priya
+    name: Priya
+    who: 45, runs a 20-person online homeware shop in Manchester. Buys stock from suppliers in China and pays them in dollars; sells to UK and EU customers by card and Apple Pay. Listens at 07:30 driving to her warehouse.
+    question: "What changes my costs, my customers or my risks this week?"
+    main_source: [IBTimes serious sections only: world, politics, tech, cybersecurity, business, personal finance]
+    also_from: [ActionForex UK inflation, oil, dollar; Invezz retail earnings, trade/tariffs]
+    never: [entertainment, celebrity, crime (except scam/fraud warnings), royals, rumour, stock tips]
+    minutes: 4
+    words: 560
+    stories: 5, 2-4 sentences each
+    numbers: few, always with what they mean for her costs or customers
+    target_lineup: [Trump-Xi-Putin summit and China trade surplus (tariffs), UK inflation 3.6% and oil (spending, delivery costs), stronger dollar (suppliers dearer), Apple Pay outage + hack of 178 websites via one platform + police scam warning, US retailers' results incl. Lowe's profit boosted by refunded tariffs]
+    rule: every story ends with "For your business, ..."; no business consequence = dropped
+    tone: practical and calm, like a sharp accountant
+    voice: warm, steady British male
