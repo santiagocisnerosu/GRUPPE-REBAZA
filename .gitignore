@@ -21,4 +21,5 @@ __pycache__/
 !/docs/out/*/briefing.mp3
 !/docs/out/*/transcript.json
 !/docs/out/shared_facts.json
+!/docs/out/stories.json
 !/docs/out/costs.json

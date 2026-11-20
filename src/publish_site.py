@@ -6,6 +6,7 @@ import pandas as pd
 import qrcode
 
 from .costs import CACHE_DIR, write_json
+from .export_stories import export_stories
 from .script import LISTENERS, ROOT, WORD, normalize_text, word_windows
 
 PAGES_URL = "https://santiagocisnerosu.github.io/GRUPPE-REBAZA/"
@@ -41,7 +42,7 @@ def build():
     output = ROOT / "out"
     shared = json.loads((output / "shared_facts.json").read_text(encoding="utf-8"))
     costs = output / "costs.json"
-    expected = {"index.html", "qr.png", "out/shared_facts.json"} | PLAYER_ASSETS
+    expected = {"index.html", "qr.png", "out/shared_facts.json", "out/stories.json"} | PLAYER_ASSETS
     if costs.is_file():
         expected.add("out/costs.json")
     elif (docs / "out/costs.json").is_file():
@@ -107,6 +108,7 @@ def build():
     html = (ROOT / "web" / "player.html").read_text(encoding="utf-8")
     if html.count('"../out/"') != 1:
         raise SystemExit("Could not identify the player's data path")
+    export_stories()
     docs.mkdir(exist_ok=True)
     for asset in sorted(PLAYER_ASSETS):
         destination = docs / asset

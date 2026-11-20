@@ -8,6 +8,7 @@ const queries = new URLSearchParams(location.search);
 const present = queries.get("present") === "1";
 document.body.classList.toggle("present", present);
 const records = new Map();
+let grouping;
 let data, mediaRequest, cardAnchor, closeTimer, wordFrame;
 let active = -1, currentChapter = -1, chapters = [], wordKey = "", citations = [];
 let activeWords = [], audioUrl;
@@ -207,6 +208,44 @@ function jump(t) {
   audio.currentTime = t;
   sync();
 }
+const publicationTime = new Intl.DateTimeFormat("en-GB", {
+  dateStyle: "medium", timeStyle: "short", timeZone: "UTC",
+});
+function storyMembers(story) {
+  const details = el("details", null, "story-members");
+  const outlets = new Set(story.articles.map((a) => a.outlet)).size;
+  const count = story.articles.length;
+  const summary = el("summary", `This story merges ${count} article${count === 1 ? "" : "s"} from ${outlets} outlet${outlets === 1 ? "" : "s"}`);
+  summary.setAttribute("aria-label", summary.textContent + ". " + story.headline);
+  details.append(summary);
+  const lists = new Map();
+  for (const article of story.articles) {
+    if (!lists.has(article.cluster_id)) lists.set(article.cluster_id, el("ul"));
+    const item = el("li");
+    const time = el("time", publicationTime.format(new Date(article.published_at)) + " UTC");
+    time.dateTime = article.published_at;
+    item.append(el("strong", article.outlet), " · ", link(article.title, article.link), " · ", time);
+    lists.get(article.cluster_id).append(item);
+  }
+  if (lists.size > 1) {
+    details.append(el("div", `The editor combined ${lists.size} event clusters for this chapter.`));
+  }
+  let index = 0;
+  for (const list of lists.values()) {
+    if (lists.size > 1) details.append(el("strong", "Event cluster " + ++index));
+    details.append(list);
+  }
+  return details;
+}
+function drawStoryMembers() {
+  if (grouping?.date !== data.date) return;
+  for (const story of grouping.stories) {
+    const index = story.listeners[data.listener]?.last_sentence_index;
+    if (data.sentences[index]?.story === story.headline) {
+      rows.children[index].lastElementChild.append(storyMembers(story));
+    }
+  }
+}
 function drawTranscript() {
   active = -1;
   wordKey = "";
@@ -234,6 +273,7 @@ function drawTranscript() {
     return row;
   });
   rows.replaceChildren(...lines);
+  drawStoryMembers();
   rows.scrollTop = 0;
 }
 function drawChapters() {
@@ -417,6 +457,15 @@ function drawTrust() {
       detail.append(link(conflict["value_" + side] + " · " + conflict["outlet_" + side], conflict["link_" + side]));
     }
     detail.append(". The briefing uses " + conflict["outlet_" + conflict.used] + ".");
+  }
+  if (grouping?.date === data.date) {
+    const detail = note("How the news was grouped");
+    const counts = Object.entries(grouping.stories_used).map(([id, n]) => id[0].toUpperCase() + id.slice(1) + " " + n);
+    detail.append(
+      "We clustered articles by the similarity of their headline and summary embeddings, then a small model split groups that covered different events.",
+      el("span", grouping.articles_in + " articles in · " + grouping.stories_formed + " stories formed", "trust-detail"),
+      el("span", "Stories in each briefing · " + counts.join(" · "), "trust-detail"),
+    );
   }
 }
 function drawAudit() {
@@ -722,6 +771,13 @@ document.addEventListener("keydown", (e) => {
   }
 });
 Object.entries(roles).forEach(([id, role]) => makeProfile(id, role));
+json("stories.json").then((report) => {
+  grouping = report;
+  if (data) {
+    drawStoryMembers();
+    drawTrust();
+  }
+}, () => { /* Older editions can still play without a clustering report. */ });
 selectListener(Object.hasOwn(roles, queries.get("listener")) ? queries.get("listener") : "mara");
 extras();
 if (AGENT_ID.trim()) {

@@ -198,6 +198,11 @@ dialog::backdrop { background: rgb(18 18 18 / 37%); }
 .sources { margin-top: 6px; }
 .chip { display: block; font-size: .74rem; color: var(--secondary); }
 .chip .icon { width: 11px; height: 11px; margin-right: 4px; }
+.story-members { margin-top: 8px; color: var(--secondary); font-size: .8rem; line-height: 1.5; }
+.story-members summary { cursor: pointer; }
+.story-members ul { margin: 4px 0 8px; padding-left: 1.25em; }
+.story-members li { margin: 4px 0; overflow-wrap: anywhere; }
+.story-members time { font: .72rem var(--mono); }
 .panel-group { border-bottom: 1px solid var(--ink); }
 .panel-group summary { cursor: pointer; padding: 15px 0; font-weight: 600; }
 .panel-group summary span { font: .8rem var(--mono); margin-left: 6px; }

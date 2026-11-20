@@ -1,0 +1,468 @@
+{
+  "date": "2026-11-18",
+  "articles_in": 145,
+  "stories_formed": 128,
+  "stories_used": {
+    "mara": 7,
+    "jordan": 5,
+    "priya": 4
+  },
+  "stories": [
+    {
+      "story_id": "2026-11-18-61376a6dc68ad100",
+      "headline": "US Dollar ETF (UUP) Hits New 52-Week High",
+      "listeners": {
+        "mara": {
+          "last_sentence_index": 2
+        },
+        "priya": {
+          "last_sentence_index": 11
+        }
+      },
+      "articles": [
+        {
+          "article_id": "ZACK-105463-01M7QNMA2EJMHCE8S8XWQJEBW9",
+          "cluster_id": "2026-11-18-61376a6dc68ad100",
+          "outlet": "Zacks Investment Research",
+          "title": "US Dollar ETF (UUP) Hits New 52-Week High",
+          "published_at": "2026-11-18T13:49:00+00:00",
+          "link": "https://www.zacks.com/stock/news/3031782/us-dollar-etf-uup-hits-new-52-week-high?cid=CS-NEWSTEX-FT-etf_news_and_commentary-3031782"
+        }
+      ]
+    },
+    {
+      "story_id": "2026-11-18-07b83746005a6bd0",
+      "headline": "Fed’s Waller Calls for 50bps December Hike Unless January Increase Is Signaled",
+      "listeners": {
+        "mara": {
+          "last_sentence_index": 5
+        }
+      },
+      "articles": [
+        {
+          "article_id": "ACTI-10010414-01M7QZ4F0W7KZCP86AAA0TPEDH",
+          "cluster_id": "2026-11-18-07b83746005a6bd0",
+          "outlet": "ActionForex",
+          "title": "Fed’s Waller Calls for 50bps December Hike Unless January Increase Is Signaled",
+          "published_at": "2026-11-18T13:48:04+00:00",
+          "link": "https://www.actionforex.com/live-comments/661347-feds-waller-calls-for-50bps-december-hike-unless-january-increase-is-signaled/"
+        }
+      ]
+    },
+    {
+      "story_id": "2026-11-18-5aac878d011ff324",
+      "headline": "BoJ’s Ueda Backs Further Rate Hikes, Warns Against Suppressing Bond Yields",
+      "listeners": {
+        "mara": {
+          "last_sentence_index": 8
+        }
+      },
+      "articles": [
+        {
+          "article_id": "ACTI-10010414-01M7Q2T2YDM4K55537D0THDE5D",
+          "cluster_id": "2026-11-18-5aac878d011ff324",
+          "outlet": "ActionForex",
+          "title": "BoJ’s Ueda Backs Further Rate Hikes, Warns Against Suppressing Bond Yields",
+          "published_at": "2026-11-18T03:02:15+00:00",
+          "link": "https://www.actionforex.com/live-comments/661244-bojs-ueda-backs-further-rate-hikes-warns-against-suppressing-bond-yields/"
+        }
+      ]
+    },
+    {
+      "story_id": "2026-11-18-c2e90efb3b59efa1",
+      "headline": "UK Inflation Rises to 3.6% as Fuel Prices Surge, Core CPI Holds Steady",
+      "listeners": {
+        "mara": {
+          "last_sentence_index": 10
+        }
+      },
+      "articles": [
+        {
+          "article_id": "ACTI-10010414-01M7Q2T2W2V6E7RCQX47FZAXXQ",
+          "cluster_id": "2026-11-18-c2e90efb3b59efa1",
+          "outlet": "ActionForex",
+          "title": "UK Inflation Rises to 3.6% as Fuel Prices Surge, Core CPI Holds Steady",
+          "published_at": "2026-11-18T07:11:44+00:00",
+          "link": "https://www.actionforex.com/live-comments/661264-uk-inflation-rises-to-3-6-as-fuel-prices-surge-core-cpi-holds-steady/"
+        }
+      ]
+    },
+    {
+      "story_id": "2026-11-18-a1ebf13f4b0c4580",
+      "headline": "Eurozone Inflation Confirmed at 4.0% as Energy Surges, Core CPI Revised Higher",
+      "listeners": {
+        "mara": {
+          "last_sentence_index": 12
+        }
+      },
+      "articles": [
+        {
+          "article_id": "ACTI-10010414-01M7QZ4F3HY6BPE904ZYM3719P",
+          "cluster_id": "2026-11-18-a1ebf13f4b0c4580",
+          "outlet": "ActionForex",
+          "title": "Eurozone Inflation Confirmed at 4.0% as Energy Surges, Core CPI Revised Higher",
+          "published_at": "2026-11-18T11:20:57+00:00",
+          "link": "https://www.actionforex.com/live-comments/661283-eurozone-inflation-confirmed-at-4-0-as-energy-surges-core-cpi-revised-higher/"
+        }
+      ]
+    },
+    {
+      "story_id": "2026-11-18-53f680e61dd07d20",
+      "headline": "Oil price today: Brent slips as fresh data shows rise in US crude inventory",
+      "listeners": {
+        "mara": {
+          "last_sentence_index": 14
+        }
+      },
+      "articles": [
+        {
+          "article_id": "INVZ-10009737-01M7Q4F0GZ0JE7XP9WYEHNC2YH",
+          "cluster_id": "2026-11-18-53f680e61dd07d20",
+          "outlet": "Invezz",
+          "title": "Oil price today: Brent slips as fresh data shows rise in US crude inventory",
+          "published_at": "2026-11-18T10:03:08+00:00",
+          "link": "https://invezz.com/news/2026/11/18/oil-price-today-api-528-million-barrel-us-crude-build/"
+        }
+      ]
+    },
+    {
+      "story_id": "2026-11-18-1033e4dde09b1a4a",
+      "headline": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
+      "listeners": {
+        "mara": {
+          "last_sentence_index": 18
+        }
+      },
+      "articles": [
+        {
+          "article_id": "ACTI-10010414-01M7Q2T3JT54KGKWWAV72SFEJJ",
+          "cluster_id": "2026-11-18-1033e4dde09b1a4a",
+          "outlet": "ActionForex",
+          "title": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
+          "published_at": "2026-11-18T09:14:17+00:00",
+          "link": "https://www.actionforex.com/action-insight/market-overview/661273-gold-hits-one-year-low-ahead-of-fomc-minutes-as-fed-rate-path-takes-center-stage/"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7PXA2GX6QMV1B0KHQXS9GGA",
+          "cluster_id": "2026-11-18-1033e4dde09b1a4a",
+          "outlet": "Invezz",
+          "title": "Gold slips back below one-year low but Goldman Sachs sees long term recovery",
+          "published_at": "2026-11-18T08:42:28+00:00",
+          "link": "https://invezz.com/news/2026/11/18/gold-slips-back-below-one-year-low-but-goldman-sachs-sees-long-term-recovery/"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7QJRSRD8JFFYVXPBCB9XVPV",
+          "cluster_id": "2026-11-18-1033e4dde09b1a4a",
+          "outlet": "Invezz",
+          "title": "Why is gold price down today? Gold futures slip 2.5% to September 2025 low",
+          "published_at": "2026-11-18T14:59:10+00:00",
+          "link": "https://invezz.com/news/2026/11/18/why-is-gold-price-down-today-gold-futures-slip-to-lowest-since-september-2025/"
+        }
+      ]
+    },
+    {
+      "story_id": "2026-11-18-90a2528ad3e9d665",
+      "headline": "Kevin O'Leary Warns Anthropic Investors It May Not Turn a Profit Until 2030 Despite IPO Backing",
+      "listeners": {
+        "jordan": {
+          "last_sentence_index": 5
+        }
+      },
+      "articles": [
+        {
+          "article_id": "IBTU-10010345-01M7QZNEWBFG7B049BCHQBJNH0",
+          "cluster_id": "2026-11-18-90a2528ad3e9d665",
+          "outlet": "International Business Times UK",
+          "title": "Kevin O'Leary Warns Anthropic Investors It May Not Turn a Profit Until 2030 Despite IPO Backing",
+          "published_at": "2026-11-18T16:42:08+00:00",
+          "link": "https://www.ibtimes.co.uk/kevin-oleary-anthropic-ipo-profitability-2030-1833078"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7QFAWY702HWHNYSRPSW450Q",
+          "cluster_id": "2026-11-18-90a2528ad3e9d665",
+          "outlet": "Invezz",
+          "title": "Anthropic set to price its IPO tonight, with reports pointing above $80",
+          "published_at": "2026-11-18T13:58:10+00:00",
+          "link": "https://invezz.com/news/2026/11/18/anthropic-ipo-set-to-price-tonight-reports-point-above-80/"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7QGRRNGDFV7ZDDN5YZAN6R2",
+          "cluster_id": "2026-11-18-90a2528ad3e9d665",
+          "outlet": "Invezz",
+          "title": "Anthropic stock price targets: what analysts say before the ANT debut",
+          "published_at": "2026-11-18T14:21:15+00:00",
+          "link": "https://invezz.com/news/2026/11/18/anthropic-stock-price-targets-what-analysts-say-before-ant-debut/"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7QQMDDKZ53T1ZTECE6HWC6W",
+          "cluster_id": "2026-11-18-90a2528ad3e9d665",
+          "outlet": "Invezz",
+          "title": "Can Anthropic IPO beat SpaceX to become the world's largest?",
+          "published_at": "2026-11-18T16:22:34+00:00",
+          "link": "https://invezz.com/news/2026/11/18/can-anthropic-ipo-beat-spacex-to-become-the-worlds-largest/"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7RA7FKSX80HJP98G68KDV6K",
+          "cluster_id": "2026-11-18-90a2528ad3e9d665",
+          "outlet": "Invezz",
+          "title": "Anthropic IPO prices at $83 a share as ANT prepares Thursday debut",
+          "published_at": "2026-11-18T21:46:25+00:00",
+          "link": "https://invezz.com/news/2026/11/18/anthropic-ipo-prices-at-83-2026-11-18/"
+        }
+      ]
+    },
+    {
+      "story_id": "2026-11-18-pin-21c5ce2e39a2cd14",
+      "headline": "Nvidia results and impact on CoreWeave / Nebius / Micron",
+      "listeners": {
+        "jordan": {
+          "last_sentence_index": 10
+        }
+      },
+      "articles": [
+        {
+          "article_id": "INVZ-10009737-01M7QX2AZKHXQBF025KWYRR15Z",
+          "cluster_id": "2026-11-18-2404f4a2b4e5a1c6",
+          "outlet": "Invezz",
+          "title": "Why is Nvidia stock falling over 2% on Wednesday?",
+          "published_at": "2026-11-18T17:56:33+00:00",
+          "link": "https://invezz.com/news/2026/11/18/why-is-nvidia-stock-falling-over-2-on-wednesday/"
+        },
+        {
+          "article_id": "ACTI-10010414-01M7QZ4FMNPN8X11NG0KE4BTT6",
+          "cluster_id": "2026-11-18-e74fc053d138fdba",
+          "outlet": "ActionForex",
+          "title": "Nvidia Beat Fails to Spark Rally as Shenzhen Summit Opens and Oil Stays Range-Bound",
+          "published_at": "2026-11-18T13:42:34+00:00",
+          "link": "https://www.actionforex.com/action-insight/market-overview/661345-nvidia-beat-fails-to-spark-rally-as-shenzhen-summit-opens-and-oil-stays-range-bound/"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7NQHM94VNJQGKEKVC7J3EQV",
+          "cluster_id": "2026-11-18-e74fc053d138fdba",
+          "outlet": "Invezz",
+          "title": "Nvidia stock rises after hours as revenue forecast beats estimates",
+          "published_at": "2026-11-17T21:40:18+00:00",
+          "link": "https://invezz.com/news/2026/11/17/nvidia-stock-rises-after-hours-as-revenue-forecast-beats-estimates/"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7PSWAT3X3PQN5MKTN1G3WK8",
+          "cluster_id": "2026-11-18-e74fc053d138fdba",
+          "outlet": "Invezz",
+          "title": "Why Samsung, SK Hynix shares rebounded on Wednesday?",
+          "published_at": "2026-11-18T07:41:39+00:00",
+          "link": "https://invezz.com/news/2026/11/18/why-samsung-sk-hynix-shares-rebounded-on-wednesday/"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7QARDCW0J0HY6BXGKD8XH62",
+          "cluster_id": "2026-11-18-e74fc053d138fdba",
+          "outlet": "Invezz",
+          "title": "Dell stock rises as Nvidia rally lifts chipmakers, Citi backs shares",
+          "published_at": "2026-11-18T12:38:21+00:00",
+          "link": "https://invezz.com/news/2026/11/18/dell-stock-rises-as-nvidia-rally-lifts-chipmakers-citi-backs-shares/"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7QB1JPN97SKBJ6WRTA8BE1D",
+          "cluster_id": "2026-11-18-e74fc053d138fdba",
+          "outlet": "Invezz",
+          "title": "Why AMD stock is rallying in premarket trading on Wednesday?",
+          "published_at": "2026-11-18T12:44:44+00:00",
+          "link": "https://invezz.com/news/2026/11/18/why-amd-stock-is-rallying-in-premarket-trading-on-wednesday/"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7QNB4C561ZWTB5S14DXZCKM",
+          "cluster_id": "2026-11-18-e74fc053d138fdba",
+          "outlet": "Invezz",
+          "title": "Nvidia earnings: investors still need answers to two key questions",
+          "published_at": "2026-11-18T15:44:32+00:00",
+          "link": "https://invezz.com/news/2026/11/18/nvidia-earnings-investors-still-need-answers-to-two-key-questions/"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7QBKXXQG1CN33HQFZTF7S1B",
+          "cluster_id": "2026-11-18-b71b3e7a785695ef",
+          "outlet": "Invezz",
+          "title": "Nvidia earnings lift CoreWeave, Nebius, Iren stocks, but Kress adds word of caution",
+          "published_at": "2026-11-18T12:53:22+00:00",
+          "link": "https://invezz.com/news/2026/11/18/nvidia-earnings-lift-coreweave-nebius-iren-stocks-but-kress-adds-word-of-caution/"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7QKB1RWEGZ503PYTAR0HM7Q",
+          "cluster_id": "2026-11-18-1e88878e38c1e35d",
+          "outlet": "Invezz",
+          "title": "Why Micron stock is falling despite strong Nvidia results?",
+          "published_at": "2026-11-18T15:09:15+00:00",
+          "link": "https://invezz.com/news/2026/11/18/why-micron-stock-is-falling-despite-strong-nvidia-results/"
+        }
+      ]
+    },
+    {
+      "story_id": "2026-11-18-pin-6aec92b9f3fd3528",
+      "headline": "Target and Lowe's earnings",
+      "listeners": {
+        "jordan": {
+          "last_sentence_index": 12
+        }
+      },
+      "articles": [
+        {
+          "article_id": "INVZ-10009737-01M7QA62EGJ977XR4Q0XBN12X0",
+          "cluster_id": "2026-11-18-9a9688678a4a4e4c",
+          "outlet": "Invezz",
+          "title": "Target earnings: retailer's comeback is showing up at checkout",
+          "published_at": "2026-11-18T12:29:05+00:00",
+          "link": "https://invezz.com/news/2026/11/18/target-earnings-retailers-comeback-is-showing-up-at-checkout/"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7QF1S15NCFAA5FEE69MAR2X",
+          "cluster_id": "2026-11-18-070dddee90db49da",
+          "outlet": "Invezz",
+          "title": "Lowe’s stock falls 4% despite earnings beat as tariff refunds lift profit",
+          "published_at": "2026-11-18T13:51:05+00:00",
+          "link": "https://invezz.com/news/2026/11/18/lowes-stock-falls-4-despite-earnings-beat-as-tariff-refunds-lift-profit/"
+        }
+      ]
+    },
+    {
+      "story_id": "2026-11-18-ab3ae6a48ec2aca6",
+      "headline": "Take Two stock jumps ahead of GTA VI launch: why this analyst sees a 63% upside",
+      "listeners": {
+        "jordan": {
+          "last_sentence_index": 15
+        }
+      },
+      "articles": [
+        {
+          "article_id": "INVZ-10009737-01M7QDX36EHT7CS0BSQQK7D8HG",
+          "cluster_id": "2026-11-18-ab3ae6a48ec2aca6",
+          "outlet": "Invezz",
+          "title": "Take Two stock jumps ahead of GTA VI launch: why this analyst sees a 63% upside",
+          "published_at": "2026-11-18T13:30:50+00:00",
+          "link": "https://invezz.com/news/2026/11/18/take-two-stock-jumps-ahead-of-gta-vi-launch-why-this-analyst-sees-a-63-upside/"
+        }
+      ]
+    },
+    {
+      "story_id": "2026-11-18-pin-ea2d6e7f9b626391",
+      "headline": "Bitcoin below $64k and XRP back above $1",
+      "listeners": {
+        "jordan": {
+          "last_sentence_index": 18
+        }
+      },
+      "articles": [
+        {
+          "article_id": "INVZ-10009737-01M7QMFPNK8Z802MSZ4R57CXXK",
+          "cluster_id": "2026-11-18-c31f5f755a92bca3",
+          "outlet": "Invezz",
+          "title": "Bitcoin price today: BTC below $64,000 as Citi cuts target to $99,532",
+          "published_at": "2026-11-18T15:28:42+00:00",
+          "link": "https://invezz.com/news/2026/11/18/bitcoin-price-today-btc-below-64000-etf-outflows-fed-minutes/"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7Q05MC5A10EMYGZBQ7DZEVX",
+          "cluster_id": "2026-11-18-3d6fe22c666496b5",
+          "outlet": "Invezz",
+          "title": "XRP reclaims $1, aided by massive Binance whale withdrawals",
+          "published_at": "2026-11-18T09:32:50+00:00",
+          "link": "https://invezz.com/news/2026/11/18/xrp-reclaims-1-aided-by-massive-binance-whale-withdrawals/"
+        }
+      ]
+    },
+    {
+      "story_id": "2026-11-18-pin-f91e8a0e33f8383f",
+      "headline": "Trump-Xi-Putin summit and China trade surplus",
+      "listeners": {
+        "priya": {
+          "last_sentence_index": 4
+        }
+      },
+      "articles": [
+        {
+          "article_id": "ZACK-105463-01M7QNMA2FKSK6YXDQXFGWCQB6",
+          "cluster_id": "2026-11-18-1df19f8ead4adc3b",
+          "outlet": "Zacks Investment Research",
+          "title": "China's Trade Surplus Exceeds $1T: Time to Rebalance Your ETF Portfolio?",
+          "published_at": "2026-11-18T13:47:00+00:00",
+          "link": "https://www.zacks.com/stock/news/3031756/china-s-trade-surplus-exceeds-1t-time-to-rebalance-your-etf-portfolio?cid=CS-NEWSTEX-FT-etf_news_and_commentary-3031756"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7Q7KP6N8X6VB4A5BAFHVF82",
+          "cluster_id": "2026-11-18-64768f0b318d8ddb",
+          "outlet": "Invezz",
+          "title": "What to expect from Trump's historic trilateral summit with Xi Jinping and Putin",
+          "published_at": "2026-11-18T11:43:35+00:00",
+          "link": "https://invezz.com/news/2026/11/18/what-to-expect-from-trumps-historic-trilateral-summit-with-xi-jinping-and-putin/"
+        }
+      ]
+    },
+    {
+      "story_id": "2026-11-18-pin-e79bf4dd381a06ec",
+      "headline": "UK inflation and oil",
+      "listeners": {
+        "priya": {
+          "last_sentence_index": 8
+        }
+      },
+      "articles": [
+        {
+          "article_id": "ACTI-10010414-01M7Q2T2W2V6E7RCQX47FZAXXQ",
+          "cluster_id": "2026-11-18-c2e90efb3b59efa1",
+          "outlet": "ActionForex",
+          "title": "UK Inflation Rises to 3.6% as Fuel Prices Surge, Core CPI Holds Steady",
+          "published_at": "2026-11-18T07:11:44+00:00",
+          "link": "https://www.actionforex.com/live-comments/661264-uk-inflation-rises-to-3-6-as-fuel-prices-surge-core-cpi-holds-steady/"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7Q4F0GZ0JE7XP9WYEHNC2YH",
+          "cluster_id": "2026-11-18-53f680e61dd07d20",
+          "outlet": "Invezz",
+          "title": "Oil price today: Brent slips as fresh data shows rise in US crude inventory",
+          "published_at": "2026-11-18T10:03:08+00:00",
+          "link": "https://invezz.com/news/2026/11/18/oil-price-today-api-528-million-barrel-us-crude-build/"
+        }
+      ]
+    },
+    {
+      "story_id": "2026-11-18-pin-50546c6d0eb89cfd",
+      "headline": "Apple Pay and online fraud risks",
+      "listeners": {
+        "priya": {
+          "last_sentence_index": 16
+        }
+      },
+      "articles": [
+        {
+          "article_id": "IBTU-10010345-01M7P70PMKYQT6Z39X3BHT7ENQ",
+          "cluster_id": "2026-11-18-3940a96aa9f6a50a",
+          "outlet": "International Business Times UK",
+          "title": "Apple Outage: Users Report iCloud Sign-In Errors as App Store and Apple Pay Complaints Emerge",
+          "published_at": "2026-11-17T23:33:02+00:00",
+          "link": "https://www.ibtimes.co.uk/apple-users-report-account-sign-app-store-issues-1832955"
+        },
+        {
+          "article_id": "IBTU-10010345-01M7P70PMMZ4YRQ13RDEPP12T9",
+          "cluster_id": "2026-11-18-3940a96aa9f6a50a",
+          "outlet": "International Business Times UK",
+          "title": "Apple Denies Cyberattack After Internal Update Causes Worldwide Service Outages",
+          "published_at": "2026-11-18T01:52:49+00:00",
+          "link": "https://www.ibtimes.co.uk/apple-internal-update-caused-worldwide-service-outages-1832960"
+        },
+        {
+          "article_id": "IBTU-10010345-01M7Q3B2KTCYX068N6P0412DGM",
+          "cluster_id": "2026-11-18-3940a96aa9f6a50a",
+          "outlet": "International Business Times UK",
+          "title": "Apple Blames Internal Update After Outage Hits iCloud and Apple Pay, Rules Out Cyberattack",
+          "published_at": "2026-11-18T10:02:01+00:00",
+          "link": "https://www.ibtimes.co.uk/apple-blames-internal-update-after-outage-hits-icloud-apple-pay-rules-out-cyberattack-1833027"
+        },
+        {
+          "article_id": "IBTU-10010345-01M7P70PMJMXBX2M3R9MY17QT4",
+          "cluster_id": "2026-11-18-00431deba3937624",
+          "outlet": "International Business Times UK",
+          "title": "Cyberattacks and Outages in November: Here Are the Major US Disruptions Reported So Far",
+          "published_at": "2026-11-18T01:38:45+00:00",
+          "link": "https://www.ibtimes.co.uk/us-businesses-hit-cyber-incidents-outages-1832974"
+        }
+      ]
+    }
+  ]
+}
