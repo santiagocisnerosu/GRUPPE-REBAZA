@@ -24,7 +24,9 @@ python -m src.wildcard "German Mittelstand exporter worried about the dollar and
 
 Use the configured project environment and the licensed 18 November overnight cache in `data/cache/`. The checkout on GitHub contains the five playable editions. Generating a new listener also requires the local article index, clusters, verified ledger, story scores, saved conflict checks and available source claims. Keep the existing small and large model settings in `.env` and set `ELEVENLABS_MODEL=eleven_multilingual_v2`. A new description needs working OpenAI and ElevenLabs credentials. The selected multilingual voice receives the requested language code. Optional `WILDCARD_VOICE_EN`, `WILDCARD_VOICE_DE` and `WILDCARD_VOICE_NL` settings accept a voice ID for that language.
 
-The small model creates the profile and scores the cached stories against its interests and exclusions. The automatic script stage checks cited facts, numbers, repeats, conflicting readings and eight-word overlaps. German and Dutch figures are checked against the original verified ledger. A linked Invezz translation is included alongside its original when available. The resulting profile is saved in `profiles_wildcard.yaml`. Selection scores, the script and validation details are in `out/<id>/`. Only the playable audio, public transcript and listener manifest go to `docs/out/`.
+The small model creates the profile and scores the cached stories against its interests and exclusions. The automatic script stage checks cited facts, numbers, repeats, conflicting readings and eight-word overlaps. Each figure carries its receipt’s time window in the sentence that speaks it. Language-specific rules and a separate small-model review check the window, trading advice and claims that buyers will return at a given price. A flagged sentence gets one repair and must pass again to reach the audio. German and Dutch figures are checked against the original verified ledger. A linked Invezz translation is included alongside its original when available.
+
+The greeting and AI-voice disclosure each have their own karaoke line before the sourced news begins. The profile is saved in `profiles_wildcard.yaml`. Selection scores, the script and validation details are in `out/<id>/`. The playable audio, public transcript and listener manifest go to `docs/out/`.
 
 ## Run options
 
@@ -33,13 +35,13 @@ The small model creates the profile and scores the cached stories against its in
 
 ## Rehearsal results
 
-| Listener | Final build | Final build cost | All rehearsal attempts | Total rehearsal cost | Audio | Verified figures |
+| Listener | Published build | Cost of published build | All runs for this revision | Total API cost | Player duration | Verified figures |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Noor, Dutch retail investor | 25.5 s | $0.1526 | 92.2 s | $0.3312 | 1:44 | 8/8 |
-| Lena, German exporter | 19.8 s | $0.0000 | 101.6 s | $0.2188 | 1:51 | 4/4 |
+| Noor, Dutch retail investor | 61.2 s | $0.1886 | 61.2 s | $0.1886 | 1:44 | 6/6 |
+| Lena, German exporter | 24.9 s | $0.1582 | 166.3 s | $0.5574 | 1:42 | 3/3 |
 
-Both initial runs stopped at a timestamp conversion during story ranking. The retries reused the profile and fit responses. The first complete runs took 47.5 s ($0.1674) for Dutch and 64.6 s ($0.2079) for German. After the number checker was refined, the final Dutch build synthesized revised narration and the German build reused its cached recording. The table sums processing time and recorded costs through delivery, including the failed attempts.
+Both runs reused the November 18 newsroom cache and the listener profiles and scores. Noor’s build generated a new script and recording. Her two Nvidia figures explicitly refer to the fourth quarter, her Bitcoin indicator to the daily chart, and her gold figure to the past week.
 
-As a final check, the two commands above reproduced every published file byte for byte. Measured from process launch to exit, the fully cached replays took 26.4 s for Dutch and 26.8 s for German at $0.0000 each. A new judge-supplied description will need fresh profile, fit, script and voice calls.
+Lena’s first build took 86.8 s ($0.2094) and fell nine words below the profile minimum. The second took 54.6 s ($0.1898) and lost her sign-off when validation dropped the last draft sentence. The published build reused the checked news, restored the neutral sign-off and synthesized the final recording. Its 0.54% dollar-index gain is explicitly measured over the past five days, the tariff refund per share refers to the reported quarter, and the gold loss refers to the past week. Both published scripts passed without validation warnings. Each individual run came in under $0.50. The three German runs together cost $0.5574.
 
 [Play Noor’s Dutch briefing](https://santiagocisnerosu.github.io/GRUPPE-REBAZA/?listener=wildcard-nl-d652f44272a8) · [Play Lena’s German briefing](https://santiagocisnerosu.github.io/GRUPPE-REBAZA/?listener=wildcard-de-ca762d040743)

@@ -29,15 +29,11 @@ from .costs import CACHE_DIR, RUN_ID, write_json
 from .extract import selected_articles
 from .listeners import register, roster_lock
 from .publish_site import redact_sentence
+from .wildcard_checks import introduction
 
 ROOT = stage.ROOT
 DAY = date(2026, 11, 18)
 LANGUAGES = {"en": "English", "de": "German", "nl": "Dutch"}
-DISCLOSURE = {
-    "en": "An AI voice reads your briefing",
-    "de": "Eine KI-Stimme liest Ihre Nachrichten",
-    "nl": "Een AI-stem leest uw nieuws voor",
-}
 
 
 class Listener(BaseModel):
@@ -89,7 +85,7 @@ def make_profile(description, language, client, model):
         "minutes": 2, "stories": "3", "running_order": "Most relevant event, implications, what to watch",
         "voice": voice["voice"], "voice_settings": voice["voice_settings"],
         "voice_id": os.getenv("WILDCARD_VOICE_" + lang.upper()) or voice["voice_id"],
-        "editor": {"opener": spec.greeting.rstrip(".,:!? ") + ", " + DISCLOSURE[lang],
+        "editor": {"opener": " ".join(introduction(spec.name, lang)),
                    "closer": spec.closer.rstrip(". ") + " ...", "min_words": int(spec.words * .80)},
     })
 
@@ -220,7 +216,10 @@ def build(args, client, folder, small, large):
     windows = {w for body in rows.text.dropna() for w in stage.word_windows(body)}
     stage.write_script(profile, chosen, claims, articles, windows, client, large, DAY, pairs, small, out=folder)
     script = read(folder / "script.json")
-    if not script["number_mentions"] or any(not line["article_ids"] for line in script["sentences"]):
+    opening = introduction(profile["name"], profile["language"])
+    lines = script["sentences"]
+    if ([line["text"] for line in lines[:2]] != opening or not script["number_mentions"]
+            or not lines[2:] or any(not line["article_ids"] or not line["fact_ids"] for line in lines[2:])):
         raise ValueError("The wildcard has insufficient sourced narration")
     narration = " ".join(s["text"] for s in script["sentences"])
     if any(w in windows for w in stage.word_windows(narration)):

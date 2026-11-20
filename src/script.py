@@ -20,6 +20,7 @@ from .extract import cache_path, selected_articles, verified_claims
 from .model_calls import structured
 from .script_reports import append_receipt_closing, export_reports
 from .verify import FIGURE, NUMBER_WORD, is_word_figure, normalize_text, normalized_figures
+from . import wildcard_checks
 
 ROOT = CACHE_DIR.parents[1]
 LISTENERS = ("mara", "jordan", "priya")
@@ -343,10 +344,29 @@ def matches_number(expected, actual):
     )
 
 
+def receipt_mentions(text, language, cited, wildcard):
+    if wildcard:
+        values = [value for _, value in numeric_mentions(text, language) if value is not None]
+        # A spoken duration belonging to a matched measure is part of that
+        # receipt (e.g. the five in "0.54% over five days").
+        for fact in cited:
+            if any(matches_number(known, value) for known in authorized_numbers(fact, language) for value in values):
+                for _, phrase in wildcard_checks.numbered_windows(fact.get("measures", ""), language):
+                    text = re.sub(phrase, " ", text, flags=re.I)
+    return numeric_mentions(text, language)
+
+
+def line_mentions(script, line, facts):
+    language = script.get("language", "en")
+    if script.get("listener", "").startswith("wildcard-"):
+        return receipt_mentions(line["text"], language, [facts[k] for k in line["fact_ids"] if k in facts], True)
+    return numeric_mentions(line["text"], language)
+
+
 def spoken_citations(script):
     facts = {fact["fact_id"]: fact for fact in script["facts"] if "value_text" in fact}
     for sentence in script["sentences"]:
-        for raw, actual in numeric_mentions(sentence["text"], script.get("language", "en")):
+        for raw, actual in line_mentions(script, sentence, facts):
             if actual is None:
                 continue
             matches = [
@@ -389,7 +409,10 @@ def sentence_errors(sentence, facts, source_windows, preceding_words=(), used_nu
     if not sentence.text.strip():
         errors.append({"cifra": None, "motivo": "empty_sentence"})
     allowed = [number for fact in cited for number in authorized_numbers(fact, language)]
-    mentions = list(numeric_mentions(sentence.text, language))
+    wildcard = (listener or "").startswith("wildcard-")
+    mentions = list(receipt_mentions(sentence.text, language, cited, wildcard))
+    if wildcard and wildcard_checks.advisory(sentence.text, language):
+        errors.append({"cifra": None, "motivo": "wildcard_advice"})
     if starts_with_number(normalize_text(sentence.text)) or (
         language != "en" and mentions and normalize_text(sentence.text).lower().startswith(mentions[0][0].lower())
     ):
@@ -408,6 +431,14 @@ def sentence_errors(sentence, facts, source_windows, preceding_words=(), used_nu
             errors.append({"cifra": raw, "motivo": "repeated_number"})
         if actual is not None:
             numbers.append(actual)
+            if wildcard:
+                for fact in cited:
+                    if any(matches_number(expected, actual) for expected in authorized_numbers(fact, language)):
+                        for window, phrase in wildcard_checks.measure_windows(fact.get("measures", ""), language):
+                            contexts = list(wildcard_checks.figure_context(sentence.text, raw)) or [sentence.text]
+                            if not all(re.search(phrase, context, re.I) for context in contexts):
+                                errors.append({"cifra": raw, "motivo": "missing_or_wrong_measure_period",
+                                               "detail": f"{fact['fact_id']} requires {window}"})
     if re.search(r"\b(?:leaving|pointing to|paving the way|sets the stage|adds pressure|"
                  r"keeps pressure|support for|headwind|tailwind|weakening the case)\b", sentence.text, re.I):
         if not any("claim" in fact for fact in cited):
@@ -526,8 +557,16 @@ def script_instructions(profile):
             "per block. Use digits for quantities, at most two figures per sentence, no repeated number or "
             "repeated meaning, no sentence starting with a number and at most 32 words per sentence. "
             "Use a few informative verified figures. Preserve currencies, units, dates, scales and uncertainty. "
+            "Every spoken figure must name the period in its receipt's measures in the SAME sentence. "
+            "Keep its duration, direction, frequency and comparison basis, including five days, the past week, "
+            "this year, year to date and the specific fiscal quarter. Use native wording, e.g. in den vergangenen "
+            "fünf Tagen / over de afgelopen vijf dagen. Use words for quarter ordinals. Split sentences when "
+            "two figures have different windows. Inform without advising. Never tell listeners what to do, "
+            "use should, ought to, sollte, sollten, empfehlen, zou/zouden moeten or raden aan, or recommend "
+            "buying, selling or holding. Never frame a price as where buyers might return. Describe exposure "
+            "and reported observations neutrally. "
             "For German or Dutch use decimal commas, local thousands separators and local scale words. "
-            "The app supplies the AI voice introduction. Start directly with news. "
+            "The app separately supplies the greeting and complete AI voice disclosure. Start directly with news. "
             "The last news sentence must start with the profile's closer before the ellipsis and give a cited fact."
         )
     if AUTO:
@@ -661,6 +700,8 @@ def validate_script(profile, chosen, source_windows, client, model, day, facts, 
         draft[-1] = draft[-1].model_copy(update={"text": draft[-1].text.strip() + " " + farewell.text})
     candidates = repair_repeated_ideas(profile, draft, facts, client, small_model, caught)
     editor = profile.get("editor", {})
+    wildcard = profile.get("wildcard", False)
+    reviews = wildcard_checks.review(candidates, facts, language, client, small_model, cached_script_call) if wildcard else {}
     for original in candidates:
         sentence = original
         allowed_facts = facts
@@ -668,6 +709,12 @@ def validate_script(profile, chosen, source_windows, client, model, day, facts, 
             sentence = sentence.model_copy(update={"text": name_companies(sentence.text, editor)})
             errors = sentence_errors(sentence, allowed_facts, source_windows, preceding_words,
                                      used_numbers, listener, language)
+            if wildcard:
+                key = sentence.model_dump_json()
+                if key not in reviews and not errors:
+                    reviews.update(wildcard_checks.review([sentence], allowed_facts, language, client,
+                                                          small_model, cached_script_call))
+                errors.extend(reviews.get(key, []))
             errors.extend(editorial_errors(sentence.text, sentences, sentence.story_id))
             if sentence.story_id not in story_facts or (
                 (listener == "priya" or profile.get("wildcard")) and not set(sentence.fact_ids) <= story_facts[sentence.story_id]
@@ -692,7 +739,8 @@ def validate_script(profile, chosen, source_windows, client, model, day, facts, 
                         "article_ids": list(dict.fromkeys(facts[i]["article_id"] for i in ids)),
                     })
                     word_count += words
-                    used_numbers.extend(value for _, value in numeric_mentions(sentence.text, language))
+                    used_numbers.extend(value for _, value in receipt_mentions(
+                        sentence.text, language, [facts[k] for k in ids], wildcard))
                     preceding_words = WORD.findall(normalize_text(
                         " ".join([*preceding_words, sentence.text])
                     ).casefold())[-7:]
@@ -747,6 +795,18 @@ def validate_script(profile, chosen, source_windows, client, model, day, facts, 
     if sentences:
         sentences[-1]["editor_closer"] = True
     closer = profile.get("editor", {}).get("closer", "").split("...")[0]
+    if (wildcard and sentences and closer.strip() in wildcard_checks.NEUTRAL_CLOSERS[language]
+            and not any(s["text"].startswith(closer.strip()) for s in sentences)):
+        # If a repair was dropped, preserve the profile's neutral sign-off on
+        # the actual last news sentence. Check the new copy boundary too.
+        last = sentences[-1]
+        joined = closer.strip() + " " + last["text"]
+        preceding = WORD.findall(normalize_text(" ".join(s["text"] for s in sentences[:-1])).casefold())[-7:]
+        candidate = Sentence.model_validate({**last, "text": joined})
+        if (word_count + len(closer.split()) <= maximum and
+                not sentence_errors(candidate, facts, source_windows, preceding, listener=listener, language=language)):
+            last["text"] = joined
+            word_count += len(closer.split())
     if closer and (not sentences or not sentences[-1]["text"].startswith(closer)):
         missing.append(f"End the final editorial sentence with a lead-in of {closer}")
     if listener == "priya":
@@ -800,7 +860,11 @@ def validate_script(profile, chosen, source_windows, client, model, day, facts, 
             f" The last draft had only {word_count} validated words. Write at least "
             f"{minimum} and at most {maximum} words after validation. Explicitly cover "
             f"these previously missing items: {', '.join(missing) or 'none'}. Use more "
-            "distinct verified claims and avoid numeric repeats to retain every sentence.",
+            "distinct verified claims and avoid numeric repeats to retain every sentence."
+            + (f" Aim for {profile['words']} words of news. Allow space for dropped lines. "
+               "Paraphrase the qualitative evidence freely and spell out the practical implications as neutral, "
+               "cited observations. Preserve the precise window whenever a figure is reused."
+               if wildcard else ""),
             payload,
         )
         return validate_script(profile, chosen, source_windows, client, model, day, facts,
@@ -832,13 +896,11 @@ def validate_script(profile, chosen, source_windows, client, model, day, facts, 
     opener = profile.get("editor", {}).get("opener")
     if profile.get("wildcard"):
         result["language"] = language
-        # The disclosure is production metadata. Attach it to a sourced news
-        # sentence so every wildcard transcript row retains its real citations.
-        first = sentences[0]
-        first["text"] = opener.rstrip(".:!? ") + ": " + first["text"]
-        errors = sentence_errors(Sentence.model_validate(first), facts, source_windows, language=language)
-        if errors:
-            raise ValueError(f"Wildcard opening failed validation: {errors}")
+        result["sentences"] = [
+            {"text": text, "story_id": sentences[0]["story_id"], "fact_ids": [],
+             "article_ids": [], "editor_opener": True}
+            for text in wildcard_checks.introduction(profile["name"], language)
+        ] + sentences
     elif opener and sentences:
         opener_text = opener if opener.endswith((".", "!", "?")) else opener + "."
         result["sentences"] = [{"text": opener_text, "story_id": sentences[0]["story_id"],

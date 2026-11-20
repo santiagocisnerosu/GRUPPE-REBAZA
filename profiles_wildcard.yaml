@@ -31,7 +31,7 @@ profiles:
     use_speaker_boost: true
   voice_id: Xb7hH8MSUJpSbSDYk0k2
   editor:
-    opener: Goedemorgen Noor, Een AI-stem leest uw nieuws voor
+    opener: Goedemorgen, Noor. Een AI-stem leest dit nieuws voor.
     closer: 'Tot slot: ...'
     min_words: 200
 - id: wildcard-de-ca762d040743
@@ -67,6 +67,6 @@ profiles:
     use_speaker_boost: true
   voice_id: Xb7hH8MSUJpSbSDYk0k2
   editor:
-    opener: Guten Morgen, Eine KI-Stimme liest Ihre Nachrichten
+    opener: Guten Morgen, Lena. Diese Nachrichten liest eine KI-Stimme.
     closer: 'Zum Schluss: ...'
     min_words: 200

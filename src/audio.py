@@ -20,7 +20,7 @@ from elevenlabs.client import ElevenLabs
 from elevenlabs.core.api_error import ApiError
 
 from .costs import CACHE_DIR, log_call, write_json
-from .script import LISTENERS, ROOT, numeric_mentions, spoken_citations
+from .script import LISTENERS, ROOT, line_mentions, spoken_citations
 from .script_reports import append_receipt_closing
 
 OUTPUT_FORMAT = "mp3_44100_128"
@@ -221,7 +221,8 @@ def build_audio(profile, model, client, sources, out=None, conflict_report=None)
         raise SystemExit(f"No script for {listener}. Run src.script first.")
     narration = [sentence for sentence in script["sentences"] if not sentence.get("receipt_closing")]
     language = script.get("language", "en")
-    total = sum(len(list(numeric_mentions(sentence["text"], language))) for sentence in narration)
+    facts = {f["fact_id"]: f for f in script["facts"]}
+    total = sum(len(list(line_mentions(script, sentence, facts))) for sentence in narration)
     receipt = verified_receipt(script, sources)
     if total != len(receipt):
         raise ValueError(f"{listener} has {total - len(receipt)} unmatched spoken figures")
