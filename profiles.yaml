@@ -5,6 +5,12 @@
 
 profiles:
   - id: mara
+    editor_pins:
+      - {id: uk_inflation, title: UK inflation, matches: ['UK inflation|British inflation']}
+      - {id: eurozone_inflation, title: Eurozone inflation, matches: ['eurozone inflation|euro area inflation']}
+      - {id: boj, title: BoJ and Ueda, matches: ['\bUeda\b|\bBoJ\b|Bank of Japan']}
+      - {id: fed_waller, title: Waller and the Fed, matches: ['\bWaller\b']}
+      - {id: shenzhen_summit, title: Trump-Xi-Putin summit, matches: ['trilateral summit|^Trump.{0,30}Xi.{0,35}Putin|^Shenzhen summit']}
     name: Mara
     who: 34, trades interest rates and currencies on a London bank desk. Listens at 06:30 before the desk opens. Knows every term, has no time.
     question: "What moves rates and currencies today?"
@@ -21,6 +27,12 @@ profiles:
     voice: British female newsreader, slightly fast (speed ~1.1)
 
   - id: jordan
+    editor_pins:
+      - {id: anthropic, title: 'Anthropic IPO priced at $83', lead: true, matches: ['Anthropic IPO prices at \$83']}
+      - {id: nvidia, title: Nvidia results and impact on CoreWeave / Nebius / Micron, matches: ['Nvidia beat fails|Nvidia earnings:', 'Nvidia earnings lift CoreWeave.*Nebius', 'Micron.*Nvidia results']}
+      - {id: retail, title: Target and Lowe's earnings, matches: ['Target earnings:', 'Lowe.s stock.*earnings']}
+      - {id: take_two, title: Take-Two and GTA VI, matches: ['Take Two.*GTA VI.*upside']}
+      - {id: crypto, title: 'Bitcoin below $64k and XRP back above $1', matches: ['Bitcoin.*below \$64,000.*Citi', 'XRP reclaims \$1']}
     name: Jordan
     who: 29, software engineer. Owns Nvidia, other AI stocks and some Bitcoin in a trading app. Listens at breakfast. Smart, not a finance professional.
     question: "What happened to my stocks and crypto, and why?"
@@ -37,6 +49,12 @@ profiles:
     voice: upbeat American male, podcast style
 
   - id: priya
+    editor_pins:
+      - {id: summit_trade, title: Trump-Xi-Putin summit and China trade surplus, matches: ['trilateral summit', 'China.s trade surplus']}
+      - {id: inflation_oil, title: UK inflation and oil, matches: ['UK Inflation Rises to 3\.6%', 'Oil price today: Brent slips']}
+      - {id: dollar, title: Stronger dollar and USD supplier costs, matches: ['US Dollar ETF.*Hits New']}
+      - {id: payments_risk, title: Apple Pay and online fraud risks, matches: ['Apple Blames.*Apple Pay', 'Cyberattacks and Outages in November: Here Are the Major US Disruptions', 'Police Issue Urgent Warning Over Phone Scam']}
+      - {id: retail_tariffs, title: US retail earnings and Lowe's tariff refunds, matches: ['Lowe.s stock.*tariff refunds', 'Target earnings:']}
     name: Priya
     who: 45, runs a 20-person online homeware shop in Manchester. Buys stock from suppliers in China and pays them in dollars; sells to UK and EU customers by card and Apple Pay. Listens at 07:30 driving to her warehouse.
     question: "What changes my costs, my customers or my risks this week?"
