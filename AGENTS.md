@@ -3,6 +3,53 @@
 Team GRUPPE REBAZA · MAIN AI Hackathon 2026 · Sourcera track
 One-line pitch: "A briefing you can trust by ear, at a cost a newsroom can carry every morning."
 
+## Current state
+
+The Thursday 19 November demo is live on GitHub Pages. The pipeline ingested 1,740 articles and grouped the 145 English articles in the demo window into 128 stories. Each listener has a mastered MP3, a word-timed transcript and a receipt for every spoken figure. [Open Morning Edition](https://santiagocisnerosu.github.io/GRUPPE-REBAZA/)
+
+| Listener | Editorial angle | Spoken figures verified |
+|---|---|---:|
+| Mara | What moves rates and currencies before the London desk opens? | 21/21 |
+| Jordan | What do tech earnings and crypto prices mean for his holdings? | 15/15 |
+| Priya | How do trade, fuel and currency moves affect her UK retail business? | 6/6 |
+
+- **Morning Edition** lets listeners switch editions, jump between chapters and follow the audio with word-by-word karaoke. The active sentence links to its sources. Presentation mode is ready for recording. [Jordan in presentation mode](https://santiagocisnerosu.github.io/GRUPPE-REBAZA/?present=1&listener=jordan)
+- **Trust panel.** In Jordan’s Bitcoin draft, the checker blocked $64,000 because it was absent from the cited facts. The audio uses the verified Coinbase price of $63,465. “See full audit” shows rejected material and disagreements between sources.
+- **Shared meanings.** “One fact, different meanings” pairs Mara’s market reading with Priya’s business consequence for three figures they both use, including 33.2% motor fuel inflation. Each reading comes from that listener’s sourced narration. [Shared facts](docs/out/shared_facts.json)
+- **Costs.** Recorded API usage for the demo run cost at least $1.8544. One log entry was unreadable. At 10,000 listeners, the projection is $0.8958 per listener per month with story audio reused per voice, or $8.0846 with full synthesis per listener. [Published cost report](docs/out/costs.json)
+
+### Key decisions
+
+Use the English feeds for 18 November and include the previous evening from 18:00 UTC. Extract and verify figures against each article once, then share the verified stories across listeners. Keep editorial pins, narration rules and voices in `profiles.yaml`. Reserve the large model for writing and repairing scripts. Reuse cached API responses and ElevenLabs alignments so mastering preserves karaoke timing. Publish the checked demo assets from `main` under `docs/`. Keep the licensed feeds and credentials local.
+
+### Regenerate the demo
+
+From the repository root, use PowerShell and Python 3.11+. Put the licensed JSONL feeds in `data/raw/`, configure the OpenAI and ElevenLabs keys and models in `.env`, and keep `data/cache/` for repeat runs. Capture the cost-log position before the first pipeline step. A fully cached replay of this edition reuses its published cost report.
+
+```powershell
+python -m pip install -r requirements.txt
+$costLog = 'data/cache/costs.jsonl'
+$startRecord = @(Get-Content $costLog -ErrorAction SilentlyContinue).Count
+python -m src.ingest
+python -m src.extract --date 2026-11-18 --overnight
+python -m src.verify --date 2026-11-18 --overnight
+python -m src.cluster --date 2026-11-18 --overnight --threshold 0.45
+python -m src.script --date 2026-11-18 --overnight --listener all --regenerate
+python -m src.audio --listener all
+if (@(Get-Content $costLog -ErrorAction SilentlyContinue).Count -gt $startRecord) {
+    python -m src.cost_report --since-record $startRecord
+} else {
+    Copy-Item docs/out/costs.json out/costs.json
+}
+python -m src.publish_site
+```
+
+The last command checks the narration against the licensed articles, builds the Pages site and generates [the jury QR code](docs/qr.png). Preview the packaged demo with `python -m http.server 8000 --directory docs` and open [Morning Edition locally](http://localhost:8000/).
+
+### Still to deliver
+
+Record the **3-minute pitch video** using the frozen demo. Finish the **8-slide presentation** with the observed cost, scaling assumptions, newsroom workflow and buyer. Submit the project name, matching code version and video to BuilderBase by **10:00 on Saturday 21 November**, ahead of the 10:30 hard deadline.
+
 ## ⏰ Real deadlines (do not trust any other timeline)
 - **Saturday 21 Nov 10:30 hard deadline on BuilderBase** (form closes on the dot). We submit by **10:00**.
 - MAIN asks every team for: project name, code (same version as the demo), **3-minute pitch video**.
