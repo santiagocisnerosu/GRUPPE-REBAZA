@@ -100,7 +100,7 @@ def rejection_reason(figure, source):
 
 def main():
     args = parse_args(__doc__)
-    articles = selected_articles(args.date, args.limit)
+    articles = selected_articles(args.date, args.limit, args.overnight)
     verified, rejected = [], []
     examples = []
     for article in articles.itertuples(index=False):

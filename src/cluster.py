@@ -152,6 +152,7 @@ def main():
     from dotenv import load_dotenv
 
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--overnight", action="store_true")
     parser.add_argument("--date", required=True, type=date.fromisoformat)
     parser.add_argument("--threshold", required=True, type=float)
     args = parser.parse_args()
@@ -172,7 +173,7 @@ def main():
 
     articles = []
     inputs = {}
-    for article in selected_articles(args.date, None).itertuples(index=False):
+    for article in selected_articles(args.date, None, args.overnight).itertuples(index=False):
         path = cache_path(article.id)
         if path.exists():
             summary = json.loads(path.read_text(encoding="utf-8"))["summary"]
