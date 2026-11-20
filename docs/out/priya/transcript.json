@@ -1,0 +1,355 @@
+{
+  "listener": "priya",
+  "name": "Priya",
+  "date": "2026-11-18",
+  "audio": "briefing.mp3",
+  "figures_total": 6,
+  "figures_verified": 6,
+  "sources_total": 7,
+  "sentences": [
+    {
+      "text": "Morning, Priya.",
+      "start": 0.0,
+      "end": 0.94,
+      "story": "Trump-Xi-Putin summit and China trade surplus",
+      "sources": []
+    },
+    {
+      "text": "On China trade, Zacks Investment Research puts the country’s trade surplus at $1.043 trillion through the end of October.",
+      "start": 2.31,
+      "end": 9.694,
+      "story": "Trump-Xi-Putin summit and China trade surplus",
+      "sources": [
+        {
+          "article_id": "ZACK-105463-01M7QNMA2FKSK6YXDQXFGWCQB6",
+          "outlet": "Zacks Investment Research",
+          "headline": "China's Trade Surplus Exceeds $1T: Time to Rebalance Your ETF Portfolio?",
+          "link": "https://www.zacks.com/stock/news/3031756/china-s-trade-surplus-exceeds-1t-time-to-rebalance-your-etf-portfolio?cid=CS-NEWSTEX-FT-etf_news_and_commentary-3031756"
+        }
+      ]
+    },
+    {
+      "text": "Donald Trump, Xi Jinping and Vladimir Putin are due to meet, with possible cuts to nuclear arsenals on the agenda.",
+      "start": 10.553,
+      "end": 16.788,
+      "story": "Trump-Xi-Putin summit and China trade surplus",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7Q7KP6N8X6VB4A5BAFHVF82",
+          "outlet": "Invezz",
+          "headline": "What to expect from Trump's historic trilateral summit with Xi Jinping and Putin",
+          "link": "https://invezz.com/news/2026/11/18/what-to-expect-from-trumps-historic-trilateral-summit-with-xi-jinping-and-putin/"
+        }
+      ]
+    },
+    {
+      "text": "Xi has called for more cooperation on trade, while China’s surplus reflects strong exports alongside weak demand at home.",
+      "start": 18.158,
+      "end": 25.299,
+      "story": "Trump-Xi-Putin summit and China trade surplus",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7Q7KP6N8X6VB4A5BAFHVF82",
+          "outlet": "Invezz",
+          "headline": "What to expect from Trump's historic trilateral summit with Xi Jinping and Putin",
+          "link": "https://invezz.com/news/2026/11/18/what-to-expect-from-trumps-historic-trilateral-summit-with-xi-jinping-and-putin/"
+        },
+        {
+          "article_id": "ZACK-105463-01M7QNMA2FKSK6YXDQXFGWCQB6",
+          "outlet": "Zacks Investment Research",
+          "headline": "China's Trade Surplus Exceeds $1T: Time to Rebalance Your ETF Portfolio?",
+          "link": "https://www.zacks.com/stock/news/3031756/china-s-trade-surplus-exceeds-1t-time-to-rebalance-your-etf-portfolio?cid=CS-NEWSTEX-FT-etf_news_and_commentary-3031756"
+        }
+      ]
+    },
+    {
+      "text": "For your business, if tariffs rise on the homeware you import from China, each shipment could cost more to land, squeezing margins at your current prices.",
+      "start": 26.158,
+      "end": 35.283,
+      "story": "Trump-Xi-Putin summit and China trade surplus",
+      "sources": [
+        {
+          "article_id": "ZACK-105463-01M7QNMA2FKSK6YXDQXFGWCQB6",
+          "outlet": "Zacks Investment Research",
+          "headline": "China's Trade Surplus Exceeds $1T: Time to Rebalance Your ETF Portfolio?",
+          "link": "https://www.zacks.com/stock/news/3031756/china-s-trade-surplus-exceeds-1t-time-to-rebalance-your-etf-portfolio?cid=CS-NEWSTEX-FT-etf_news_and_commentary-3031756"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7Q7KP6N8X6VB4A5BAFHVF82",
+          "outlet": "Invezz",
+          "headline": "What to expect from Trump's historic trilateral summit with Xi Jinping and Putin",
+          "link": "https://invezz.com/news/2026/11/18/what-to-expect-from-trumps-historic-trilateral-summit-with-xi-jinping-and-putin/"
+        }
+      ]
+    },
+    {
+      "text": "UK inflation rose to 3.6% in October, according to ActionForex, with higher fuel prices pushing up the headline rate.",
+      "start": 35.817,
+      "end": 44.187,
+      "story": "UK inflation and oil",
+      "sources": [
+        {
+          "article_id": "ACTI-10010414-01M7Q2T2W2V6E7RCQX47FZAXXQ",
+          "outlet": "ActionForex",
+          "headline": "UK Inflation Rises to 3.6% as Fuel Prices Surge, Core CPI Holds Steady",
+          "link": "https://www.actionforex.com/live-comments/661264-uk-inflation-rises-to-3-6-as-fuel-prices-surge-core-cpi-holds-steady/"
+        }
+      ]
+    },
+    {
+      "text": "Meanwhile, oil prices eased as US crude and fuel stocks built up, but shipping disruption in the Strait of Hormuz kept the drop in check.",
+      "start": 44.722,
+      "end": 54.103,
+      "story": "UK inflation and oil",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7Q4F0GZ0JE7XP9WYEHNC2YH",
+          "outlet": "Invezz",
+          "headline": "Oil price today: Brent slips as fresh data shows rise in US crude inventory",
+          "link": "https://invezz.com/news/2026/11/18/oil-price-today-api-528-million-barrel-us-crude-build/"
+        }
+      ]
+    },
+    {
+      "text": "At UK pumps, motor fuel prices were up 33.2% from a year earlier.",
+      "start": 55.275,
+      "end": 60.825,
+      "story": "UK inflation and oil",
+      "sources": [
+        {
+          "article_id": "ACTI-10010414-01M7Q2T2W2V6E7RCQX47FZAXXQ",
+          "outlet": "ActionForex",
+          "headline": "UK Inflation Rises to 3.6% as Fuel Prices Surge, Core CPI Holds Steady",
+          "link": "https://www.actionforex.com/live-comments/661264-uk-inflation-rises-to-3-6-as-fuel-prices-surge-core-cpi-holds-steady/"
+        }
+      ]
+    },
+    {
+      "text": "For your business, customers spending more to fill up may have less left for homeware, so some may put off a purchase.",
+      "start": 61.556,
+      "end": 68.209,
+      "story": "UK inflation and oil",
+      "sources": [
+        {
+          "article_id": "ACTI-10010414-01M7Q2T2W2V6E7RCQX47FZAXXQ",
+          "outlet": "ActionForex",
+          "headline": "UK Inflation Rises to 3.6% as Fuel Prices Surge, Core CPI Holds Steady",
+          "link": "https://www.actionforex.com/live-comments/661264-uk-inflation-rises-to-3-6-as-fuel-prices-surge-core-cpi-holds-steady/"
+        }
+      ]
+    },
+    {
+      "text": "The US Dollar Index is up 5.66% this year, according to Zacks Investment Research.",
+      "start": 68.94,
+      "end": 74.931,
+      "story": "US Dollar ETF (UUP) Hits New 52-Week High",
+      "sources": [
+        {
+          "article_id": "ZACK-105463-01M7QNMA2EJMHCE8S8XWQJEBW9",
+          "outlet": "Zacks Investment Research",
+          "headline": "US Dollar ETF (UUP) Hits New 52-Week High",
+          "link": "https://www.zacks.com/stock/news/3031782/us-dollar-etf-uup-hits-new-52-week-high?cid=CS-NEWSTEX-FT-etf_news_and_commentary-3031782"
+        }
+      ]
+    },
+    {
+      "text": "The dollar strengthened as remarks from Federal Reserve policymakers reinforced expectations of further US interest rate rises.",
+      "start": 75.663,
+      "end": 82.907,
+      "story": "US Dollar ETF (UUP) Hits New 52-Week High",
+      "sources": [
+        {
+          "article_id": "ZACK-105463-01M7QNMA2EJMHCE8S8XWQJEBW9",
+          "outlet": "Zacks Investment Research",
+          "headline": "US Dollar ETF (UUP) Hits New 52-Week High",
+          "link": "https://www.zacks.com/stock/news/3031782/us-dollar-etf-uup-hits-new-52-week-high?cid=CS-NEWSTEX-FT-etf_news_and_commentary-3031782"
+        }
+      ]
+    },
+    {
+      "text": "For your business, if the dollar also gains against sterling, the same supplier invoice will cost you more in pounds and leave less margin at current prices.",
+      "start": 83.767,
+      "end": 93.089,
+      "story": "US Dollar ETF (UUP) Hits New 52-Week High",
+      "sources": [
+        {
+          "article_id": "ZACK-105463-01M7QNMA2EJMHCE8S8XWQJEBW9",
+          "outlet": "Zacks Investment Research",
+          "headline": "US Dollar ETF (UUP) Hits New 52-Week High",
+          "link": "https://www.zacks.com/stock/news/3031782/us-dollar-etf-uup-hits-new-52-week-high?cid=CS-NEWSTEX-FT-etf_news_and_commentary-3031782"
+        }
+      ]
+    },
+    {
+      "text": "The International Business Times UK reports that Apple blamed its wider service disruption on an internal software update, not a cyberattack.",
+      "start": 93.949,
+      "end": 102.54,
+      "story": "Apple Pay and online fraud risks",
+      "sources": [
+        {
+          "article_id": "IBTU-10010345-01M7Q3B2KTCYX068N6P0412DGM",
+          "outlet": "International Business Times UK",
+          "headline": "Apple Blames Internal Update After Outage Hits iCloud and Apple Pay, Rules Out Cyberattack",
+          "link": "https://www.ibtimes.co.uk/apple-blames-internal-update-after-outage-hits-icloud-apple-pay-rules-out-cyberattack-1833027"
+        }
+      ]
+    },
+    {
+      "text": "There were 2,300 US user reports of Apple Pay problems during the disruption, but Apple’s consumer status records did not list a dedicated Apple Pay outage.",
+      "start": 103.399,
+      "end": 112.454,
+      "story": "Apple Pay and online fraud risks",
+      "sources": [
+        {
+          "article_id": "IBTU-10010345-01M7Q3B2KTCYX068N6P0412DGM",
+          "outlet": "International Business Times UK",
+          "headline": "Apple Blames Internal Update After Outage Hits iCloud and Apple Pay, Rules Out Cyberattack",
+          "link": "https://www.ibtimes.co.uk/apple-blames-internal-update-after-outage-hits-icloud-apple-pay-rules-out-cyberattack-1833027"
+        }
+      ]
+    },
+    {
+      "text": "In a different report, Optimizely said an attacker inserted malicious code into customer projects, and Report URI found infected code snippets at 178 organisations.",
+      "start": 112.919,
+      "end": 125.051,
+      "story": "Apple Pay and online fraud risks",
+      "sources": [
+        {
+          "article_id": "IBTU-10010345-01M7P70PMJMXBX2M3R9MY17QT4",
+          "outlet": "International Business Times UK",
+          "headline": "Cyberattacks and Outages in November: Here Are the Major US Disruptions Reported So Far",
+          "link": "https://www.ibtimes.co.uk/us-businesses-hit-cyber-incidents-outages-1832974"
+        }
+      ]
+    },
+    {
+      "text": "For your business, if shoppers can’t use Apple Pay at your checkout, some may leave without completing the order.",
+      "start": 125.689,
+      "end": 131.576,
+      "story": "Apple Pay and online fraud risks",
+      "sources": [
+        {
+          "article_id": "IBTU-10010345-01M7Q3B2KTCYX068N6P0412DGM",
+          "outlet": "International Business Times UK",
+          "headline": "Apple Blames Internal Update After Outage Hits iCloud and Apple Pay, Rules Out Cyberattack",
+          "link": "https://www.ibtimes.co.uk/apple-blames-internal-update-after-outage-hits-icloud-apple-pay-rules-out-cyberattack-1833027"
+        }
+      ]
+    },
+    {
+      "text": "One thing for today: run a test order using the standard card option, so you know customers have another way to pay. Have a good one.",
+      "start": 132.214,
+      "end": 140.016,
+      "story": "Apple Pay and online fraud risks",
+      "sources": [
+        {
+          "article_id": "IBTU-10010345-01M7Q3B2KTCYX068N6P0412DGM",
+          "outlet": "International Business Times UK",
+          "headline": "Apple Blames Internal Update After Outage Hits iCloud and Apple Pay, Rules Out Cyberattack",
+          "link": "https://www.ibtimes.co.uk/apple-blames-internal-update-after-outage-hits-icloud-apple-pay-rules-out-cyberattack-1833027"
+        }
+      ]
+    },
+    {
+      "text": "Every figure in this briefing, all 6 of them, was checked against 7 source articles. Your receipts are in the app.",
+      "start": 140.48,
+      "end": 147.307,
+      "story": "Your receipt",
+      "sources": []
+    }
+  ],
+  "caught": [
+    {
+      "figure": null,
+      "reason": "copied_sequence_of_8_words",
+      "kind": "copied",
+      "sentence": "Licensed wording withheld."
+    }
+  ],
+  "conflicts": [
+    {
+      "measure": "Nvidia after-hours share gain",
+      "value_a": "2.91%",
+      "outlet_a": "ActionForex",
+      "link_a": "https://www.actionforex.com/action-insight/market-overview/661345-nvidia-beat-fails-to-spark-rally-as-shenzhen-summit-opens-and-oil-stays-range-bound/",
+      "value_b": "2.47%",
+      "outlet_b": "Invezz",
+      "link_b": "https://invezz.com/news/2026/11/17/nvidia-stock-rises-after-hours-as-revenue-forecast-beats-estimates/",
+      "used": null
+    },
+    {
+      "measure": "Measurement described in the linked source.",
+      "value_a": "96.7%",
+      "outlet_a": "ActionForex",
+      "link_a": "https://www.actionforex.com/action-insight/market-overview/661273-gold-hits-one-year-low-ahead-of-fomc-minutes-as-fed-rate-path-takes-center-stage/",
+      "value_b": "98%",
+      "outlet_b": "ActionForex",
+      "link_b": "https://www.actionforex.com/live-comments/661237-feds-williams-backs-further-rate-hikes-but-sees-no-need-for-dramatic-action/",
+      "used": null
+    },
+    {
+      "measure": "Spot gold price",
+      "value_a": "$3,770",
+      "outlet_a": "Invezz",
+      "link_a": "https://invezz.com/news/2026/11/18/gold-slips-back-below-one-year-low-but-goldman-sachs-sees-long-term-recovery/",
+      "value_b": "$3,852.67",
+      "outlet_b": "Invezz",
+      "link_b": "https://invezz.com/news/2026/11/17/evening-digest-huang-says-he-is-willing-to-return-anthropic-wins-first-buy-rating/",
+      "used": null
+    },
+    {
+      "measure": "Brent crude futures price",
+      "value_a": "$92.21",
+      "outlet_a": "Invezz",
+      "link_a": "https://invezz.com/news/2026/11/18/oil-price-today-api-528-million-barrel-us-crude-build/",
+      "value_b": "$93.17",
+      "outlet_b": "Invezz",
+      "link_b": "https://invezz.com/news/2026/11/17/evening-digest-huang-says-he-is-willing-to-return-anthropic-wins-first-buy-rating/",
+      "used": null
+    }
+  ],
+  "receipt": [
+    {
+      "figure": "$1.043 trillion",
+      "measures": "China’s trade surplus in the first 10 months of 2026",
+      "outlet": "Zacks Investment Research",
+      "headline": "China's Trade Surplus Exceeds $1T: Time to Rebalance Your ETF Portfolio?",
+      "link": "https://www.zacks.com/stock/news/3031756/china-s-trade-surplus-exceeds-1t-time-to-rebalance-your-etf-portfolio?cid=CS-NEWSTEX-FT-etf_news_and_commentary-3031756"
+    },
+    {
+      "figure": "3.6%",
+      "measures": "Annual headline CPI inflation in October",
+      "outlet": "ActionForex",
+      "headline": "UK Inflation Rises to 3.6% as Fuel Prices Surge, Core CPI Holds Steady",
+      "link": "https://www.actionforex.com/live-comments/661264-uk-inflation-rises-to-3-6-as-fuel-prices-surge-core-cpi-holds-steady/"
+    },
+    {
+      "figure": "33.2%",
+      "measures": "Annual motor fuel inflation in October",
+      "outlet": "ActionForex",
+      "headline": "UK Inflation Rises to 3.6% as Fuel Prices Surge, Core CPI Holds Steady",
+      "link": "https://www.actionforex.com/live-comments/661264-uk-inflation-rises-to-3-6-as-fuel-prices-surge-core-cpi-holds-steady/"
+    },
+    {
+      "figure": "5.66%",
+      "measures": "U.S. Dollar Index year-to-date gain",
+      "outlet": "Zacks Investment Research",
+      "headline": "US Dollar ETF (UUP) Hits New 52-Week High",
+      "link": "https://www.zacks.com/stock/news/3031782/us-dollar-etf-uup-hits-new-52-week-high?cid=CS-NEWSTEX-FT-etf_news_and_commentary-3031782"
+    },
+    {
+      "figure": "2,300",
+      "measures": "User-submitted US reports of Apple Pay problems",
+      "outlet": "International Business Times UK",
+      "headline": "Apple Blames Internal Update After Outage Hits iCloud and Apple Pay, Rules Out Cyberattack",
+      "link": "https://www.ibtimes.co.uk/apple-blames-internal-update-after-outage-hits-icloud-apple-pay-rules-out-cyberattack-1833027"
+    },
+    {
+      "figure": "178",
+      "measures": "Organisations with infected snippets identified by Report URI",
+      "outlet": "International Business Times UK",
+      "headline": "Cyberattacks and Outages in November: Here Are the Major US Disruptions Reported So Far",
+      "link": "https://www.ibtimes.co.uk/us-businesses-hit-cyber-incidents-outages-1832974"
+    }
+  ]
+}

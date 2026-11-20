@@ -1,0 +1,470 @@
+{
+  "listener": "jordan",
+  "name": "Jordan",
+  "date": "2026-11-18",
+  "audio": "briefing.mp3",
+  "figures_total": 15,
+  "figures_verified": 15,
+  "sources_total": 14,
+  "sentences": [
+    {
+      "text": "Good morning!",
+      "start": 0.0,
+      "end": 0.511,
+      "story": "Kevin O'Leary Warns Anthropic Investors It May Not Turn a Profit Until 2030 Despite IPO Backing",
+      "sources": []
+    },
+    {
+      "text": "Anthropic’s reported IPO price is $83 a share, clearing the $78 ceiling in its latest filing, according to Invezz.",
+      "start": 0.534,
+      "end": 8.487,
+      "story": "Kevin O'Leary Warns Anthropic Investors It May Not Turn a Profit Until 2030 Despite IPO Backing",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7RA7FKSX80HJP98G68KDV6K",
+          "outlet": "Invezz",
+          "headline": "Anthropic IPO prices at $83 a share as ANT prepares Thursday debut",
+          "link": "https://invezz.com/news/2026/11/18/anthropic-ipo-prices-at-83-2026-11-18/"
+        }
+      ]
+    },
+    {
+      "text": "Anthropic’s IPO pricing implies a valuation of about $1.5 trillion once you include shares the company could issue down the road.",
+      "start": 9.091,
+      "end": 16.754,
+      "story": "Kevin O'Leary Warns Anthropic Investors It May Not Turn a Profit Until 2030 Despite IPO Backing",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7RA7FKSX80HJP98G68KDV6K",
+          "outlet": "Invezz",
+          "headline": "Anthropic IPO prices at $83 a share as ANT prepares Thursday debut",
+          "link": "https://invezz.com/news/2026/11/18/anthropic-ipo-prices-at-83-2026-11-18/"
+        }
+      ]
+    },
+    {
+      "text": "Anthropic has disclosed $900.9 billion in computing and infrastructure commitments, and its prospectus flags those commitments and a history of losses as risks.",
+      "start": 17.357,
+      "end": 27.075,
+      "story": "Kevin O'Leary Warns Anthropic Investors It May Not Turn a Profit Until 2030 Despite IPO Backing",
+      "sources": [
+        {
+          "article_id": "IBTU-10010345-01M7QZNEWBFG7B049BCHQBJNH0",
+          "outlet": "International Business Times UK",
+          "headline": "Kevin O'Leary Warns Anthropic Investors It May Not Turn a Profit Until 2030 Despite IPO Backing",
+          "link": "https://www.ibtimes.co.uk/kevin-oleary-anthropic-ipo-profitability-2030-1833078"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7QGRRNGDFV7ZDDN5YZAN6R2",
+          "outlet": "Invezz",
+          "headline": "Anthropic stock price targets: what analysts say before the ANT debut",
+          "link": "https://invezz.com/news/2026/11/18/anthropic-stock-price-targets-what-analysts-say-before-ant-debut/"
+        }
+      ]
+    },
+    {
+      "text": "Investor Kevin O’Leary sees AI already helping businesses improve productivity and margins, but he warned that Anthropic itself might not turn a profit until 2030.",
+      "start": 27.771,
+      "end": 37.791,
+      "story": "Kevin O'Leary Warns Anthropic Investors It May Not Turn a Profit Until 2030 Despite IPO Backing",
+      "sources": [
+        {
+          "article_id": "IBTU-10010345-01M7QZNEWBFG7B049BCHQBJNH0",
+          "outlet": "International Business Times UK",
+          "headline": "Kevin O'Leary Warns Anthropic Investors It May Not Turn a Profit Until 2030 Despite IPO Backing",
+          "link": "https://www.ibtimes.co.uk/kevin-oleary-anthropic-ipo-profitability-2030-1833078"
+        }
+      ]
+    },
+    {
+      "text": "Here’s the link to your Nvidia shares: before the offering was priced, the market’s reaction to Nvidia’s results was flagged as a factor in where Anthropic would price the deal.",
+      "start": 38.394,
+      "end": 48.913,
+      "story": "Kevin O'Leary Warns Anthropic Investors It May Not Turn a Profit Until 2030 Despite IPO Backing",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7QFAWY702HWHNYSRPSW450Q",
+          "outlet": "Invezz",
+          "headline": "Anthropic set to price its IPO tonight, with reports pointing above $80",
+          "link": "https://invezz.com/news/2026/11/18/anthropic-ipo-set-to-price-tonight-reports-point-above-80/"
+        }
+      ]
+    },
+    {
+      "text": "Nvidia shares fell 2.2% on Wednesday, Invezz reports, even though the chipmaker beat Wall Street’s expectations on both revenue and earnings.",
+      "start": 49.609,
+      "end": 58.41,
+      "story": "Nvidia results and impact on CoreWeave / Nebius / Micron",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7QX2AZKHXQBF025KWYRR15Z",
+          "outlet": "Invezz",
+          "headline": "Why is Nvidia stock falling over 2% on Wednesday?",
+          "link": "https://invezz.com/news/2026/11/18/why-is-nvidia-stock-falling-over-2-on-wednesday/"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7NQHM94VNJQGKEKVC7J3EQV",
+          "outlet": "Invezz",
+          "headline": "Nvidia stock rises after hours as revenue forecast beats estimates",
+          "link": "https://invezz.com/news/2026/11/17/nvidia-stock-rises-after-hours-as-revenue-forecast-beats-estimates/"
+        }
+      ]
+    },
+    {
+      "text": "Nvidia’s revenue forecast of $130 billion for the coming quarter also topped estimates, a sign that demand for its AI products remains strong.",
+      "start": 59.106,
+      "end": 68.696,
+      "story": "Nvidia results and impact on CoreWeave / Nebius / Micron",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7QX2AZKHXQBF025KWYRR15Z",
+          "outlet": "Invezz",
+          "headline": "Why is Nvidia stock falling over 2% on Wednesday?",
+          "link": "https://invezz.com/news/2026/11/18/why-is-nvidia-stock-falling-over-2-on-wednesday/"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7PSWAT3X3PQN5MKTN1G3WK8",
+          "outlet": "Invezz",
+          "headline": "Why Samsung, SK Hynix shares rebounded on Wednesday?",
+          "link": "https://invezz.com/news/2026/11/18/why-samsung-sk-hynix-shares-rebounded-on-wednesday/"
+        }
+      ]
+    },
+    {
+      "text": "Leadership uncertainty weighed on Nvidia shares, and a House committee requested a briefing on alleged export-control violations that have not been established as wrongdoing by Nvidia.",
+      "start": 69.3,
+      "end": 80.329,
+      "story": "Nvidia results and impact on CoreWeave / Nebius / Micron",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7QX2AZKHXQBF025KWYRR15Z",
+          "outlet": "Invezz",
+          "headline": "Why is Nvidia stock falling over 2% on Wednesday?",
+          "link": "https://invezz.com/news/2026/11/18/why-is-nvidia-stock-falling-over-2-on-wednesday/"
+        }
+      ]
+    },
+    {
+      "text": "The reaction across AI stocks was mixed: cloud computing providers CoreWeave and Nebius jumped more than 4% and 6%, respectively, before the opening bell after Nvidia’s earnings beat.",
+      "start": 80.933,
+      "end": 94.389,
+      "story": "Nvidia results and impact on CoreWeave / Nebius / Micron",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7QBKXXQG1CN33HQFZTF7S1B",
+          "outlet": "Invezz",
+          "headline": "Nvidia earnings lift CoreWeave, Nebius, Iren stocks, but Kress adds word of caution",
+          "link": "https://invezz.com/news/2026/11/18/nvidia-earnings-lift-coreweave-nebius-iren-stocks-but-kress-adds-word-of-caution/"
+        }
+      ]
+    },
+    {
+      "text": "Micron slipped in early trading as investors stayed cautious about Nvidia’s leadership turmoil, even though Nvidia’s commitments to purchase memory could benefit suppliers like Micron.",
+      "start": 95.086,
+      "end": 106.371,
+      "story": "Nvidia results and impact on CoreWeave / Nebius / Micron",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7QKB1RWEGZ503PYTAR0HM7Q",
+          "outlet": "Invezz",
+          "headline": "Why Micron stock is falling despite strong Nvidia results?",
+          "link": "https://invezz.com/news/2026/11/18/why-micron-stock-is-falling-despite-strong-nvidia-results/"
+        }
+      ]
+    },
+    {
+      "text": "Target’s comparable sales rose 5.6% on more transactions and slightly larger purchases, and it raised its full-year outlook for sales and earnings, though tariff refunds helped pad the quarterly earnings beat, Invezz reports.",
+      "start": 107.067,
+      "end": 123.38,
+      "story": "Target and Lowe's earnings",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7QA62EGJ977XR4Q0XBN12X0",
+          "outlet": "Invezz",
+          "headline": "Target earnings: retailer's comeback is showing up at checkout",
+          "link": "https://invezz.com/news/2026/11/18/target-earnings-retailers-comeback-is-showing-up-at-checkout/"
+        }
+      ]
+    },
+    {
+      "text": "Lowe’s shares fell before the bell despite an earnings beat helped by tariff refunds, and its unchanged full-year earnings forecast may have disappointed investors.",
+      "start": 123.983,
+      "end": 134.142,
+      "story": "Target and Lowe's earnings",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7QF1S15NCFAA5FEE69MAR2X",
+          "outlet": "Invezz",
+          "headline": "Lowe’s stock falls 4% despite earnings beat as tariff refunds lift profit",
+          "link": "https://invezz.com/news/2026/11/18/lowes-stock-falls-4-despite-earnings-beat-as-tariff-refunds-lift-profit/"
+        }
+      ]
+    },
+    {
+      "text": "Take-Two shares rose 5% before the bell ahead of its upcoming Grand Theft Auto launch, and its CEO said preorders were well above initial expectations, Invezz reports.",
+      "start": 135.257,
+      "end": 146.089,
+      "story": "Take Two stock jumps ahead of GTA VI launch: why this analyst sees a 63% upside",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7QDX36EHT7CS0BSQQK7D8HG",
+          "outlet": "Invezz",
+          "headline": "Take Two stock jumps ahead of GTA VI launch: why this analyst sees a 63% upside",
+          "link": "https://invezz.com/news/2026/11/18/take-two-stock-jumps-ahead-of-gta-vi-launch-why-this-analyst-sees-a-63-upside/"
+        }
+      ]
+    },
+    {
+      "text": "Bank of America sees the launch driving growth for Take-Two, and its price target implies 63% upside, a forecast rather than a promised return.",
+      "start": 146.786,
+      "end": 156.05,
+      "story": "Take Two stock jumps ahead of GTA VI launch: why this analyst sees a 63% upside",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7QDX36EHT7CS0BSQQK7D8HG",
+          "outlet": "Invezz",
+          "headline": "Take Two stock jumps ahead of GTA VI launch: why this analyst sees a 63% upside",
+          "link": "https://invezz.com/news/2026/11/18/take-two-stock-jumps-ahead-of-gta-vi-launch-why-this-analyst-sees-a-63-upside/"
+        }
+      ]
+    },
+    {
+      "text": "For Take-Two shareholders, the launch is only part of the story: Bank of America sees spending in GTA Online as the franchise’s main long-term profit driver.",
+      "start": 157.002,
+      "end": 166.743,
+      "story": "Take Two stock jumps ahead of GTA VI launch: why this analyst sees a 63% upside",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7QDX36EHT7CS0BSQQK7D8HG",
+          "outlet": "Invezz",
+          "headline": "Take Two stock jumps ahead of GTA VI launch: why this analyst sees a 63% upside",
+          "link": "https://invezz.com/news/2026/11/18/take-two-stock-jumps-ahead-of-gta-vi-launch-why-this-analyst-sees-a-63-upside/"
+        }
+      ]
+    },
+    {
+      "text": "Bitcoin traded at $63,465 on Coinbase, Invezz reports, as more money flowed out of US funds that hold Bitcoin than flowed in.",
+      "start": 167.346,
+      "end": 176.692,
+      "story": "Bitcoin below $64k and XRP back above $1",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7QMFPNK8Z802MSZ4R57CXXK",
+          "outlet": "Invezz",
+          "headline": "Bitcoin price today: BTC below $64,000 as Citi cuts target to $99,532",
+          "link": "https://invezz.com/news/2026/11/18/bitcoin-price-today-btc-below-64000-etf-outflows-fed-minutes/"
+        }
+      ]
+    },
+    {
+      "text": "Citi lowered its Bitcoin target to $99,532, and its analyst now expects less new money to come into Bitcoin in the near term.",
+      "start": 177.296,
+      "end": 185.841,
+      "story": "Bitcoin below $64k and XRP back above $1",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7QMFPNK8Z802MSZ4R57CXXK",
+          "outlet": "Invezz",
+          "headline": "Bitcoin price today: BTC below $64,000 as Citi cuts target to $99,532",
+          "link": "https://invezz.com/news/2026/11/18/bitcoin-price-today-btc-below-64000-etf-outflows-fed-minutes/"
+        }
+      ]
+    },
+    {
+      "text": "One thing to watch today: whether XRP can stay above $1 after climbing 4.5% on Wednesday to reclaim that level, with large holders moving tokens off Binance.",
+      "start": 187.142,
+      "end": 198.415,
+      "story": "Bitcoin below $64k and XRP back above $1",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7Q05MC5A10EMYGZBQ7DZEVX",
+          "outlet": "Invezz",
+          "headline": "XRP reclaims $1, aided by massive Binance whale withdrawals",
+          "link": "https://invezz.com/news/2026/11/18/xrp-reclaims-1-aided-by-massive-binance-whale-withdrawals/"
+        }
+      ]
+    },
+    {
+      "text": "Every figure in this briefing, all 15 of them, was checked against 14 source articles. Your receipts are in the app.",
+      "start": 198.926,
+      "end": 206.333,
+      "story": "Your receipt",
+      "sources": []
+    }
+  ],
+  "caught": [
+    {
+      "figure": null,
+      "reason": "copied_sequence_of_8_words",
+      "kind": "copied",
+      "sentence": "Licensed wording withheld."
+    },
+    {
+      "figure": null,
+      "reason": "copied_sequence_of_8_words",
+      "kind": "copied",
+      "sentence": "Licensed wording withheld."
+    },
+    {
+      "figure": "$64,000",
+      "reason": "number_not_in_cited_facts",
+      "kind": "invented",
+      "sentence": "Bitcoin fell below $64,000 to trade at $63,465 on Coinbase, Invezz reports, as more money flowed out of US funds that hold Bitcoin than flowed in."
+    },
+    {
+      "figure": null,
+      "reason": "copied_sequence_of_8_words",
+      "kind": "copied",
+      "sentence": "Licensed wording withheld."
+    }
+  ],
+  "conflicts": [
+    {
+      "measure": "Nvidia after-hours share gain",
+      "value_a": "2.91%",
+      "outlet_a": "ActionForex",
+      "link_a": "https://www.actionforex.com/action-insight/market-overview/661345-nvidia-beat-fails-to-spark-rally-as-shenzhen-summit-opens-and-oil-stays-range-bound/",
+      "value_b": "2.47%",
+      "outlet_b": "Invezz",
+      "link_b": "https://invezz.com/news/2026/11/17/nvidia-stock-rises-after-hours-as-revenue-forecast-beats-estimates/",
+      "used": null
+    },
+    {
+      "measure": "Measurement described in the linked source.",
+      "value_a": "96.7%",
+      "outlet_a": "ActionForex",
+      "link_a": "https://www.actionforex.com/action-insight/market-overview/661273-gold-hits-one-year-low-ahead-of-fomc-minutes-as-fed-rate-path-takes-center-stage/",
+      "value_b": "98%",
+      "outlet_b": "ActionForex",
+      "link_b": "https://www.actionforex.com/live-comments/661237-feds-williams-backs-further-rate-hikes-but-sees-no-need-for-dramatic-action/",
+      "used": null
+    },
+    {
+      "measure": "Spot gold price",
+      "value_a": "$3,770",
+      "outlet_a": "Invezz",
+      "link_a": "https://invezz.com/news/2026/11/18/gold-slips-back-below-one-year-low-but-goldman-sachs-sees-long-term-recovery/",
+      "value_b": "$3,852.67",
+      "outlet_b": "Invezz",
+      "link_b": "https://invezz.com/news/2026/11/17/evening-digest-huang-says-he-is-willing-to-return-anthropic-wins-first-buy-rating/",
+      "used": null
+    },
+    {
+      "measure": "Brent crude futures price",
+      "value_a": "$92.21",
+      "outlet_a": "Invezz",
+      "link_a": "https://invezz.com/news/2026/11/18/oil-price-today-api-528-million-barrel-us-crude-build/",
+      "value_b": "$93.17",
+      "outlet_b": "Invezz",
+      "link_b": "https://invezz.com/news/2026/11/17/evening-digest-huang-says-he-is-willing-to-return-anthropic-wins-first-buy-rating/",
+      "used": null
+    }
+  ],
+  "receipt": [
+    {
+      "figure": "$83",
+      "measures": "Reported IPO price per share",
+      "outlet": "Invezz",
+      "headline": "Anthropic IPO prices at $83 a share as ANT prepares Thursday debut",
+      "link": "https://invezz.com/news/2026/11/18/anthropic-ipo-prices-at-83-2026-11-18/"
+    },
+    {
+      "figure": "$78",
+      "measures": "IPO price range in the latest filing",
+      "outlet": "Invezz",
+      "headline": "Anthropic IPO prices at $83 a share as ANT prepares Thursday debut",
+      "link": "https://invezz.com/news/2026/11/18/anthropic-ipo-prices-at-83-2026-11-18/"
+    },
+    {
+      "figure": "$1.5 trillion",
+      "measures": "Illustrative fully diluted valuation at the reported price",
+      "outlet": "Invezz",
+      "headline": "Anthropic IPO prices at $83 a share as ANT prepares Thursday debut",
+      "link": "https://invezz.com/news/2026/11/18/anthropic-ipo-prices-at-83-2026-11-18/"
+    },
+    {
+      "figure": "$900.9 billion",
+      "measures": "Total computing and infrastructure commitments",
+      "outlet": "International Business Times UK",
+      "headline": "Kevin O'Leary Warns Anthropic Investors It May Not Turn a Profit Until 2030 Despite IPO Backing",
+      "link": "https://www.ibtimes.co.uk/kevin-oleary-anthropic-ipo-profitability-2030-1833078"
+    },
+    {
+      "figure": "2.2%",
+      "measures": "Wednesday's share-price decline",
+      "outlet": "Invezz",
+      "headline": "Why is Nvidia stock falling over 2% on Wednesday?",
+      "link": "https://invezz.com/news/2026/11/18/why-is-nvidia-stock-falling-over-2-on-wednesday/"
+    },
+    {
+      "figure": "$130 billion",
+      "measures": "Fourth-quarter revenue forecast",
+      "outlet": "Invezz",
+      "headline": "Why is Nvidia stock falling over 2% on Wednesday?",
+      "link": "https://invezz.com/news/2026/11/18/why-is-nvidia-stock-falling-over-2-on-wednesday/"
+    },
+    {
+      "figure": "4%",
+      "measures": "CoreWeave’s premarket share-price increase",
+      "outlet": "Invezz",
+      "headline": "Nvidia earnings lift CoreWeave, Nebius, Iren stocks, but Kress adds word of caution",
+      "link": "https://invezz.com/news/2026/11/18/nvidia-earnings-lift-coreweave-nebius-iren-stocks-but-kress-adds-word-of-caution/"
+    },
+    {
+      "figure": "6%",
+      "measures": "Nebius’s premarket share-price increase",
+      "outlet": "Invezz",
+      "headline": "Nvidia earnings lift CoreWeave, Nebius, Iren stocks, but Kress adds word of caution",
+      "link": "https://invezz.com/news/2026/11/18/nvidia-earnings-lift-coreweave-nebius-iren-stocks-but-kress-adds-word-of-caution/"
+    },
+    {
+      "figure": "5.6%",
+      "measures": "Comparable-sales growth",
+      "outlet": "Invezz",
+      "headline": "Target earnings: retailer's comeback is showing up at checkout",
+      "link": "https://invezz.com/news/2026/11/18/target-earnings-retailers-comeback-is-showing-up-at-checkout/"
+    },
+    {
+      "figure": "5%",
+      "measures": "Premarket increase in Take-Two shares",
+      "outlet": "Invezz",
+      "headline": "Take Two stock jumps ahead of GTA VI launch: why this analyst sees a 63% upside",
+      "link": "https://invezz.com/news/2026/11/18/take-two-stock-jumps-ahead-of-gta-vi-launch-why-this-analyst-sees-a-63-upside/"
+    },
+    {
+      "figure": "63%",
+      "measures": "Implied stock upside at Bank of America's price target",
+      "outlet": "Invezz",
+      "headline": "Take Two stock jumps ahead of GTA VI launch: why this analyst sees a 63% upside",
+      "link": "https://invezz.com/news/2026/11/18/take-two-stock-jumps-ahead-of-gta-vi-launch-why-this-analyst-sees-a-63-upside/"
+    },
+    {
+      "figure": "$63,465",
+      "measures": "Bitcoin’s Coinbase trading price",
+      "outlet": "Invezz",
+      "headline": "Bitcoin price today: BTC below $64,000 as Citi cuts target to $99,532",
+      "link": "https://invezz.com/news/2026/11/18/bitcoin-price-today-btc-below-64000-etf-outflows-fed-minutes/"
+    },
+    {
+      "figure": "$99,532",
+      "measures": "Citi’s revised 12-month Bitcoin price target",
+      "outlet": "Invezz",
+      "headline": "Bitcoin price today: BTC below $64,000 as Citi cuts target to $99,532",
+      "link": "https://invezz.com/news/2026/11/18/bitcoin-price-today-btc-below-64000-etf-outflows-fed-minutes/"
+    },
+    {
+      "figure": "$1",
+      "measures": "Price level reclaimed by XRP",
+      "outlet": "Invezz",
+      "headline": "XRP reclaims $1, aided by massive Binance whale withdrawals",
+      "link": "https://invezz.com/news/2026/11/18/xrp-reclaims-1-aided-by-massive-binance-whale-withdrawals/"
+    },
+    {
+      "figure": "4.5%",
+      "measures": "XRP's price increase on Wednesday",
+      "outlet": "Invezz",
+      "headline": "XRP reclaims $1, aided by massive Binance whale withdrawals",
+      "link": "https://invezz.com/news/2026/11/18/xrp-reclaims-1-aided-by-massive-binance-whale-withdrawals/"
+    }
+  ]
+}

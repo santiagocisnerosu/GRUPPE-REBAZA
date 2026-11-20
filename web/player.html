@@ -60,6 +60,7 @@
     .audit-row { border-top: 1px solid #d4ddd3; padding: 12px 0 8px; }
     .audit-row p { margin: 5px 0; line-height: 1.4; }
     .audit-row strong { color: var(--rust); }
+    .blocked-figure { color: #a0221b; font-weight: 800; text-decoration-thickness: 2px; }
     .audit-row a { display: inline-block; margin: 4px 9px 4px 0; font-weight: 650; }
     .used { font-weight: 750; color: #1e583e; }
     .placeholder, .status { padding: 12px 16px; color: var(--muted); }
@@ -233,11 +234,27 @@
     function drawChecks(data) {
       document.querySelector("#caught-count").textContent = data.caught.length;
       document.querySelector("#conflict-count").textContent = data.conflicts.length;
-      const caught = data.caught.map((item) => {
+      const order = ["invented", "copied", "miscited"];
+      const caughtLabels = {
+        invented: "Invented number blocked",
+        copied: "Licensed text blocked",
+        miscited: "Citation fixed"
+      };
+      const caught = [...data.caught].sort((a, b) => order.indexOf(a.kind) - order.indexOf(b.kind)).map((item) => {
         const card = element("div", undefined, "audit-row");
-        const reason = labels[item.reason] ?? item.reason.replaceAll("_", " ");
-        card.append(element("strong", item.figure == null ? reason : item.figure + " / " + reason));
-        card.append(element("p", item.sentence));
+        const label = caughtLabels[item.kind] ?? labels[item.reason] ?? item.reason.replaceAll("_", " ");
+        card.append(element("strong", label));
+        const sentence = element("p");
+        const text = item.sentence || "Licensed wording withheld.";
+        const at = item.figure == null ? -1 : text.indexOf(item.figure);
+        if (at >= 0) {
+          sentence.append(document.createTextNode(text.slice(0, at)),
+            element("del", item.figure, "blocked-figure"),
+            document.createTextNode(text.slice(at + item.figure.length)));
+        } else {
+          sentence.textContent = text;
+        }
+        card.append(sentence);
         return card;
       });
       const conflicts = data.conflicts.map((item) => {
@@ -287,13 +304,13 @@
       receiptButton.disabled = true;
       document.querySelector("#stats").textContent = "";
       document.querySelector("#edition").textContent = "";
-      status.textContent = "Loading " + tab.textContent + "…";
+      status.textContent = "Loading " + tab.textContent + "â€¦";
       status.hidden = false;
       try {
         const url = new URL("../out/" + listener + "/transcript.json", location.href);
         const response = await fetch(url, { signal: current.signal, cache: "no-store" });
         if (response.status === 404) {
-          status.textContent = tab.textContent + "’s audio hasn’t been generated yet.";
+          status.textContent = tab.textContent + "â€™s audio hasnâ€™t been generated yet.";
           return;
         }
         if (!response.ok) throw new Error("Transcript request failed");
@@ -308,8 +325,8 @@
         drawReceipt(data);
         const invented = data.figures_total - data.figures_verified;
         document.querySelector("#stats").textContent =
-          data.figures_verified + " of " + data.figures_total + " figures verified · " +
-          data.sources_total + " sources · " + invented + " invented";
+          data.figures_verified + " of " + data.figures_total + " figures verified Â· " +
+          data.sources_total + " sources Â· " + invented + " invented";
         const date = document.querySelector("#edition");
         date.dateTime = data.date;
         date.textContent = new Intl.DateTimeFormat("en-GB", {
@@ -324,7 +341,7 @@
         syncTranscript();
       } catch (error) {
         if (!current.signal.aborted) {
-          status.textContent = "Couldn’t load this briefing. Open the player through the local HTTP server.";
+          status.textContent = "Couldnâ€™t load this briefing. Open the player through the local HTTP server.";
         }
       }
     }

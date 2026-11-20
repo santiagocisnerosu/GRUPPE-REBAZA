@@ -26,8 +26,7 @@ LISTENERS = ("mara", "jordan", "priya")
 WORD = re.compile(r"[^\W_]+(?:'[^\W_]+)*", re.UNICODE)
 SPELLED_NUMBER = re.compile(
     NUMBER_WORD.pattern
-    + r"|\b(?:zero|thirty|forty|fifty|sixty|seventy|eighty|ninety|trillion|"
-      r"first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth)\b",
+    + r"|\b(?:zero|thirty|forty|fifty|sixty|seventy|eighty|ninety|trillion)\b",
     re.IGNORECASE,
 )
 WORD_VALUES = dict(zip(
@@ -295,7 +294,13 @@ def unmatched_numbers(text):
 def omit_editorial_idioms(text):
     text = re.sub(r"^One thing (?:to watch today|for today):\s*", "", text, flags=re.I)
     text = re.sub(r"\bHave a good one[.!]?\s*$", "", text, flags=re.I)
-    return re.sub(r"\bTake-Two\b", "TakeTwo", text, flags=re.I)
+    text = re.sub(r"\b(?:Take[- ]?Two|G7|G20|Q[1-4]|Grand Theft Auto 6|GTA 6|PS5)\b",
+                  " ", text, flags=re.I)
+    text = re.sub(r"(?<![\w$+\-\u00a3\u20ac\u00a5])(?:19|20)\d{2}\b"
+                  r"(?![.,]\d|\s*%|\s*(?:million|billion|bps)\b)", " ", text)
+    return re.sub(r"(?<![\w$.,])\d+\s*-?\s*"
+                  r"(?:years?|months?|weeks?|days?|sessions?|hours?|minutes?)\b",
+                  " ", text, flags=re.I)
 
 
 def numeric_mentions(text):
@@ -359,7 +364,7 @@ PRIYA_CLOSING = "For your business,"
 
 
 def starts_with_number(text):
-    text = omit_editorial_idioms(text)
+    text = omit_editorial_idioms(normalize_text(text))
     first = re.match(r"^[\s\W_]*?(?:[+$\u00a3\u20ac\u00a5-]\s*)?(\d+)", text)
     if first:
         return True
@@ -618,7 +623,10 @@ def validate_script(profile, chosen, source_windows, client, model, day, facts, 
                                    "frase_original": original.text, "intento": attempt})
                 break
             caught.extend({**error, "frase_original": original.text, "intento": attempt,
-                           "frase_evaluada": sentence.text} for error in errors)
+                           "frase_evaluada": sentence.text,
+                           "original_article_ids": list(dict.fromkeys(
+                               facts[i]["article_id"] for i in sentence.fact_ids if i in facts
+                           ))} for error in errors)
             if attempt == 2:
                 break
             allowed_facts = {i: facts[i] for i in dict.fromkeys(original.fact_ids) if i in facts}
@@ -720,7 +728,7 @@ def validate_script(profile, chosen, source_windows, client, model, day, facts, 
         return validate_script(profile, chosen, source_windows, client, model, day, facts,
                                retry, payload, retry_budget=False, earlier_errors=caught, small_model=small_model)
     if not minimum <= word_count <= maximum or missing:
-        write_json(ROOT / "out" / listener / "caught.json", caught)
+        write_json(ROOT / "out" / listener / "validation_issues.json", caught)
         raise RuntimeError(
             f"{profile['id']}: {word_count} words (expected {minimum}-{maximum}); "
             f"missing priorities: {missing}"
@@ -743,7 +751,11 @@ def validate_script(profile, chosen, source_windows, client, model, day, facts, 
         result["sentences"] = [{"text": opener_text, "story_id": sentences[0]["story_id"],
                                 "fact_ids": [], "article_ids": [], "editor_opener": True}, *sentences]
     out = ROOT / "out" / profile["id"]
-    write_json(out / "caught.json", caught)
+    write_json(out / "validation_issues.json", caught)
+    from .caught import classify_caught
+
+    verified = json.loads((CACHE_DIR / "verified.json").read_text(encoding="utf-8"))
+    write_json(out / "caught.json", classify_caught(caught, result, verified))
     append_receipt_closing(result, len(used_numbers))
     write_json(out / "script.json", result)
     print(f"{profile['id']}: {word_count} words | {len(sentences)} sentences | "

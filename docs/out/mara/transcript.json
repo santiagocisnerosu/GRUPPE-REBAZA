@@ -1,0 +1,494 @@
+{
+  "listener": "mara",
+  "name": "Mara",
+  "date": "2026-11-18",
+  "audio": "briefing.mp3",
+  "figures_total": 21,
+  "figures_verified": 21,
+  "sources_total": 9,
+  "sentences": [
+    {
+      "text": "Morning.",
+      "start": 0.0,
+      "end": 0.534,
+      "story": "US Dollar ETF (UUP) Hits New 52-Week High",
+      "sources": []
+    },
+    {
+      "text": "Yesterday, the dollar firmed as Fed speakers reinforced expectations of further US rate hikes, with Zacks Investment Research putting the dollar index’s gain at 0.54%.",
+      "start": 0.998,
+      "end": 12.179,
+      "story": "US Dollar ETF (UUP) Hits New 52-Week High",
+      "sources": [
+        {
+          "article_id": "ZACK-105463-01M7QNMA2EJMHCE8S8XWQJEBW9",
+          "outlet": "Zacks Investment Research",
+          "headline": "US Dollar ETF (UUP) Hits New 52-Week High",
+          "link": "https://www.zacks.com/stock/news/3031782/us-dollar-etf-uup-hits-new-52-week-high?cid=CS-NEWSTEX-FT-etf_news_and_commentary-3031782"
+        }
+      ]
+    },
+    {
+      "text": "The US Dollar Index is up 5.66% year to date, and expectations of a tighter Fed stance could give the dollar further support.",
+      "start": 12.585,
+      "end": 21.281,
+      "story": "US Dollar ETF (UUP) Hits New 52-Week High",
+      "sources": [
+        {
+          "article_id": "ZACK-105463-01M7QNMA2EJMHCE8S8XWQJEBW9",
+          "outlet": "Zacks Investment Research",
+          "headline": "US Dollar ETF (UUP) Hits New 52-Week High",
+          "link": "https://www.zacks.com/stock/news/3031782/us-dollar-etf-uup-hits-new-52-week-high?cid=CS-NEWSTEX-FT-etf_news_and_commentary-3031782"
+        }
+      ]
+    },
+    {
+      "text": "Fed Governor Waller favours a 50 basis point December hike unless the Fed signals another increase in January, according to ActionForex.",
+      "start": 21.745,
+      "end": 30.627,
+      "story": "Fed’s Waller Calls for 50bps December Hike Unless January Increase Is Signaled",
+      "sources": [
+        {
+          "article_id": "ACTI-10010414-01M7QZ4F0W7KZCP86AAA0TPEDH",
+          "outlet": "ActionForex",
+          "headline": "Fed’s Waller Calls for 50bps December Hike Unless January Increase Is Signaled",
+          "link": "https://www.actionforex.com/live-comments/661347-feds-waller-calls-for-50bps-december-hike-unless-january-increase-is-signaled/"
+        }
+      ]
+    },
+    {
+      "text": "Waller says inflation is spreading and that reversing last year's cuts may not be enough to bring it down, while Warsh argues explicit guidance would limit the Fed's flexibility.",
+      "start": 31.173,
+      "end": 41.041,
+      "story": "Fed’s Waller Calls for 50bps December Hike Unless January Increase Is Signaled",
+      "sources": [
+        {
+          "article_id": "ACTI-10010414-01M7QZ4F0W7KZCP86AAA0TPEDH",
+          "outlet": "ActionForex",
+          "headline": "Fed’s Waller Calls for 50bps December Hike Unless January Increase Is Signaled",
+          "link": "https://www.actionforex.com/live-comments/661347-feds-waller-calls-for-50bps-december-hike-unless-january-increase-is-signaled/"
+        }
+      ]
+    },
+    {
+      "text": "December pricing still centres on a 25 basis point hike, smaller than the move Waller wants if there's no signal for January.",
+      "start": 41.506,
+      "end": 48.67,
+      "story": "Fed’s Waller Calls for 50bps December Hike Unless January Increase Is Signaled",
+      "sources": [
+        {
+          "article_id": "ACTI-10010414-01M7QZ4F0W7KZCP86AAA0TPEDH",
+          "outlet": "ActionForex",
+          "headline": "Fed’s Waller Calls for 50bps December Hike Unless January Increase Is Signaled",
+          "link": "https://www.actionforex.com/live-comments/661347-feds-waller-calls-for-50bps-december-hike-unless-january-increase-is-signaled/"
+        }
+      ]
+    },
+    {
+      "text": "The Bank of Japan held at 1.25%, but Governor Ueda says further hikes are warranted because financial conditions remain accommodative, ActionForex reports.",
+      "start": 48.96,
+      "end": 59.513,
+      "story": "BoJ’s Ueda Backs Further Rate Hikes, Warns Against Suppressing Bond Yields",
+      "sources": [
+        {
+          "article_id": "ACTI-10010414-01M7Q2T2YDM4K55537D0THDE5D",
+          "outlet": "ActionForex",
+          "headline": "BoJ’s Ueda Backs Further Rate Hikes, Warns Against Suppressing Bond Yields",
+          "link": "https://www.actionforex.com/live-comments/661244-bojs-ueda-backs-further-rate-hikes-warns-against-suppressing-bond-yields/"
+        }
+      ]
+    },
+    {
+      "text": "The BoJ is focused on preventing an overshoot of its 2% inflation target and will assess the proposed food tax cut once the details are final.",
+      "start": 60.059,
+      "end": 68.778,
+      "story": "BoJ’s Ueda Backs Further Rate Hikes, Warns Against Suppressing Bond Yields",
+      "sources": [
+        {
+          "article_id": "ACTI-10010414-01M7Q2T2YDM4K55537D0THDE5D",
+          "outlet": "ActionForex",
+          "headline": "BoJ’s Ueda Backs Further Rate Hikes, Warns Against Suppressing Bond Yields",
+          "link": "https://www.actionforex.com/live-comments/661244-bojs-ueda-backs-further-rate-hikes-warns-against-suppressing-bond-yields/"
+        }
+      ]
+    },
+    {
+      "text": "For Japanese bonds, Ueda warned that volatility could rise if markets see the central bank as financing government spending.",
+      "start": 69.242,
+      "end": 76.475,
+      "story": "BoJ’s Ueda Backs Further Rate Hikes, Warns Against Suppressing Bond Yields",
+      "sources": [
+        {
+          "article_id": "ACTI-10010414-01M7Q2T2YDM4K55537D0THDE5D",
+          "outlet": "ActionForex",
+          "headline": "BoJ’s Ueda Backs Further Rate Hikes, Warns Against Suppressing Bond Yields",
+          "link": "https://www.actionforex.com/live-comments/661244-bojs-ueda-backs-further-rate-hikes-warns-against-suppressing-bond-yields/"
+        }
+      ]
+    },
+    {
+      "text": "UK headline inflation rose to 3.6% in October, in line with expectations, as motor fuel prices climbed 33.2% from a year earlier, ActionForex reports.",
+      "start": 76.939,
+      "end": 88.584,
+      "story": "UK Inflation Rises to 3.6% as Fuel Prices Surge, Core CPI Holds Steady",
+      "sources": [
+        {
+          "article_id": "ACTI-10010414-01M7Q2T2W2V6E7RCQX47FZAXXQ",
+          "outlet": "ActionForex",
+          "headline": "UK Inflation Rises to 3.6% as Fuel Prices Surge, Core CPI Holds Steady",
+          "link": "https://www.actionforex.com/live-comments/661264-uk-inflation-rises-to-3-6-as-fuel-prices-surge-core-cpi-holds-steady/"
+        }
+      ]
+    },
+    {
+      "text": "UK core inflation stayed at 2.8% and services inflation at 3.7%, with easing price growth in restaurants and hotels doing most to pull headline inflation lower.",
+      "start": 89.222,
+      "end": 100.949,
+      "story": "UK Inflation Rises to 3.6% as Fuel Prices Surge, Core CPI Holds Steady",
+      "sources": [
+        {
+          "article_id": "ACTI-10010414-01M7Q2T2W2V6E7RCQX47FZAXXQ",
+          "outlet": "ActionForex",
+          "headline": "UK Inflation Rises to 3.6% as Fuel Prices Surge, Core CPI Holds Steady",
+          "link": "https://www.actionforex.com/live-comments/661264-uk-inflation-rises-to-3-6-as-fuel-prices-surge-core-cpi-holds-steady/"
+        }
+      ]
+    },
+    {
+      "text": "Eurozone headline inflation rose to 4.0% in October, matching the preliminary estimate, with energy accounting for 1.89 percentage points of the annual rate, according to ActionForex.",
+      "start": 101.413,
+      "end": 114.358,
+      "story": "Eurozone Inflation Confirmed at 4.0% as Energy Surges, Core CPI Revised Higher",
+      "sources": [
+        {
+          "article_id": "ACTI-10010414-01M7QZ4F3HY6BPE904ZYM3719P",
+          "outlet": "ActionForex",
+          "headline": "Eurozone Inflation Confirmed at 4.0% as Energy Surges, Core CPI Revised Higher",
+          "link": "https://www.actionforex.com/live-comments/661283-eurozone-inflation-confirmed-at-4-0-as-energy-surges-core-cpi-revised-higher/"
+        }
+      ]
+    },
+    {
+      "text": "Eurozone core inflation was revised up to 2.6% in October, pointing to firmer underlying price pressure as services and non-energy industrial goods inflation edged up.",
+      "start": 114.823,
+      "end": 125.759,
+      "story": "Eurozone Inflation Confirmed at 4.0% as Energy Surges, Core CPI Revised Higher",
+      "sources": [
+        {
+          "article_id": "ACTI-10010414-01M7QZ4F3HY6BPE904ZYM3719P",
+          "outlet": "ActionForex",
+          "headline": "Eurozone Inflation Confirmed at 4.0% as Energy Surges, Core CPI Revised Higher",
+          "link": "https://www.actionforex.com/live-comments/661283-eurozone-inflation-confirmed-at-4-0-as-energy-surges-core-cpi-revised-higher/"
+        }
+      ]
+    },
+    {
+      "text": "US industry data showed crude inventories up 5.28 million barrels on the week and petrol stocks up 5.12 million, Invezz reports.",
+      "start": 126.305,
+      "end": 135.419,
+      "story": "Oil price today: Brent slips as fresh data shows rise in US crude inventory",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7Q4F0GZ0JE7XP9WYEHNC2YH",
+          "outlet": "Invezz",
+          "headline": "Oil price today: Brent slips as fresh data shows rise in US crude inventory",
+          "link": "https://invezz.com/news/2026/11/18/oil-price-today-api-528-million-barrel-us-crude-build/"
+        }
+      ]
+    },
+    {
+      "text": "Brent fell to $92.21 a barrel after the inventory build, with WTI at $84.60 and disruption in the Strait of Hormuz limiting the decline.",
+      "start": 135.883,
+      "end": 145.926,
+      "story": "Oil price today: Brent slips as fresh data shows rise in US crude inventory",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7Q4F0GZ0JE7XP9WYEHNC2YH",
+          "outlet": "Invezz",
+          "headline": "Oil price today: Brent slips as fresh data shows rise in US crude inventory",
+          "link": "https://invezz.com/news/2026/11/18/oil-price-today-api-528-million-barrel-us-crude-build/"
+        }
+      ]
+    },
+    {
+      "text": "The US 10-year yield was 5.115%, Invezz reports, as expectations of further Fed hikes strengthened the dollar and weighed on bullion.",
+      "start": 146.274,
+      "end": 155.725,
+      "story": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7QJRSRD8JFFYVXPBCB9XVPV",
+          "outlet": "Invezz",
+          "headline": "Why is gold price down today? Gold futures slip 2.5% to September 2025 low",
+          "link": "https://invezz.com/news/2026/11/18/why-is-gold-price-down-today-gold-futures-slip-to-lowest-since-september-2025/"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7PXA2GX6QMV1B0KHQXS9GGA",
+          "outlet": "Invezz",
+          "headline": "Gold slips back below one-year low but Goldman Sachs sees long term recovery",
+          "link": "https://invezz.com/news/2026/11/18/gold-slips-back-below-one-year-low-but-goldman-sachs-sees-long-term-recovery/"
+        }
+      ]
+    },
+    {
+      "text": "Spot gold traded at $3,770 an ounce, its lowest in more than a year, after a 6.51% weekly drop.",
+      "start": 156.074,
+      "end": 164.978,
+      "story": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
+      "sources": [
+        {
+          "article_id": "ACTI-10010414-01M7Q2T3JT54KGKWWAV72SFEJJ",
+          "outlet": "ActionForex",
+          "headline": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
+          "link": "https://www.actionforex.com/action-insight/market-overview/661273-gold-hits-one-year-low-ahead-of-fomc-minutes-as-fed-rate-path-takes-center-stage/"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7PXA2GX6QMV1B0KHQXS9GGA",
+          "outlet": "Invezz",
+          "headline": "Gold slips back below one-year low but Goldman Sachs sees long term recovery",
+          "link": "https://invezz.com/news/2026/11/18/gold-slips-back-below-one-year-low-but-goldman-sachs-sees-long-term-recovery/"
+        }
+      ]
+    },
+    {
+      "text": "The Fed held rates in October, but markets now put a 72% probability on a further increase by the January meeting.",
+      "start": 165.327,
+      "end": 172.791,
+      "story": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
+      "sources": [
+        {
+          "article_id": "ACTI-10010414-01M7Q2T3JT54KGKWWAV72SFEJJ",
+          "outlet": "ActionForex",
+          "headline": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
+          "link": "https://www.actionforex.com/action-insight/market-overview/661273-gold-hits-one-year-low-ahead-of-fomc-minutes-as-fed-rate-path-takes-center-stage/"
+        }
+      ]
+    },
+    {
+      "text": "Watch today: the Fed minutes for signs that policymakers were already leaning towards further hikes at the October hold, a tone that could keep the dollar and yields elevated.",
+      "start": 173.256,
+      "end": 183.438,
+      "story": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
+      "sources": [
+        {
+          "article_id": "ACTI-10010414-01M7Q2T3JT54KGKWWAV72SFEJJ",
+          "outlet": "ActionForex",
+          "headline": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
+          "link": "https://www.actionforex.com/action-insight/market-overview/661273-gold-hits-one-year-low-ahead-of-fomc-minutes-as-fed-rate-path-takes-center-stage/"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7QJRSRD8JFFYVXPBCB9XVPV",
+          "outlet": "Invezz",
+          "headline": "Why is gold price down today? Gold futures slip 2.5% to September 2025 low",
+          "link": "https://invezz.com/news/2026/11/18/why-is-gold-price-down-today-gold-futures-slip-to-lowest-since-september-2025/"
+        }
+      ]
+    },
+    {
+      "text": "Every figure in this briefing, all 21 of them, was checked against 9 source articles. Your receipts are in the app.",
+      "start": 183.902,
+      "end": 190.915,
+      "story": "Your receipt",
+      "sources": []
+    }
+  ],
+  "caught": [
+    {
+      "figure": null,
+      "reason": "copied_sequence_of_8_words",
+      "kind": "copied",
+      "sentence": "Licensed wording withheld."
+    }
+  ],
+  "conflicts": [
+    {
+      "measure": "Nvidia after-hours share gain",
+      "value_a": "2.91%",
+      "outlet_a": "ActionForex",
+      "link_a": "https://www.actionforex.com/action-insight/market-overview/661345-nvidia-beat-fails-to-spark-rally-as-shenzhen-summit-opens-and-oil-stays-range-bound/",
+      "value_b": "2.47%",
+      "outlet_b": "Invezz",
+      "link_b": "https://invezz.com/news/2026/11/17/nvidia-stock-rises-after-hours-as-revenue-forecast-beats-estimates/",
+      "used": null
+    },
+    {
+      "measure": "Measurement described in the linked source.",
+      "value_a": "96.7%",
+      "outlet_a": "ActionForex",
+      "link_a": "https://www.actionforex.com/action-insight/market-overview/661273-gold-hits-one-year-low-ahead-of-fomc-minutes-as-fed-rate-path-takes-center-stage/",
+      "value_b": "98%",
+      "outlet_b": "ActionForex",
+      "link_b": "https://www.actionforex.com/live-comments/661237-feds-williams-backs-further-rate-hikes-but-sees-no-need-for-dramatic-action/",
+      "used": null
+    },
+    {
+      "measure": "Spot gold price",
+      "value_a": "$3,770",
+      "outlet_a": "Invezz",
+      "link_a": "https://invezz.com/news/2026/11/18/gold-slips-back-below-one-year-low-but-goldman-sachs-sees-long-term-recovery/",
+      "value_b": "$3,852.67",
+      "outlet_b": "Invezz",
+      "link_b": "https://invezz.com/news/2026/11/17/evening-digest-huang-says-he-is-willing-to-return-anthropic-wins-first-buy-rating/",
+      "used": "a"
+    },
+    {
+      "measure": "Brent crude futures price",
+      "value_a": "$92.21",
+      "outlet_a": "Invezz",
+      "link_a": "https://invezz.com/news/2026/11/18/oil-price-today-api-528-million-barrel-us-crude-build/",
+      "value_b": "$93.17",
+      "outlet_b": "Invezz",
+      "link_b": "https://invezz.com/news/2026/11/17/evening-digest-huang-says-he-is-willing-to-return-anthropic-wins-first-buy-rating/",
+      "used": "a"
+    }
+  ],
+  "receipt": [
+    {
+      "figure": "0.54%",
+      "measures": "U.S. Dollar Index gain over five days",
+      "outlet": "Zacks Investment Research",
+      "headline": "US Dollar ETF (UUP) Hits New 52-Week High",
+      "link": "https://www.zacks.com/stock/news/3031782/us-dollar-etf-uup-hits-new-52-week-high?cid=CS-NEWSTEX-FT-etf_news_and_commentary-3031782"
+    },
+    {
+      "figure": "5.66%",
+      "measures": "U.S. Dollar Index year-to-date gain",
+      "outlet": "Zacks Investment Research",
+      "headline": "US Dollar ETF (UUP) Hits New 52-Week High",
+      "link": "https://www.zacks.com/stock/news/3031782/us-dollar-etf-uup-hits-new-52-week-high?cid=CS-NEWSTEX-FT-etf_news_and_commentary-3031782"
+    },
+    {
+      "figure": "50 basis point",
+      "measures": "Waller’s proposed larger December rate increase",
+      "outlet": "ActionForex",
+      "headline": "Fed’s Waller Calls for 50bps December Hike Unless January Increase Is Signaled",
+      "link": "https://www.actionforex.com/live-comments/661347-feds-waller-calls-for-50bps-december-hike-unless-january-increase-is-signaled/"
+    },
+    {
+      "figure": "25 basis point",
+      "measures": "Market-expected December rate increase",
+      "outlet": "ActionForex",
+      "headline": "Fed’s Waller Calls for 50bps December Hike Unless January Increase Is Signaled",
+      "link": "https://www.actionforex.com/live-comments/661347-feds-waller-calls-for-50bps-december-hike-unless-january-increase-is-signaled/"
+    },
+    {
+      "figure": "1.25%",
+      "measures": "Bank of Japan policy interest rate",
+      "outlet": "ActionForex",
+      "headline": "BoJ’s Ueda Backs Further Rate Hikes, Warns Against Suppressing Bond Yields",
+      "link": "https://www.actionforex.com/live-comments/661244-bojs-ueda-backs-further-rate-hikes-warns-against-suppressing-bond-yields/"
+    },
+    {
+      "figure": "2%",
+      "measures": "Target level for underlying inflation",
+      "outlet": "ActionForex",
+      "headline": "BoJ’s Ueda Backs Further Rate Hikes, Warns Against Suppressing Bond Yields",
+      "link": "https://www.actionforex.com/live-comments/661244-bojs-ueda-backs-further-rate-hikes-warns-against-suppressing-bond-yields/"
+    },
+    {
+      "figure": "3.6%",
+      "measures": "Annual headline CPI inflation in October",
+      "outlet": "ActionForex",
+      "headline": "UK Inflation Rises to 3.6% as Fuel Prices Surge, Core CPI Holds Steady",
+      "link": "https://www.actionforex.com/live-comments/661264-uk-inflation-rises-to-3-6-as-fuel-prices-surge-core-cpi-holds-steady/"
+    },
+    {
+      "figure": "33.2%",
+      "measures": "Annual motor fuel inflation in October",
+      "outlet": "ActionForex",
+      "headline": "UK Inflation Rises to 3.6% as Fuel Prices Surge, Core CPI Holds Steady",
+      "link": "https://www.actionforex.com/live-comments/661264-uk-inflation-rises-to-3-6-as-fuel-prices-surge-core-cpi-holds-steady/"
+    },
+    {
+      "figure": "2.8%",
+      "measures": "Annual core CPI inflation in October",
+      "outlet": "ActionForex",
+      "headline": "UK Inflation Rises to 3.6% as Fuel Prices Surge, Core CPI Holds Steady",
+      "link": "https://www.actionforex.com/live-comments/661264-uk-inflation-rises-to-3-6-as-fuel-prices-surge-core-cpi-holds-steady/"
+    },
+    {
+      "figure": "3.7%",
+      "measures": "Annual services inflation in October",
+      "outlet": "ActionForex",
+      "headline": "UK Inflation Rises to 3.6% as Fuel Prices Surge, Core CPI Holds Steady",
+      "link": "https://www.actionforex.com/live-comments/661264-uk-inflation-rises-to-3-6-as-fuel-prices-surge-core-cpi-holds-steady/"
+    },
+    {
+      "figure": "4.0%",
+      "measures": "October annual eurozone headline inflation",
+      "outlet": "ActionForex",
+      "headline": "Eurozone Inflation Confirmed at 4.0% as Energy Surges, Core CPI Revised Higher",
+      "link": "https://www.actionforex.com/live-comments/661283-eurozone-inflation-confirmed-at-4-0-as-energy-surges-core-cpi-revised-higher/"
+    },
+    {
+      "figure": "1.89",
+      "measures": "Energy contribution to October annual headline inflation",
+      "outlet": "ActionForex",
+      "headline": "Eurozone Inflation Confirmed at 4.0% as Energy Surges, Core CPI Revised Higher",
+      "link": "https://www.actionforex.com/live-comments/661283-eurozone-inflation-confirmed-at-4-0-as-energy-surges-core-cpi-revised-higher/"
+    },
+    {
+      "figure": "2.6%",
+      "measures": "October annual eurozone core inflation",
+      "outlet": "ActionForex",
+      "headline": "Eurozone Inflation Confirmed at 4.0% as Energy Surges, Core CPI Revised Higher",
+      "link": "https://www.actionforex.com/live-comments/661283-eurozone-inflation-confirmed-at-4-0-as-energy-surges-core-cpi-revised-higher/"
+    },
+    {
+      "figure": "5.28 million",
+      "measures": "Weekly increase in US crude inventories",
+      "outlet": "Invezz",
+      "headline": "Oil price today: Brent slips as fresh data shows rise in US crude inventory",
+      "link": "https://invezz.com/news/2026/11/18/oil-price-today-api-528-million-barrel-us-crude-build/"
+    },
+    {
+      "figure": "5.12 million",
+      "measures": "Weekly increase in US gasoline inventories",
+      "outlet": "Invezz",
+      "headline": "Oil price today: Brent slips as fresh data shows rise in US crude inventory",
+      "link": "https://invezz.com/news/2026/11/18/oil-price-today-api-528-million-barrel-us-crude-build/"
+    },
+    {
+      "figure": "$92.21",
+      "measures": "Brent crude futures price",
+      "outlet": "Invezz",
+      "headline": "Oil price today: Brent slips as fresh data shows rise in US crude inventory",
+      "link": "https://invezz.com/news/2026/11/18/oil-price-today-api-528-million-barrel-us-crude-build/"
+    },
+    {
+      "figure": "$84.60",
+      "measures": "West Texas Intermediate futures price",
+      "outlet": "Invezz",
+      "headline": "Oil price today: Brent slips as fresh data shows rise in US crude inventory",
+      "link": "https://invezz.com/news/2026/11/18/oil-price-today-api-528-million-barrel-us-crude-build/"
+    },
+    {
+      "figure": "5.115%",
+      "measures": "US 10-year Treasury yield",
+      "outlet": "Invezz",
+      "headline": "Why is gold price down today? Gold futures slip 2.5% to September 2025 low",
+      "link": "https://invezz.com/news/2026/11/18/why-is-gold-price-down-today-gold-futures-slip-to-lowest-since-september-2025/"
+    },
+    {
+      "figure": "$3,770",
+      "measures": "Spot gold price",
+      "outlet": "Invezz",
+      "headline": "Gold slips back below one-year low but Goldman Sachs sees long term recovery",
+      "link": "https://invezz.com/news/2026/11/18/gold-slips-back-below-one-year-low-but-goldman-sachs-sees-long-term-recovery/"
+    },
+    {
+      "figure": "6.51%",
+      "measures": "Gold's decline over the past week",
+      "outlet": "ActionForex",
+      "headline": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
+      "link": "https://www.actionforex.com/action-insight/market-overview/661273-gold-hits-one-year-low-ahead-of-fomc-minutes-as-fed-rate-path-takes-center-stage/"
+    },
+    {
+      "figure": "72%",
+      "measures": "Implied probability of another rate increase by the January meeting",
+      "outlet": "ActionForex",
+      "headline": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
+      "link": "https://www.actionforex.com/action-insight/market-overview/661273-gold-hits-one-year-low-ahead-of-fomc-minutes-as-fed-rate-path-takes-center-stage/"
+    }
+  ]
+}

@@ -127,6 +127,7 @@ def build_audio(profile, model, client, sources):
     if total != len(receipt):
         raise ValueError(f"{listener} has {total - len(receipt)} unmatched spoken figures")
     sources_total = append_receipt_closing(script, total)
+    script["number_mentions"] = total
     write_json(out / "script.json", script)
     text, spans = story_paragraphs(script["sentences"])
     response, cached = synthesize(text, profile, model, client)
@@ -140,7 +141,8 @@ def build_audio(profile, model, client, sources):
             "story": "Your receipt" if sentence.get("receipt_closing") else titles.get(story_id, "Briefing"),
             "sources": [sources[i] for i in dict.fromkeys(sentence["article_ids"])],
         })
-    caught = [{"figure": entry["cifra"], "reason": entry["motivo"], "sentence": entry["frase_original"]}
+    caught = [{"figure": entry["cifra"], "reason": entry["motivo"], "kind": entry["kind"],
+               "sentence": entry.get("frase_evaluada", entry["frase_original"])}
               for entry in load_json(out / "caught.json")]
     conflicts = [
         {**{key: entry[key] for key in ("measure", "value_a", "outlet_a", "link_a", "value_b", "outlet_b", "link_b")},

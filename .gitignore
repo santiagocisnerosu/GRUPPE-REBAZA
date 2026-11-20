@@ -12,3 +12,11 @@ out/
 __pycache__/
 .venv/
 .DS_Store
+
+# Allowlisted demo artifacts for GitHub Pages
+!/docs/out/
+/docs/out/*
+!/docs/out/*/
+/docs/out/*/*
+!/docs/out/*/briefing.mp3
+!/docs/out/*/transcript.json

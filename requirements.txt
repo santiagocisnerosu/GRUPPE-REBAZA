@@ -7,3 +7,4 @@ scikit-learn
 pydantic
 pyyaml
 python-dotenv
+qrcode[pil]
