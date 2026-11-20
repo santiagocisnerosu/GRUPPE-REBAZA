@@ -273,12 +273,22 @@ function drawMarkers() {
     }),
   );
 }
-function drawEvidence(sentence, matches) {
+function drawEvidence(index) {
+  const sentence = data.sentences[index], panel = $("evidence");
+  const preview = !sentence.sources.length;
+  const cited = preview ? data.sentences.slice(index + 1).find((line) => line.sources.length) : sentence;
+  panel.classList.toggle("preview", preview);
+  if (!cited) {
+    panel.replaceChildren(el("p", "No further sources in this briefing.", "empty-evidence"));
+    return;
+  }
+  const matches = preview ? [] : citations[index];
   const items = [];
+  if (preview) items.push(el("p", "Up next", "up-next"));
   const matchedLinks = new Set(matches.map((m) => m.item.link));
   const entries = [
     ...matches.map((m) => m.item),
-    ...sentence.sources.filter((s) => !matchedLinks.has(s.link)),
+    ...cited.sources.filter((s) => !matchedLinks.has(s.link)),
   ];
   entries.forEach((source, index) => {
     const row = el("div", null, "source-item");
@@ -294,10 +304,11 @@ function drawEvidence(sentence, matches) {
     headline.append(" ", icon("link"));
     meta.append(outlet);
     details.append(meta, headline);
-    row.append(el("span", "[" + (index + 1) + "]", "ref"), details);
+    if (!preview) row.append(el("span", "[" + (index + 1) + "]", "ref"));
+    row.append(details);
     items.push(row);
   });
-  $("evidence").replaceChildren(...(items.length ? items : [el("p", "No article cited in this sentence.", "empty-evidence")]));
+  panel.replaceChildren(...items);
 }
 
 function showSentence(index) {
@@ -315,7 +326,7 @@ function showSentence(index) {
   const lyric = $("lyric");
   lyric.replaceChildren();
   evidenceText(lyric, sentence, citations[index]);
-  drawEvidence(sentence, citations[index]);
+  drawEvidence(index);
   activeWords = [...lyric.querySelectorAll(".word"), ...row.querySelectorAll(".word")];
   wordKey = "";
   for (const [id, offset] of [["previous", -1], ["next", 1]]) {
@@ -397,7 +408,7 @@ function drawTrust() {
   } else {
     note("Every spoken figure matched its source.");
   }
-  const conflict = data.conflicts.find((c) => ["a", "b"].includes(c.used)) || data.conflicts[0];
+  const conflict = data.conflicts.find((c) => ["a", "b"].includes(c.used));
   if (conflict) {
     const detail = note("Where sources differ");
     detail.append(conflict.measure + ": ");
@@ -405,7 +416,7 @@ function drawTrust() {
       if (side === "b") detail.append(" / ");
       detail.append(link(conflict["value_" + side] + " · " + conflict["outlet_" + side], conflict["link_" + side]));
     }
-    detail.append(conflict.used ? ". The briefing uses " + conflict["outlet_" + conflict.used] + "." : ". Neither figure appears in this briefing.");
+    detail.append(". The briefing uses " + conflict["outlet_" + conflict.used] + ".");
   }
 }
 function drawAudit() {
@@ -488,6 +499,38 @@ function drawReceipt() {
     ...Object.entries(totals).flatMap(([k, v]) => [el("span", k), el("strong", v)]),
   );
 }
+function hasMarketConsequence(text) {
+  const market = /\b(?:markets?|dollar|sterling|yen|euro|bonds?|gilts?|yields?|shares?|equities|gold|bullion|crude|brent)\b/i;
+  const effect = /\b(?:support(?:s|ed|ing)?|pressure|headwinds?|tailwinds?|weigh(?:s|ed|ing)? on|strengthen(?:s|ed|ing)?|weaken(?:s|ed|ing)?|firmer|(?:could|may|would|might) (?:rise|fall|gain|drop|lift|keep))\b/i;
+  return market.test(text) && effect.test(text);
+}
+
+function listenerMeaning(briefing, fact) {
+  if (!briefing) return null;
+  const { listener, sentences } = briefing;
+  const quote = fact.listeners[listener].sentence;
+  const anchor = sentences.findIndex((s) => s.text === quote && s.sources.some((src) => src.link === fact.link));
+  if (anchor < 0) return null;
+  const story = sentences[anchor].story;
+  let first = anchor, end = anchor + 1;
+  while (first > 0 && sentences[first - 1].story === story) first--;
+  while (end < sentences.length && sentences[end].story === story) end++;
+  const lines = sentences.slice(first, end).filter((s) => s.sources.length);
+  let line;
+  if (listener === "priya") {
+    line = lines.find((s) => /^For your business\b/i.test(s.text));
+  } else {
+    // Mara's editorial rule puts the market consequence at the end of the story.
+    line = lines.findLast((s) => hasMarketConsequence(s.text))
+      || sentences.slice(anchor + 1, end).find((s) => s.sources.length);
+  }
+  if (!line) return null;
+  // If the quote itself contains the implication, pull out its spoken second clause.
+  const tail = line.text === quote && line.text.match(/, and (.+)$/i)?.[1];
+  const text = tail && hasMarketConsequence(tail) ? "… " + tail : line.text;
+  return { text, sources: line.sources };
+}
+
 async function extras() {
   const [shared, costs] = await Promise.allSettled([
     json("shared_facts.json"),
@@ -496,6 +539,8 @@ async function extras() {
   if (shared.status === "fulfilled") {
     const facts = shared.value.filter((f) => f.listeners.mara && f.listeners.priya);
     if (facts.length) {
+      const [mara, priya] = await Promise.all([records.get("mara"), records.get("priya")]);
+      const briefings = { mara, priya };
       let index = 0;
       function showFact() {
         const fact = facts[index];
@@ -512,6 +557,19 @@ async function extras() {
           if (at >= 0) quote.append("“" + sentence.slice(0, at), el("mark", spoken_value), sentence.slice(at + spoken_value.length) + "”");
           else quote.textContent = "“" + sentence + "”";
           angle.append(caption, quote);
+          const meaning = listenerMeaning(briefings[id], fact);
+          if (meaning) {
+            const detail = el("div", null, "angle-meaning");
+            detail.append(el("h4", "What it means for " + briefings[id].name), el("p", meaning.text));
+            const sources = el("div", null, "meaning-sources");
+            for (const source of meaning.sources) {
+              const a = link(source.outlet, source.link);
+              a.title = source.headline;
+              sources.append(a);
+            }
+            detail.append(sources);
+            angle.append(detail);
+          }
           article.append(angle);
         }
         $("facts").replaceChildren(article);
