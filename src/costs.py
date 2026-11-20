@@ -1,5 +1,6 @@
 """Append API usage records for the pipeline."""
 import json
+import os
 from pathlib import Path
 
 CACHE_DIR = Path(__file__).resolve().parents[1] / "data" / "cache"
@@ -9,8 +10,20 @@ def log_call(stage, model, input_tokens=0, output_tokens=0, tts_chars=0):
     record = dict(stage=stage, model=model, input_tokens=input_tokens,
                   output_tokens=output_tokens, tts_chars=tts_chars)
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
-    with (CACHE_DIR / "costs.jsonl").open("a", encoding="utf-8") as stream:
-        stream.write(json.dumps(record) + "\n")
+    # Parallel listener processes share the usage journal.
+    with (CACHE_DIR / "costs.lock").open("a+b") as lock:
+        lock.seek(0)
+        if os.name == "nt":
+            import msvcrt
+
+            msvcrt.locking(lock.fileno(), msvcrt.LK_LOCK, 1)
+        else:
+            import fcntl
+
+            fcntl.flock(lock.fileno(), fcntl.LOCK_EX)
+        # Closing the lock file releases the lock after the write is flushed.
+        with (CACHE_DIR / "costs.jsonl").open("a", encoding="utf-8") as stream:
+            stream.write(json.dumps(record) + "\n")
 
 
 def write_json(path, value):

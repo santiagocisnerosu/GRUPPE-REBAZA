@@ -5,6 +5,18 @@
 
 profiles:
   - id: mara
+    editor:
+      include_articles: {}
+      exclude_articles: [INVZ-10009737-01M7Q7KP6N8X6VB4A5BAFHVF82]
+      opener: Morning.
+      closer: "Watch today: ..."
+      max_sentences: {}
+      story_limit: 7
+      min_words: 378
+      style_notes: >
+        Start the news with Yesterday, never Overnight. Say US 10-year yield if the
+        verified evidence gives the tenor; otherwise say benchmark Treasury yield.
+        Leave out the summit and nuclear weapons. End with "Watch today: the Fed minutes".
     voice_id: Xb7hH8MSUJpSbSDYk0k2
     voice_settings:
       speed: 1.10
@@ -17,7 +29,6 @@ profiles:
       - {id: eurozone_inflation, title: Eurozone inflation, matches: ['eurozone inflation|euro area inflation']}
       - {id: boj, title: BoJ and Ueda, matches: ['\bUeda\b|\bBoJ\b|Bank of Japan']}
       - {id: fed_waller, title: Waller and the Fed, matches: ['\bWaller\b']}
-      - {id: shenzhen_summit, title: Trump-Xi-Putin summit, matches: ['trilateral summit|^Trump.{0,30}Xi.{0,35}Putin|^Shenzhen summit']}
     name: Mara
     who: 34, trades interest rates and currencies on a London bank desk. Listens at 06:30 before the desk opens. Knows every term, has no time.
     question: "What moves rates and currencies today?"
@@ -34,6 +45,20 @@ profiles:
     voice: British female newsreader, slightly fast (speed ~1.1)
 
   - id: jordan
+    editor:
+      include_articles:
+        nvidia: [INVZ-10009737-01M7QX2AZKHXQBF025KWYRR15Z]
+      exclude_articles: []
+      opener: Good morning!
+      closer: "One thing to watch today: ..."
+      max_sentences: {retail: 2, take_two: 3, crypto: 3}
+      entity_names: {'\bTake[ -]?Two\b': Take-Two}
+      style_notes: >
+        Nvidia beat expectations but shares fell on Wednesday. If reporting the
+        initial after-hours move, make clear it came before the Wednesday decline.
+        Never describe the initial rise as the Wednesday result or closing move.
+        Name Take-Two explicitly. Use one sentence each for Target and Lowe's.
+        Use three crypto sentences: Bitcoin price, Citi's revised target, then XRP at $1.
     voice_id: NMxp5bnMnB1sL7oen8GM
     voice_settings:
       speed: 1.00
@@ -63,6 +88,22 @@ profiles:
     voice: upbeat American male, podcast style
 
   - id: priya
+    editor:
+      include_articles:
+        summit_trade:
+          - INVZ-10009737-01M7Q7KP6N8X6VB4A5BAFHVF82
+          - ZACK-105463-01M7QNMA2FKSK6YXDQXFGWCQB6
+      exclude_articles: [IBTU-10010345-01M7QZNF24FPDB09657X3T42F4]
+      opener: Morning, Priya
+      closer: "One thing for today: ... Have a good one."
+      max_sentences: {dollar: 3}
+      lead_story: summit_trade
+      style_notes: >
+        Open the news with China trade, tariffs and the Trump-Xi-Putin summit.
+        Describe sourcing exposure conditionally and do not announce an unsupported tariff change.
+        Leave out Apple developer dashboards, App Store Connect and the Las Vegas scam.
+        Immediately after the 33.2% motor fuel figure, say "For your business," and explain
+        the customer spending consequence. The separate sign-off ends "Have a good one."
     voice_id: 8g3yRGGwQdZMjSh79Uz4
     voice_settings:
       speed: 0.95

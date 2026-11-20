@@ -15,6 +15,7 @@ from pydantic import BaseModel
 
 from .conflicts import detect_conflicts, figure_key, write_conflicts
 from .costs import CACHE_DIR, write_json
+from .editor import OUTLETS, apply_inclusions, article_policy, editorial_errors, name_companies, overfull_stories
 from .extract import cache_path, selected_articles, verified_claims
 from .model_calls import structured
 from .script_reports import append_receipt_closing, export_reports
@@ -72,7 +73,7 @@ class Repair(BaseModel):
 
 
 def score_stories(stories, profiles, articles, client, model):
-    profiles_payload = [{k: v for k, v in p.items() if k not in {"editor_pins", "voice_id", "voice_settings"}} for p in profiles.values()]
+    profiles_payload = [{k: v for k, v in p.items() if k not in {"editor_pins", "voice_id", "voice_settings", "editor"}} for p in profiles.values()]
 
     def score(story):
         payload = {
@@ -134,7 +135,7 @@ def story_topic(story):
     return " ".join(WORD.findall(title))
 
 
-def pinned_stories(stories, profile):
+def pinned_stories(stories, profile, inventory):
     bundles = []
     occupied = set()
     for pin in profile.get("editor_pins", []):
@@ -160,15 +161,16 @@ def pinned_stories(stories, profile):
                 story[field] = [item for s in members for item in s[field]]
             story["outlets"] = sorted({o for s in members for o in s["outlets"]})
             story["n_sources"] = len(story["article_ids"])
-        story["pin"] = pin
+        story = apply_inclusions(story, pin, profile.get("editor", {}), inventory, occupied)
         bundles.append((story, members))
     return bundles, occupied
 
 
 def select_stories(stories, fits, profile, articles, accept=None):
     ranked = []
+    stories, inventory = article_policy(stories, profile.get("editor", {}))
     ratings = {story["story_id"]: fit[profile["id"]] for story, fit in zip(stories, fits, strict=True)}
-    pins, occupied = pinned_stories(stories, profile)
+    pins, occupied = pinned_stories(stories, profile, inventory)
 
     def score(story):
         rating = ratings[story["story_id"]]
@@ -178,7 +180,7 @@ def select_stories(stories, fits, profile, articles, accept=None):
     candidates = [(story, max(score(member) for member in members) + 5) for story, members in pins]
     if profile["id"] != "priya" or not pins:
         candidates += [(story, score(story)) for story in stories
-                       if story["story_id"] not in occupied
+                       if story["article_ids"] and story["story_id"] not in occupied
                        and ratings[story["story_id"]]["fit"] != -10]
     for story, strength in candidates:
         topic = story_topic(story)
@@ -190,7 +192,7 @@ def select_stories(stories, fits, profile, articles, accept=None):
     ranked.sort(key=lambda item: (not item[4].get("pin", {}).get("lead", False),
                                   -item[0], item[1], -item[2], item[4]["story_id"]))
     count_range = re.match(r"(\d+)(?:-(\d+))?", profile["stories"])
-    count = int(count_range[2] or count_range[1])
+    count = profile.get("editor", {}).get("story_limit", int(count_range[2] or count_range[1]))
     chosen = []
     topics = set()
     for strength, _, _, topic, story in ranked:
@@ -238,7 +240,7 @@ def priya_accepts(story, get_claims, client, model):
     return ok
 
 
-def fact_payload(selected, claims, articles, conflicts):
+def fact_payload(selected, claims, articles, conflicts, profile):
     facts = {}
     grouped = []
     incompatible = {}
@@ -261,6 +263,11 @@ def fact_payload(selected, claims, articles, conflicts):
                 "measures": figure["measures"], "outlet": articles[figure["article_id"]]["outlet"],
             }
             ids.append(fact_id)
+            if profile["id"] == "mara" and "10-year" in figure["measures"] and "10-year" in figure["phrase"]:
+                tenor_id = f"F{len(facts) + 1:03d}"
+                facts[tenor_id] = {**facts[fact_id], "fact_id": tenor_id, "value_text": "10",
+                                   "unit": "years", "measures": "Years to maturity of the cited Treasury"}
+                ids.append(tenor_id)
         for article_id in story["article_ids"]:
             for claim in claims[article_id]:
                 fact_id = f"F{len(facts) + 1:03d}"
@@ -274,6 +281,8 @@ def fact_payload(selected, claims, articles, conflicts):
                         "editor_pin": story.get("pin", {}).get("id"),
                         "editor_lead": story.get("pin", {}).get("lead", False),
                         "business_consequence": story.get("business_consequence"),
+                        "max_sentences": profile.get("editor", {}).get("max_sentences", {}).get(
+                            story.get("pin", {}).get("id")),
                         "facts": [facts[i] for i in ids]})
     return facts, grouped
 
@@ -283,8 +292,14 @@ def unmatched_numbers(text):
         yield match.group(), None
 
 
+def omit_editorial_idioms(text):
+    text = re.sub(r"^One thing (?:to watch today|for today):\s*", "", text, flags=re.I)
+    text = re.sub(r"\bHave a good one[.!]?\s*$", "", text, flags=re.I)
+    return re.sub(r"\bTake-Two\b", "TakeTwo", text, flags=re.I)
+
+
 def numeric_mentions(text):
-    text = normalize_text(text)
+    text = omit_editorial_idioms(normalize_text(text))
     end = 0
     for match in FIGURE.finditer(text):
         yield from unmatched_numbers(text[end:match.start()])
@@ -344,6 +359,7 @@ PRIYA_CLOSING = "For your business,"
 
 
 def starts_with_number(text):
+    text = omit_editorial_idioms(text)
     first = re.match(r"^[\s\W_]*?(?:[+$\u00a3\u20ac\u00a5-]\s*)?(\d+)", text)
     if first:
         return True
@@ -363,8 +379,8 @@ def sentence_errors(sentence, facts, source_windows, preceding_words=(), used_nu
     mentions = list(numeric_mentions(sentence.text))
     if starts_with_number(normalize_text(sentence.text)):
         errors.append({"cifra": mentions[0][0] if mentions else None, "motivo": "number_at_start"})
-    if len(mentions) > 3:
-        errors.append({"cifra": mentions[3][0], "motivo": "more_than_three_numbers"})
+    if len(mentions) > 2:
+        errors.append({"cifra": mentions[2][0], "motivo": "more_than_two_numbers"})
     if len(sentence.text.split()) > 38:
         errors.append({"cifra": None, "motivo": "sentence_too_long"})
     if listener == "jordan" and TRADE_WORDS.search(sentence.text):
@@ -390,18 +406,25 @@ def sentence_errors(sentence, facts, source_windows, preceding_words=(), used_nu
 INSTRUCTIONS = (
     "Write a spoken English briefing using only the supplied facts, citing at least one "
     "fact ID per sentence. Follow the profile's running_order, tone and listener needs. "
-    "The target word count is within 10 percent of profile.words; get there by covering "
-    "the chosen stories in full, with useful qualitative details and clear transitions. "
+    "Aim for the profile's word budget, but let the editor's sentence caps take "
+    "precedence and keep the result concise. "
     "Use radio cadence. Never start a sentence with a number, including money or a "
     "percentage. Put a key figure near the beginning after naming what it measures. "
-    "Use at most 3 figures and at most 38 words per sentence; aim for 18 to 28 words. "
+    "Use at most 2 figures and at most 38 words per sentence; aim for 18 to 28 words. "
     "Use more short sentences when needed to meet the total budget. "
     "For Jordan, never use buy, sell or their inflections, even in quotes. Keep the "
     "portfolio context educational. "
-    "For Priya, give every sentence its selected story_id. Cover every selected story "
-    "once in a contiguous block. Close each block with exactly one sentence starting "
-    "'For your business,' and cite the facts supporting the practical implication. "
-    "Never use that phrase in any other position. "
+    "Give every sentence its selected story_id and keep stories in contiguous blocks. "
+    "Name only one outlet, once per story. Name companies explicitly. "
+    "Never use 'separate', 'if you hold', or 'for your X holdings' more than once each. "
+    "Honor the editor's style_notes and each story's max_sentences. "
+    "Use the facts from every article in editor.include_articles and cite them. "
+    "The app supplies the opener, so start directly with news. "
+    "Finish the last story with the configured editor closer; replace ellipses "
+    "with supported facts and include any literal words after the ellipses. "
+    "For Priya, include exactly one 'For your business,' per block, normally as its "
+    "last sentence before the editorial sign-off; in the inflation block it must "
+    "come immediately after the sentence with 33.2%. "
     "Pin bundles are single story blocks with multiple related reports. Cover their "
     "constituents when their facts are available, distinguishing the reports. "
     "Open with the editor_lead story when one is marked. For Jordan, the crypto block "
@@ -412,14 +435,13 @@ INSTRUCTIONS = (
     "Priya, speak at least two of those facts when available and explain them in her "
     "business context. Do not repeat the same claim with different wording. "
     "Never invent filler. For Mara, explicitly cover each story marked editor_pin "
-    "with one or more sentences citing its facts. End her watch list with the Shenzhen "
-    "summit if selected, including the leaders and relevant, explicitly sourced agenda. "
+    "with one or more sentences citing its facts. End her watch list with the Fed minutes. "
     "Every spoken number must use digits and appear only once in the entire briefing, "
     "including repeats in transitions and endings. If sources give different readings "
     "of the same measure, choose one with attribution; never present both. "
     "Give central bankers' key cited figures aloud: specifically Waller's proposed 50bps "
-    "and, if supplied, the BoJ's current rate for Ueda. Every 2 or 3 stories, credit "
-    "an actual cited outlet aloud. Use the claim facts to report explicitly sourced market "
+    "and, if supplied, the BoJ's current rate for Ueda. Credit an actual cited outlet aloud "
+    "once per story, using no second outlet name in the same story. Use the claim facts to report explicitly sourced market "
     "reactions or implications with the same degree of certainty. Cite that claim ID in "
     "the consequence sentence. If no supplied claim supports a consequence, state the "
     "data alone; this instruction overrides any requirement to end with a consequence. "
@@ -429,34 +451,31 @@ INSTRUCTIONS = (
 
 
 def script_instructions(profile):
-    if profile["id"] == "jordan":
-        return INSTRUCTIONS + (
-            " Jordan needs roughly 895 words before validation; do not stop before 875. "
-            "Use 32 to 36 genuinely distinct, short sentences across the five blocks, "
-            "around 175 to 185 words of distinct sourced material per block. This "
-            "overrides the profile's sentence-count preference. Lead with Anthropic's "
-            "reported $83 price. Finish the crypto block with a separate concrete XRP "
-            "update after giving Bitcoin's quoted price and Citi's revised target. "
-            "Prefer simple punctuation and exact cited figures; keep transitions unnumbered."
-        )
-    if profile["id"] != "priya":
-        return INSTRUCTIONS
-    return INSTRUCTIONS + (
-        " Priya's total and closing rule take priority over her sentence-count preference. "
-        "Aim for 535 to 575 total words after validation. Allocate more time to bundles "
-        "with multiple verified reports and less to single-source blocks. If three "
-        "blocks are selected, use roughly 200 words for each of the richer blocks "
-        "and 130 to 160 words for the shorter one, using short distinct sentences. "
-        "Each closing must state an affirmative change in costs, customers, or risks. "
-        "Use all supplied story IDs, even for a less directly relevant item. Start each "
-        "block with a plain subject, never an ordinal or numbered transition. Close EVERY "
-        "block, including the final block, with an exact 'For your business,' sentence "
-        "that has that story's ID. Prefer a qualitative cited fact in each closing sentence. "
-        "Do not speculate about consequences; if none follows from the source, use the "
-        "closer to state the sourced status or scope in plain language. "
-        "Before returning, count the closing sentences and check each is the last line "
-        "of its story. Paraphrase carefully to preserve every closer through validation."
-    )
+    listener = profile["id"]
+    extras = {
+        "jordan": (
+            " Anthropic is the lead. Keep retail to 2 sentences, Take-Two and crypto to 3 "
+            "each. Explicitly include Bitcoin's quoted price, Citi's revised target, and "
+            "XRP back at $1. Describe the Wednesday Nvidia decline and identify the "
+            "initial after-hours gain as earlier if you include it. Save a cited final "
+            "sentence for One thing to watch today."
+        ),
+        "priya": (
+            " The editor's lead takes precedence over the previous running order. "
+            "Give each story at least one verified spoken figure. Address tariffs as "
+            "conditional exposure for the China lead. Put the fuel consequence directly "
+            "after 33.2%. For the dollar use at most three sentences including the "
+            "business consequence. Keep the sign-off in the final story as prescribed."
+        ),
+        "mara": (
+            " Start the first news sentence with Yesterday. Use the Treasury tenor "
+            "when the supporting facts supply it. Keep Waller's proposed 50 basis "
+            "points. Target 395 to 425 words in about 18 short, distinct sentences. "
+            "The final news sentence starts Watch today: the Fed minutes and includes "
+            "a specific, cited detail about what to listen for."
+        ),
+    }
+    return INSTRUCTIONS + extras[listener]
 
 
 def cached_script_call(client, model, stage, schema, instructions, payload):
@@ -507,7 +526,7 @@ def repair_repeated_ideas(profile, original, facts, client, model, caught):
                 client, model, "script_repair", Repair,
                 "Replace this duplicate with a materially different, cited fact from the "
                 "same story, or return null if no unique fact is supplied. Keep order "
-                "and story_id. Never start with a number and use at most three figures. "
+                "and story_id. Never start with a number and use at most two figures. "
                 "Keep 'For your business,' for a Priya closer and provide a concrete "
                 "consequence distinct from the earlier sentence. Use your own words.",
                 {"listener": profile["id"], "earlier_sentence": prior.text,
@@ -527,11 +546,14 @@ def repair_repeated_ideas(profile, original, facts, client, model, caught):
 
 
 def write_script(profile, chosen, claims, articles, source_windows, client, model, day, conflicts, small_model):
-    facts, groups = fact_payload(chosen, claims, articles, conflicts)
+    facts, groups = fact_payload(chosen, claims, articles, conflicts, profile)
     mara = read_script("mara", day)
     shared = spoken_figures(mara) if mara and profile["id"] != "mara" else set()
     shared_ids = [i for i, f in facts.items() if "value_text" in f and figure_key(f) in shared]
-    payload = {"profile": profile, "stories": groups, "shared_figure_ids": shared_ids}
+    prompt_profile = {**profile, "editor": {
+        k: v for k, v in profile.get("editor", {}).items() if k != "entity_names"
+    }}
+    payload = {"profile": prompt_profile, "stories": groups, "shared_figure_ids": shared_ids}
     initial = cached_script_call(client, model, "script", Script, script_instructions(profile), payload)
     return validate_script(profile, chosen, source_windows, client, model, day, facts, initial, payload,
                            small_model=small_model)
@@ -539,7 +561,9 @@ def write_script(profile, chosen, claims, articles, source_windows, client, mode
 
 def validate_script(profile, chosen, source_windows, client, model, day, facts, initial, payload,
                     retry_budget=True, earlier_errors=(), small_model=None):
-    minimum = (profile["words"] * 9 + 9) // 10
+    minimum = profile.get("editor", {}).get(
+        "min_words", 0 if profile.get("editor") else (profile["words"] * 9 + 9) // 10
+    )
     maximum = profile["words"] * 11 // 10
     caught = list(earlier_errors)
     sentences = []
@@ -548,19 +572,26 @@ def validate_script(profile, chosen, source_windows, client, model, day, facts, 
     preceding_words = []
     listener = profile["id"]
     story_facts = {s["story_id"]: {f["fact_id"] for f in s["facts"]} for s in payload["stories"]}
-    candidates = repair_repeated_ideas(profile, initial.sentences, facts, client,
-                                       small_model, caught)
+    draft = list(initial.sentences)
+    if listener == "priya" and len(draft) >= 2 and draft[-1].text.strip() == "Have a good one.":
+        farewell = draft.pop()
+        draft[-1] = draft[-1].model_copy(update={"text": draft[-1].text.strip() + " " + farewell.text})
+    candidates = repair_repeated_ideas(profile, draft, facts, client, small_model, caught)
+    editor = profile.get("editor", {})
     for original in candidates:
         sentence = original
         allowed_facts = facts
         for attempt in (1, 2):
+            sentence = sentence.model_copy(update={"text": name_companies(sentence.text, editor)})
             errors = sentence_errors(sentence, allowed_facts, source_windows, preceding_words,
                                      used_numbers, listener)
-            if listener == "priya" and (sentence.story_id not in story_facts or
-                                        not set(sentence.fact_ids) <= story_facts[sentence.story_id]):
+            errors.extend(editorial_errors(sentence.text, sentences, sentence.story_id))
+            if sentence.story_id not in story_facts or (
+                listener == "priya" and not set(sentence.fact_ids) <= story_facts[sentence.story_id]
+            ):
                 errors.append({"cifra": None, "motivo": "priya_story_citation_mismatch"})
             if listener == "priya" and sentence.text.startswith(PRIYA_CLOSING) and re.search(
-                r"\b(?:does not|do not|is not|are not|rather than|no change|unchanged|not a)\b",
+                r"\b(?:does not|do not|is not|are not|no change|unchanged|not a)\b",
                 sentence.text, re.I,
             ):
                 errors.append({"cifra": None, "motivo": "priya_closing_must_state_change"})
@@ -593,10 +624,10 @@ def validate_script(profile, chosen, source_windows, client, model, day, facts, 
             allowed_facts = {i: facts[i] for i in dict.fromkeys(original.fact_ids) if i in facts}
             repair = cached_script_call(
                 client, model, "script_repair", Repair,
-                INSTRUCTIONS + " Replace only the supplied sentence using the facts provided "
+                script_instructions(profile) + " Replace only the supplied sentence using the facts provided "
                 "for the repair. Preserve story_id and preserve the opening 'For your "
                 "business,' if this is Priya's story closer. Return null when unsupported.",
-                {"profile": profile, "sentence": original.model_dump(), "errors": errors,
+                {"profile": payload["profile"], "sentence": original.model_dump(), "errors": errors,
                  "numbers_already_spoken": [str(value) for value in used_numbers],
                  "facts": list(allowed_facts.values())},
             )
@@ -606,7 +637,7 @@ def validate_script(profile, chosen, source_windows, client, model, day, facts, 
     cited_ids = {i for sentence in sentences for i in sentence["fact_ids"]}
     missing = [
         story["title"] for story in payload["stories"]
-        if profile["id"] == "mara" and story["editor_pin"] and story["facts"]
+        if profile["id"] in {"mara", "jordan"} and story["editor_pin"] and story["facts"]
         and not any(fact["fact_id"] in cited_ids for fact in story["facts"])
     ]
     if profile["id"] == "mara" and any(g["topic"] == "fed_waller" for g in payload["stories"]):
@@ -614,6 +645,24 @@ def validate_script(profile, chosen, source_windows, client, model, day, facts, 
                    any(value and value[:2] == (50, "bps") for _, value in numeric_mentions(sentence["text"]))
                    for sentence in sentences):
             missing.append("Waller's 50 basis points in his own sentence")
+    missing.extend(overfull_stories(sentences, payload["stories"]))
+    spoken_story_ids = {line["story_id"] for line in sentences}
+    for story_id in spoken_story_ids:
+        named = sum(len(OUTLETS.findall(line["text"])) for line in sentences
+                    if line["story_id"] == story_id)
+        if named != 1:
+            missing.append(f"Name the outlet exactly once in story {story_id}")
+    required_articles = {i for _, ids in profile.get("editor", {}).get("include_articles", {}).items()
+                         for i in ids}
+    available_articles = {f["article_id"] for f in facts.values()}
+    cited_articles = {i for line in sentences for i in line["article_ids"]}
+    missing.extend(f"Cite editor article {i}" for i in sorted(
+        (required_articles & available_articles) - cited_articles))
+    if sentences:
+        sentences[-1]["editor_closer"] = True
+    closer = profile.get("editor", {}).get("closer", "").split("...")[0]
+    if closer and (not sentences or not sentences[-1]["text"].startswith(closer)):
+        missing.append(f"End the final editorial sentence with a lead-in of {closer}")
     if listener == "priya":
         from itertools import groupby
 
@@ -621,8 +670,13 @@ def validate_script(profile, chosen, source_windows, client, model, day, facts, 
         for story_id, block in groupby(sentences, key=lambda s: s["story_id"]):
             block = list(block)
             closers = [i for i, line in enumerate(block) if line["text"].startswith(PRIYA_CLOSING)]
-            if story_id in covered or closers != [len(block) - 1]:
-                missing.append(f"Priya story {story_id}: needs one contiguous block with a final closer")
+            story = next(s for s in payload["stories"] if s["story_id"] == story_id)
+            if story["editor_pin"] == "inflation_oil":
+                expected = [i + 1 for i, line in enumerate(block) if "33.2%" in line["text"]]
+            else:
+                expected = [len(block) - 1 - int(block[-1]["text"].startswith(closer))]
+            if story_id in covered or len(expected) != 1 or closers != expected:
+                missing.append(f"Priya story {story_id}: business consequence is misplaced")
             if not any(list(numeric_mentions(line["text"])) for line in block):
                 missing.append(f"Priya story {story_id}: needs a spoken verified figure")
             covered.add(story_id)
@@ -631,8 +685,18 @@ def validate_script(profile, chosen, source_windows, client, model, day, facts, 
         shared_used = sum(figure_key(facts[i]) in used_shared for i in shared_ids)
         if shared_used < min(2, len(shared_ids)):
             missing.append("Speak two supplied figures shared with Mara")
+        lead = next((s for s in payload["stories"] if s["editor_lead"]), None)
+        if lead and (not sentences or sentences[0]["story_id"] != lead["story_id"]):
+            missing.append("Open with Priya's China trade lead")
+        if sentences and not sentences[-1]["text"].endswith("Have a good one."):
+            missing.append("Close Priya with Have a good one.")
         missing.extend(f"Priya story {i}: missing coverage" for i in story_facts.keys() - covered)
+    if listener == "mara" and sentences and not sentences[0]["text"].startswith("Yesterday"):
+        missing.append("Start Mara news with Yesterday")
     if listener == "jordan":
+        nvidia = [line["text"] for line in sentences if "nvidia" in line["text"].casefold()]
+        if not any(re.search(r"\b(?:fell|dropped|down|declined|slid)\b.*Wednesday|Wednesday.*\b(?:fell|dropped|down|declined|slid)\b", line, re.I) for line in nvidia):
+            missing.append("Say explicitly that Nvidia shares fell on Wednesday")
         used = spoken_figures({"sentences": sentences, "facts": list(facts.values())})
         for story in payload["stories"]:
             if story["editor_pin"] == "crypto":
@@ -673,6 +737,11 @@ def validate_script(profile, chosen, source_windows, client, model, day, facts, 
         "repeated_numbers": 0,
         "facts": [facts[i] for i in dict.fromkeys(i for s in sentences for i in s["fact_ids"])],
     }
+    opener = profile.get("editor", {}).get("opener")
+    if opener and sentences:
+        opener_text = opener if opener.endswith((".", "!", "?")) else opener + "."
+        result["sentences"] = [{"text": opener_text, "story_id": sentences[0]["story_id"],
+                                "fact_ids": [], "article_ids": [], "editor_opener": True}, *sentences]
     out = ROOT / "out" / profile["id"]
     write_json(out / "caught.json", caught)
     append_receipt_closing(result, len(used_numbers))
@@ -683,6 +752,7 @@ def validate_script(profile, chosen, source_windows, client, model, day, facts, 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--regenerate", action="store_true", help="Regenerate Mara even with unchanged stories")
     parser.add_argument("--overnight", action="store_true")
     parser.add_argument("--date", required=True, type=date.fromisoformat)
     parser.add_argument("--listener", required=True, choices=(*LISTENERS, "all"))
@@ -733,7 +803,15 @@ def main():
                 ), strict=True))
             return claims
 
-        gate = (lambda story: priya_accepts(story, get_claims, client, small)) if listener == "priya" else None
+        def gate(story):
+            if story.get("pin", {}).get("lead") and story["verified_figures"]:
+                story["business_consequence"] = (
+                    "Describe the China tariff exposure conditionally, without claiming a new tariff."
+                )
+                return True
+            return priya_accepts(story, get_claims, client, small)
+
+        gate = gate if listener == "priya" else None
         chosen = select_stories(stories, fits, profile, articles, gate)
         if not chosen:
             raise SystemExit(f"No eligible verified stories for {listener}")
@@ -741,7 +819,7 @@ def main():
         for story, score, _ in chosen:
             print(f"  {score:2d} | {story['title'][:90]}")
         existing = read_script(listener, args.date)
-        if args.listener == "all" and listener == "mara" and existing and (
+        if not args.regenerate and args.listener == "all" and listener == "mara" and existing and (
             {item["story_id"] for item in existing["selected_stories"]}
             == {story["story_id"] for story, _, _ in chosen}
         ):

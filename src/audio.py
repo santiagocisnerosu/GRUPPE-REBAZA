@@ -42,7 +42,8 @@ def story_paragraphs(sentences):
     # that story stay together in the same paragraph.
     stories = defaultdict(list)
     for sentence in sentences:
-        stories[sentence.get("story_id")].append(sentence)
+        key = "editor_closer" if sentence.get("editor_closer") else sentence.get("story_id")
+        stories[key].append(sentence)
 
     parts, spans = [], []
     offset = 0

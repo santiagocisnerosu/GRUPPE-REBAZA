@@ -44,13 +44,15 @@ def export_reports(out, scripts, sources, spoken_citations):
             print(f"{item['value']} | {item['measure']} | {listener} | {line['sentence']}")
     print(f"Shared figures: {len(shared)}")
 
-    if "mara" in scripts:
-        lines = ["# Mara: spoken figures", ""]
-        for raw, matches, _ in spoken_citations(scripts["mara"]):
+    all_lines = ["# Spoken figures by listener", ""]
+    for listener, script in scripts.items():
+        lines = [f"# {listener.capitalize()}: spoken figures", ""]
+        for raw, matches, _ in spoken_citations(script):
             fact = matches[0]
             source = sources[fact["article_id"]]
             fields = [fact["measures"], raw, source["outlet"], source["headline"], source["link"]]
             lines.append("- " + " | ".join(" ".join(value.split()) for value in fields))
-        path = out / "mara" / "facts_for_agent.md"
-        path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+        (out / listener / "facts_for_agent.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+        all_lines.extend([f"## {listener.capitalize()}", "", *lines[2:], ""])
+    (out / "facts_for_agent_all.md").write_text("\n".join(all_lines), encoding="utf-8")
     return shared

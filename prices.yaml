@@ -1,12 +1,10 @@
-# Fill these from the official pricing pages (OpenAI and ElevenLabs) before running the cost report.
-# Units: USD per 1M tokens for models; USD per 1K characters for TTS.
 openai:
-  large_model:   {input_per_1m: 0.0, output_per_1m: 0.0}
-  small_model:   {input_per_1m: 0.0, output_per_1m: 0.0}
-  embeddings:    {input_per_1m: 0.0}
+  large_model:   {input_per_1m: 2.00, output_per_1m: 10.00}   # gpt-6.2-sol, confirmar en dashboard
+  small_model:   {input_per_1m: 1.00, output_per_1m: 5.00}    # gpt-6.1-terra
+  embeddings:    {input_per_1m: 0.02}                         # confirmar en dashboard
 elevenlabs:
-  tts_per_1k_chars: 0.0
+  tts_per_1k_chars: 0.10                                      # eleven_multilingual_v2
 assumptions:
   words_per_minute: 150
-  articles_per_day_full_dataset: null   # computed from the data
+  articles_per_day_full_dataset: null
   listeners_scenario: 10000
