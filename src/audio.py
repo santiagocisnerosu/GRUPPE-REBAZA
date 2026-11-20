@@ -136,7 +136,13 @@ def synthesize(text, profile, model, client):
             output_format=OUTPUT_FORMAT, **options,
         )
     except ApiError as exc:
-        raise RuntimeError(f"ElevenLabs synthesis failed (HTTP {exc.status_code})") from None
+        detail = exc.body.get("detail") if isinstance(exc.body, dict) else None
+        if isinstance(detail, dict):
+            detail = detail.get("message") or detail.get("status")
+        if isinstance(detail, list):
+            detail = ", ".join(str(item["msg"]) for item in detail if isinstance(item, dict) and item.get("msg"))
+        reason = f": {detail}" if isinstance(detail, str) and detail else ""
+        raise RuntimeError(f"ElevenLabs synthesis failed (HTTP {exc.status_code}){reason}") from None
     log_call("tts", model, tts_chars=len(text))
     if response.alignment is None:
         raise ValueError("ElevenLabs returned audio without original-text alignment")
@@ -162,7 +168,7 @@ def verified_receipt(script, sources):
     return receipt
 
 
-def normalize_audio(raw, destination):
+def normalize_audio(raw, destination, *, wildcard=False):
     """Master from the cached original, then check the decoded delivery MP3."""
     ffmpeg = shutil.which("ffmpeg")
     if not ffmpeg:
@@ -198,11 +204,17 @@ def normalize_audio(raw, destination):
             run(original, "-af", filters, "-c:a", "libmp3lame", "-b:a", "128k", str(encoded))
             after = measure(encoded)
             loudness, peak = float(after["input_i"]), float(after["input_tp"])
-            if abs(loudness + 16) <= 0.10 and peak <= -1.5:
+            if wildcard:
+                acceptable = abs(loudness + 16) <= 1 and peak < -1
+            else:
+                acceptable = abs(loudness + 16) <= 0.10 and peak <= -1.5
+            if acceptable:
                 break
-            # Lossy encoding can introduce new intersample peaks. Re-render from the original.
+            # The limiter follows the gain. For a live edition, correct the ceiling
+            # for actual MP3 overshoot without subtracting the makeup gain twice.
             correction = -16 - loudness
-            peak_target -= max(0, peak + correction + 1.5 + 0.15)
+            predicted_peak = peak if wildcard else peak + correction
+            peak_target -= max(0, predicted_peak + 1.5 + 0.15)
             trim_gain += correction
         else:
             raise ValueError(f"MP3 missed mastering targets: {loudness} LUFS, {peak} dBTP")
@@ -251,7 +263,8 @@ def build_audio(profile, model, client, sources, out=None, conflict_report=None)
          "used": entry.get("scripts", {}).get(listener, {}).get("used")}
         for entry in load_json(CACHE_DIR / "conflicts.json")
     ]
-    normalize_audio(base64.b64decode(response["audio_base64"], validate=True), out / "briefing.mp3")
+    normalize_audio(base64.b64decode(response["audio_base64"], validate=True),
+                    out / "briefing.mp3", wildcard=bool(profile.get("wildcard")))
     write_json(out / "transcript.json", {
         "listener": listener, "name": profile["name"], "date": script["date"], "audio": "briefing.mp3",
         "figures_total": total, "figures_verified": len(receipt), "sources_total": sources_total,

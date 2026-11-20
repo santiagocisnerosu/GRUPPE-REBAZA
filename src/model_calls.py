@@ -18,9 +18,10 @@ def structured(client, model, stage, schema, instructions, payload):
     except APIError as exc:
         with _USAGE_LOCK:
             log_call(stage, model)
-        raise RuntimeError(
-            f"{stage}: {type(exc).__name__} (HTTP {getattr(exc, 'status_code', None)})"
-        ) from None
+        detail = exc.body.get("message") if isinstance(exc.body, dict) else None
+        status = getattr(exc, "status_code", None)
+        reason = detail or (exc.message if status is None else type(exc).__name__)
+        raise RuntimeError(f"{stage}: {reason}" + (f" (HTTP {status})" if status else "")) from None
     usage = response.usage
     with _USAGE_LOCK:
         log_call(stage, model, usage.input_tokens if usage else 0,

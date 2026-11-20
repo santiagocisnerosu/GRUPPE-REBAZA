@@ -5,8 +5,10 @@ import mimetypes
 import os
 import re
 import socket
+import sys
 import threading
 import time
+import traceback
 import uuid
 from argparse import Namespace
 from dataclasses import dataclass, field
@@ -15,6 +17,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 from dotenv import load_dotenv
+from pydantic import ValidationError
 
 from .listeners import roster
 from .wildcard import LANGUAGES, ROOT, generate, run_cost
@@ -35,24 +38,21 @@ class Job:
 
 
 def error_message(exc, step):
-    # Provider exceptions can contain credentials or request bodies. Only
-    # send a stage and allowlisted diagnostics to the browser.
     if isinstance(exc, KeyError) and exc.args and exc.args[0] in (
         "OPENAI_API_KEY", "OPENAI_SMALL_MODEL", "OPENAI_LARGE_MODEL", "ELEVENLABS_MODEL", "ELEVENLABS_API_KEY"
     ):
         return f"Set {exc.args[0]} in the laptop’s .env and restart the server."
-    status = getattr(exc, "status_code", None) or re.search(r"\bHTTP (\d{3})\b", str(exc))
-    if isinstance(status, re.Match):
-        status = int(status[1])
-    if isinstance(status, int):
-        return f"The provider returned HTTP {status} during {step}."
-    if isinstance(exc, FileNotFoundError):
-        return "A required local file is missing. Check the November 18 cache and project configuration."
-    if isinstance(exc, ValueError) and str(exc) == "Set ELEVENLABS_MODEL=eleven_multilingual_v2":
-        return "Set ELEVENLABS_MODEL=eleven_multilingual_v2 in .env and restart the server."
-    if isinstance(exc, ValueError) and str(exc) == "No eligible stories with verified evidence for this listener":
-        return "No verified stories matched this listener. Try describing a broader interest."
-    return f"The {step} step could not finish ({type(exc).__name__}). Check the local configuration and retry."
+    if isinstance(exc, ValidationError):
+        # Report which field failed without echoing the submitted document.
+        errors = exc.errors(include_input=False, include_context=False, include_url=False)
+        detail = ", ".join(f"{'.'.join(map(str, item['loc']))}: {item['msg']}" for item in errors)
+    else:
+        detail = str(exc) or type(exc).__name__
+    for name in ("OPENAI_API_KEY", "ELEVENLABS_API_KEY"):
+        secret = os.getenv(name)
+        if secret:
+            detail = detail.replace(secret, "[redacted]")
+    return f"{step.capitalize()} failed. {detail[:500]}"
 
 
 class Jobs:
@@ -89,7 +89,8 @@ class Jobs:
             listener_id = folder.name
         except (Exception, SystemExit) as exc:
             error = error_message(exc, job.step)
-            print(f"Job {job.id}: {error}", flush=True)
+            traceback.print_tb(exc.__traceback__)
+            print(f"Job {job.id} ({type(exc).__name__}): {error}", file=sys.stderr, flush=True)
         finally:
             with self.lock:
                 job.listener_id, job.error = listener_id, error

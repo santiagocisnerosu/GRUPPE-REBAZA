@@ -108,10 +108,16 @@ class LiveServerTests(unittest.TestCase):
         self.assertEqual(self.request("POST", "/api/wildcard", payload, {"Content-Type": "text/plain"})[0], 415)
         self.assertEqual(self.request("POST", "/api/wildcard", payload,
                                       {"Content-Type": "application/json", "Origin": "https://example.org"})[0], 403)
-        with patch.object(live, "generate", side_effect=RuntimeError("private provider details")):
+        def fail_mastering(*args, progress, **kwargs):
+            progress("voicing")
+            raise ValueError("MP3 missed mastering targets: -17.2 LUFS, -5.4 dBTP")
+
+        with patch.object(live, "generate", side_effect=fail_mastering):
             for _ in range(2):
                 status, accepted = self.request("POST", "/api/wildcard", payload)
                 self.assertEqual(status, 202)
                 result = self.finished(accepted["job"])
                 self.assertEqual(result["step"], "failed")
-                self.assertNotIn("private provider details", result["error"])
+                self.assertEqual(result["error"], "Voicing failed. MP3 missed mastering targets: -17.2 LUFS, -5.4 dBTP")
+        self.assertEqual(live.error_message(RuntimeError("Invalid key fixture"), "voicing"),
+                         "Voicing failed. Invalid key [redacted]")

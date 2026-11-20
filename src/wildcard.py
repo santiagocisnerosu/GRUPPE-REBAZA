@@ -197,6 +197,14 @@ def deliver(profile, folder, dry, publish, local_root=None):
 
 def build(args, client, folder, small, large, progress, local_root):
     progress("profile")
+    profile = make_profile(args.description, args.language, client, small)
+    if local_root is not None and not args.dry_run:
+        for root in (ROOT / "docs/out", local_root):
+            if any(entry["id"] == profile["id"] for entry in roster(root)):
+                existing = root / profile["id"]
+                if (existing / "briefing.mp3").is_file() and (existing / "transcript.json").is_file():
+                    return read(existing / "transcript.json")["figures_verified"], existing
+    progress("choosing stories")
     stories = read(CACHE_DIR / "stories.json")
     members = [i for story in stories for i in story["article_ids"]]
     overnight = set(selected_articles(DAY, None, overnight=True).id)
@@ -210,14 +218,6 @@ def build(args, client, folder, small, large, progress, local_root):
         "id", "date", "language", "translation_of", "headline", "outlet", "text", "link"]).set_index("id", drop=False)
     articles = {r.id: {"date": int(r.date.timestamp()), "headline": r.headline,
                        "outlet": r.outlet, "link": r.link} for r in rows.itertuples()}
-    profile = make_profile(args.description, args.language, client, small)
-    if local_root is not None:
-        for root in (ROOT / "docs/out", local_root):
-            if any(entry["id"] == profile["id"] for entry in roster(root)):
-                existing = root / profile["id"]
-                if (existing / "briefing.mp3").is_file() and (existing / "transcript.json").is_file():
-                    return read(existing / "transcript.json")["figures_verified"], existing
-    progress("choosing stories")
     fits, chosen = ranked(profile, stories, articles, client, small)
     stage.write_selection_log(profile["id"], DAY, stories, fits, chosen, folder)
     claims = {}
@@ -228,7 +228,20 @@ def build(args, client, folder, small, large, progress, local_root):
     pairs = stage.detect_conflicts(stories, client, small, cache_only=True)
     progress("writing and checking")
     windows = {w for body in rows.text.dropna() for w in stage.word_windows(body)}
-    stage.write_script(profile, chosen, claims, articles, windows, client, large, DAY, pairs, small, out=folder)
+    # Keep the validated draft and its two audit files together through a failed
+    # voicing attempt. Only the delivery copy gets the translated source IDs.
+    inputs = [profile, stage.script_instructions(profile), chosen, claims, pairs, small, large,
+              (CACHE_DIR / "articles.parquet").stat().st_mtime_ns]
+    digest = hashlib.sha256(json.dumps(inputs, sort_keys=True).encode()).hexdigest()
+    pending = CACHE_DIR / "wildcard_drafts" / f"{digest}.json"
+    draft_files = ("script.json", "caught.json", "validation_issues.json")
+    try:
+        draft = read(pending)
+    except FileNotFoundError:
+        stage.write_script(profile, chosen, claims, articles, windows, client, large, DAY, pairs, small, out=folder)
+    else:
+        for name in draft_files:
+            write_json(folder / name, draft[name])
     script = read(folder / "script.json")
     opening = introduction(profile["name"], profile["language"])
     lines = script["sentences"]
@@ -240,6 +253,8 @@ def build(args, client, folder, small, large, progress, local_root):
         raise ValueError("Licensed wording in final narration")
     sources = attach_sources(script, rows, profile["language"])
     conflicts = conflicts_used(script, pairs, read(CACHE_DIR / "conflicts.json"))
+    if not args.dry_run and not pending.is_file():
+        write_json(pending, {name: read(folder / name) for name in draft_files})
     write_json(folder / "script.json", script)
     if not args.dry_run:
         progress("voicing")
@@ -271,6 +286,8 @@ def build(args, client, folder, small, large, progress, local_root):
                 item[field] = "Measurement described in the linked source."
         write_json(folder / "transcript.json", transcript)
     local = deliver(profile, folder, args.dry_run, not args.no_publish, local_root)
+    if not args.dry_run:
+        pending.unlink(missing_ok=True)
     return script["number_mentions"], local
 
 

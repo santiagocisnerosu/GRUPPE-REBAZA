@@ -6,6 +6,8 @@ From the repository root on the finals laptop, leave the server running. Click *
 
 The server listens only on the laptop. If the static fallback is using port 8000, stop it with Ctrl+C in its terminal first. The live server serves the frozen editions from `docs/`, stores new editions and profiles under `out/live/`, and makes completed editions available again after a restart. One creation job runs at a time. The API keys come from the server’s `.env`.
 
+If voicing fails, the panel shows the error. Submit the same description and language again to reuse the profile, checked script and any saved ElevenLabs recording and timing. Mastering retries from that original recording, adjusting gain for loudness and the limiter for measured peak overshoot. A wildcard MP3 passes at −17 to −15 LUFS with a true peak below −1 dBTP and the original decoded sample count.
+
 ## PowerShell fallback
 
 Stop the live server with Ctrl+C before using port 8000 for the static player. Start the player in one terminal from the repository root.
@@ -42,6 +44,17 @@ The greeting and AI-voice disclosure each have their own karaoke line before the
 - `--no-publish` builds the playable edition under `out/<id>/`. Serve the repository root with `python -m http.server 8001 --bind 127.0.0.1` to open the local player URL it prints.
 
 ## Rehearsal results
+
+All three editions below played through the local **New listener** form. Times are server job times. Costs are the recorded API charges for that submission.
+
+| Listener | Form language | Job time | API cost | Verified figures |
+| --- | --- | ---: | ---: | ---: |
+| Maastricht pensioner, inflation and energy prices | Auto → Dutch | 19.0 s | $0.0000 | 6/6 |
+| Same Dutch submission, completed edition cached | Auto → Dutch | <0.1 s | $0.0000 | 6/6 |
+| Aachen bakery owner, energy bills and imported ingredients | German | 105.5 s | $0.2127 | 3/3 |
+| Manchester bus operator, fuel prices, inflation and rates | English | 92.6 s | $0.2094 | 3/3 |
+
+The Dutch recovery reused the recording from the original $0.2133 attempt and delivered it at −16.96 LUFS and −2.06 dBTP. The German and English runs generated fresh recordings. The German script finished eight words below its target minimum. The English script omitted its requested closing lead-in.
 
 The local browser rehearsal used **Auto** and “Retired teacher in Leeds with a small pension in index funds, no crypto, calm, plain English”. It produced Anne’s English edition with 4/4 verified figures. The job took **81.3 s and $0.1759**. Playback started **81.9 s** after clicking Create. The live server keeps this edition under `out/live/`. [Open Anne on the finals laptop](http://localhost:8000/?listener=wildcard-en-76d109a4c517)
 
