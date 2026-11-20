@@ -25,6 +25,13 @@ FIGURE = re.compile(
 CURRENCIES = {"$": "usd", "us$": "usd", "\u20ac": "eur", "\u00a3": "gbp"}
 
 
+NUMBER_WORD = re.compile(
+    r"\b(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|"
+    r"thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|"
+    r"hundred|thousand|million|billion|half|double)\b", re.IGNORECASE,
+)
+
+
 def normalize_text(value):
     return " ".join(value.translate(PUNCTUATION).split())
 
@@ -61,11 +68,19 @@ def normalized_figures(value):
         yield number, unit, currency
 
 
+def is_word_figure(value):
+    return not any(char.isdecimal() for char in value) and NUMBER_WORD.search(value) is not None
+
+
 def rejection_reason(figure, source):
     phrase = normalize_text(figure["phrase"])
     if not phrase or phrase not in source:
         return "phrase_not_found"
     value = normalize_text(figure["value_text"])
+    if is_word_figure(value):
+        if re.search(r"(?<!\w)" + re.escape(value) + r"(?!\w)", phrase, re.IGNORECASE):
+            return None
+        return "value_not_found_in_phrase"
     expected = list(normalized_figures(value))
     if not expected:
         return "value_not_numeric"
@@ -109,6 +124,8 @@ def main():
                         phrase = "[omitted: full article]"
                     examples.append((figure["value_text"][:80], reason, phrase[:200]))
             else:
+                if is_word_figure(normalize_text(figure["value_text"])):
+                    record["kind"] = "word"
                 verified.append(record)
 
     write_json(CACHE_DIR / "verified.json", verified)
