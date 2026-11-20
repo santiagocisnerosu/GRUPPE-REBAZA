@@ -27,7 +27,7 @@ from .audio import build_audio
 from .cost_report import priced
 from .costs import CACHE_DIR, RUN_ID, write_json
 from .extract import selected_articles
-from .listeners import register, roster_lock
+from .listeners import register, roster, roster_lock
 from .publish_site import redact_sentence
 from .wildcard_checks import introduction
 
@@ -117,14 +117,18 @@ def ranked(profile, stories, articles, client, model):
 
 
 def run_cost(run_id, models):
+    log = CACHE_DIR / "costs.jsonl"
+    if not log.is_file():
+        return Decimal(0)
+    # A live status request can overlap the writer. Only price completed rows.
+    with log.open(encoding="utf-8") as stream:
+        records = [json.loads(line) for line in stream if line.endswith("\n") and run_id in line]
+    if not records:
+        return Decimal(0)
     cfg = yaml.safe_load((ROOT / "prices.yaml").read_text(encoding="utf-8"))
     cfg["openai"] = {k: {n: Decimal(str(r)) for n, r in v.items()} for k, v in cfg["openai"].items()}
     cfg["elevenlabs"] = {k: Decimal(str(v)) for k, v in cfg["elevenlabs"].items()}
-    total = Decimal(0)
-    for line in (CACHE_DIR / "costs.jsonl").read_text(encoding="utf-8").splitlines():
-        if run_id in line:
-            total += priced(json.loads(line), cfg, models)
-    return total
+    return sum((priced(record, cfg, models) for record in records), Decimal(0))
 
 
 def attach_sources(script, rows, lang):
@@ -162,24 +166,25 @@ def conflicts_used(script, pairs, saved):
     return report
 
 
-def deliver(profile, folder, dry, publish):
+def deliver(profile, folder, dry, publish, local_root=None):
     entry = {k: profile[k] for k in ("id", "name", "role", "language")}
+    output = local_root or ROOT / "out"
     with roster_lock():
-        config = ROOT / "profiles_wildcard.yaml"
+        config = (local_root or ROOT) / "profiles_wildcard.yaml"
         profiles = yaml.safe_load(config.read_text(encoding="utf-8"))["profiles"] if config.exists() else []
         profiles = [p for p in profiles if p["id"] != profile["id"]] + [profile]
         tmp = config.with_suffix(".yaml.tmp")
         tmp.write_text(yaml.safe_dump({"profiles": profiles}, allow_unicode=True, sort_keys=False), encoding="utf-8")
         tmp.replace(config)
-        local = ROOT / "out" / profile["id"]
+        local = output / profile["id"]
         if dry:
             local = local / "dry-run"
         local.mkdir(parents=True, exist_ok=True)
         for file in folder.iterdir():
             file.replace(local / file.name)
         if not dry:
-            register(ROOT / "out", entry)
-            if publish:
+            register(output, entry)
+            if publish and local_root is None:
                 public = ROOT / "docs/out" / profile["id"]
                 public.mkdir(parents=True, exist_ok=True)
                 for name in ("briefing.mp3", "transcript.json"):
@@ -190,7 +195,8 @@ def deliver(profile, folder, dry, publish):
     return local
 
 
-def build(args, client, folder, small, large):
+def build(args, client, folder, small, large, progress, local_root):
+    progress("profile")
     stories = read(CACHE_DIR / "stories.json")
     members = [i for story in stories for i in story["article_ids"]]
     overnight = set(selected_articles(DAY, None, overnight=True).id)
@@ -205,6 +211,13 @@ def build(args, client, folder, small, large):
     articles = {r.id: {"date": int(r.date.timestamp()), "headline": r.headline,
                        "outlet": r.outlet, "link": r.link} for r in rows.itertuples()}
     profile = make_profile(args.description, args.language, client, small)
+    if local_root is not None:
+        for root in (ROOT / "docs/out", local_root):
+            if any(entry["id"] == profile["id"] for entry in roster(root)):
+                existing = root / profile["id"]
+                if (existing / "briefing.mp3").is_file() and (existing / "transcript.json").is_file():
+                    return read(existing / "transcript.json")["figures_verified"], existing
+    progress("choosing stories")
     fits, chosen = ranked(profile, stories, articles, client, small)
     stage.write_selection_log(profile["id"], DAY, stories, fits, chosen, folder)
     claims = {}
@@ -213,6 +226,7 @@ def build(args, client, folder, small, large):
             p = CACHE_DIR / "claims" / (i + ".json")
             claims[i] = read(p)["claims"] if p.exists() else []
     pairs = stage.detect_conflicts(stories, client, small, cache_only=True)
+    progress("writing and checking")
     windows = {w for body in rows.text.dropna() for w in stage.word_windows(body)}
     stage.write_script(profile, chosen, claims, articles, windows, client, large, DAY, pairs, small, out=folder)
     script = read(folder / "script.json")
@@ -228,6 +242,7 @@ def build(args, client, folder, small, large):
     conflicts = conflicts_used(script, pairs, read(CACHE_DIR / "conflicts.json"))
     write_json(folder / "script.json", script)
     if not args.dry_run:
+        progress("voicing")
         model = os.environ["ELEVENLABS_MODEL"]
         if model != "eleven_multilingual_v2":
             raise ValueError("Set ELEVENLABS_MODEL=eleven_multilingual_v2")
@@ -255,11 +270,21 @@ def build(args, client, folder, small, large):
             if redact_sentence(item[field], windows)[1]:
                 item[field] = "Measurement described in the linked source."
         write_json(folder / "transcript.json", transcript)
-    local = deliver(profile, folder, args.dry_run, not args.no_publish)
-    if args.dry_run:
-        return script["number_mentions"], (local / "script.json").as_uri()
-    page = "http://localhost:8001/web/player.html" if args.no_publish else "http://localhost:8000/"
-    return script["number_mentions"], f"{page}?listener={profile['id']}"
+    local = deliver(profile, folder, args.dry_run, not args.no_publish, local_root)
+    return script["number_mentions"], local
+
+
+def generate(args, small, large, run_id, *, progress=lambda step: None, local_root=None):
+    output = local_root or ROOT / "out"
+    output.mkdir(parents=True, exist_ok=True)
+    token = RUN_ID.set(run_id)
+    previous_mode, stage.AUTO = stage.AUTO, True
+    try:
+        with TemporaryDirectory(dir=output) as scratch:
+            return build(args, OpenAI(max_retries=0), Path(scratch), small, large, progress, local_root)
+    finally:
+        stage.AUTO = previous_mode
+        RUN_ID.reset(token)
 
 
 def main():
@@ -276,17 +301,12 @@ def main():
     load_dotenv(ROOT / ".env", override=True)
     small, large = (os.environ["OPENAI_" + size + "_MODEL"] for size in ("SMALL", "LARGE"))
     run_id = uuid.uuid4().hex
-    token = RUN_ID.set(run_id)
-    previous_mode, stage.AUTO = stage.AUTO, True
-    output = ROOT / "out"
-    output.mkdir(exist_ok=True)
     try:
-        with TemporaryDirectory(dir=output) as scratch:
-            figures, url = build(args, OpenAI(max_retries=0), Path(scratch), small, large)
+        figures, local = generate(args, small, large, run_id)
+        page = "http://localhost:8001/web/player.html" if args.no_publish else "http://localhost:8000/"
+        url = (local / "script.json").as_uri() if args.dry_run else f"{page}?listener={local.name}"
         print(f"Verified figures: {figures} | URL: {url}")
     finally:
-        stage.AUTO = previous_mode
-        RUN_ID.reset(token)
         cost = run_cost(run_id, {small: "small_model", large: "large_model"})
         print(f"Elapsed: {time.monotonic() - start:.1f} s | Recorded cost: USD {cost:.4f}", flush=True)
 

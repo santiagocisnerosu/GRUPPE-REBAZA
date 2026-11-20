@@ -1,6 +1,14 @@
 # A live wildcard briefing
 
-Start the player in one terminal on the finals laptop, from the repository root. Leave it running while the judges describe their listener.
+**Finals: run `python -m src.live_server` and open http://localhost:8000.**
+
+From the repository root on the finals laptop, leave the server running. Click **New listener**, paste the judges’ description, choose a language or leave **Auto** selected, and click **Create**. The panel shows the current step, elapsed time and API cost. When the edition is ready the player selects its tab and starts playback. If the browser asks for a gesture, press **Play**.
+
+The server listens only on the laptop. If the static fallback is using port 8000, stop it with Ctrl+C in its terminal first. The live server serves the frozen editions from `docs/`, stores new editions and profiles under `out/live/`, and makes completed editions available again after a restart. One creation job runs at a time. The API keys come from the server’s `.env`.
+
+## PowerShell fallback
+
+Stop the live server with Ctrl+C before using port 8000 for the static player. Start the player in one terminal from the repository root.
 
 ```powershell
 python -m http.server 8000 --bind 127.0.0.1 --directory docs
@@ -34,6 +42,8 @@ The greeting and AI-voice disclosure each have their own karaoke line before the
 - `--no-publish` builds the playable edition under `out/<id>/`. Serve the repository root with `python -m http.server 8001 --bind 127.0.0.1` to open the local player URL it prints.
 
 ## Rehearsal results
+
+The local browser rehearsal used **Auto** and “Retired teacher in Leeds with a small pension in index funds, no crypto, calm, plain English”. It produced Anne’s English edition with 4/4 verified figures. The job took **81.3 s and $0.1759**. Playback started **81.9 s** after clicking Create. The live server keeps this edition under `out/live/`. [Open Anne on the finals laptop](http://localhost:8000/?listener=wildcard-en-76d109a4c517)
 
 | Listener | Published build | Cost of published build | All runs for this revision | Total API cost | Player duration | Verified figures |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |

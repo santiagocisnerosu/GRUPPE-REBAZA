@@ -1,0 +1,35 @@
+#new-listener, #create-listener {
+  min-height: 36px; padding: 7px 13px; border: 1px solid var(--ink);
+  font: 600 .82rem var(--ui); white-space: nowrap;
+}
+#new-listener { flex: none; }
+#listener-panel {
+  width: min(30rem, calc(100% - 32px)); max-height: 90dvh; margin: auto;
+  padding: 0 clamp(18px, 4vw, 28px) 22px; overflow: auto;
+}
+#listener-form { display: grid; gap: 8px; padding-top: 22px; }
+#listener-form label { font: 600 .87rem/1.5 var(--ui); }
+#listener-form :is(textarea, select) {
+  width: 100%; border: 1px solid var(--gray); border-radius: 0; padding: 9px 10px;
+  color: var(--ink); background: var(--paper); font: 1rem/1.4 var(--ui);
+}
+#listener-form textarea { resize: vertical; min-height: 5.5rem; }
+#listener-form :is(textarea, select):focus-visible { outline: 2px solid var(--signal); outline-offset: 2px; }
+.live-form-actions, .live-progress-head { display: flex; align-items: end; justify-content: space-between; gap: 14px; }
+.live-form-actions { margin: 8px 0 2px; }
+.live-form-actions select { display: block; margin-top: 4px; }
+#create-listener { background: var(--ink); color: var(--paper); min-height: 42px; padding-inline: 23px; }
+#listener-progress { border-top: 1px solid var(--rule); padding-top: 14px; margin-top: 20px; }
+.live-progress-head { align-items: baseline; }
+#live-step { font: 600 .9rem var(--ui); }
+#live-meter { font: .75rem var(--mono); white-space: nowrap; }
+#live-steps { padding: 0; margin: 10px 0 0; list-style: none; font-size: .84rem; }
+#live-steps li { display: flex; align-items: center; gap: 9px; padding: 3px 0; color: var(--secondary); }
+#live-steps li::before { content: "○"; width: 1em; font-family: var(--mono); }
+#live-steps li[aria-current="step"] { font-weight: 650; color: var(--ink); }
+#live-steps li[aria-current="step"]::before { content: "●"; color: var(--signal); }
+#live-steps li.complete::before { content: "✓"; color: var(--ink); }
+#listener-error { border-left: 2px solid var(--signal); padding-left: 10px; margin: 14px 0 0; font-size: .88rem; }
+@media (max-width: 740px) {
+  #new-listener { margin: 5px 0 5px auto; }
+}

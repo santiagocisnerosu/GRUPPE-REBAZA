@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="/_live/panel.css">
+<button id="new-listener" type="button" aria-haspopup="dialog" aria-controls="listener-panel" hidden>New listener</button>
+<dialog id="listener-panel" aria-labelledby="listener-heading">
+  <header class="dialog-head">
+    <h2 id="listener-heading">New listener</h2>
+    <form method="dialog"><button>Close</button></form>
+  </header>
+  <form id="listener-form">
+    <label for="listener-description">Describe the listener in one or two sentences</label>
+    <textarea id="listener-description" rows="4" maxlength="2000" required></textarea>
+    <div class="live-form-actions">
+      <label for="listener-language">Language
+        <select id="listener-language">
+          <option value="auto">Auto</option>
+          <option value="en">English</option>
+          <option value="nl">Nederlands</option>
+          <option value="de">Deutsch</option>
+        </select>
+      </label>
+      <button id="create-listener" type="submit">Create</button>
+    </div>
+  </form>
+  <section id="listener-progress" aria-label="Briefing progress" hidden>
+    <div class="live-progress-head"><strong id="live-step" role="status"></strong><span id="live-meter"></span></div>
+    <ol id="live-steps">
+      <li data-step="profile">Profile</li>
+      <li data-step="choosing stories">Choosing stories</li>
+      <li data-step="writing and checking">Writing and checking</li>
+      <li data-step="voicing">Voicing</li>
+      <li data-step="done">Done</li>
+    </ol>
+  </section>
+  <p id="listener-error" role="alert" hidden></p>
+</dialog>
+<script src="/_live/panel.js"></script>
