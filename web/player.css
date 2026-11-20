@@ -111,7 +111,7 @@ h2, h3 { font: 500 2rem/1.05 var(--serif); letter-spacing: -.035em; }
 .context > div + div { border-top: 1px solid var(--rule); }
 .context > div > span { font: .66rem var(--mono); color: var(--secondary); }
 .context p { color: var(--secondary); font: 400 1.07rem/1.32 var(--serif); }
-.transport { gap: 15px; margin-top: 12px; padding: 15px 0; border-block: 1px solid var(--ink); }
+.transport { flex-wrap: wrap; gap: 4px 15px; margin-top: 12px; padding: 15px 0; border-block: 1px solid var(--ink); }
 .play { flex: none; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; background: var(--ink); color: var(--paper); }
 .play .icon { fill: currentColor; stroke: none; width: 18px; height: 18px; }
 .clock { font: .78rem var(--mono); min-width: 4ch; }
@@ -200,6 +200,8 @@ dialog::backdrop { background: rgb(18 18 18 / 37%); }
 .chip .icon { width: 11px; height: 11px; margin-right: 4px; }
 .story-members { margin-top: 8px; color: var(--secondary); font-size: .8rem; line-height: 1.5; }
 .story-members summary { cursor: pointer; }
+.voice-credit { flex-basis: 100%; color: var(--secondary); font: .73rem/1.45 var(--ui); margin: 0; }
+.profiles:has(.profile:nth-child(4)) { flex-wrap: wrap; }
 .story-members ul { margin: 4px 0 8px; padding-left: 1.25em; }
 .story-members li { margin: 4px 0; overflow-wrap: anywhere; }
 .story-members time { font: .72rem var(--mono); }
@@ -243,7 +245,7 @@ body:has(dialog[open]) { overflow: hidden; }
 }
 @media (max-width: 740px) {
   .page { width: calc(100% - 36px); }
-  body:has(#briefing:not([hidden])) { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
+  body:has(#briefing:not([hidden])) { padding-bottom: calc(112px + env(safe-area-inset-bottom)); }
   .masthead { padding: 22px 0 13px; gap: 8px; }
   .wordmark { font-size: clamp(38px, 10vw, 60px); letter-spacing: .04em; }
   .sunrise { display: none; }

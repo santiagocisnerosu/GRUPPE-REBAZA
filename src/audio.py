@@ -32,8 +32,12 @@ SPOKEN_SUBSTITUTIONS = re.compile(
 )
 
 
-def speech_parts(text):
+def speech_parts(text, language="en"):
     """Yield (spoken fragment, original character offset) before collapsing whitespace."""
+    if language in {"de", "nl"}:
+        for i, char in enumerate(text):
+            yield char, i
+        return
     cursor = 0
     for m in SPOKEN_SUBSTITUTIONS.finditer(text):
         for i in range(cursor, m.start()):
@@ -57,18 +61,18 @@ def speech_parts(text):
         yield text[i], i
 
 
-def spoken_text(text):
-    return " ".join("".join(part for part, _ in speech_parts(text)).split())
+def spoken_text(text, language="en"):
+    return " ".join("".join(part for part, _ in speech_parts(text, language)).split())
 
 
-def aligned_words(original, offset, timing):
+def aligned_words(original, offset, timing, language="en"):
     # Both strings can have different lengths (e.g. "3.6%" / "3.6 percent").
     # Consume the exact submitted non-space characters, retaining their printed token.
     words = list(re.finditer(r"\S+", original))
     owner = {i: k for k, w in enumerate(words) for i in range(w.start(), w.end())}
     intervals = [[] for _ in words]
-    positions = (offset + i for i, char in enumerate(spoken_text(original)) if not char.isspace())
-    for part, index in speech_parts(original):
+    positions = (offset + i for i, char in enumerate(spoken_text(original, language)) if not char.isspace())
+    for part, index in speech_parts(original, language):
         for char in part:
             if not char.isspace():
                 intervals[owner[index]].append(timing[next(positions)])
@@ -76,7 +80,7 @@ def aligned_words(original, offset, timing):
             for w, times in zip(words, intervals, strict=True)]
 
 
-def story_paragraphs(sentences):
+def story_paragraphs(sentences, language="en"):
     # Preserve first appearance of each story. Subsequent sentences from
     # that story stay together in the same paragraph.
     stories = defaultdict(list)
@@ -94,7 +98,7 @@ def story_paragraphs(sentences):
             if index_in_story:
                 parts.append(" ")
                 offset += 1
-            spoken = spoken_text(sentence["text"])
+            spoken = spoken_text(sentence["text"], language)
             parts.append(spoken)
             spans.append((sentence, offset, offset + len(spoken)))
             offset += len(spoken)
@@ -118,6 +122,10 @@ def synthesize(text, profile, model, client):
     voice = profile["voice_id"]
     settings = VoiceSettings(**profile["voice_settings"])
     config = [text, voice, settings.model_dump(exclude_none=True), model, OUTPUT_FORMAT]
+    options = {}
+    if profile.get("language"):
+        options["language_code"] = profile["language"]
+        config.append(options)
     key = hashlib.sha256(json.dumps(config, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
     path = CACHE_DIR / "tts" / f"{key}.json"
     if path.exists():
@@ -125,7 +133,7 @@ def synthesize(text, profile, model, client):
     try:
         response = client.text_to_speech.convert_with_timestamps(
             voice, text=text, model_id=model, voice_settings=settings,
-            output_format=OUTPUT_FORMAT,
+            output_format=OUTPUT_FORMAT, **options,
         )
     except ApiError as exc:
         raise RuntimeError(f"ElevenLabs synthesis failed (HTTP {exc.status_code})") from None
@@ -205,21 +213,23 @@ def normalize_audio(raw, destination):
           f"{before['input_tp']} -> {peak:.2f} dBTP | {samples / 44100:.3f}s before and after")
 
 
-def build_audio(profile, model, client, sources):
+def build_audio(profile, model, client, sources, out=None, conflict_report=None):
     listener = profile["id"]
-    out = ROOT / "out" / listener
+    out = out or ROOT / "out" / listener
     script = load_json(out / "script.json")
     if not script:
         raise SystemExit(f"No script for {listener}. Run src.script first.")
     narration = [sentence for sentence in script["sentences"] if not sentence.get("receipt_closing")]
-    total = sum(len(list(numeric_mentions(sentence["text"]))) for sentence in narration)
+    language = script.get("language", "en")
+    total = sum(len(list(numeric_mentions(sentence["text"], language))) for sentence in narration)
     receipt = verified_receipt(script, sources)
     if total != len(receipt):
         raise ValueError(f"{listener} has {total - len(receipt)} unmatched spoken figures")
-    sources_total = append_receipt_closing(script, total)
+    sources_total = (len({i for line in narration for i in line["article_ids"]}) if profile.get("wildcard")
+                     else append_receipt_closing(script, total))
     script["number_mentions"] = total
     write_json(out / "script.json", script)
-    text, spans = story_paragraphs(script["sentences"])
+    text, spans = story_paragraphs(script["sentences"], language)
     response, cached = synthesize(text, profile, model, client)
     timing = times_by_character(text, response["alignment"])
     titles = {story["story_id"]: story["title"] for story in script["selected_stories"]}
@@ -228,7 +238,7 @@ def build_audio(profile, model, client, sources):
         story_id = sentence.get("story_id")
         sentences.append({
             "text": sentence["text"], "start": timing[start][0], "end": timing[end - 1][1],
-            "words": aligned_words(sentence["text"], start, timing),
+            "words": aligned_words(sentence["text"], start, timing, language),
             "story": "Your receipt" if sentence.get("receipt_closing") else titles.get(story_id, "Briefing"),
             "sources": [sources[i] for i in dict.fromkeys(sentence["article_ids"])],
         })
@@ -244,7 +254,8 @@ def build_audio(profile, model, client, sources):
     write_json(out / "transcript.json", {
         "listener": listener, "name": profile["name"], "date": script["date"], "audio": "briefing.mp3",
         "figures_total": total, "figures_verified": len(receipt), "sources_total": sources_total,
-        "sentences": sentences, "caught": caught, "conflicts": conflicts, "receipt": receipt,
+        "sentences": sentences, "caught": caught, "conflicts": conflicts if conflict_report is None else conflict_report,
+        "receipt": receipt, **({"language": language} if profile.get("wildcard") else {}),
     })
     print(f"{listener}: {sentences[-1]['end']:.2f}s aligned | {len(sentences)} lines | "
           f"{total} figures | {sources_total} sources | {'cache' if cached else 'ElevenLabs'}")

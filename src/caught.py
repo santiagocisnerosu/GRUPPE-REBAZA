@@ -6,7 +6,8 @@ from .script import authorized_numbers, matches_number, numeric_mentions, spoken
 
 
 def classify_caught(issues, script, verified):
-    available = [number for fact in verified for number in authorized_numbers(fact)]
+    language = script.get("language", "en")
+    available = [number for fact in verified for number in authorized_numbers(fact, language)]
     final_spoken = list(spoken_citations(script))
     classified = {}
     for issue in issues:
@@ -16,13 +17,13 @@ def classify_caught(issues, script, verified):
         if reason == "copied_sequence_of_8_words":
             kind = "copied"
         elif reason == "number_not_in_cited_facts" and raw:
-            mentions = [actual for label, actual in numeric_mentions(sentence) if label == raw]
+            mentions = [actual for label, actual in numeric_mentions(sentence, language) if label == raw]
             if not mentions:
                 continue
             values = [value for value in mentions if value is not None]
             if not values:
                 # Spelled-out quantities can be formatted incorrectly without being invented.
-                values = authorized_numbers({"value_text": raw})
+                values = authorized_numbers({"value_text": raw}, language)
             if not values:
                 continue
             in_ledger = any(matches_number(known, value) for known in available for value in values)
@@ -34,7 +35,7 @@ def classify_caught(issues, script, verified):
                     (facts, accepted) for _, facts, accepted in final_spoken
                     if SequenceMatcher(None, sentence.casefold(), accepted.casefold()).ratio() >= .55
                     and any(matches_number(known, value) for fact in facts
-                            for known in authorized_numbers(fact) for value in values)
+                            for known in authorized_numbers(fact, language) for value in values)
                     and (
                         any(fact["article_id"] not in original_sources for fact in facts)
                         if original_sources else accepted != sentence

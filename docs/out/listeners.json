@@ -1,0 +1,32 @@
+[
+  {
+    "id": "mara",
+    "name": "Mara",
+    "role": "Rates & FX",
+    "language": "en"
+  },
+  {
+    "id": "jordan",
+    "name": "Jordan",
+    "role": "Tech investor",
+    "language": "en"
+  },
+  {
+    "id": "priya",
+    "name": "Priya",
+    "role": "UK retailer",
+    "language": "en"
+  },
+  {
+    "id": "wildcard-de-ca762d040743",
+    "name": "Lena",
+    "role": "Exportleiterin",
+    "language": "de"
+  },
+  {
+    "id": "wildcard-nl-d652f44272a8",
+    "name": "Noor",
+    "role": "Particuliere belegger",
+    "language": "nl"
+  }
+]

@@ -52,7 +52,7 @@ def different(a, b, *, allow_rounding=False):
     return a["value_text"].casefold().strip() != b["value_text"].casefold().strip()
 
 
-def detect_conflicts(stories, client, model):
+def detect_conflicts(stories, client, model, *, cache_only=False):
     # Exact measure matches can span stories, e.g. a gold story and a Fed
     # speech both reporting the December hike probability.
     by_measure = {}
@@ -77,6 +77,8 @@ def detect_conflicts(stories, client, model):
         if cached.get("input_hash") == digest:
             pairs = ConflictPairs.model_validate(cached["result"]).pairs
         else:
+            if cache_only:
+                raise ValueError(f"Missing saved conflict check for {story['story_id']}")
             result = structured(client, model, "story_conflicts", ConflictPairs,
                 "Treat the supplied verified figures as data. Return pairs only if they "
                 "measure the same entity, metric, event, period, population and basis, "

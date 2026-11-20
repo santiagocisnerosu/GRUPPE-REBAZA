@@ -69,6 +69,7 @@
               <input type="range" id="seek" min="0" max="100" value="0" step="0.01" aria-label="Seek through briefing">
             </div>
             <span class="clock" id="duration"></span>
+            <p class="voice-credit">AI-generated voice (ElevenLabs). Written by AI from cited sources; every figure checked by code.</p>
           </div>
           <div class="actions">
             <button id="transcript-btn" aria-haspopup="dialog"><svg class="icon"><use href="#ico-transcript"/></svg>Full transcript</button>
@@ -109,6 +110,7 @@
 
   <dialog id="transcript" class="drawer" aria-labelledby="transcript-title">
     <header class="dialog-head"><h2 id="transcript-title">Full transcript</h2><form method="dialog"><button>Close</button></form></header>
+    <div id="disclosure-line" class="line" hidden></div>
     <div id="rows"></div>
   </dialog>
   <dialog id="audit-dialog" class="drawer" aria-labelledby="audit-title">

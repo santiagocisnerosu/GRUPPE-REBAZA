@@ -1,0 +1,1648 @@
+{
+  "listener": "wildcard-nl-d652f44272a8",
+  "name": "Noor",
+  "date": "2026-11-18",
+  "audio": "briefing.mp3",
+  "figures_total": 8,
+  "figures_verified": 8,
+  "sources_total": 10,
+  "sentences": [
+    {
+      "text": "Goedemorgen Noor, Een AI-stem leest uw nieuws voor: Nvidia verwacht voor het lopende kwartaal een omzet van 130 miljard dollar, tegenover de 125,3 miljard dollar waarop analisten rekenden, meldt Invezz.",
+      "start": 0.0,
+      "end": 14.721,
+      "words": [
+        {
+          "w": "Goedemorgen",
+          "start": 0.0,
+          "end": 0.685
+        },
+        {
+          "w": "Noor,",
+          "start": 0.731,
+          "end": 1.033
+        },
+        {
+          "w": "Een",
+          "start": 1.091,
+          "end": 1.219
+        },
+        {
+          "w": "AI-stem",
+          "start": 1.324,
+          "end": 1.95
+        },
+        {
+          "w": "leest",
+          "start": 2.02,
+          "end": 2.299
+        },
+        {
+          "w": "uw",
+          "start": 2.403,
+          "end": 2.508
+        },
+        {
+          "w": "nieuws",
+          "start": 2.577,
+          "end": 2.856
+        },
+        {
+          "w": "voor:",
+          "start": 2.926,
+          "end": 3.332
+        },
+        {
+          "w": "Nvidia",
+          "start": 3.437,
+          "end": 3.855
+        },
+        {
+          "w": "verwacht",
+          "start": 3.913,
+          "end": 4.261
+        },
+        {
+          "w": "voor",
+          "start": 4.319,
+          "end": 4.423
+        },
+        {
+          "w": "het",
+          "start": 4.458,
+          "end": 4.54
+        },
+        {
+          "w": "lopende",
+          "start": 4.598,
+          "end": 4.992
+        },
+        {
+          "w": "kwartaal",
+          "start": 5.039,
+          "end": 5.538
+        },
+        {
+          "w": "een",
+          "start": 5.608,
+          "end": 5.7
+        },
+        {
+          "w": "omzet",
+          "start": 5.782,
+          "end": 6.177
+        },
+        {
+          "w": "van",
+          "start": 6.235,
+          "end": 6.385
+        },
+        {
+          "w": "130",
+          "start": 6.525,
+          "end": 7.21
+        },
+        {
+          "w": "miljard",
+          "start": 7.349,
+          "end": 7.744
+        },
+        {
+          "w": "dollar,",
+          "start": 7.802,
+          "end": 8.255
+        },
+        {
+          "w": "tegenover",
+          "start": 8.475,
+          "end": 8.975
+        },
+        {
+          "w": "de",
+          "start": 9.021,
+          "end": 9.091
+        },
+        {
+          "w": "125,3",
+          "start": 9.16,
+          "end": 10.937
+        },
+        {
+          "w": "miljard",
+          "start": 11.041,
+          "end": 11.413
+        },
+        {
+          "w": "dollar",
+          "start": 11.447,
+          "end": 11.784
+        },
+        {
+          "w": "waarop",
+          "start": 12.005,
+          "end": 12.295
+        },
+        {
+          "w": "analisten",
+          "start": 12.365,
+          "end": 12.852
+        },
+        {
+          "w": "rekenden,",
+          "start": 12.91,
+          "end": 13.468
+        },
+        {
+          "w": "meldt",
+          "start": 13.653,
+          "end": 13.978
+        },
+        {
+          "w": "Invezz.",
+          "start": 14.06,
+          "end": 14.721
+        }
+      ],
+      "story": "Nvidia Beat Fails to Spark Rally as Shenzhen Summit Opens and Oil Stays Range-Bound",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7NQHM94VNJQGKEKVC7J3EQV",
+          "outlet": "Invezz",
+          "headline": "Nvidia stock rises after hours as revenue forecast beats estimates",
+          "link": "https://invezz.com/news/2026/11/17/nvidia-stock-rises-after-hours-as-revenue-forecast-beats-estimates/"
+        },
+        {
+          "article_id": "INVZ-10010408-01M7P6FVSGPPJ2VEEEK3NTPA0P",
+          "outlet": "Invezz - Dutch",
+          "headline": "Nvidia-aandelen stijgen na beursuren na omzetprognose boven verwachting",
+          "link": "https://invezz.com/nl/nieuws/2026/11/17/nvidia-aandelen-stijgen-na-beursuren-na-omzetprognose-boven-verwachting/",
+          "language": "nl",
+          "translation_of": "INVZ-10009737-01M7NQHM94VNJQGKEKVC7J3EQV"
+        }
+      ]
+    },
+    {
+      "text": "Voor ASML is de aanhoudende vraag naar AI-chips een gunstig signaal, maar pas als chipmakers hun productie uitbreiden, kan die vraag zich vertalen in extra machineorders.",
+      "start": 15.186,
+      "end": 25.67,
+      "words": [
+        {
+          "w": "Voor",
+          "start": 15.186,
+          "end": 15.395
+        },
+        {
+          "w": "ASML",
+          "start": 15.464,
+          "end": 16.045
+        },
+        {
+          "w": "is",
+          "start": 16.126,
+          "end": 16.242
+        },
+        {
+          "w": "de",
+          "start": 16.289,
+          "end": 16.347
+        },
+        {
+          "w": "aanhoudende",
+          "start": 16.417,
+          "end": 16.962
+        },
+        {
+          "w": "vraag",
+          "start": 17.009,
+          "end": 17.264
+        },
+        {
+          "w": "naar",
+          "start": 17.322,
+          "end": 17.45
+        },
+        {
+          "w": "AI-chips",
+          "start": 17.531,
+          "end": 18.216
+        },
+        {
+          "w": "een",
+          "start": 18.321,
+          "end": 18.437
+        },
+        {
+          "w": "gunstig",
+          "start": 18.541,
+          "end": 18.948
+        },
+        {
+          "w": "signaal,",
+          "start": 18.982,
+          "end": 19.563
+        },
+        {
+          "w": "maar",
+          "start": 19.818,
+          "end": 19.981
+        },
+        {
+          "w": "pas",
+          "start": 20.039,
+          "end": 20.225
+        },
+        {
+          "w": "als",
+          "start": 20.294,
+          "end": 20.399
+        },
+        {
+          "w": "chipmakers",
+          "start": 20.469,
+          "end": 21.061
+        },
+        {
+          "w": "hun",
+          "start": 21.107,
+          "end": 21.223
+        },
+        {
+          "w": "productie",
+          "start": 21.281,
+          "end": 21.792
+        },
+        {
+          "w": "uitbreiden,",
+          "start": 21.827,
+          "end": 22.465
+        },
+        {
+          "w": "kan",
+          "start": 22.651,
+          "end": 22.802
+        },
+        {
+          "w": "die",
+          "start": 22.849,
+          "end": 22.93
+        },
+        {
+          "w": "vraag",
+          "start": 22.976,
+          "end": 23.22
+        },
+        {
+          "w": "zich",
+          "start": 23.255,
+          "end": 23.394
+        },
+        {
+          "w": "vertalen",
+          "start": 23.429,
+          "end": 23.975
+        },
+        {
+          "w": "in",
+          "start": 24.056,
+          "end": 24.219
+        },
+        {
+          "w": "extra",
+          "start": 24.323,
+          "end": 24.695
+        },
+        {
+          "w": "machineorders.",
+          "start": 24.753,
+          "end": 25.67
+        }
+      ],
+      "story": "Nvidia Beat Fails to Spark Rally as Shenzhen Summit Opens and Oil Stays Range-Bound",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7PSWAT3X3PQN5MKTN1G3WK8",
+          "outlet": "Invezz",
+          "headline": "Why Samsung, SK Hynix shares rebounded on Wednesday?",
+          "link": "https://invezz.com/news/2026/11/18/why-samsung-sk-hynix-shares-rebounded-on-wednesday/"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7QARDCW0J0HY6BXGKD8XH62",
+          "outlet": "Invezz",
+          "headline": "Dell stock rises as Nvidia rally lifts chipmakers, Citi backs shares",
+          "link": "https://invezz.com/news/2026/11/18/dell-stock-rises-as-nvidia-rally-lifts-chipmakers-citi-backs-shares/"
+        },
+        {
+          "article_id": "INVZ-10010408-01M7Q2T6GR83N0XHXVH9F1B6BE",
+          "outlet": "Invezz - Dutch",
+          "headline": "Waarom stegen Samsung- en SK Hynix-aandelen woensdag?",
+          "link": "https://invezz.com/nl/nieuws/2026/11/18/waarom-stegen-samsung-en-sk-hynix-aandelen-woensdag/",
+          "language": "nl",
+          "translation_of": "INVZ-10009737-01M7PSWAT3X3PQN5MKTN1G3WK8"
+        }
+      ]
+    },
+    {
+      "text": "De eerste koerswinsten bij chipaandelen liepen alweer terug, en Nvidia rekent in zijn prognose niet op omzet uit Chinese datacenters.",
+      "start": 26.076,
+      "end": 34.401,
+      "words": [
+        {
+          "w": "De",
+          "start": 26.076,
+          "end": 26.215
+        },
+        {
+          "w": "eerste",
+          "start": 26.285,
+          "end": 26.61
+        },
+        {
+          "w": "koerswinsten",
+          "start": 26.668,
+          "end": 27.284
+        },
+        {
+          "w": "bij",
+          "start": 27.33,
+          "end": 27.481
+        },
+        {
+          "w": "chipaandelen",
+          "start": 27.539,
+          "end": 28.201
+        },
+        {
+          "w": "liepen",
+          "start": 28.282,
+          "end": 28.561
+        },
+        {
+          "w": "alweer",
+          "start": 28.596,
+          "end": 28.863
+        },
+        {
+          "w": "terug,",
+          "start": 28.932,
+          "end": 29.373
+        },
+        {
+          "w": "en",
+          "start": 29.629,
+          "end": 29.791
+        },
+        {
+          "w": "Nvidia",
+          "start": 29.849,
+          "end": 30.314
+        },
+        {
+          "w": "rekent",
+          "start": 30.384,
+          "end": 30.709
+        },
+        {
+          "w": "in",
+          "start": 30.767,
+          "end": 30.813
+        },
+        {
+          "w": "zijn",
+          "start": 30.86,
+          "end": 30.999
+        },
+        {
+          "w": "prognose",
+          "start": 31.045,
+          "end": 31.603
+        },
+        {
+          "w": "niet",
+          "start": 31.719,
+          "end": 31.963
+        },
+        {
+          "w": "op",
+          "start": 32.044,
+          "end": 32.16
+        },
+        {
+          "w": "omzet",
+          "start": 32.265,
+          "end": 32.648
+        },
+        {
+          "w": "uit",
+          "start": 32.729,
+          "end": 32.891
+        },
+        {
+          "w": "Chinese",
+          "start": 32.926,
+          "end": 33.344
+        },
+        {
+          "w": "datacenters.",
+          "start": 33.402,
+          "end": 34.401
+        }
+      ],
+      "story": "Nvidia Beat Fails to Spark Rally as Shenzhen Summit Opens and Oil Stays Range-Bound",
+      "sources": [
+        {
+          "article_id": "ACTI-10010414-01M7QZ4FMNPN8X11NG0KE4BTT6",
+          "outlet": "ActionForex",
+          "headline": "Nvidia Beat Fails to Spark Rally as Shenzhen Summit Opens and Oil Stays Range-Bound",
+          "link": "https://www.actionforex.com/action-insight/market-overview/661345-nvidia-beat-fails-to-spark-rally-as-shenzhen-summit-opens-and-oil-stays-range-bound/"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7NQHM94VNJQGKEKVC7J3EQV",
+          "outlet": "Invezz",
+          "headline": "Nvidia stock rises after hours as revenue forecast beats estimates",
+          "link": "https://invezz.com/news/2026/11/17/nvidia-stock-rises-after-hours-as-revenue-forecast-beats-estimates/"
+        },
+        {
+          "article_id": "INVZ-10010408-01M7P6FVSGPPJ2VEEEK3NTPA0P",
+          "outlet": "Invezz - Dutch",
+          "headline": "Nvidia-aandelen stijgen na beursuren na omzetprognose boven verwachting",
+          "link": "https://invezz.com/nl/nieuws/2026/11/17/nvidia-aandelen-stijgen-na-beursuren-na-omzetprognose-boven-verwachting/",
+          "language": "nl",
+          "translation_of": "INVZ-10009737-01M7NQHM94VNJQGKEKVC7J3EQV"
+        }
+      ]
+    },
+    {
+      "text": "Voor de sector blijft de vraag hoe lang klanten hun hoge AI-uitgaven kunnen financieren en wat die investeringen uiteindelijk opleveren.",
+      "start": 34.749,
+      "end": 42.713,
+      "words": [
+        {
+          "w": "Voor",
+          "start": 34.749,
+          "end": 34.935
+        },
+        {
+          "w": "de",
+          "start": 34.981,
+          "end": 35.039
+        },
+        {
+          "w": "sector",
+          "start": 35.097,
+          "end": 35.457
+        },
+        {
+          "w": "blijft",
+          "start": 35.504,
+          "end": 35.806
+        },
+        {
+          "w": "de",
+          "start": 35.829,
+          "end": 35.887
+        },
+        {
+          "w": "vraag",
+          "start": 35.933,
+          "end": 36.235
+        },
+        {
+          "w": "hoe",
+          "start": 36.293,
+          "end": 36.467
+        },
+        {
+          "w": "lang",
+          "start": 36.491,
+          "end": 36.653
+        },
+        {
+          "w": "klanten",
+          "start": 36.711,
+          "end": 37.094
+        },
+        {
+          "w": "hun",
+          "start": 37.117,
+          "end": 37.268
+        },
+        {
+          "w": "hoge",
+          "start": 37.326,
+          "end": 37.617
+        },
+        {
+          "w": "AI-uitgaven",
+          "start": 37.675,
+          "end": 38.592
+        },
+        {
+          "w": "kunnen",
+          "start": 38.627,
+          "end": 38.847
+        },
+        {
+          "w": "financieren",
+          "start": 38.882,
+          "end": 39.579
+        },
+        {
+          "w": "en",
+          "start": 39.834,
+          "end": 40.02
+        },
+        {
+          "w": "wat",
+          "start": 40.101,
+          "end": 40.287
+        },
+        {
+          "w": "die",
+          "start": 40.322,
+          "end": 40.403
+        },
+        {
+          "w": "investeringen",
+          "start": 40.461,
+          "end": 41.158
+        },
+        {
+          "w": "uiteindelijk",
+          "start": 41.227,
+          "end": 41.912
+        },
+        {
+          "w": "opleveren.",
+          "start": 41.982,
+          "end": 42.713
+        }
+      ],
+      "story": "Nvidia Beat Fails to Spark Rally as Shenzhen Summit Opens and Oil Stays Range-Bound",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7PSWAT3X3PQN5MKTN1G3WK8",
+          "outlet": "Invezz",
+          "headline": "Why Samsung, SK Hynix shares rebounded on Wednesday?",
+          "link": "https://invezz.com/news/2026/11/18/why-samsung-sk-hynix-shares-rebounded-on-wednesday/"
+        },
+        {
+          "article_id": "INVZ-10010408-01M7Q2T6GR83N0XHXVH9F1B6BE",
+          "outlet": "Invezz - Dutch",
+          "headline": "Waarom stegen Samsung- en SK Hynix-aandelen woensdag?",
+          "link": "https://invezz.com/nl/nieuws/2026/11/18/waarom-stegen-samsung-en-sk-hynix-aandelen-woensdag/",
+          "language": "nl",
+          "translation_of": "INVZ-10009737-01M7PSWAT3X3PQN5MKTN1G3WK8"
+        }
+      ]
+    },
+    {
+      "text": "Bitcoin noteert volgens Invezz rond 64.620 dollar en blijft daarmee onder de grens van 65.000 dollar die handelaren in de gaten houden.",
+      "start": 43.12,
+      "end": 53.279,
+      "words": [
+        {
+          "w": "Bitcoin",
+          "start": 43.12,
+          "end": 43.538
+        },
+        {
+          "w": "noteert",
+          "start": 43.584,
+          "end": 44.014
+        },
+        {
+          "w": "volgens",
+          "start": 44.072,
+          "end": 44.397
+        },
+        {
+          "w": "Invezz",
+          "start": 44.478,
+          "end": 44.954
+        },
+        {
+          "w": "rond",
+          "start": 45.094,
+          "end": 45.291
+        },
+        {
+          "w": "64.620",
+          "start": 45.395,
+          "end": 47.195
+        },
+        {
+          "w": "dollar",
+          "start": 47.299,
+          "end": 47.636
+        },
+        {
+          "w": "en",
+          "start": 47.926,
+          "end": 48.066
+        },
+        {
+          "w": "blijft",
+          "start": 48.124,
+          "end": 48.402
+        },
+        {
+          "w": "daarmee",
+          "start": 48.426,
+          "end": 48.728
+        },
+        {
+          "w": "onder",
+          "start": 48.786,
+          "end": 48.983
+        },
+        {
+          "w": "de",
+          "start": 49.018,
+          "end": 49.087
+        },
+        {
+          "w": "grens",
+          "start": 49.145,
+          "end": 49.413
+        },
+        {
+          "w": "van",
+          "start": 49.471,
+          "end": 49.61
+        },
+        {
+          "w": "65.000",
+          "start": 49.714,
+          "end": 50.841
+        },
+        {
+          "w": "dollar",
+          "start": 50.899,
+          "end": 51.258
+        },
+        {
+          "w": "die",
+          "start": 51.479,
+          "end": 51.607
+        },
+        {
+          "w": "handelaren",
+          "start": 51.665,
+          "end": 52.199
+        },
+        {
+          "w": "in",
+          "start": 52.257,
+          "end": 52.361
+        },
+        {
+          "w": "de",
+          "start": 52.396,
+          "end": 52.478
+        },
+        {
+          "w": "gaten",
+          "start": 52.536,
+          "end": 52.837
+        },
+        {
+          "w": "houden.",
+          "start": 52.872,
+          "end": 53.279
+        }
+      ],
+      "story": "Bitcoin stalls below $65k as bears maintain control",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7PP563GJBXCBPBGE25BF4GM",
+          "outlet": "Invezz",
+          "headline": "Bitcoin stalls below $65k as bears maintain control",
+          "link": "https://invezz.com/news/2026/11/18/bitcoin-stalls-below-65k-as-bears-maintain-control/"
+        },
+        {
+          "article_id": "INVZ-10010408-01M7Q2T6F4RGC2FZR2D9J8QDPA",
+          "outlet": "Invezz - Dutch",
+          "headline": "Bitcoin stagneert onder $65k terwijl de beren de controle behouden",
+          "link": "https://invezz.com/nl/nieuws/2026/11/18/bitcoin-stagneert-onder-dollar65k-terwijl-de-beren-de-controle-behouden/",
+          "language": "nl",
+          "translation_of": "INVZ-10009737-01M7PP563GJBXCBPBGE25BF4GM"
+        }
+      ]
+    },
+    {
+      "text": "Een graadmeter voor recente koersbewegingen staat op 23, een lage stand die wijst op forse verkoopdruk, maar op zichzelf geen herstel aankondigt.",
+      "start": 53.685,
+      "end": 62.799,
+      "words": [
+        {
+          "w": "Een",
+          "start": 53.685,
+          "end": 53.824
+        },
+        {
+          "w": "graadmeter",
+          "start": 53.882,
+          "end": 54.486
+        },
+        {
+          "w": "voor",
+          "start": 54.544,
+          "end": 54.672
+        },
+        {
+          "w": "recente",
+          "start": 54.73,
+          "end": 55.125
+        },
+        {
+          "w": "koersbewegingen",
+          "start": 55.183,
+          "end": 55.972
+        },
+        {
+          "w": "staat",
+          "start": 55.995,
+          "end": 56.251
+        },
+        {
+          "w": "op",
+          "start": 56.309,
+          "end": 56.402
+        },
+        {
+          "w": "23,",
+          "start": 56.541,
+          "end": 57.412
+        },
+        {
+          "w": "een",
+          "start": 57.598,
+          "end": 57.714
+        },
+        {
+          "w": "lage",
+          "start": 57.772,
+          "end": 58.039
+        },
+        {
+          "w": "stand",
+          "start": 58.085,
+          "end": 58.387
+        },
+        {
+          "w": "die",
+          "start": 58.457,
+          "end": 58.584
+        },
+        {
+          "w": "wijst",
+          "start": 58.642,
+          "end": 58.898
+        },
+        {
+          "w": "op",
+          "start": 58.956,
+          "end": 59.037
+        },
+        {
+          "w": "forse",
+          "start": 59.118,
+          "end": 59.42
+        },
+        {
+          "w": "verkoopdruk,",
+          "start": 59.478,
+          "end": 60.256
+        },
+        {
+          "w": "maar",
+          "start": 60.477,
+          "end": 60.628
+        },
+        {
+          "w": "op",
+          "start": 60.674,
+          "end": 60.755
+        },
+        {
+          "w": "zichzelf",
+          "start": 60.813,
+          "end": 61.255
+        },
+        {
+          "w": "geen",
+          "start": 61.324,
+          "end": 61.557
+        },
+        {
+          "w": "herstel",
+          "start": 61.615,
+          "end": 62.009
+        },
+        {
+          "w": "aankondigt.",
+          "start": 62.079,
+          "end": 62.799
+        }
+      ],
+      "story": "Bitcoin stalls below $65k as bears maintain control",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7PP563GJBXCBPBGE25BF4GM",
+          "outlet": "Invezz",
+          "headline": "Bitcoin stalls below $65k as bears maintain control",
+          "link": "https://invezz.com/news/2026/11/18/bitcoin-stalls-below-65k-as-bears-maintain-control/"
+        },
+        {
+          "article_id": "INVZ-10010408-01M7Q2T6F4RGC2FZR2D9J8QDPA",
+          "outlet": "Invezz - Dutch",
+          "headline": "Bitcoin stagneert onder $65k terwijl de beren de controle behouden",
+          "link": "https://invezz.com/nl/nieuws/2026/11/18/bitcoin-stagneert-onder-dollar65k-terwijl-de-beren-de-controle-behouden/",
+          "language": "nl",
+          "translation_of": "INVZ-10009737-01M7PP563GJBXCBPBGE25BF4GM"
+        }
+      ]
+    },
+    {
+      "text": "Bij een verdere daling is 61.101 dollar het eerstgenoemde steunniveau, een koers waar kopers mogelijk terugkomen, maar geen gegarandeerde bodem.",
+      "start": 63.089,
+      "end": 72.679,
+      "words": [
+        {
+          "w": "Bij",
+          "start": 63.089,
+          "end": 63.24
+        },
+        {
+          "w": "een",
+          "start": 63.275,
+          "end": 63.344
+        },
+        {
+          "w": "verdere",
+          "start": 63.403,
+          "end": 63.739
+        },
+        {
+          "w": "daling",
+          "start": 63.786,
+          "end": 64.111
+        },
+        {
+          "w": "is",
+          "start": 64.169,
+          "end": 64.331
+        },
+        {
+          "w": "61.101",
+          "start": 64.436,
+          "end": 65.945
+        },
+        {
+          "w": "dollar",
+          "start": 66.003,
+          "end": 66.293
+        },
+        {
+          "w": "het",
+          "start": 66.351,
+          "end": 66.479
+        },
+        {
+          "w": "eerstgenoemde",
+          "start": 66.584,
+          "end": 67.211
+        },
+        {
+          "w": "steunniveau,",
+          "start": 67.257,
+          "end": 68.047
+        },
+        {
+          "w": "een",
+          "start": 68.302,
+          "end": 68.418
+        },
+        {
+          "w": "koers",
+          "start": 68.499,
+          "end": 68.801
+        },
+        {
+          "w": "waar",
+          "start": 68.859,
+          "end": 68.987
+        },
+        {
+          "w": "kopers",
+          "start": 69.045,
+          "end": 69.405
+        },
+        {
+          "w": "mogelijk",
+          "start": 69.509,
+          "end": 69.892
+        },
+        {
+          "w": "terugkomen,",
+          "start": 69.951,
+          "end": 70.647
+        },
+        {
+          "w": "maar",
+          "start": 70.868,
+          "end": 71.065
+        },
+        {
+          "w": "geen",
+          "start": 71.123,
+          "end": 71.344
+        },
+        {
+          "w": "gegarandeerde",
+          "start": 71.402,
+          "end": 72.122
+        },
+        {
+          "w": "bodem.",
+          "start": 72.18,
+          "end": 72.679
+        }
+      ],
+      "story": "Bitcoin stalls below $65k as bears maintain control",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7PP563GJBXCBPBGE25BF4GM",
+          "outlet": "Invezz",
+          "headline": "Bitcoin stalls below $65k as bears maintain control",
+          "link": "https://invezz.com/news/2026/11/18/bitcoin-stalls-below-65k-as-bears-maintain-control/"
+        },
+        {
+          "article_id": "INVZ-10010408-01M7Q2T6F4RGC2FZR2D9J8QDPA",
+          "outlet": "Invezz - Dutch",
+          "headline": "Bitcoin stagneert onder $65k terwijl de beren de controle behouden",
+          "link": "https://invezz.com/nl/nieuws/2026/11/18/bitcoin-stagneert-onder-dollar65k-terwijl-de-beren-de-controle-behouden/",
+          "language": "nl",
+          "translation_of": "INVZ-10009737-01M7PP563GJBXCBPBGE25BF4GM"
+        }
+      ]
+    },
+    {
+      "text": "Bij een opleving ligt de zone waar de koers op weerstand kan stuiten tussen 75.723 en 76.003 dollar.",
+      "start": 73.085,
+      "end": 81.712,
+      "words": [
+        {
+          "w": "Bij",
+          "start": 73.085,
+          "end": 73.248
+        },
+        {
+          "w": "een",
+          "start": 73.294,
+          "end": 73.375
+        },
+        {
+          "w": "opleving",
+          "start": 73.445,
+          "end": 74.026
+        },
+        {
+          "w": "ligt",
+          "start": 74.084,
+          "end": 74.258
+        },
+        {
+          "w": "de",
+          "start": 74.293,
+          "end": 74.351
+        },
+        {
+          "w": "zone",
+          "start": 74.409,
+          "end": 74.687
+        },
+        {
+          "w": "waar",
+          "start": 74.745,
+          "end": 74.885
+        },
+        {
+          "w": "de",
+          "start": 74.943,
+          "end": 75.001
+        },
+        {
+          "w": "koers",
+          "start": 75.059,
+          "end": 75.303
+        },
+        {
+          "w": "op",
+          "start": 75.361,
+          "end": 75.431
+        },
+        {
+          "w": "weerstand",
+          "start": 75.489,
+          "end": 75.895
+        },
+        {
+          "w": "kan",
+          "start": 75.953,
+          "end": 76.081
+        },
+        {
+          "w": "stuiten",
+          "start": 76.127,
+          "end": 76.58
+        },
+        {
+          "w": "tussen",
+          "start": 76.743,
+          "end": 77.01
+        },
+        {
+          "w": "75.723",
+          "start": 77.033,
+          "end": 79.459
+        },
+        {
+          "w": "en",
+          "start": 79.599,
+          "end": 79.773
+        },
+        {
+          "w": "76.003",
+          "start": 79.912,
+          "end": 81.189
+        },
+        {
+          "w": "dollar.",
+          "start": 81.247,
+          "end": 81.712
+        }
+      ],
+      "story": "Bitcoin stalls below $65k as bears maintain control",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7PP563GJBXCBPBGE25BF4GM",
+          "outlet": "Invezz",
+          "headline": "Bitcoin stalls below $65k as bears maintain control",
+          "link": "https://invezz.com/news/2026/11/18/bitcoin-stalls-below-65k-as-bears-maintain-control/"
+        },
+        {
+          "article_id": "INVZ-10010408-01M7Q2T6F4RGC2FZR2D9J8QDPA",
+          "outlet": "Invezz - Dutch",
+          "headline": "Bitcoin stagneert onder $65k terwijl de beren de controle behouden",
+          "link": "https://invezz.com/nl/nieuws/2026/11/18/bitcoin-stagneert-onder-dollar65k-terwijl-de-beren-de-controle-behouden/",
+          "language": "nl",
+          "translation_of": "INVZ-10009737-01M7PP563GJBXCBPBGE25BF4GM"
+        }
+      ]
+    },
+    {
+      "text": "Intussen is goud volgens ActionForex gezakt naar het laagste peil in ruim een jaar, in aanloop naar de publicatie van de notulen van de Amerikaanse centrale bank.",
+      "start": 82.06,
+      "end": 91.801,
+      "words": [
+        {
+          "w": "Intussen",
+          "start": 82.06,
+          "end": 82.501
+        },
+        {
+          "w": "is",
+          "start": 82.548,
+          "end": 82.664
+        },
+        {
+          "w": "goud",
+          "start": 82.734,
+          "end": 82.954
+        },
+        {
+          "w": "volgens",
+          "start": 83.012,
+          "end": 83.337
+        },
+        {
+          "w": "ActionForex",
+          "start": 83.407,
+          "end": 84.08
+        },
+        {
+          "w": "gezakt",
+          "start": 84.127,
+          "end": 84.568
+        },
+        {
+          "w": "naar",
+          "start": 84.788,
+          "end": 84.951
+        },
+        {
+          "w": "het",
+          "start": 84.974,
+          "end": 85.067
+        },
+        {
+          "w": "laagste",
+          "start": 85.172,
+          "end": 85.532
+        },
+        {
+          "w": "peil",
+          "start": 85.59,
+          "end": 85.833
+        },
+        {
+          "w": "in",
+          "start": 85.915,
+          "end": 86.019
+        },
+        {
+          "w": "ruim",
+          "start": 86.124,
+          "end": 86.344
+        },
+        {
+          "w": "een",
+          "start": 86.449,
+          "end": 86.553
+        },
+        {
+          "w": "jaar,",
+          "start": 86.658,
+          "end": 87.145
+        },
+        {
+          "w": "in",
+          "start": 87.436,
+          "end": 87.575
+        },
+        {
+          "w": "aanloop",
+          "start": 87.656,
+          "end": 88.028
+        },
+        {
+          "w": "naar",
+          "start": 88.086,
+          "end": 88.202
+        },
+        {
+          "w": "de",
+          "start": 88.248,
+          "end": 88.306
+        },
+        {
+          "w": "publicatie",
+          "start": 88.353,
+          "end": 89.014
+        },
+        {
+          "w": "van",
+          "start": 89.073,
+          "end": 89.189
+        },
+        {
+          "w": "de",
+          "start": 89.235,
+          "end": 89.293
+        },
+        {
+          "w": "notulen",
+          "start": 89.351,
+          "end": 89.839
+        },
+        {
+          "w": "van",
+          "start": 89.874,
+          "end": 89.99
+        },
+        {
+          "w": "de",
+          "start": 90.036,
+          "end": 90.094
+        },
+        {
+          "w": "Amerikaanse",
+          "start": 90.152,
+          "end": 90.791
+        },
+        {
+          "w": "centrale",
+          "start": 90.837,
+          "end": 91.348
+        },
+        {
+          "w": "bank.",
+          "start": 91.406,
+          "end": 91.801
+        }
+      ],
+      "story": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
+      "sources": [
+        {
+          "article_id": "ACTI-10010414-01M7Q2T3JT54KGKWWAV72SFEJJ",
+          "outlet": "ActionForex",
+          "headline": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
+          "link": "https://www.actionforex.com/action-insight/market-overview/661273-gold-hits-one-year-low-ahead-of-fomc-minutes-as-fed-rate-path-takes-center-stage/"
+        }
+      ]
+    },
+    {
+      "text": "Tot slot: als de notulen wijzen op meer renteverhogingen, kunnen de dollar en de Amerikaanse obligatierentes hoog blijven, wat ook voor Bitcoin en groeiaandelen als ASML tegenwind kan geven.",
+      "start": 92.091,
+      "end": 104.072,
+      "words": [
+        {
+          "w": "Tot",
+          "start": 92.091,
+          "end": 92.289
+        },
+        {
+          "w": "slot:",
+          "start": 92.323,
+          "end": 92.729
+        },
+        {
+          "w": "als",
+          "start": 92.985,
+          "end": 93.147
+        },
+        {
+          "w": "de",
+          "start": 93.205,
+          "end": 93.264
+        },
+        {
+          "w": "notulen",
+          "start": 93.322,
+          "end": 93.798
+        },
+        {
+          "w": "wijzen",
+          "start": 93.832,
+          "end": 94.099
+        },
+        {
+          "w": "op",
+          "start": 94.146,
+          "end": 94.239
+        },
+        {
+          "w": "meer",
+          "start": 94.32,
+          "end": 94.529
+        },
+        {
+          "w": "renteverhogingen,",
+          "start": 94.634,
+          "end": 95.597
+        },
+        {
+          "w": "kunnen",
+          "start": 95.818,
+          "end": 96.05
+        },
+        {
+          "w": "de",
+          "start": 96.085,
+          "end": 96.154
+        },
+        {
+          "w": "dollar",
+          "start": 96.212,
+          "end": 96.538
+        },
+        {
+          "w": "en",
+          "start": 96.596,
+          "end": 96.677
+        },
+        {
+          "w": "de",
+          "start": 96.723,
+          "end": 96.781
+        },
+        {
+          "w": "Amerikaanse",
+          "start": 96.839,
+          "end": 97.443
+        },
+        {
+          "w": "obligatierentes",
+          "start": 97.501,
+          "end": 98.418
+        },
+        {
+          "w": "hoog",
+          "start": 98.523,
+          "end": 98.767
+        },
+        {
+          "w": "blijven,",
+          "start": 98.825,
+          "end": 99.312
+        },
+        {
+          "w": "wat",
+          "start": 99.568,
+          "end": 99.719
+        },
+        {
+          "w": "ook",
+          "start": 99.777,
+          "end": 99.916
+        },
+        {
+          "w": "voor",
+          "start": 99.974,
+          "end": 100.102
+        },
+        {
+          "w": "Bitcoin",
+          "start": 100.16,
+          "end": 100.543
+        },
+        {
+          "w": "en",
+          "start": 100.601,
+          "end": 100.694
+        },
+        {
+          "w": "groeiaandelen",
+          "start": 100.764,
+          "end": 101.507
+        },
+        {
+          "w": "als",
+          "start": 101.576,
+          "end": 101.808
+        },
+        {
+          "w": "ASML",
+          "start": 101.913,
+          "end": 102.505
+        },
+        {
+          "w": "tegenwind",
+          "start": 102.61,
+          "end": 103.132
+        },
+        {
+          "w": "kan",
+          "start": 103.19,
+          "end": 103.318
+        },
+        {
+          "w": "geven.",
+          "start": 103.376,
+          "end": 104.072
+        }
+      ],
+      "story": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
+      "sources": [
+        {
+          "article_id": "ACTI-10010414-01M7Q2T3JT54KGKWWAV72SFEJJ",
+          "outlet": "ActionForex",
+          "headline": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
+          "link": "https://www.actionforex.com/action-insight/market-overview/661273-gold-hits-one-year-low-ahead-of-fomc-minutes-as-fed-rate-path-takes-center-stage/"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7QJRSRD8JFFYVXPBCB9XVPV",
+          "outlet": "Invezz",
+          "headline": "Why is gold price down today? Gold futures slip 2.5% to September 2025 low",
+          "link": "https://invezz.com/news/2026/11/18/why-is-gold-price-down-today-gold-futures-slip-to-lowest-since-september-2025/"
+        }
+      ]
+    }
+  ],
+  "caught": [],
+  "conflicts": [
+    {
+      "measure": "Nvidia after-hours share gain",
+      "value_a": "2.91%",
+      "outlet_a": "ActionForex",
+      "link_a": "https://www.actionforex.com/action-insight/market-overview/661345-nvidia-beat-fails-to-spark-rally-as-shenzhen-summit-opens-and-oil-stays-range-bound/",
+      "article_id_a": "ACTI-10010414-01M7QZ4FMNPN8X11NG0KE4BTT6",
+      "value_b": "2.47%",
+      "outlet_b": "Invezz",
+      "link_b": "https://invezz.com/news/2026/11/17/nvidia-stock-rises-after-hours-as-revenue-forecast-beats-estimates/",
+      "article_id_b": "INVZ-10009737-01M7NQHM94VNJQGKEKVC7J3EQV",
+      "used": null
+    },
+    {
+      "measure": "Measurement described in the linked source.",
+      "value_a": "96.7%",
+      "outlet_a": "ActionForex",
+      "link_a": "https://www.actionforex.com/action-insight/market-overview/661273-gold-hits-one-year-low-ahead-of-fomc-minutes-as-fed-rate-path-takes-center-stage/",
+      "article_id_a": "ACTI-10010414-01M7Q2T3JT54KGKWWAV72SFEJJ",
+      "value_b": "98%",
+      "outlet_b": "ActionForex",
+      "link_b": "https://www.actionforex.com/live-comments/661237-feds-williams-backs-further-rate-hikes-but-sees-no-need-for-dramatic-action/",
+      "article_id_b": "ACTI-10010414-01M7Q2T2Z5DYCH29CJEAPGECME",
+      "used": null
+    },
+    {
+      "measure": "Spot gold price",
+      "value_a": "$3,770",
+      "outlet_a": "Invezz",
+      "link_a": "https://invezz.com/news/2026/11/18/gold-slips-back-below-one-year-low-but-goldman-sachs-sees-long-term-recovery/",
+      "article_id_a": "INVZ-10009737-01M7PXA2GX6QMV1B0KHQXS9GGA",
+      "value_b": "$3,852.67",
+      "outlet_b": "Invezz",
+      "link_b": "https://invezz.com/news/2026/11/17/evening-digest-huang-says-he-is-willing-to-return-anthropic-wins-first-buy-rating/",
+      "article_id_b": "INVZ-10009737-01M7NH85X41V1MJQ31AH6SQV5G",
+      "used": null
+    },
+    {
+      "measure": "Brent crude futures price",
+      "value_a": "$92.21",
+      "outlet_a": "Invezz",
+      "link_a": "https://invezz.com/news/2026/11/18/oil-price-today-api-528-million-barrel-us-crude-build/",
+      "article_id_a": "INVZ-10009737-01M7Q4F0GZ0JE7XP9WYEHNC2YH",
+      "value_b": "$93.17",
+      "outlet_b": "Invezz",
+      "link_b": "https://invezz.com/news/2026/11/17/evening-digest-huang-says-he-is-willing-to-return-anthropic-wins-first-buy-rating/",
+      "article_id_b": "INVZ-10009737-01M7NH85X41V1MJQ31AH6SQV5G",
+      "used": null
+    }
+  ],
+  "receipt": [
+    {
+      "figure": "130 miljard dollar",
+      "measures": "Forecast fourth-quarter revenue",
+      "outlet": "Invezz",
+      "headline": "Nvidia stock rises after hours as revenue forecast beats estimates",
+      "link": "https://invezz.com/news/2026/11/17/nvidia-stock-rises-after-hours-as-revenue-forecast-beats-estimates/"
+    },
+    {
+      "figure": "125,3 miljard dollar",
+      "measures": "Analyst estimate for fourth-quarter revenue",
+      "outlet": "Invezz",
+      "headline": "Nvidia stock rises after hours as revenue forecast beats estimates",
+      "link": "https://invezz.com/news/2026/11/17/nvidia-stock-rises-after-hours-as-revenue-forecast-beats-estimates/"
+    },
+    {
+      "figure": "64.620 dollar",
+      "measures": "Approximate Bitcoin trading price",
+      "outlet": "Invezz",
+      "headline": "Bitcoin stalls below $65k as bears maintain control",
+      "link": "https://invezz.com/news/2026/11/18/bitcoin-stalls-below-65k-as-bears-maintain-control/"
+    },
+    {
+      "figure": "65.000 dollar",
+      "measures": "Psychological price threshold Bitcoin is trading below",
+      "outlet": "Invezz",
+      "headline": "Bitcoin stalls below $65k as bears maintain control",
+      "link": "https://invezz.com/news/2026/11/18/bitcoin-stalls-below-65k-as-bears-maintain-control/"
+    },
+    {
+      "figure": "23",
+      "measures": "Bitcoin's daily Relative Strength Index",
+      "outlet": "Invezz",
+      "headline": "Bitcoin stalls below $65k as bears maintain control",
+      "link": "https://invezz.com/news/2026/11/18/bitcoin-stalls-below-65k-as-bears-maintain-control/"
+    },
+    {
+      "figure": "61.101 dollar",
+      "measures": "Primary Bitcoin support level",
+      "outlet": "Invezz",
+      "headline": "Bitcoin stalls below $65k as bears maintain control",
+      "link": "https://invezz.com/news/2026/11/18/bitcoin-stalls-below-65k-as-bears-maintain-control/"
+    },
+    {
+      "figure": "75.723",
+      "measures": "Moving-average resistance range",
+      "outlet": "Invezz",
+      "headline": "Bitcoin stalls below $65k as bears maintain control",
+      "link": "https://invezz.com/news/2026/11/18/bitcoin-stalls-below-65k-as-bears-maintain-control/"
+    },
+    {
+      "figure": "76.003 dollar",
+      "measures": "Moving-average resistance range",
+      "outlet": "Invezz",
+      "headline": "Bitcoin stalls below $65k as bears maintain control",
+      "link": "https://invezz.com/news/2026/11/18/bitcoin-stalls-below-65k-as-bears-maintain-control/"
+    }
+  ],
+  "language": "nl",
+  "grouping": [
+    {
+      "story_id": "2026-11-18-e74fc053d138fdba",
+      "headline": "Nvidia Beat Fails to Spark Rally as Shenzhen Summit Opens and Oil Stays Range-Bound",
+      "listeners": {
+        "wildcard-nl-d652f44272a8": {
+          "last_sentence_index": 3
+        }
+      },
+      "articles": [
+        {
+          "article_id": "ACTI-10010414-01M7QZ4FMNPN8X11NG0KE4BTT6",
+          "cluster_id": "2026-11-18-e74fc053d138fdba",
+          "title": "Nvidia Beat Fails to Spark Rally as Shenzhen Summit Opens and Oil Stays Range-Bound",
+          "outlet": "ActionForex",
+          "link": "https://www.actionforex.com/action-insight/market-overview/661345-nvidia-beat-fails-to-spark-rally-as-shenzhen-summit-opens-and-oil-stays-range-bound/",
+          "published_at": "2026-11-18T13:42:34+00:00"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7NQHM94VNJQGKEKVC7J3EQV",
+          "cluster_id": "2026-11-18-e74fc053d138fdba",
+          "title": "Nvidia stock rises after hours as revenue forecast beats estimates",
+          "outlet": "Invezz",
+          "link": "https://invezz.com/news/2026/11/17/nvidia-stock-rises-after-hours-as-revenue-forecast-beats-estimates/",
+          "published_at": "2026-11-17T21:40:18+00:00"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7PSWAT3X3PQN5MKTN1G3WK8",
+          "cluster_id": "2026-11-18-e74fc053d138fdba",
+          "title": "Why Samsung, SK Hynix shares rebounded on Wednesday?",
+          "outlet": "Invezz",
+          "link": "https://invezz.com/news/2026/11/18/why-samsung-sk-hynix-shares-rebounded-on-wednesday/",
+          "published_at": "2026-11-18T07:41:39+00:00"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7QARDCW0J0HY6BXGKD8XH62",
+          "cluster_id": "2026-11-18-e74fc053d138fdba",
+          "title": "Dell stock rises as Nvidia rally lifts chipmakers, Citi backs shares",
+          "outlet": "Invezz",
+          "link": "https://invezz.com/news/2026/11/18/dell-stock-rises-as-nvidia-rally-lifts-chipmakers-citi-backs-shares/",
+          "published_at": "2026-11-18T12:38:21+00:00"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7QB1JPN97SKBJ6WRTA8BE1D",
+          "cluster_id": "2026-11-18-e74fc053d138fdba",
+          "title": "Why AMD stock is rallying in premarket trading on Wednesday?",
+          "outlet": "Invezz",
+          "link": "https://invezz.com/news/2026/11/18/why-amd-stock-is-rallying-in-premarket-trading-on-wednesday/",
+          "published_at": "2026-11-18T12:44:44+00:00"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7QNB4C561ZWTB5S14DXZCKM",
+          "cluster_id": "2026-11-18-e74fc053d138fdba",
+          "title": "Nvidia earnings: investors still need answers to two key questions",
+          "outlet": "Invezz",
+          "link": "https://invezz.com/news/2026/11/18/nvidia-earnings-investors-still-need-answers-to-two-key-questions/",
+          "published_at": "2026-11-18T15:44:32+00:00"
+        }
+      ]
+    },
+    {
+      "story_id": "2026-11-18-1033e4dde09b1a4a",
+      "headline": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
+      "listeners": {
+        "wildcard-nl-d652f44272a8": {
+          "last_sentence_index": 9
+        }
+      },
+      "articles": [
+        {
+          "article_id": "ACTI-10010414-01M7Q2T3JT54KGKWWAV72SFEJJ",
+          "cluster_id": "2026-11-18-1033e4dde09b1a4a",
+          "title": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
+          "outlet": "ActionForex",
+          "link": "https://www.actionforex.com/action-insight/market-overview/661273-gold-hits-one-year-low-ahead-of-fomc-minutes-as-fed-rate-path-takes-center-stage/",
+          "published_at": "2026-11-18T09:14:17+00:00"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7PXA2GX6QMV1B0KHQXS9GGA",
+          "cluster_id": "2026-11-18-1033e4dde09b1a4a",
+          "title": "Gold slips back below one-year low but Goldman Sachs sees long term recovery",
+          "outlet": "Invezz",
+          "link": "https://invezz.com/news/2026/11/18/gold-slips-back-below-one-year-low-but-goldman-sachs-sees-long-term-recovery/",
+          "published_at": "2026-11-18T08:42:28+00:00"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7QJRSRD8JFFYVXPBCB9XVPV",
+          "cluster_id": "2026-11-18-1033e4dde09b1a4a",
+          "title": "Why is gold price down today? Gold futures slip 2.5% to September 2025 low",
+          "outlet": "Invezz",
+          "link": "https://invezz.com/news/2026/11/18/why-is-gold-price-down-today-gold-futures-slip-to-lowest-since-september-2025/",
+          "published_at": "2026-11-18T14:59:10+00:00"
+        }
+      ]
+    },
+    {
+      "story_id": "2026-11-18-77c379dab8b90edf",
+      "headline": "Bitcoin stalls below $65k as bears maintain control",
+      "listeners": {
+        "wildcard-nl-d652f44272a8": {
+          "last_sentence_index": 7
+        }
+      },
+      "articles": [
+        {
+          "article_id": "INVZ-10009737-01M7PP563GJBXCBPBGE25BF4GM",
+          "cluster_id": "2026-11-18-77c379dab8b90edf",
+          "title": "Bitcoin stalls below $65k as bears maintain control",
+          "outlet": "Invezz",
+          "link": "https://invezz.com/news/2026/11/18/bitcoin-stalls-below-65k-as-bears-maintain-control/",
+          "published_at": "2026-11-18T06:39:18+00:00"
+        }
+      ]
+    }
+  ]
+}

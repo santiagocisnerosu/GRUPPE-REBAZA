@@ -7,6 +7,7 @@ import qrcode
 
 from .costs import CACHE_DIR, write_json
 from .export_stories import export_stories
+from .listeners import register, roster, roster_lock
 from .script import LISTENERS, ROOT, WORD, normalize_text, word_windows
 
 PAGES_URL = "https://santiagocisnerosu.github.io/GRUPPE-REBAZA/"
@@ -42,12 +43,12 @@ def build():
     output = ROOT / "out"
     shared = json.loads((output / "shared_facts.json").read_text(encoding="utf-8"))
     costs = output / "costs.json"
-    expected = {"index.html", "qr.png", "out/shared_facts.json", "out/stories.json"} | PLAYER_ASSETS
+    expected = {"index.html", "qr.png", "out/shared_facts.json", "out/stories.json", "out/listeners.json"} | PLAYER_ASSETS
     if costs.is_file():
         expected.add("out/costs.json")
     elif (docs / "out/costs.json").is_file():
         (docs / "out/costs.json").unlink()
-    expected.update(f"out/{listener}/{name}" for listener in LISTENERS for name in PUBLIC_FILES)
+    expected.update(f"out/{entry['id']}/{name}" for entry in roster(docs / "out") for name in PUBLIC_FILES)
     unexpected = {p.relative_to(docs).as_posix() for p in docs.rglob("*") if p.is_file()} - expected
     if unexpected:
         raise SystemExit("Unexpected files in docs/: " + ", ".join(sorted(unexpected)))
@@ -130,6 +131,9 @@ def build():
         shutil.copyfile(ROOT / "out" / listener / "briefing.mp3", destination / "briefing.mp3")
         write_json(destination / "transcript.json", transcript)
     qrcode.make(PAGES_URL).save(docs / "qr.png")
+    with roster_lock():
+        register(output)
+        register(docs / "out")
     print(f"Pages package ready: {len(expected)} files; {redacted} caught fragments withheld or redacted")
     print(f"Replaced {redacted_measures} measure labels containing licensed wording.")
     print(f"Checked narration against {len(articles)} licensed articles. QR: {PAGES_URL}")

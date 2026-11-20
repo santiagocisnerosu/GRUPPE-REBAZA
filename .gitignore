@@ -22,4 +22,5 @@ __pycache__/
 !/docs/out/*/transcript.json
 !/docs/out/shared_facts.json
 !/docs/out/stories.json
+!/docs/out/listeners.json
 !/docs/out/costs.json

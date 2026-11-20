@@ -3,7 +3,7 @@ const AGENT_ID = "";
 const base = new URL(document.currentScript.dataset.base, location.href);
 const $ = (id) => document.getElementById(id);
 const audio = $("audio"), rows = $("rows"), seek = $("seek"), card = $("source-card");
-const roles = { mara: "Rates & FX", jordan: "Tech investor", priya: "UK retailer" };
+const roles = Object.create(null);
 const queries = new URLSearchParams(location.search);
 const present = queries.get("present") === "1";
 document.body.classList.toggle("present", present);
@@ -64,11 +64,12 @@ function meter() {
   $("ratio").textContent = $("trust-ratio").textContent = ratio;
   $("invented").textContent = total - verified + " invented";
 }
-function makeProfile(id, role) {
+function makeProfile({id, role, name}) {
+  roles[id] = role;
   const b = el("button", null, "profile");
   b.dataset.listener = id;
   b.setAttribute("aria-pressed", "false");
-  b.append(el("span", id, "profile-name"), el("span", role, "role"));
+  b.append(el("span", name, "profile-name"), el("span", role, "role"));
   $("profiles").append(b);
   const record = json(id + "/transcript.json").then((briefing) => {
     b.title = clock(briefing.sentences.at(-1)?.end) + " · " + briefing.figures_total + " figures";
@@ -205,7 +206,9 @@ function evidenceText(parent, sentence, hits) {
 }
 function jump(t) {
   if (!audio.readyState) return;
-  audio.currentTime = t;
+  // Browsers store media time in microseconds. Round forward when seeking
+  // to a sample-accurate start so the previous chapter cannot stay active.
+  audio.currentTime = Math.ceil(t * 1e6) / 1e6;
   sync();
 }
 const publicationTime = new Intl.DateTimeFormat("en-GB", {
@@ -239,7 +242,7 @@ function storyMembers(story) {
 }
 function drawStoryMembers() {
   if (grouping?.date !== data.date) return;
-  for (const story of grouping.stories) {
+  for (const story of data.grouping || grouping.stories) {
     const index = story.listeners[data.listener]?.last_sentence_index;
     if (data.sentences[index]?.story === story.headline) {
       rows.children[index].lastElementChild.append(storyMembers(story));
@@ -247,8 +250,18 @@ function drawStoryMembers() {
   }
 }
 function drawTranscript() {
-  active = -1;
+  active = -2;
   wordKey = "";
+  const notice = $("disclosure-line");
+  notice.hidden = !data.voice_disclosure;
+  notice.replaceChildren();
+  if (data.voice_disclosure) {
+    const time = el("button", "0:00", "line-time"), p = el("p");
+    time.setAttribute("aria-label", "Seek to voice disclosure");
+    time.onclick = p.onclick = () => jump(0);
+    evidenceText(p, data.voice_disclosure, []);
+    notice.append(time, p);
+  }
   const lines = data.sentences.map((s, index) => {
     const row = el("article", null, "line"),
       body = el("div"),
@@ -353,20 +366,20 @@ function drawEvidence(index) {
 
 function showSentence(index) {
   hideCard();
-  const sentence = data.sentences[index];
-  const old = rows.children[active];
+  const sentence = index < 0 ? data.voice_disclosure : data.sentences[index];
+  const old = active === -1 ? $("disclosure-line") : rows.children[active];
   old?.querySelectorAll(".speaking, .said").forEach((n) => n.classList.remove("speaking", "said"));
   old?.classList.remove("active");
   old?.removeAttribute("aria-current");
   active = index;
-  const row = rows.children[index];
+  const row = index < 0 ? $("disclosure-line") : rows.children[index];
   row.classList.add("active");
   row.setAttribute("aria-current", "true");
   if ($("transcript").open) row.scrollIntoView({ block: "nearest" });
   const lyric = $("lyric");
   lyric.replaceChildren();
-  evidenceText(lyric, sentence, citations[index]);
-  drawEvidence(index);
+  evidenceText(lyric, sentence, citations[index] || []);
+  drawEvidence(Math.max(0, index));
   activeWords = [...lyric.querySelectorAll(".word"), ...row.querySelectorAll(".word")];
   wordKey = "";
   for (const [id, offset] of [["previous", -1], ["next", 1]]) {
@@ -378,9 +391,9 @@ function showSentence(index) {
 function syncWord() {
   if (!data || !data.sentences.length) return;
   const time = audio.currentTime;
-  const index = Math.max(0, data.sentences.findLastIndex((s) => s.start <= time));
+  const index = Math.max(data.voice_disclosure ? -1 : 0, data.sentences.findLastIndex((s) => s.start <= time));
   if (active !== index) showSentence(index);
-  const words = data.sentences[index].words || [];
+  const words = (index < 0 ? data.voice_disclosure : data.sentences[index]).words || [];
   const last = words.findLastIndex((w) => w.start <= time);
   const speaking = last >= 0 && time < words[last].end ? last : -1;
   const key = last + "/" + speaking;
@@ -464,7 +477,8 @@ function drawTrust() {
     detail.append(
       "We clustered articles by the similarity of their headline and summary embeddings, then a small model split groups that covered different events.",
       el("span", grouping.articles_in + " articles in · " + grouping.stories_formed + " stories formed", "trust-detail"),
-      el("span", "Stories in each briefing · " + counts.join(" · "), "trust-detail"),
+      el("span", data.grouping ? data.grouping.length + " stories in this briefing" :
+        "Stories in each briefing · " + counts.join(" · "), "trust-detail"),
     );
   }
 }
@@ -682,6 +696,7 @@ async function selectListener(id) {
     if (signal.aborted) return;
     if (!record) throw Error("Transcript unavailable");
     data = record;
+    $("lyric").lang = rows.lang = data.language || "en";
     citations = data.sentences.map(sentenceCitations);
     drawTranscript();
     drawChapters();
@@ -770,7 +785,11 @@ document.addEventListener("keydown", (e) => {
     $("chapter-toggle").focus();
   }
 });
-Object.entries(roles).forEach(([id, role]) => makeProfile(id, role));
+json("listeners.json").then((entries) => {
+  for (const entry of entries) makeProfile(entry);
+  selectListener(Object.hasOwn(roles, queries.get("listener")) ? queries.get("listener") : entries[0].id);
+  extras();
+}).catch(() => status("The listener list could not be loaded. Refresh the page to try again."));
 json("stories.json").then((report) => {
   grouping = report;
   if (data) {
@@ -778,8 +797,6 @@ json("stories.json").then((report) => {
     drawTrust();
   }
 }, () => { /* Older editions can still play without a clustering report. */ });
-selectListener(Object.hasOwn(roles, queries.get("listener")) ? queries.get("listener") : "mara");
-extras();
 if (AGENT_ID.trim()) {
   const widget = el("elevenlabs-convai");
   widget.setAttribute("agent-id", AGENT_ID.trim());

@@ -1,0 +1,72 @@
+profiles:
+- id: wildcard-nl-d652f44272a8
+  wildcard: true
+  language: nl
+  language_name: Dutch
+  name: Noor
+  role: Particuliere belegger
+  who: Een particuliere belegger in Utrecht met ASML en Bitcoin in portefeuille
+  question: Wat betekenen de belangrijkste ontwikkelingen rond ASML en Bitcoin vandaag
+    voor de risico’s en vooruitzichten van beleggers?
+  main_source:
+  - ASML en de halfgeleidersector
+  - Bitcoin en cryptomarkten
+  - Beursnieuws en renteontwikkelingen
+  - Nederlandse en internationale economie
+  never:
+  - Koophypes en koersvoorspellingen zonder onderbouwing
+  - Persoonlijk beleggingsadvies
+  - Overbodig jargon
+  tone: Kort, analytisch en toegankelijk
+  words: 250
+  minutes: 2
+  stories: '3'
+  running_order: Most relevant event, implications, what to watch
+  voice: British female newsreader, slightly fast (speed ~1.1)
+  voice_settings:
+    speed: 1.1
+    stability: 0.65
+    similarity_boost: 0.75
+    style: 0.0
+    use_speaker_boost: true
+  voice_id: Xb7hH8MSUJpSbSDYk0k2
+  editor:
+    opener: Goedemorgen Noor, Een AI-stem leest uw nieuws voor
+    closer: 'Tot slot: ...'
+    min_words: 200
+- id: wildcard-de-ca762d040743
+  wildcard: true
+  language: de
+  language_name: German
+  name: Lena
+  role: Exportleiterin
+  who: Verantwortet den US-Export eines deutschen Mittelständlers und beobachtet Wechselkurse
+    und Handelspolitik.
+  question: Wie wirken sich aktuelle Dollarbewegungen und US-Zölle auf Preise, Margen
+    und die Wettbewerbsfähigkeit deutscher Mittelständler aus?
+  main_source:
+  - Dollar-Euro-Wechselkurs
+  - US-Zollpolitik
+  - Exportmärkte und Lieferketten
+  - Auswirkungen auf mittelständische Unternehmen
+  never:
+  - Unbelegte Wechselkursprognosen
+  - Parteipolitische Polemik
+  - Irrelevante Promi- und Sportmeldungen
+  tone: Sachlich, prägnant und praxisnah; Unsicherheit klar benennen
+  words: 250
+  minutes: 2
+  stories: '3'
+  running_order: Most relevant event, implications, what to watch
+  voice: British female newsreader, slightly fast (speed ~1.1)
+  voice_settings:
+    speed: 1.1
+    stability: 0.65
+    similarity_boost: 0.75
+    style: 0.0
+    use_speaker_boost: true
+  voice_id: Xb7hH8MSUJpSbSDYk0k2
+  editor:
+    opener: Guten Morgen, Eine KI-Stimme liest Ihre Nachrichten
+    closer: 'Zum Schluss: ...'
+    min_words: 200

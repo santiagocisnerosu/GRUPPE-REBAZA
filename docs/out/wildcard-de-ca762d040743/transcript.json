@@ -1,0 +1,1573 @@
+{
+  "listener": "wildcard-de-ca762d040743",
+  "name": "Lena",
+  "date": "2026-11-18",
+  "audio": "briefing.mp3",
+  "figures_total": 4,
+  "figures_verified": 4,
+  "sources_total": 4,
+  "sentences": [
+    {
+      "text": "Guten Morgen, Eine KI-Stimme liest Ihre Nachrichten: Der US-Dollar-Index stieg laut Zacks Investment Research um 0,54 Prozent.",
+      "start": 0.0,
+      "end": 9.532,
+      "words": [
+        {
+          "w": "Guten",
+          "start": 0.0,
+          "end": 0.279
+        },
+        {
+          "w": "Morgen,",
+          "start": 0.313,
+          "end": 0.894
+        },
+        {
+          "w": "Eine",
+          "start": 1.033,
+          "end": 1.277
+        },
+        {
+          "w": "KI-Stimme",
+          "start": 1.335,
+          "end": 2.043
+        },
+        {
+          "w": "liest",
+          "start": 2.101,
+          "end": 2.345
+        },
+        {
+          "w": "Ihre",
+          "start": 2.392,
+          "end": 2.566
+        },
+        {
+          "w": "Nachrichten:",
+          "start": 2.624,
+          "end": 3.39
+        },
+        {
+          "w": "Der",
+          "start": 3.646,
+          "end": 3.808
+        },
+        {
+          "w": "US-Dollar-Index",
+          "start": 3.866,
+          "end": 5.016
+        },
+        {
+          "w": "stieg",
+          "start": 5.039,
+          "end": 5.283
+        },
+        {
+          "w": "laut",
+          "start": 5.341,
+          "end": 5.538
+        },
+        {
+          "w": "Zacks",
+          "start": 5.608,
+          "end": 5.921
+        },
+        {
+          "w": "Investment",
+          "start": 5.979,
+          "end": 6.502
+        },
+        {
+          "w": "Research",
+          "start": 6.571,
+          "end": 7.047
+        },
+        {
+          "w": "um",
+          "start": 7.152,
+          "end": 7.314
+        },
+        {
+          "w": "0,54",
+          "start": 7.454,
+          "end": 8.673
+        },
+        {
+          "w": "Prozent.",
+          "start": 8.777,
+          "end": 9.532
+        }
+      ],
+      "story": "US Dollar ETF (UUP) Hits New 52-Week High",
+      "sources": [
+        {
+          "article_id": "ZACK-105463-01M7QNMA2EJMHCE8S8XWQJEBW9",
+          "outlet": "Zacks Investment Research",
+          "headline": "US Dollar ETF (UUP) Hits New 52-Week High",
+          "link": "https://www.zacks.com/stock/news/3031782/us-dollar-etf-uup-hits-new-52-week-high?cid=CS-NEWSTEX-FT-etf_news_and_commentary-3031782"
+        }
+      ]
+    },
+    {
+      "text": "Ein Fonds, der auf einen stärkeren Dollar setzt, erreichte zugleich ein neues Jahreshoch.",
+      "start": 9.88,
+      "end": 15.093,
+      "words": [
+        {
+          "w": "Ein",
+          "start": 9.88,
+          "end": 10.077
+        },
+        {
+          "w": "Fonds,",
+          "start": 10.159,
+          "end": 10.519
+        },
+        {
+          "w": "der",
+          "start": 10.577,
+          "end": 10.704
+        },
+        {
+          "w": "auf",
+          "start": 10.739,
+          "end": 10.832
+        },
+        {
+          "w": "einen",
+          "start": 10.89,
+          "end": 11.064
+        },
+        {
+          "w": "stärkeren",
+          "start": 11.111,
+          "end": 11.598
+        },
+        {
+          "w": "Dollar",
+          "start": 11.656,
+          "end": 11.935
+        },
+        {
+          "w": "setzt,",
+          "start": 11.993,
+          "end": 12.457
+        },
+        {
+          "w": "erreichte",
+          "start": 12.62,
+          "end": 13.026
+        },
+        {
+          "w": "zugleich",
+          "start": 13.084,
+          "end": 13.526
+        },
+        {
+          "w": "ein",
+          "start": 13.63,
+          "end": 13.746
+        },
+        {
+          "w": "neues",
+          "start": 13.827,
+          "end": 14.129
+        },
+        {
+          "w": "Jahreshoch.",
+          "start": 14.234,
+          "end": 15.093
+        }
+      ],
+      "story": "US Dollar ETF (UUP) Hits New 52-Week High",
+      "sources": [
+        {
+          "article_id": "ZACK-105463-01M7QNMA2EJMHCE8S8XWQJEBW9",
+          "outlet": "Zacks Investment Research",
+          "headline": "US Dollar ETF (UUP) Hits New 52-Week High",
+          "link": "https://www.zacks.com/stock/news/3031782/us-dollar-etf-uup-hits-new-52-week-high?cid=CS-NEWSTEX-FT-etf_news_and_commentary-3031782"
+        }
+      ]
+    },
+    {
+      "text": "Für deutsche Exporteure zählt allerdings der Kurs zum Euro: Der Index allein zeigt nicht, wie stark sich der Erlös aus einem US-Auftrag verändert.",
+      "start": 15.383,
+      "end": 23.905,
+      "words": [
+        {
+          "w": "Für",
+          "start": 15.383,
+          "end": 15.534
+        },
+        {
+          "w": "deutsche",
+          "start": 15.58,
+          "end": 15.905
+        },
+        {
+          "w": "Exporteure",
+          "start": 15.952,
+          "end": 16.59
+        },
+        {
+          "w": "zählt",
+          "start": 16.66,
+          "end": 16.939
+        },
+        {
+          "w": "allerdings",
+          "start": 16.997,
+          "end": 17.415
+        },
+        {
+          "w": "der",
+          "start": 17.461,
+          "end": 17.577
+        },
+        {
+          "w": "Kurs",
+          "start": 17.647,
+          "end": 17.914
+        },
+        {
+          "w": "zum",
+          "start": 18.018,
+          "end": 18.193
+        },
+        {
+          "w": "Euro:",
+          "start": 18.297,
+          "end": 18.843
+        },
+        {
+          "w": "Der",
+          "start": 19.098,
+          "end": 19.237
+        },
+        {
+          "w": "Index",
+          "start": 19.284,
+          "end": 19.597
+        },
+        {
+          "w": "allein",
+          "start": 19.655,
+          "end": 19.957
+        },
+        {
+          "w": "zeigt",
+          "start": 20.027,
+          "end": 20.282
+        },
+        {
+          "w": "nicht,",
+          "start": 20.34,
+          "end": 20.596
+        },
+        {
+          "w": "wie",
+          "start": 20.619,
+          "end": 20.735
+        },
+        {
+          "w": "stark",
+          "start": 20.782,
+          "end": 21.072
+        },
+        {
+          "w": "sich",
+          "start": 21.13,
+          "end": 21.281
+        },
+        {
+          "w": "der",
+          "start": 21.327,
+          "end": 21.432
+        },
+        {
+          "w": "Erlös",
+          "start": 21.478,
+          "end": 21.826
+        },
+        {
+          "w": "aus",
+          "start": 21.896,
+          "end": 22.035
+        },
+        {
+          "w": "einem",
+          "start": 22.093,
+          "end": 22.268
+        },
+        {
+          "w": "US-Auftrag",
+          "start": 22.372,
+          "end": 23.173
+        },
+        {
+          "w": "verändert.",
+          "start": 23.231,
+          "end": 23.905
+        }
+      ],
+      "story": "US Dollar ETF (UUP) Hits New 52-Week High",
+      "sources": [
+        {
+          "article_id": "ZACK-105463-01M7QNMA2EJMHCE8S8XWQJEBW9",
+          "outlet": "Zacks Investment Research",
+          "headline": "US Dollar ETF (UUP) Hits New 52-Week High",
+          "link": "https://www.zacks.com/stock/news/3031782/us-dollar-etf-uup-hits-new-52-week-high?cid=CS-NEWSTEX-FT-etf_news_and_commentary-3031782"
+        }
+      ]
+    },
+    {
+      "text": "Wertet der Dollar auch gegenüber dem Euro auf, kann ein unveränderter Dollarpreis bei ungesicherten Einnahmen mehr Euro einbringen.",
+      "start": 24.253,
+      "end": 32.101,
+      "words": [
+        {
+          "w": "Wertet",
+          "start": 24.253,
+          "end": 24.578
+        },
+        {
+          "w": "der",
+          "start": 24.624,
+          "end": 24.741
+        },
+        {
+          "w": "Dollar",
+          "start": 24.799,
+          "end": 25.1
+        },
+        {
+          "w": "auch",
+          "start": 25.158,
+          "end": 25.321
+        },
+        {
+          "w": "gegenüber",
+          "start": 25.379,
+          "end": 25.797
+        },
+        {
+          "w": "dem",
+          "start": 25.832,
+          "end": 25.948
+        },
+        {
+          "w": "Euro",
+          "start": 26.029,
+          "end": 26.331
+        },
+        {
+          "w": "auf,",
+          "start": 26.389,
+          "end": 26.749
+        },
+        {
+          "w": "kann",
+          "start": 26.935,
+          "end": 27.109
+        },
+        {
+          "w": "ein",
+          "start": 27.155,
+          "end": 27.248
+        },
+        {
+          "w": "unveränderter",
+          "start": 27.353,
+          "end": 28.119
+        },
+        {
+          "w": "Dollarpreis",
+          "start": 28.177,
+          "end": 28.804
+        },
+        {
+          "w": "bei",
+          "start": 28.909,
+          "end": 29.071
+        },
+        {
+          "w": "ungesicherten",
+          "start": 29.175,
+          "end": 29.884
+        },
+        {
+          "w": "Einnahmen",
+          "start": 29.965,
+          "end": 30.499
+        },
+        {
+          "w": "mehr",
+          "start": 30.72,
+          "end": 31.01
+        },
+        {
+          "w": "Euro",
+          "start": 31.068,
+          "end": 31.37
+        },
+        {
+          "w": "einbringen.",
+          "start": 31.428,
+          "end": 32.101
+        }
+      ],
+      "story": "US Dollar ETF (UUP) Hits New 52-Week High",
+      "sources": [
+        {
+          "article_id": "ZACK-105463-01M7QNMA2EJMHCE8S8XWQJEBW9",
+          "outlet": "Zacks Investment Research",
+          "headline": "US Dollar ETF (UUP) Hits New 52-Week High",
+          "link": "https://www.zacks.com/stock/news/3031782/us-dollar-etf-uup-hits-new-52-week-high?cid=CS-NEWSTEX-FT-etf_news_and_commentary-3031782"
+        }
+      ]
+    },
+    {
+      "text": "Ein unveränderter Europreis wird dagegen für US-Kunden in Dollar gerechnet günstiger.",
+      "start": 32.508,
+      "end": 37.813,
+      "words": [
+        {
+          "w": "Ein",
+          "start": 32.508,
+          "end": 32.717
+        },
+        {
+          "w": "unveränderter",
+          "start": 32.821,
+          "end": 33.518
+        },
+        {
+          "w": "Europreis",
+          "start": 33.564,
+          "end": 34.168
+        },
+        {
+          "w": "wird",
+          "start": 34.237,
+          "end": 34.377
+        },
+        {
+          "w": "dagegen",
+          "start": 34.423,
+          "end": 34.806
+        },
+        {
+          "w": "für",
+          "start": 34.853,
+          "end": 34.992
+        },
+        {
+          "w": "US-Kunden",
+          "start": 35.05,
+          "end": 35.793
+        },
+        {
+          "w": "in",
+          "start": 35.851,
+          "end": 35.944
+        },
+        {
+          "w": "Dollar",
+          "start": 36.014,
+          "end": 36.35
+        },
+        {
+          "w": "gerechnet",
+          "start": 36.409,
+          "end": 36.908
+        },
+        {
+          "w": "günstiger.",
+          "start": 36.989,
+          "end": 37.813
+        }
+      ],
+      "story": "US Dollar ETF (UUP) Hits New 52-Week High",
+      "sources": [
+        {
+          "article_id": "ZACK-105463-01M7QNMA2EJMHCE8S8XWQJEBW9",
+          "outlet": "Zacks Investment Research",
+          "headline": "US Dollar ETF (UUP) Hits New 52-Week High",
+          "link": "https://www.zacks.com/stock/news/3031782/us-dollar-etf-uup-hits-new-52-week-high?cid=CS-NEWSTEX-FT-etf_news_and_commentary-3031782"
+        }
+      ]
+    },
+    {
+      "text": "Wie stark Zölle ein Quartalsergebnis beeinflussen können, zeigt der US-Baumarkthändler Lowe’s: Laut Invezz steuerten Erstattungen 34 US-Cent zum bereinigten Gewinn von 3,10 US-Dollar je Aktie bei.",
+      "start": 38.278,
+      "end": 52.5,
+      "words": [
+        {
+          "w": "Wie",
+          "start": 38.278,
+          "end": 38.44
+        },
+        {
+          "w": "stark",
+          "start": 38.487,
+          "end": 38.789
+        },
+        {
+          "w": "Zölle",
+          "start": 38.893,
+          "end": 39.195
+        },
+        {
+          "w": "ein",
+          "start": 39.253,
+          "end": 39.346
+        },
+        {
+          "w": "Quartalsergebnis",
+          "start": 39.415,
+          "end": 40.309
+        },
+        {
+          "w": "beeinflussen",
+          "start": 40.368,
+          "end": 40.948
+        },
+        {
+          "w": "können,",
+          "start": 40.994,
+          "end": 41.412
+        },
+        {
+          "w": "zeigt",
+          "start": 41.575,
+          "end": 41.865
+        },
+        {
+          "w": "der",
+          "start": 41.888,
+          "end": 41.993
+        },
+        {
+          "w": "US-Baumarkthändler",
+          "start": 42.063,
+          "end": 43.282
+        },
+        {
+          "w": "Lowe’s:",
+          "start": 43.34,
+          "end": 43.909
+        },
+        {
+          "w": "Laut",
+          "start": 44.071,
+          "end": 44.327
+        },
+        {
+          "w": "Invezz",
+          "start": 44.396,
+          "end": 44.872
+        },
+        {
+          "w": "steuerten",
+          "start": 45.128,
+          "end": 45.557
+        },
+        {
+          "w": "Erstattungen",
+          "start": 45.604,
+          "end": 46.184
+        },
+        {
+          "w": "34",
+          "start": 46.289,
+          "end": 46.997
+        },
+        {
+          "w": "US-Cent",
+          "start": 47.136,
+          "end": 47.81
+        },
+        {
+          "w": "zum",
+          "start": 47.891,
+          "end": 48.042
+        },
+        {
+          "w": "bereinigten",
+          "start": 48.088,
+          "end": 48.646
+        },
+        {
+          "w": "Gewinn",
+          "start": 48.692,
+          "end": 49.017
+        },
+        {
+          "w": "von",
+          "start": 49.238,
+          "end": 49.435
+        },
+        {
+          "w": "3,10",
+          "start": 49.54,
+          "end": 50.352
+        },
+        {
+          "w": "US-Dollar",
+          "start": 50.492,
+          "end": 51.177
+        },
+        {
+          "w": "je",
+          "start": 51.316,
+          "end": 51.525
+        },
+        {
+          "w": "Aktie",
+          "start": 51.629,
+          "end": 51.989
+        },
+        {
+          "w": "bei.",
+          "start": 52.047,
+          "end": 52.5
+        }
+      ],
+      "story": "Lowe’s stock falls 4% despite earnings beat as tariff refunds lift profit",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7QF1S15NCFAA5FEE69MAR2X",
+          "outlet": "Invezz",
+          "headline": "Lowe’s stock falls 4% despite earnings beat as tariff refunds lift profit",
+          "link": "https://invezz.com/news/2026/11/18/lowes-stock-falls-4-despite-earnings-beat-as-tariff-refunds-lift-profit/"
+        },
+        {
+          "article_id": "INVZ-10010403-01M7QZ4HYPVTRWKB79YDSG9WGN",
+          "outlet": "Invezz - German",
+          "headline": "Lowe’s-Aktie fällt 4 % trotz Gewinnüberraschung, Zollrückzahlungen stützen Gewinn",
+          "link": "https://invezz.com/de/news/2026/11/18/lowes-aktie-fallt-4-percent-trotz-gewinnuberraschung-zollruckzahlungen-stutzen-gewinn/",
+          "language": "de",
+          "translation_of": "INVZ-10009737-01M7QF1S15NCFAA5FEE69MAR2X"
+        }
+      ]
+    },
+    {
+      "text": "Die Bruttomarge des Händlers ging dennoch zurück.",
+      "start": 52.848,
+      "end": 55.426,
+      "words": [
+        {
+          "w": "Die",
+          "start": 52.848,
+          "end": 52.988
+        },
+        {
+          "w": "Bruttomarge",
+          "start": 53.034,
+          "end": 53.603
+        },
+        {
+          "w": "des",
+          "start": 53.661,
+          "end": 53.766
+        },
+        {
+          "w": "Händlers",
+          "start": 53.824,
+          "end": 54.195
+        },
+        {
+          "w": "ging",
+          "start": 54.276,
+          "end": 54.451
+        },
+        {
+          "w": "dennoch",
+          "start": 54.532,
+          "end": 54.869
+        },
+        {
+          "w": "zurück.",
+          "start": 54.927,
+          "end": 55.426
+        }
+      ],
+      "story": "Lowe’s stock falls 4% despite earnings beat as tariff refunds lift profit",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7QF1S15NCFAA5FEE69MAR2X",
+          "outlet": "Invezz",
+          "headline": "Lowe’s stock falls 4% despite earnings beat as tariff refunds lift profit",
+          "link": "https://invezz.com/news/2026/11/18/lowes-stock-falls-4-despite-earnings-beat-as-tariff-refunds-lift-profit/"
+        },
+        {
+          "article_id": "INVZ-10010403-01M7QZ4HYPVTRWKB79YDSG9WGN",
+          "outlet": "Invezz - German",
+          "headline": "Lowe’s-Aktie fällt 4 % trotz Gewinnüberraschung, Zollrückzahlungen stützen Gewinn",
+          "link": "https://invezz.com/de/news/2026/11/18/lowes-aktie-fallt-4-percent-trotz-gewinnuberraschung-zollruckzahlungen-stutzen-gewinn/",
+          "language": "de",
+          "translation_of": "INVZ-10009737-01M7QF1S15NCFAA5FEE69MAR2X"
+        }
+      ]
+    },
+    {
+      "text": "Der Fall zeigt, warum Exporteure mögliche Erstattungen getrennt von der laufenden Marge kalkulieren sollten.",
+      "start": 55.716,
+      "end": 61.777,
+      "words": [
+        {
+          "w": "Der",
+          "start": 55.716,
+          "end": 55.855
+        },
+        {
+          "w": "Fall",
+          "start": 55.902,
+          "end": 56.064
+        },
+        {
+          "w": "zeigt,",
+          "start": 56.122,
+          "end": 56.61
+        },
+        {
+          "w": "warum",
+          "start": 56.749,
+          "end": 57.016
+        },
+        {
+          "w": "Exporteure",
+          "start": 57.074,
+          "end": 57.725
+        },
+        {
+          "w": "mögliche",
+          "start": 57.794,
+          "end": 58.259
+        },
+        {
+          "w": "Erstattungen",
+          "start": 58.294,
+          "end": 58.839
+        },
+        {
+          "w": "getrennt",
+          "start": 58.897,
+          "end": 59.35
+        },
+        {
+          "w": "von",
+          "start": 59.408,
+          "end": 59.536
+        },
+        {
+          "w": "der",
+          "start": 59.571,
+          "end": 59.664
+        },
+        {
+          "w": "laufenden",
+          "start": 59.722,
+          "end": 60.151
+        },
+        {
+          "w": "Marge",
+          "start": 60.209,
+          "end": 60.5
+        },
+        {
+          "w": "kalkulieren",
+          "start": 60.558,
+          "end": 61.196
+        },
+        {
+          "w": "sollten.",
+          "start": 61.231,
+          "end": 61.777
+        }
+      ],
+      "story": "Lowe’s stock falls 4% despite earnings beat as tariff refunds lift profit",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7QF1S15NCFAA5FEE69MAR2X",
+          "outlet": "Invezz",
+          "headline": "Lowe’s stock falls 4% despite earnings beat as tariff refunds lift profit",
+          "link": "https://invezz.com/news/2026/11/18/lowes-stock-falls-4-despite-earnings-beat-as-tariff-refunds-lift-profit/"
+        },
+        {
+          "article_id": "INVZ-10010403-01M7QZ4HYPVTRWKB79YDSG9WGN",
+          "outlet": "Invezz - German",
+          "headline": "Lowe’s-Aktie fällt 4 % trotz Gewinnüberraschung, Zollrückzahlungen stützen Gewinn",
+          "link": "https://invezz.com/de/news/2026/11/18/lowes-aktie-fallt-4-percent-trotz-gewinnuberraschung-zollruckzahlungen-stutzen-gewinn/",
+          "language": "de",
+          "translation_of": "INVZ-10009737-01M7QF1S15NCFAA5FEE69MAR2X"
+        }
+      ]
+    },
+    {
+      "text": "Wer den Zoll selbst trägt, schmälert damit bei unverändertem Verkaufspreis seine Marge; wer ihn weitergibt, riskiert einen Preisnachteil gegenüber Wettbewerbern, die nicht denselben Zoll zahlen.",
+      "start": 62.125,
+      "end": 73.085,
+      "words": [
+        {
+          "w": "Wer",
+          "start": 62.125,
+          "end": 62.276
+        },
+        {
+          "w": "den",
+          "start": 62.322,
+          "end": 62.438
+        },
+        {
+          "w": "Zoll",
+          "start": 62.496,
+          "end": 62.729
+        },
+        {
+          "w": "selbst",
+          "start": 62.787,
+          "end": 63.1
+        },
+        {
+          "w": "trägt,",
+          "start": 63.135,
+          "end": 63.599
+        },
+        {
+          "w": "schmälert",
+          "start": 63.704,
+          "end": 64.087
+        },
+        {
+          "w": "damit",
+          "start": 64.122,
+          "end": 64.412
+        },
+        {
+          "w": "bei",
+          "start": 64.47,
+          "end": 64.598
+        },
+        {
+          "w": "unverändertem",
+          "start": 64.679,
+          "end": 65.399
+        },
+        {
+          "w": "Verkaufspreis",
+          "start": 65.457,
+          "end": 66.165
+        },
+        {
+          "w": "seine",
+          "start": 66.2,
+          "end": 66.421
+        },
+        {
+          "w": "Marge;",
+          "start": 66.479,
+          "end": 66.978
+        },
+        {
+          "w": "wer",
+          "start": 67.268,
+          "end": 67.408
+        },
+        {
+          "w": "ihn",
+          "start": 67.466,
+          "end": 67.547
+        },
+        {
+          "w": "weitergibt,",
+          "start": 67.605,
+          "end": 68.371
+        },
+        {
+          "w": "riskiert",
+          "start": 68.51,
+          "end": 68.905
+        },
+        {
+          "w": "einen",
+          "start": 68.963,
+          "end": 69.149
+        },
+        {
+          "w": "Preisnachteil",
+          "start": 69.207,
+          "end": 69.973
+        },
+        {
+          "w": "gegenüber",
+          "start": 70.031,
+          "end": 70.438
+        },
+        {
+          "w": "Wettbewerbern,",
+          "start": 70.484,
+          "end": 71.25
+        },
+        {
+          "w": "die",
+          "start": 71.413,
+          "end": 71.529
+        },
+        {
+          "w": "nicht",
+          "start": 71.599,
+          "end": 71.819
+        },
+        {
+          "w": "denselben",
+          "start": 71.843,
+          "end": 72.295
+        },
+        {
+          "w": "Zoll",
+          "start": 72.342,
+          "end": 72.551
+        },
+        {
+          "w": "zahlen.",
+          "start": 72.621,
+          "end": 73.085
+        }
+      ],
+      "story": "Lowe’s stock falls 4% despite earnings beat as tariff refunds lift profit",
+      "sources": [
+        {
+          "article_id": "INVZ-10009737-01M7QF1S15NCFAA5FEE69MAR2X",
+          "outlet": "Invezz",
+          "headline": "Lowe’s stock falls 4% despite earnings beat as tariff refunds lift profit",
+          "link": "https://invezz.com/news/2026/11/18/lowes-stock-falls-4-despite-earnings-beat-as-tariff-refunds-lift-profit/"
+        },
+        {
+          "article_id": "INVZ-10010403-01M7QZ4HYPVTRWKB79YDSG9WGN",
+          "outlet": "Invezz - German",
+          "headline": "Lowe’s-Aktie fällt 4 % trotz Gewinnüberraschung, Zollrückzahlungen stützen Gewinn",
+          "link": "https://invezz.com/de/news/2026/11/18/lowes-aktie-fallt-4-percent-trotz-gewinnuberraschung-zollruckzahlungen-stutzen-gewinn/",
+          "language": "de",
+          "translation_of": "INVZ-10009737-01M7QF1S15NCFAA5FEE69MAR2X"
+        }
+      ]
+    },
+    {
+      "text": "Vor der Veröffentlichung des US-Notenbankprotokolls fiel Gold laut ActionForex auf den tiefsten Stand seit mehr als einem Jahr.",
+      "start": 73.55,
+      "end": 81.619,
+      "words": [
+        {
+          "w": "Vor",
+          "start": 73.55,
+          "end": 73.735
+        },
+        {
+          "w": "der",
+          "start": 73.793,
+          "end": 73.886
+        },
+        {
+          "w": "Veröffentlichung",
+          "start": 73.944,
+          "end": 74.676
+        },
+        {
+          "w": "des",
+          "start": 74.734,
+          "end": 74.838
+        },
+        {
+          "w": "US-Notenbankprotokolls",
+          "start": 74.943,
+          "end": 76.487
+        },
+        {
+          "w": "fiel",
+          "start": 76.708,
+          "end": 76.94
+        },
+        {
+          "w": "Gold",
+          "start": 77.021,
+          "end": 77.3
+        },
+        {
+          "w": "laut",
+          "start": 77.369,
+          "end": 77.567
+        },
+        {
+          "w": "ActionForex",
+          "start": 77.636,
+          "end": 78.403
+        },
+        {
+          "w": "auf",
+          "start": 78.507,
+          "end": 78.646
+        },
+        {
+          "w": "den",
+          "start": 78.705,
+          "end": 78.855
+        },
+        {
+          "w": "tiefsten",
+          "start": 78.925,
+          "end": 79.389
+        },
+        {
+          "w": "Stand",
+          "start": 79.448,
+          "end": 79.831
+        },
+        {
+          "w": "seit",
+          "start": 79.935,
+          "end": 80.179
+        },
+        {
+          "w": "mehr",
+          "start": 80.283,
+          "end": 80.504
+        },
+        {
+          "w": "als",
+          "start": 80.562,
+          "end": 80.736
+        },
+        {
+          "w": "einem",
+          "start": 80.841,
+          "end": 81.108
+        },
+        {
+          "w": "Jahr.",
+          "start": 81.166,
+          "end": 81.619
+        }
+      ],
+      "story": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
+      "sources": [
+        {
+          "article_id": "ACTI-10010414-01M7Q2T3JT54KGKWWAV72SFEJJ",
+          "outlet": "ActionForex",
+          "headline": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
+          "link": "https://www.actionforex.com/action-insight/market-overview/661273-gold-hits-one-year-low-ahead-of-fomc-minutes-as-fed-rate-path-takes-center-stage/"
+        }
+      ]
+    },
+    {
+      "text": "Der Wochenverlust betrug 6,51 Prozent; höhere Renditen amerikanischer Staatsanleihen waren dem Bericht zufolge ein Grund dafür.",
+      "start": 81.967,
+      "end": 90.314,
+      "words": [
+        {
+          "w": "Der",
+          "start": 81.967,
+          "end": 82.106
+        },
+        {
+          "w": "Wochenverlust",
+          "start": 82.153,
+          "end": 82.768
+        },
+        {
+          "w": "betrug",
+          "start": 82.826,
+          "end": 83.198
+        },
+        {
+          "w": "6,51",
+          "start": 83.36,
+          "end": 84.335
+        },
+        {
+          "w": "Prozent;",
+          "start": 84.44,
+          "end": 85.02
+        },
+        {
+          "w": "höhere",
+          "start": 85.276,
+          "end": 85.694
+        },
+        {
+          "w": "Renditen",
+          "start": 85.752,
+          "end": 86.205
+        },
+        {
+          "w": "amerikanischer",
+          "start": 86.251,
+          "end": 86.948
+        },
+        {
+          "w": "Staatsanleihen",
+          "start": 86.994,
+          "end": 87.737
+        },
+        {
+          "w": "waren",
+          "start": 87.923,
+          "end": 88.166
+        },
+        {
+          "w": "dem",
+          "start": 88.213,
+          "end": 88.317
+        },
+        {
+          "w": "Bericht",
+          "start": 88.364,
+          "end": 88.677
+        },
+        {
+          "w": "zufolge",
+          "start": 88.712,
+          "end": 89.13
+        },
+        {
+          "w": "ein",
+          "start": 89.2,
+          "end": 89.35
+        },
+        {
+          "w": "Grund",
+          "start": 89.432,
+          "end": 89.676
+        },
+        {
+          "w": "dafür.",
+          "start": 89.722,
+          "end": 90.314
+        }
+      ],
+      "story": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
+      "sources": [
+        {
+          "article_id": "ACTI-10010414-01M7Q2T3JT54KGKWWAV72SFEJJ",
+          "outlet": "ActionForex",
+          "headline": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
+          "link": "https://www.actionforex.com/action-insight/market-overview/661273-gold-hits-one-year-low-ahead-of-fomc-minutes-as-fed-rate-path-takes-center-stage/"
+        }
+      ]
+    },
+    {
+      "text": "Die Märkte rechneten mit weiteren Zinserhöhungen, doch aus diesen Erwartungen lässt sich kein verlässlicher Euro-Dollar-Kurs für das nächste Angebot ableiten.",
+      "start": 90.5,
+      "end": 99.648,
+      "words": [
+        {
+          "w": "Die",
+          "start": 90.5,
+          "end": 90.628
+        },
+        {
+          "w": "Märkte",
+          "start": 90.674,
+          "end": 91.022
+        },
+        {
+          "w": "rechneten",
+          "start": 91.08,
+          "end": 91.487
+        },
+        {
+          "w": "mit",
+          "start": 91.522,
+          "end": 91.638
+        },
+        {
+          "w": "weiteren",
+          "start": 91.696,
+          "end": 92.102
+        },
+        {
+          "w": "Zinserhöhungen,",
+          "start": 92.16,
+          "end": 93.089
+        },
+        {
+          "w": "doch",
+          "start": 93.251,
+          "end": 93.495
+        },
+        {
+          "w": "aus",
+          "start": 93.553,
+          "end": 93.704
+        },
+        {
+          "w": "diesen",
+          "start": 93.785,
+          "end": 94.087
+        },
+        {
+          "w": "Erwartungen",
+          "start": 94.145,
+          "end": 94.737
+        },
+        {
+          "w": "lässt",
+          "start": 94.993,
+          "end": 95.225
+        },
+        {
+          "w": "sich",
+          "start": 95.272,
+          "end": 95.434
+        },
+        {
+          "w": "kein",
+          "start": 95.515,
+          "end": 95.759
+        },
+        {
+          "w": "verlässlicher",
+          "start": 95.817,
+          "end": 96.444
+        },
+        {
+          "w": "Euro-Dollar-Kurs",
+          "start": 96.514,
+          "end": 97.501
+        },
+        {
+          "w": "für",
+          "start": 97.663,
+          "end": 97.791
+        },
+        {
+          "w": "das",
+          "start": 97.814,
+          "end": 97.93
+        },
+        {
+          "w": "nächste",
+          "start": 98.011,
+          "end": 98.313
+        },
+        {
+          "w": "Angebot",
+          "start": 98.371,
+          "end": 98.813
+        },
+        {
+          "w": "ableiten.",
+          "start": 98.882,
+          "end": 99.648
+        }
+      ],
+      "story": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
+      "sources": [
+        {
+          "article_id": "ACTI-10010414-01M7Q2T3JT54KGKWWAV72SFEJJ",
+          "outlet": "ActionForex",
+          "headline": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
+          "link": "https://www.actionforex.com/action-insight/market-overview/661273-gold-hits-one-year-low-ahead-of-fomc-minutes-as-fed-rate-path-takes-center-stage/"
+        }
+      ]
+    },
+    {
+      "text": "Zum Schluss: Im Oktober ließ die US-Notenbank den Leitzins unverändert; für den Export ist nun interessant, welche Hinweise das Protokoll auf den weiteren Zinskurs gibt.",
+      "start": 100.055,
+      "end": 111.363,
+      "words": [
+        {
+          "w": "Zum",
+          "start": 100.055,
+          "end": 100.229
+        },
+        {
+          "w": "Schluss:",
+          "start": 100.287,
+          "end": 100.833
+        },
+        {
+          "w": "Im",
+          "start": 101.053,
+          "end": 101.216
+        },
+        {
+          "w": "Oktober",
+          "start": 101.32,
+          "end": 101.889
+        },
+        {
+          "w": "ließ",
+          "start": 101.947,
+          "end": 102.133
+        },
+        {
+          "w": "die",
+          "start": 102.191,
+          "end": 102.296
+        },
+        {
+          "w": "US-Notenbank",
+          "start": 102.365,
+          "end": 103.364
+        },
+        {
+          "w": "den",
+          "start": 103.434,
+          "end": 103.596
+        },
+        {
+          "w": "Leitzins",
+          "start": 103.677,
+          "end": 104.235
+        },
+        {
+          "w": "unverändert;",
+          "start": 104.374,
+          "end": 105.245
+        },
+        {
+          "w": "für",
+          "start": 105.535,
+          "end": 105.686
+        },
+        {
+          "w": "den",
+          "start": 105.709,
+          "end": 105.814
+        },
+        {
+          "w": "Export",
+          "start": 105.872,
+          "end": 106.266
+        },
+        {
+          "w": "ist",
+          "start": 106.324,
+          "end": 106.429
+        },
+        {
+          "w": "nun",
+          "start": 106.475,
+          "end": 106.592
+        },
+        {
+          "w": "interessant,",
+          "start": 106.65,
+          "end": 107.393
+        },
+        {
+          "w": "welche",
+          "start": 107.555,
+          "end": 107.857
+        },
+        {
+          "w": "Hinweise",
+          "start": 107.903,
+          "end": 108.379
+        },
+        {
+          "w": "das",
+          "start": 108.426,
+          "end": 108.554
+        },
+        {
+          "w": "Protokoll",
+          "start": 108.623,
+          "end": 109.215
+        },
+        {
+          "w": "auf",
+          "start": 109.273,
+          "end": 109.39
+        },
+        {
+          "w": "den",
+          "start": 109.448,
+          "end": 109.599
+        },
+        {
+          "w": "weiteren",
+          "start": 109.657,
+          "end": 110.098
+        },
+        {
+          "w": "Zinskurs",
+          "start": 110.156,
+          "end": 110.632
+        },
+        {
+          "w": "gibt.",
+          "start": 110.701,
+          "end": 111.363
+        }
+      ],
+      "story": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
+      "sources": [
+        {
+          "article_id": "ACTI-10010414-01M7Q2T3JT54KGKWWAV72SFEJJ",
+          "outlet": "ActionForex",
+          "headline": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
+          "link": "https://www.actionforex.com/action-insight/market-overview/661273-gold-hits-one-year-low-ahead-of-fomc-minutes-as-fed-rate-path-takes-center-stage/"
+        }
+      ]
+    }
+  ],
+  "caught": [],
+  "conflicts": [
+    {
+      "measure": "Nvidia after-hours share gain",
+      "value_a": "2.91%",
+      "outlet_a": "ActionForex",
+      "link_a": "https://www.actionforex.com/action-insight/market-overview/661345-nvidia-beat-fails-to-spark-rally-as-shenzhen-summit-opens-and-oil-stays-range-bound/",
+      "article_id_a": "ACTI-10010414-01M7QZ4FMNPN8X11NG0KE4BTT6",
+      "value_b": "2.47%",
+      "outlet_b": "Invezz",
+      "link_b": "https://invezz.com/news/2026/11/17/nvidia-stock-rises-after-hours-as-revenue-forecast-beats-estimates/",
+      "article_id_b": "INVZ-10009737-01M7NQHM94VNJQGKEKVC7J3EQV",
+      "used": null
+    },
+    {
+      "measure": "Measurement described in the linked source.",
+      "value_a": "96.7%",
+      "outlet_a": "ActionForex",
+      "link_a": "https://www.actionforex.com/action-insight/market-overview/661273-gold-hits-one-year-low-ahead-of-fomc-minutes-as-fed-rate-path-takes-center-stage/",
+      "article_id_a": "ACTI-10010414-01M7Q2T3JT54KGKWWAV72SFEJJ",
+      "value_b": "98%",
+      "outlet_b": "ActionForex",
+      "link_b": "https://www.actionforex.com/live-comments/661237-feds-williams-backs-further-rate-hikes-but-sees-no-need-for-dramatic-action/",
+      "article_id_b": "ACTI-10010414-01M7Q2T2Z5DYCH29CJEAPGECME",
+      "used": null
+    },
+    {
+      "measure": "Spot gold price",
+      "value_a": "$3,770",
+      "outlet_a": "Invezz",
+      "link_a": "https://invezz.com/news/2026/11/18/gold-slips-back-below-one-year-low-but-goldman-sachs-sees-long-term-recovery/",
+      "article_id_a": "INVZ-10009737-01M7PXA2GX6QMV1B0KHQXS9GGA",
+      "value_b": "$3,852.67",
+      "outlet_b": "Invezz",
+      "link_b": "https://invezz.com/news/2026/11/17/evening-digest-huang-says-he-is-willing-to-return-anthropic-wins-first-buy-rating/",
+      "article_id_b": "INVZ-10009737-01M7NH85X41V1MJQ31AH6SQV5G",
+      "used": null
+    },
+    {
+      "measure": "Brent crude futures price",
+      "value_a": "$92.21",
+      "outlet_a": "Invezz",
+      "link_a": "https://invezz.com/news/2026/11/18/oil-price-today-api-528-million-barrel-us-crude-build/",
+      "article_id_a": "INVZ-10009737-01M7Q4F0GZ0JE7XP9WYEHNC2YH",
+      "value_b": "$93.17",
+      "outlet_b": "Invezz",
+      "link_b": "https://invezz.com/news/2026/11/17/evening-digest-huang-says-he-is-willing-to-return-anthropic-wins-first-buy-rating/",
+      "article_id_b": "INVZ-10009737-01M7NH85X41V1MJQ31AH6SQV5G",
+      "used": null
+    }
+  ],
+  "receipt": [
+    {
+      "figure": "0,54 Prozent",
+      "measures": "U.S. Dollar Index gain over five days",
+      "outlet": "Zacks Investment Research",
+      "headline": "US Dollar ETF (UUP) Hits New 52-Week High",
+      "link": "https://www.zacks.com/stock/news/3031782/us-dollar-etf-uup-hits-new-52-week-high?cid=CS-NEWSTEX-FT-etf_news_and_commentary-3031782"
+    },
+    {
+      "figure": "34 US-Cent",
+      "measures": "Tariff refunds’ contribution to quarterly adjusted earnings per share",
+      "outlet": "Invezz",
+      "headline": "Lowe’s stock falls 4% despite earnings beat as tariff refunds lift profit",
+      "link": "https://invezz.com/news/2026/11/18/lowes-stock-falls-4-despite-earnings-beat-as-tariff-refunds-lift-profit/"
+    },
+    {
+      "figure": "3,10 US-Dollar",
+      "measures": "Quarterly adjusted earnings per share",
+      "outlet": "Invezz",
+      "headline": "Lowe’s stock falls 4% despite earnings beat as tariff refunds lift profit",
+      "link": "https://invezz.com/news/2026/11/18/lowes-stock-falls-4-despite-earnings-beat-as-tariff-refunds-lift-profit/"
+    },
+    {
+      "figure": "6,51 Prozent",
+      "measures": "Gold's decline over the past week",
+      "outlet": "ActionForex",
+      "headline": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
+      "link": "https://www.actionforex.com/action-insight/market-overview/661273-gold-hits-one-year-low-ahead-of-fomc-minutes-as-fed-rate-path-takes-center-stage/"
+    }
+  ],
+  "language": "de",
+  "grouping": [
+    {
+      "story_id": "2026-11-18-61376a6dc68ad100",
+      "headline": "US Dollar ETF (UUP) Hits New 52-Week High",
+      "listeners": {
+        "wildcard-de-ca762d040743": {
+          "last_sentence_index": 4
+        }
+      },
+      "articles": [
+        {
+          "article_id": "ZACK-105463-01M7QNMA2EJMHCE8S8XWQJEBW9",
+          "cluster_id": "2026-11-18-61376a6dc68ad100",
+          "title": "US Dollar ETF (UUP) Hits New 52-Week High",
+          "outlet": "Zacks Investment Research",
+          "link": "https://www.zacks.com/stock/news/3031782/us-dollar-etf-uup-hits-new-52-week-high?cid=CS-NEWSTEX-FT-etf_news_and_commentary-3031782",
+          "published_at": "2026-11-18T13:49:00+00:00"
+        }
+      ]
+    },
+    {
+      "story_id": "2026-11-18-1033e4dde09b1a4a",
+      "headline": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
+      "listeners": {
+        "wildcard-de-ca762d040743": {
+          "last_sentence_index": 12
+        }
+      },
+      "articles": [
+        {
+          "article_id": "ACTI-10010414-01M7Q2T3JT54KGKWWAV72SFEJJ",
+          "cluster_id": "2026-11-18-1033e4dde09b1a4a",
+          "title": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
+          "outlet": "ActionForex",
+          "link": "https://www.actionforex.com/action-insight/market-overview/661273-gold-hits-one-year-low-ahead-of-fomc-minutes-as-fed-rate-path-takes-center-stage/",
+          "published_at": "2026-11-18T09:14:17+00:00"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7PXA2GX6QMV1B0KHQXS9GGA",
+          "cluster_id": "2026-11-18-1033e4dde09b1a4a",
+          "title": "Gold slips back below one-year low but Goldman Sachs sees long term recovery",
+          "outlet": "Invezz",
+          "link": "https://invezz.com/news/2026/11/18/gold-slips-back-below-one-year-low-but-goldman-sachs-sees-long-term-recovery/",
+          "published_at": "2026-11-18T08:42:28+00:00"
+        },
+        {
+          "article_id": "INVZ-10009737-01M7QJRSRD8JFFYVXPBCB9XVPV",
+          "cluster_id": "2026-11-18-1033e4dde09b1a4a",
+          "title": "Why is gold price down today? Gold futures slip 2.5% to September 2025 low",
+          "outlet": "Invezz",
+          "link": "https://invezz.com/news/2026/11/18/why-is-gold-price-down-today-gold-futures-slip-to-lowest-since-september-2025/",
+          "published_at": "2026-11-18T14:59:10+00:00"
+        }
+      ]
+    },
+    {
+      "story_id": "2026-11-18-070dddee90db49da",
+      "headline": "Lowe’s stock falls 4% despite earnings beat as tariff refunds lift profit",
+      "listeners": {
+        "wildcard-de-ca762d040743": {
+          "last_sentence_index": 8
+        }
+      },
+      "articles": [
+        {
+          "article_id": "INVZ-10009737-01M7QF1S15NCFAA5FEE69MAR2X",
+          "cluster_id": "2026-11-18-070dddee90db49da",
+          "title": "Lowe’s stock falls 4% despite earnings beat as tariff refunds lift profit",
+          "outlet": "Invezz",
+          "link": "https://invezz.com/news/2026/11/18/lowes-stock-falls-4-despite-earnings-beat-as-tariff-refunds-lift-profit/",
+          "published_at": "2026-11-18T13:51:05+00:00"
+        }
+      ]
+    }
+  ]
+}
