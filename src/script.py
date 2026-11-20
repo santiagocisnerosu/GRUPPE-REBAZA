@@ -13,6 +13,7 @@ from dotenv import load_dotenv
 from openai import OpenAI
 from pydantic import BaseModel
 
+from .conflicts import detect_conflicts, figure_key, write_conflicts
 from .costs import CACHE_DIR, write_json
 from .extract import cache_path, selected_articles, verified_claims
 from .model_calls import structured
@@ -49,6 +50,7 @@ class StoryFits(BaseModel):
 class Sentence(BaseModel):
     text: str
     fact_ids: list[str]
+    story_id: str | None = None
 
 
 class Script(BaseModel):
@@ -152,27 +154,22 @@ def select_stories(stories, fits, profile, articles):
             for index, (story, score) in enumerate(chosen) if words + (index < remainder)]
 
 
-def measure_key(measure):
-    measure = measure.casefold()
-    if (re.search(r"probability|chance|\bodds\b", measure)
-            and "december" in measure and re.search(r"rate|hike", measure)):
-        return "december-fed-hike-probability"
-    return " ".join(WORD.findall(measure))
-
-
-def fact_payload(selected, claims, articles):
+def fact_payload(selected, claims, articles, conflicts):
     facts = {}
     grouped = []
-    values_by_measure = {}
+    incompatible = {}
+    for _, a, b in conflicts:
+        left, right = figure_key(a), figure_key(b)
+        incompatible.setdefault(left, set()).add(right)
+        incompatible.setdefault(right, set()).add(left)
+    included = set()
     for story, _, budget in selected:
         ids = []
         for figure in story["verified_figures"]:
-            key = measure_key(figure["measures"])
-            numbers = authorized_numbers(figure)
-            if key and numbers and key in values_by_measure and values_by_measure[key] != numbers:
+            key = figure_key(figure)
+            if included.intersection(incompatible.get(key, ())):
                 continue
-            if key and numbers:
-                values_by_measure[key] = numbers
+            included.add(key)
             fact_id = f"F{len(facts) + 1:03d}"
             facts[fact_id] = {
                 "fact_id": fact_id, "article_id": figure["article_id"],
@@ -232,12 +229,40 @@ def matches_number(expected, actual):
     )
 
 
+def spoken_figures(script):
+    facts = {fact["fact_id"]: fact for fact in script["facts"] if "value_text" in fact}
+    spoken = set()
+    for sentence in script["sentences"]:
+        numbers = [value for _, value in numeric_mentions(sentence["text"]) if value is not None]
+        for fact_id in sentence["fact_ids"]:
+            if fact_id in facts and any(
+                matches_number(expected, actual)
+                for expected in authorized_numbers(facts[fact_id])
+                for actual in numbers
+            ):
+                spoken.add(figure_key(facts[fact_id]))
+    return spoken
+
+
 def word_windows(text):
     words = WORD.findall(normalize_text(text).casefold())
     return zip(*(words[i:] for i in range(8)))
 
 
-def sentence_errors(sentence, facts, source_windows, preceding_words=(), used_numbers=()):
+TRADE_WORDS = re.compile(r"\b(?:buy|buys|buying|bought|sell|sells|selling|sold)\b", re.I)
+PRIYA_CLOSING = "For your business,"
+
+
+def starts_with_number(text):
+    first = re.match(r"^[\s\W_]*?(?:[+$\u00a3\u20ac\u00a5-]\s*)?(\d+)", text)
+    if first:
+        return True
+    first_words = text.lstrip(" \"'([{")
+    return bool(SPELLED_NUMBER.match(first_words))
+
+
+def sentence_errors(sentence, facts, source_windows, preceding_words=(), used_numbers=(),
+                    listener=None):
     errors = []
     cited = [facts[i] for i in sentence.fact_ids if i in facts]
     if not sentence.fact_ids or len(cited) != len(sentence.fact_ids):
@@ -245,8 +270,17 @@ def sentence_errors(sentence, facts, source_windows, preceding_words=(), used_nu
     if not sentence.text.strip():
         errors.append({"cifra": None, "motivo": "empty_sentence"})
     allowed = [number for fact in cited for number in authorized_numbers(fact)]
+    mentions = list(numeric_mentions(sentence.text))
+    if starts_with_number(normalize_text(sentence.text)):
+        errors.append({"cifra": mentions[0][0] if mentions else None, "motivo": "number_at_start"})
+    if len(mentions) > 3:
+        errors.append({"cifra": mentions[3][0], "motivo": "more_than_three_numbers"})
+    if len(sentence.text.split()) > 38:
+        errors.append({"cifra": None, "motivo": "sentence_too_long"})
+    if listener == "jordan" and TRADE_WORDS.search(sentence.text):
+        errors.append({"cifra": None, "motivo": "jordan_trade_language"})
     numbers = list(used_numbers)
-    for raw, actual in numeric_mentions(sentence.text):
+    for raw, actual in mentions:
         if actual is None or not any(matches_number(expected, actual) for expected in allowed):
             errors.append({"cifra": raw, "motivo": "number_not_in_cited_facts"})
         elif any(matches_number(existing, actual) for existing in numbers):
@@ -268,6 +302,16 @@ INSTRUCTIONS = (
     "fact ID per sentence. Follow the profile's running_order, tone and listener needs. "
     "The target word count is within 10 percent of profile.words; get there by covering "
     "the chosen stories in full, with useful qualitative details and clear transitions. "
+    "Use radio cadence. Never start a sentence with a number, including money or a "
+    "percentage. Put a key figure near the beginning after naming what it measures. "
+    "Use at most 3 figures and at most 38 words per sentence; aim for 18 to 28 words. "
+    "Use more short sentences when needed to meet the total budget. "
+    "For Jordan, never use buy, sell or their inflections, even in quotes. Keep the "
+    "portfolio context educational. "
+    "For Priya, give every sentence its selected story_id. Cover every selected story "
+    "once in a contiguous block. Close each block with exactly one sentence starting "
+    "'For your business,' and cite the facts supporting the practical implication. "
+    "Never use that phrase in any other position. "
     "Never invent filler. For Mara, explicitly cover each story marked mara_editorial_priority "
     "with one or more sentences citing its facts. End her watch list with the Shenzhen "
     "summit if selected, including the leaders and relevant, explicitly sourced agenda. "
@@ -285,6 +329,23 @@ INSTRUCTIONS = (
 )
 
 
+def script_instructions(profile):
+    if profile["id"] != "priya":
+        return INSTRUCTIONS
+    return INSTRUCTIONS + (
+        " Priya's total and closing rule take priority over her sentence-count preference. "
+        "Give each selected story five or six sentences and about 110 to 115 words. "
+        "Use all supplied story IDs, even for a less directly relevant item. Start each "
+        "block with a plain subject, never an ordinal or numbered transition. Close EVERY "
+        "block, including the final block, with an exact 'For your business,' sentence "
+        "that has that story's ID. Prefer a qualitative cited fact in each closing sentence. "
+        "Do not speculate about consequences; if none follows from the source, use the "
+        "closer to state the sourced status or scope in plain language. "
+        "Before returning, count the closing sentences and check each is the last line "
+        "of its story. Paraphrase carefully to preserve every closer through validation."
+    )
+
+
 def cached_script_call(client, model, stage, schema, instructions, payload):
     digest = hashlib.sha256(json.dumps([model, stage, instructions, payload]).encode()).hexdigest()
     path = CACHE_DIR / "script_responses" / f"{digest}.json"
@@ -295,10 +356,10 @@ def cached_script_call(client, model, stage, schema, instructions, payload):
     return result
 
 
-def write_script(profile, chosen, claims, articles, source_windows, client, model, day):
-    facts, groups = fact_payload(chosen, claims, articles)
+def write_script(profile, chosen, claims, articles, source_windows, client, model, day, conflicts):
+    facts, groups = fact_payload(chosen, claims, articles, conflicts)
     payload = {"profile": profile, "stories": groups}
-    initial = cached_script_call(client, model, "script", Script, INSTRUCTIONS, payload)
+    initial = cached_script_call(client, model, "script", Script, script_instructions(profile), payload)
     return validate_script(profile, chosen, source_windows, client, model, day, facts, initial, payload)
 
 
@@ -311,17 +372,24 @@ def validate_script(profile, chosen, source_windows, client, model, day, facts, 
     used_numbers = []
     word_count = 0
     preceding_words = []
+    listener = profile["id"]
+    story_facts = {s["story_id"]: {f["fact_id"] for f in s["facts"]} for s in payload["stories"]}
     for original in initial.sentences:
         sentence = original
         allowed_facts = facts
         for attempt in (1, 2):
-            errors = sentence_errors(sentence, allowed_facts, source_windows, preceding_words, used_numbers)
+            errors = sentence_errors(sentence, allowed_facts, source_windows, preceding_words,
+                                     used_numbers, listener)
+            if listener == "priya" and (sentence.story_id not in story_facts or
+                                        not set(sentence.fact_ids) <= story_facts[sentence.story_id]):
+                errors.append({"cifra": None, "motivo": "priya_story_citation_mismatch"})
             if not errors:
                 words = len(sentence.text.split())
                 if word_count + words <= maximum:
                     ids = list(dict.fromkeys(sentence.fact_ids))
                     sentences.append({
                         "text": sentence.text.strip(), "fact_ids": ids,
+                        "story_id": sentence.story_id,
                         "article_ids": list(dict.fromkeys(facts[i]["article_id"] for i in ids)),
                     })
                     word_count += words
@@ -341,7 +409,8 @@ def validate_script(profile, chosen, source_windows, client, model, day, facts, 
             repair = cached_script_call(
                 client, model, "script_repair", Repair,
                 INSTRUCTIONS + " Replace only the supplied sentence using the facts provided "
-                "for the repair. Return null when it cannot be supported.",
+                "for the repair. Preserve story_id and preserve the opening 'For your "
+                "business,' if this is Priya's story closer. Return null when unsupported.",
                 {"profile": profile, "sentence": original.model_dump(), "errors": errors,
                  "numbers_already_spoken": [str(value) for value in used_numbers],
                  "facts": list(allowed_facts.values())},
@@ -360,9 +429,20 @@ def validate_script(profile, chosen, source_windows, client, model, day, facts, 
                    any(value and value[:2] == (50, "bps") for _, value in numeric_mentions(sentence["text"]))
                    for sentence in sentences):
             missing.append("Waller's 50 basis points in his own sentence")
+    if listener == "priya":
+        from itertools import groupby
+
+        covered = set()
+        for story_id, block in groupby(sentences, key=lambda s: s["story_id"]):
+            block = list(block)
+            closers = [i for i, line in enumerate(block) if line["text"].startswith(PRIYA_CLOSING)]
+            if story_id in covered or closers != [len(block) - 1]:
+                missing.append(f"Priya story {story_id}: needs one contiguous block with a final closer")
+            covered.add(story_id)
+        missing.extend(f"Priya story {i}: missing coverage" for i in story_facts.keys() - covered)
     if (word_count < minimum or missing) and retry_budget:
         retry = cached_script_call(
-            client, model, "script", Script, INSTRUCTIONS +
+            client, model, "script", Script, script_instructions(profile) +
             f" The last draft had only {word_count} validated words. Write at least "
             f"{minimum} and at most {maximum} words after validation. Explicitly cover "
             f"these previously missing items: {', '.join(missing) or 'none'}. Use more "
@@ -378,6 +458,7 @@ def validate_script(profile, chosen, source_windows, client, model, day, facts, 
         )
     result = {
         "date": day.isoformat(), "listener": profile["id"], "word_count": word_count,
+        "conflicts_checked": True,
         "selected_stories": [
             {"story_id": story["story_id"], "title": story["title"], "score": score}
             for story, score, _ in chosen
@@ -431,6 +512,7 @@ def main():
         raise SystemExit("The story file and article window differ. Use the same --overnight setting as src.cluster.")
     coverage = {i: {k: v for k, v in a.items() if k != "date"} for i, a in articles.items()}
     fits = score_stories(stories, profiles, coverage, client, small)
+    conflicts = detect_conflicts(stories, client, small)
     for listener in LISTENERS if args.listener == "all" else (args.listener,):
         profile = profiles[listener]
         chosen = select_stories(stories, fits, profile, articles)
@@ -444,7 +526,8 @@ def main():
             claims = dict(zip(ids, pool.map(
                 lambda i: verified_claims(source_rows[i], client, small), ids
             ), strict=True))
-        write_script(profile, chosen, claims, articles, source_windows, client, large, args.date)
+        write_script(profile, chosen, claims, articles, source_windows, client, large, args.date, conflicts)
+    write_conflicts(args.date, conflicts, ROOT / "out", spoken_figures)
 
 
 if __name__ == "__main__":
