@@ -11,6 +11,18 @@
       "text": "Good morning!",
       "start": 0.0,
       "end": 0.511,
+      "words": [
+        {
+          "w": "Good",
+          "start": 0.0,
+          "end": 0.209
+        },
+        {
+          "w": "morning!",
+          "start": 0.244,
+          "end": 0.511
+        }
+      ],
       "story": "Kevin O'Leary Warns Anthropic Investors It May Not Turn a Profit Until 2030 Despite IPO Backing",
       "sources": []
     },
@@ -18,6 +30,103 @@
       "text": "Anthropic’s reported IPO price is $83 a share, clearing the $78 ceiling in its latest filing, according to Invezz.",
       "start": 0.534,
       "end": 8.487,
+      "words": [
+        {
+          "w": "Anthropic’s",
+          "start": 0.534,
+          "end": 1.033
+        },
+        {
+          "w": "reported",
+          "start": 1.08,
+          "end": 1.474
+        },
+        {
+          "w": "IPO",
+          "start": 1.521,
+          "end": 1.858
+        },
+        {
+          "w": "price",
+          "start": 1.927,
+          "end": 2.206
+        },
+        {
+          "w": "is",
+          "start": 2.229,
+          "end": 2.299
+        },
+        {
+          "w": "$83",
+          "start": 2.38,
+          "end": 3.274
+        },
+        {
+          "w": "a",
+          "start": 3.332,
+          "end": 3.355
+        },
+        {
+          "w": "share,",
+          "start": 3.425,
+          "end": 3.878
+        },
+        {
+          "w": "clearing",
+          "start": 4.261,
+          "end": 4.551
+        },
+        {
+          "w": "the",
+          "start": 4.598,
+          "end": 4.667
+        },
+        {
+          "w": "$78",
+          "start": 4.714,
+          "end": 5.573
+        },
+        {
+          "w": "ceiling",
+          "start": 5.631,
+          "end": 5.991
+        },
+        {
+          "w": "in",
+          "start": 6.037,
+          "end": 6.095
+        },
+        {
+          "w": "its",
+          "start": 6.153,
+          "end": 6.281
+        },
+        {
+          "w": "latest",
+          "start": 6.351,
+          "end": 6.641
+        },
+        {
+          "w": "filing,",
+          "start": 6.687,
+          "end": 7.21
+        },
+        {
+          "w": "according",
+          "start": 7.384,
+          "end": 7.732
+        },
+        {
+          "w": "to",
+          "start": 7.767,
+          "end": 7.814
+        },
+        {
+          "w": "Invezz.",
+          "start": 7.86,
+          "end": 8.487
+        }
+      ],
       "story": "Kevin O'Leary Warns Anthropic Investors It May Not Turn a Profit Until 2030 Despite IPO Backing",
       "sources": [
         {
@@ -32,6 +141,113 @@
       "text": "Anthropic’s IPO pricing implies a valuation of about $1.5 trillion once you include shares the company could issue down the road.",
       "start": 9.091,
       "end": 16.754,
+      "words": [
+        {
+          "w": "Anthropic’s",
+          "start": 9.091,
+          "end": 9.636
+        },
+        {
+          "w": "IPO",
+          "start": 9.683,
+          "end": 10.054
+        },
+        {
+          "w": "pricing",
+          "start": 10.112,
+          "end": 10.461
+        },
+        {
+          "w": "implies",
+          "start": 10.507,
+          "end": 10.844
+        },
+        {
+          "w": "a",
+          "start": 10.879,
+          "end": 10.913
+        },
+        {
+          "w": "valuation",
+          "start": 10.96,
+          "end": 11.471
+        },
+        {
+          "w": "of",
+          "start": 11.505,
+          "end": 11.552
+        },
+        {
+          "w": "about",
+          "start": 11.598,
+          "end": 11.854
+        },
+        {
+          "w": "$1.5",
+          "start": 12.098,
+          "end": 12.945
+        },
+        {
+          "w": "trillion",
+          "start": 13.026,
+          "end": 13.491
+        },
+        {
+          "w": "once",
+          "start": 13.572,
+          "end": 14.396
+        },
+        {
+          "w": "you",
+          "start": 14.42,
+          "end": 14.501
+        },
+        {
+          "w": "include",
+          "start": 14.547,
+          "end": 14.861
+        },
+        {
+          "w": "shares",
+          "start": 14.896,
+          "end": 15.232
+        },
+        {
+          "w": "the",
+          "start": 15.314,
+          "end": 15.395
+        },
+        {
+          "w": "company",
+          "start": 15.442,
+          "end": 15.709
+        },
+        {
+          "w": "could",
+          "start": 15.744,
+          "end": 15.86
+        },
+        {
+          "w": "issue",
+          "start": 15.883,
+          "end": 16.115
+        },
+        {
+          "w": "down",
+          "start": 16.138,
+          "end": 16.266
+        },
+        {
+          "w": "the",
+          "start": 16.301,
+          "end": 16.37
+        },
+        {
+          "w": "road.",
+          "start": 16.417,
+          "end": 16.754
+        }
+      ],
       "story": "Kevin O'Leary Warns Anthropic Investors It May Not Turn a Profit Until 2030 Despite IPO Backing",
       "sources": [
         {
@@ -46,6 +262,123 @@
       "text": "Anthropic has disclosed $900.9 billion in computing and infrastructure commitments, and its prospectus flags those commitments and a history of losses as risks.",
       "start": 17.357,
       "end": 27.075,
+      "words": [
+        {
+          "w": "Anthropic",
+          "start": 17.357,
+          "end": 17.88
+        },
+        {
+          "w": "has",
+          "start": 17.926,
+          "end": 18.031
+        },
+        {
+          "w": "disclosed",
+          "start": 18.1,
+          "end": 18.588
+        },
+        {
+          "w": "$900.9",
+          "start": 18.634,
+          "end": 19.772
+        },
+        {
+          "w": "billion",
+          "start": 19.923,
+          "end": 20.713
+        },
+        {
+          "w": "in",
+          "start": 20.759,
+          "end": 20.805
+        },
+        {
+          "w": "computing",
+          "start": 20.864,
+          "end": 21.223
+        },
+        {
+          "w": "and",
+          "start": 21.247,
+          "end": 21.316
+        },
+        {
+          "w": "infrastructure",
+          "start": 21.386,
+          "end": 21.966
+        },
+        {
+          "w": "commitments,",
+          "start": 22.001,
+          "end": 22.582
+        },
+        {
+          "w": "and",
+          "start": 23.023,
+          "end": 23.151
+        },
+        {
+          "w": "its",
+          "start": 23.197,
+          "end": 23.267
+        },
+        {
+          "w": "prospectus",
+          "start": 23.325,
+          "end": 23.847
+        },
+        {
+          "w": "flags",
+          "start": 23.929,
+          "end": 24.288
+        },
+        {
+          "w": "those",
+          "start": 24.312,
+          "end": 24.474
+        },
+        {
+          "w": "commitments",
+          "start": 24.509,
+          "end": 24.927
+        },
+        {
+          "w": "and",
+          "start": 25.008,
+          "end": 25.159
+        },
+        {
+          "w": "a",
+          "start": 25.217,
+          "end": 25.24
+        },
+        {
+          "w": "history",
+          "start": 25.31,
+          "end": 25.67
+        },
+        {
+          "w": "of",
+          "start": 25.716,
+          "end": 25.763
+        },
+        {
+          "w": "losses",
+          "start": 25.844,
+          "end": 26.227
+        },
+        {
+          "w": "as",
+          "start": 26.285,
+          "end": 26.39
+        },
+        {
+          "w": "risks.",
+          "start": 26.506,
+          "end": 27.075
+        }
+      ],
       "story": "Kevin O'Leary Warns Anthropic Investors It May Not Turn a Profit Until 2030 Despite IPO Backing",
       "sources": [
         {
@@ -66,6 +399,133 @@
       "text": "Investor Kevin O’Leary sees AI already helping businesses improve productivity and margins, but he warned that Anthropic itself might not turn a profit until 2030.",
       "start": 27.771,
       "end": 37.791,
+      "words": [
+        {
+          "w": "Investor",
+          "start": 27.771,
+          "end": 28.329
+        },
+        {
+          "w": "Kevin",
+          "start": 28.398,
+          "end": 28.631
+        },
+        {
+          "w": "O’Leary",
+          "start": 28.665,
+          "end": 29.06
+        },
+        {
+          "w": "sees",
+          "start": 29.385,
+          "end": 29.629
+        },
+        {
+          "w": "AI",
+          "start": 29.675,
+          "end": 29.954
+        },
+        {
+          "w": "already",
+          "start": 30.012,
+          "end": 30.418
+        },
+        {
+          "w": "helping",
+          "start": 30.476,
+          "end": 30.732
+        },
+        {
+          "w": "businesses",
+          "start": 30.778,
+          "end": 31.219
+        },
+        {
+          "w": "improve",
+          "start": 31.266,
+          "end": 31.579
+        },
+        {
+          "w": "productivity",
+          "start": 31.614,
+          "end": 32.195
+        },
+        {
+          "w": "and",
+          "start": 32.23,
+          "end": 32.299
+        },
+        {
+          "w": "margins,",
+          "start": 32.346,
+          "end": 32.996
+        },
+        {
+          "w": "but",
+          "start": 33.379,
+          "end": 33.518
+        },
+        {
+          "w": "he",
+          "start": 33.541,
+          "end": 33.588
+        },
+        {
+          "w": "warned",
+          "start": 33.646,
+          "end": 33.925
+        },
+        {
+          "w": "that",
+          "start": 33.948,
+          "end": 34.076
+        },
+        {
+          "w": "Anthropic",
+          "start": 34.134,
+          "end": 34.621
+        },
+        {
+          "w": "itself",
+          "start": 34.668,
+          "end": 35.028
+        },
+        {
+          "w": "might",
+          "start": 35.411,
+          "end": 35.596
+        },
+        {
+          "w": "not",
+          "start": 35.631,
+          "end": 35.747
+        },
+        {
+          "w": "turn",
+          "start": 35.794,
+          "end": 35.991
+        },
+        {
+          "w": "a",
+          "start": 36.026,
+          "end": 36.049
+        },
+        {
+          "w": "profit",
+          "start": 36.119,
+          "end": 36.56
+        },
+        {
+          "w": "until",
+          "start": 36.63,
+          "end": 36.885
+        },
+        {
+          "w": "2030.",
+          "start": 36.966,
+          "end": 37.791
+        }
+      ],
       "story": "Kevin O'Leary Warns Anthropic Investors It May Not Turn a Profit Until 2030 Despite IPO Backing",
       "sources": [
         {
@@ -80,6 +540,158 @@
       "text": "Here’s the link to your Nvidia shares: before the offering was priced, the market’s reaction to Nvidia’s results was flagged as a factor in where Anthropic would price the deal.",
       "start": 38.394,
       "end": 48.913,
+      "words": [
+        {
+          "w": "Here’s",
+          "start": 38.394,
+          "end": 38.638
+        },
+        {
+          "w": "the",
+          "start": 38.673,
+          "end": 38.743
+        },
+        {
+          "w": "link",
+          "start": 38.789,
+          "end": 38.963
+        },
+        {
+          "w": "to",
+          "start": 39.021,
+          "end": 39.079
+        },
+        {
+          "w": "your",
+          "start": 39.149,
+          "end": 39.288
+        },
+        {
+          "w": "Nvidia",
+          "start": 39.37,
+          "end": 39.764
+        },
+        {
+          "w": "shares:",
+          "start": 39.799,
+          "end": 40.345
+        },
+        {
+          "w": "before",
+          "start": 40.949,
+          "end": 41.285
+        },
+        {
+          "w": "the",
+          "start": 41.32,
+          "end": 41.39
+        },
+        {
+          "w": "offering",
+          "start": 41.459,
+          "end": 41.75
+        },
+        {
+          "w": "was",
+          "start": 41.785,
+          "end": 41.866
+        },
+        {
+          "w": "priced,",
+          "start": 41.935,
+          "end": 42.481
+        },
+        {
+          "w": "the",
+          "start": 42.922,
+          "end": 43.015
+        },
+        {
+          "w": "market’s",
+          "start": 43.073,
+          "end": 43.387
+        },
+        {
+          "w": "reaction",
+          "start": 43.422,
+          "end": 43.828
+        },
+        {
+          "w": "to",
+          "start": 43.874,
+          "end": 43.932
+        },
+        {
+          "w": "Nvidia’s",
+          "start": 43.99,
+          "end": 44.396
+        },
+        {
+          "w": "results",
+          "start": 44.443,
+          "end": 44.872
+        },
+        {
+          "w": "was",
+          "start": 45.314,
+          "end": 45.488
+        },
+        {
+          "w": "flagged",
+          "start": 45.569,
+          "end": 45.917
+        },
+        {
+          "w": "as",
+          "start": 45.952,
+          "end": 46.022
+        },
+        {
+          "w": "a",
+          "start": 46.068,
+          "end": 46.103
+        },
+        {
+          "w": "factor",
+          "start": 46.173,
+          "end": 46.533
+        },
+        {
+          "w": "in",
+          "start": 46.567,
+          "end": 46.626
+        },
+        {
+          "w": "where",
+          "start": 46.695,
+          "end": 46.951
+        },
+        {
+          "w": "Anthropic",
+          "start": 47.194,
+          "end": 47.833
+        },
+        {
+          "w": "would",
+          "start": 47.879,
+          "end": 48.019
+        },
+        {
+          "w": "price",
+          "start": 48.054,
+          "end": 48.321
+        },
+        {
+          "w": "the",
+          "start": 48.355,
+          "end": 48.425
+        },
+        {
+          "w": "deal.",
+          "start": 48.483,
+          "end": 48.913
+        }
+      ],
       "story": "Kevin O'Leary Warns Anthropic Investors It May Not Turn a Profit Until 2030 Despite IPO Backing",
       "sources": [
         {
@@ -94,6 +706,113 @@
       "text": "Nvidia shares fell 2.2% on Wednesday, Invezz reports, even though the chipmaker beat Wall Street’s expectations on both revenue and earnings.",
       "start": 49.609,
       "end": 58.41,
+      "words": [
+        {
+          "w": "Nvidia",
+          "start": 49.609,
+          "end": 50.016
+        },
+        {
+          "w": "shares",
+          "start": 50.062,
+          "end": 50.341
+        },
+        {
+          "w": "fell",
+          "start": 50.41,
+          "end": 50.608
+        },
+        {
+          "w": "2.2%",
+          "start": 50.724,
+          "end": 51.676
+        },
+        {
+          "w": "on",
+          "start": 51.734,
+          "end": 51.838
+        },
+        {
+          "w": "Wednesday,",
+          "start": 51.896,
+          "end": 52.465
+        },
+        {
+          "w": "Invezz",
+          "start": 52.535,
+          "end": 52.941
+        },
+        {
+          "w": "reports,",
+          "start": 53.011,
+          "end": 53.603
+        },
+        {
+          "w": "even",
+          "start": 53.986,
+          "end": 54.184
+        },
+        {
+          "w": "though",
+          "start": 54.207,
+          "end": 54.369
+        },
+        {
+          "w": "the",
+          "start": 54.393,
+          "end": 54.462
+        },
+        {
+          "w": "chipmaker",
+          "start": 54.52,
+          "end": 55.008
+        },
+        {
+          "w": "beat",
+          "start": 55.089,
+          "end": 55.263
+        },
+        {
+          "w": "Wall",
+          "start": 55.333,
+          "end": 55.554
+        },
+        {
+          "w": "Street’s",
+          "start": 55.612,
+          "end": 55.89
+        },
+        {
+          "w": "expectations",
+          "start": 55.937,
+          "end": 56.691
+        },
+        {
+          "w": "on",
+          "start": 56.749,
+          "end": 56.831
+        },
+        {
+          "w": "both",
+          "start": 56.9,
+          "end": 57.086
+        },
+        {
+          "w": "revenue",
+          "start": 57.167,
+          "end": 57.527
+        },
+        {
+          "w": "and",
+          "start": 57.562,
+          "end": 57.701
+        },
+        {
+          "w": "earnings.",
+          "start": 57.783,
+          "end": 58.41
+        }
+      ],
       "story": "Nvidia results and impact on CoreWeave / Nebius / Micron",
       "sources": [
         {
@@ -114,6 +833,123 @@
       "text": "Nvidia’s revenue forecast of $130 billion for the coming quarter also topped estimates, a sign that demand for its AI products remains strong.",
       "start": 59.106,
       "end": 68.696,
+      "words": [
+        {
+          "w": "Nvidia’s",
+          "start": 59.106,
+          "end": 59.594
+        },
+        {
+          "w": "revenue",
+          "start": 59.64,
+          "end": 59.965
+        },
+        {
+          "w": "forecast",
+          "start": 60.0,
+          "end": 60.499
+        },
+        {
+          "w": "of",
+          "start": 60.546,
+          "end": 60.616
+        },
+        {
+          "w": "$130",
+          "start": 60.674,
+          "end": 61.324
+        },
+        {
+          "w": "billion",
+          "start": 61.393,
+          "end": 62.206
+        },
+        {
+          "w": "for",
+          "start": 62.276,
+          "end": 62.38
+        },
+        {
+          "w": "the",
+          "start": 62.415,
+          "end": 62.485
+        },
+        {
+          "w": "coming",
+          "start": 62.52,
+          "end": 62.752
+        },
+        {
+          "w": "quarter",
+          "start": 62.787,
+          "end": 63.1
+        },
+        {
+          "w": "also",
+          "start": 63.425,
+          "end": 63.82
+        },
+        {
+          "w": "topped",
+          "start": 63.89,
+          "end": 64.168
+        },
+        {
+          "w": "estimates,",
+          "start": 64.226,
+          "end": 64.853
+        },
+        {
+          "w": "a",
+          "start": 65.236,
+          "end": 65.294
+        },
+        {
+          "w": "sign",
+          "start": 65.41,
+          "end": 65.689
+        },
+        {
+          "w": "that",
+          "start": 65.724,
+          "end": 65.84
+        },
+        {
+          "w": "demand",
+          "start": 65.898,
+          "end": 66.351
+        },
+        {
+          "w": "for",
+          "start": 66.421,
+          "end": 66.513
+        },
+        {
+          "w": "its",
+          "start": 66.548,
+          "end": 66.653
+        },
+        {
+          "w": "AI",
+          "start": 66.722,
+          "end": 67.001
+        },
+        {
+          "w": "products",
+          "start": 67.071,
+          "end": 67.523
+        },
+        {
+          "w": "remains",
+          "start": 67.605,
+          "end": 67.999
+        },
+        {
+          "w": "strong.",
+          "start": 68.058,
+          "end": 68.696
+        }
+      ],
       "story": "Nvidia results and impact on CoreWeave / Nebius / Micron",
       "sources": [
         {
@@ -134,6 +970,138 @@
       "text": "Leadership uncertainty weighed on Nvidia shares, and a House committee requested a briefing on alleged export-control violations that have not been established as wrongdoing by Nvidia.",
       "start": 69.3,
       "end": 80.329,
+      "words": [
+        {
+          "w": "Leadership",
+          "start": 69.3,
+          "end": 69.764
+        },
+        {
+          "w": "uncertainty",
+          "start": 69.822,
+          "end": 70.287
+        },
+        {
+          "w": "weighed",
+          "start": 70.368,
+          "end": 70.623
+        },
+        {
+          "w": "on",
+          "start": 70.658,
+          "end": 70.728
+        },
+        {
+          "w": "Nvidia",
+          "start": 70.786,
+          "end": 71.215
+        },
+        {
+          "w": "shares,",
+          "start": 71.273,
+          "end": 71.854
+        },
+        {
+          "w": "and",
+          "start": 72.179,
+          "end": 72.318
+        },
+        {
+          "w": "a",
+          "start": 72.353,
+          "end": 72.376
+        },
+        {
+          "w": "House",
+          "start": 72.434,
+          "end": 72.643
+        },
+        {
+          "w": "committee",
+          "start": 72.667,
+          "end": 72.957
+        },
+        {
+          "w": "requested",
+          "start": 73.003,
+          "end": 73.41
+        },
+        {
+          "w": "a",
+          "start": 73.445,
+          "end": 73.468
+        },
+        {
+          "w": "briefing",
+          "start": 73.526,
+          "end": 73.921
+        },
+        {
+          "w": "on",
+          "start": 74.304,
+          "end": 74.466
+        },
+        {
+          "w": "alleged",
+          "start": 74.513,
+          "end": 74.919
+        },
+        {
+          "w": "export-control",
+          "start": 74.989,
+          "end": 75.964
+        },
+        {
+          "w": "violations",
+          "start": 76.022,
+          "end": 76.719
+        },
+        {
+          "w": "that",
+          "start": 77.322,
+          "end": 77.473
+        },
+        {
+          "w": "have",
+          "start": 77.497,
+          "end": 77.601
+        },
+        {
+          "w": "not",
+          "start": 77.659,
+          "end": 77.856
+        },
+        {
+          "w": "been",
+          "start": 77.891,
+          "end": 78.031
+        },
+        {
+          "w": "established",
+          "start": 78.065,
+          "end": 78.553
+        },
+        {
+          "w": "as",
+          "start": 78.599,
+          "end": 78.681
+        },
+        {
+          "w": "wrongdoing",
+          "start": 78.797,
+          "end": 79.459
+        },
+        {
+          "w": "by",
+          "start": 79.517,
+          "end": 79.621
+        },
+        {
+          "w": "Nvidia.",
+          "start": 79.679,
+          "end": 80.329
+        }
+      ],
       "story": "Nvidia results and impact on CoreWeave / Nebius / Micron",
       "sources": [
         {
@@ -148,6 +1116,148 @@
       "text": "The reaction across AI stocks was mixed: cloud computing providers CoreWeave and Nebius jumped more than 4% and 6%, respectively, before the opening bell after Nvidia’s earnings beat.",
       "start": 80.933,
       "end": 94.389,
+      "words": [
+        {
+          "w": "The",
+          "start": 80.933,
+          "end": 81.049
+        },
+        {
+          "w": "reaction",
+          "start": 81.107,
+          "end": 81.467
+        },
+        {
+          "w": "across",
+          "start": 81.514,
+          "end": 81.85
+        },
+        {
+          "w": "AI",
+          "start": 81.908,
+          "end": 82.106
+        },
+        {
+          "w": "stocks",
+          "start": 82.175,
+          "end": 82.5
+        },
+        {
+          "w": "was",
+          "start": 82.535,
+          "end": 82.651
+        },
+        {
+          "w": "mixed:",
+          "start": 82.744,
+          "end": 83.313
+        },
+        {
+          "w": "cloud",
+          "start": 83.824,
+          "end": 84.079
+        },
+        {
+          "w": "computing",
+          "start": 84.126,
+          "end": 84.509
+        },
+        {
+          "w": "providers",
+          "start": 84.544,
+          "end": 85.043
+        },
+        {
+          "w": "CoreWeave",
+          "start": 85.74,
+          "end": 86.436
+        },
+        {
+          "w": "and",
+          "start": 86.459,
+          "end": 86.529
+        },
+        {
+          "w": "Nebius",
+          "start": 86.622,
+          "end": 87.11
+        },
+        {
+          "w": "jumped",
+          "start": 87.551,
+          "end": 87.818
+        },
+        {
+          "w": "more",
+          "start": 87.876,
+          "end": 88.015
+        },
+        {
+          "w": "than",
+          "start": 88.038,
+          "end": 88.166
+        },
+        {
+          "w": "4%",
+          "start": 88.259,
+          "end": 88.979
+        },
+        {
+          "w": "and",
+          "start": 89.362,
+          "end": 89.676
+        },
+        {
+          "w": "6%,",
+          "start": 89.803,
+          "end": 90.419
+        },
+        {
+          "w": "respectively,",
+          "start": 90.453,
+          "end": 91.231
+        },
+        {
+          "w": "before",
+          "start": 91.673,
+          "end": 91.998
+        },
+        {
+          "w": "the",
+          "start": 92.032,
+          "end": 92.102
+        },
+        {
+          "w": "opening",
+          "start": 92.16,
+          "end": 92.439
+        },
+        {
+          "w": "bell",
+          "start": 92.497,
+          "end": 92.752
+        },
+        {
+          "w": "after",
+          "start": 92.926,
+          "end": 93.228
+        },
+        {
+          "w": "Nvidia’s",
+          "start": 93.298,
+          "end": 93.693
+        },
+        {
+          "w": "earnings",
+          "start": 93.739,
+          "end": 94.029
+        },
+        {
+          "w": "beat.",
+          "start": 94.064,
+          "end": 94.389
+        }
+      ],
       "story": "Nvidia results and impact on CoreWeave / Nebius / Micron",
       "sources": [
         {
@@ -162,6 +1272,133 @@
       "text": "Micron slipped in early trading as investors stayed cautious about Nvidia’s leadership turmoil, even though Nvidia’s commitments to purchase memory could benefit suppliers like Micron.",
       "start": 95.086,
       "end": 106.371,
+      "words": [
+        {
+          "w": "Micron",
+          "start": 95.086,
+          "end": 95.55
+        },
+        {
+          "w": "slipped",
+          "start": 95.62,
+          "end": 95.922
+        },
+        {
+          "w": "in",
+          "start": 95.957,
+          "end": 96.026
+        },
+        {
+          "w": "early",
+          "start": 96.108,
+          "end": 96.363
+        },
+        {
+          "w": "trading",
+          "start": 96.409,
+          "end": 96.746
+        },
+        {
+          "w": "as",
+          "start": 96.816,
+          "end": 96.92
+        },
+        {
+          "w": "investors",
+          "start": 96.99,
+          "end": 97.466
+        },
+        {
+          "w": "stayed",
+          "start": 97.489,
+          "end": 97.745
+        },
+        {
+          "w": "cautious",
+          "start": 97.803,
+          "end": 98.383
+        },
+        {
+          "w": "about",
+          "start": 98.894,
+          "end": 99.196
+        },
+        {
+          "w": "Nvidia’s",
+          "start": 99.254,
+          "end": 99.73
+        },
+        {
+          "w": "leadership",
+          "start": 99.799,
+          "end": 100.252
+        },
+        {
+          "w": "turmoil,",
+          "start": 100.322,
+          "end": 101.019
+        },
+        {
+          "w": "even",
+          "start": 101.622,
+          "end": 101.808
+        },
+        {
+          "w": "though",
+          "start": 101.831,
+          "end": 101.982
+        },
+        {
+          "w": "Nvidia’s",
+          "start": 102.029,
+          "end": 102.412
+        },
+        {
+          "w": "commitments",
+          "start": 102.47,
+          "end": 102.888
+        },
+        {
+          "w": "to",
+          "start": 102.923,
+          "end": 102.981
+        },
+        {
+          "w": "purchase",
+          "start": 103.05,
+          "end": 103.387
+        },
+        {
+          "w": "memory",
+          "start": 103.433,
+          "end": 103.758
+        },
+        {
+          "w": "could",
+          "start": 104.2,
+          "end": 104.397
+        },
+        {
+          "w": "benefit",
+          "start": 104.455,
+          "end": 104.861
+        },
+        {
+          "w": "suppliers",
+          "start": 104.919,
+          "end": 105.453
+        },
+        {
+          "w": "like",
+          "start": 105.5,
+          "end": 105.651
+        },
+        {
+          "w": "Micron.",
+          "start": 105.732,
+          "end": 106.371
+        }
+      ],
       "story": "Nvidia results and impact on CoreWeave / Nebius / Micron",
       "sources": [
         {
@@ -176,6 +1413,173 @@
       "text": "Target’s comparable sales rose 5.6% on more transactions and slightly larger purchases, and it raised its full-year outlook for sales and earnings, though tariff refunds helped pad the quarterly earnings beat, Invezz reports.",
       "start": 107.067,
       "end": 123.38,
+      "words": [
+        {
+          "w": "Target’s",
+          "start": 107.067,
+          "end": 107.474
+        },
+        {
+          "w": "comparable",
+          "start": 107.52,
+          "end": 108.031
+        },
+        {
+          "w": "sales",
+          "start": 108.066,
+          "end": 108.391
+        },
+        {
+          "w": "rose",
+          "start": 108.46,
+          "end": 108.693
+        },
+        {
+          "w": "5.6%",
+          "start": 108.809,
+          "end": 110.318
+        },
+        {
+          "w": "on",
+          "start": 110.364,
+          "end": 110.411
+        },
+        {
+          "w": "more",
+          "start": 110.469,
+          "end": 110.655
+        },
+        {
+          "w": "transactions",
+          "start": 110.69,
+          "end": 111.514
+        },
+        {
+          "w": "and",
+          "start": 111.839,
+          "end": 112.094
+        },
+        {
+          "w": "slightly",
+          "start": 112.152,
+          "end": 112.512
+        },
+        {
+          "w": "larger",
+          "start": 112.605,
+          "end": 112.965
+        },
+        {
+          "w": "purchases,",
+          "start": 113.023,
+          "end": 113.708
+        },
+        {
+          "w": "and",
+          "start": 114.219,
+          "end": 114.347
+        },
+        {
+          "w": "it",
+          "start": 114.393,
+          "end": 114.463
+        },
+        {
+          "w": "raised",
+          "start": 114.532,
+          "end": 114.869
+        },
+        {
+          "w": "its",
+          "start": 114.916,
+          "end": 115.055
+        },
+        {
+          "w": "full-year",
+          "start": 115.136,
+          "end": 115.601
+        },
+        {
+          "w": "outlook",
+          "start": 115.67,
+          "end": 116.018
+        },
+        {
+          "w": "for",
+          "start": 116.077,
+          "end": 116.193
+        },
+        {
+          "w": "sales",
+          "start": 116.274,
+          "end": 116.645
+        },
+        {
+          "w": "and",
+          "start": 116.692,
+          "end": 116.773
+        },
+        {
+          "w": "earnings,",
+          "start": 116.831,
+          "end": 117.447
+        },
+        {
+          "w": "though",
+          "start": 117.772,
+          "end": 117.969
+        },
+        {
+          "w": "tariff",
+          "start": 118.004,
+          "end": 118.329
+        },
+        {
+          "w": "refunds",
+          "start": 118.41,
+          "end": 118.933
+        },
+        {
+          "w": "helped",
+          "start": 119.258,
+          "end": 119.56
+        },
+        {
+          "w": "pad",
+          "start": 119.618,
+          "end": 120.013
+        },
+        {
+          "w": "the",
+          "start": 120.291,
+          "end": 120.419
+        },
+        {
+          "w": "quarterly",
+          "start": 120.5,
+          "end": 120.941
+        },
+        {
+          "w": "earnings",
+          "start": 120.999,
+          "end": 121.359
+        },
+        {
+          "w": "beat,",
+          "start": 121.441,
+          "end": 121.917
+        },
+        {
+          "w": "Invezz",
+          "start": 122.16,
+          "end": 122.59
+        },
+        {
+          "w": "reports.",
+          "start": 122.671,
+          "end": 123.38
+        }
+      ],
       "story": "Target and Lowe's earnings",
       "sources": [
         {
@@ -190,6 +1594,128 @@
       "text": "Lowe’s shares fell before the bell despite an earnings beat helped by tariff refunds, and its unchanged full-year earnings forecast may have disappointed investors.",
       "start": 123.983,
       "end": 134.142,
+      "words": [
+        {
+          "w": "Lowe’s",
+          "start": 123.983,
+          "end": 124.297
+        },
+        {
+          "w": "shares",
+          "start": 124.32,
+          "end": 124.68
+        },
+        {
+          "w": "fell",
+          "start": 124.749,
+          "end": 124.924
+        },
+        {
+          "w": "before",
+          "start": 124.982,
+          "end": 125.225
+        },
+        {
+          "w": "the",
+          "start": 125.26,
+          "end": 125.33
+        },
+        {
+          "w": "bell",
+          "start": 125.376,
+          "end": 125.643
+        },
+        {
+          "w": "despite",
+          "start": 125.76,
+          "end": 126.236
+        },
+        {
+          "w": "an",
+          "start": 126.27,
+          "end": 126.34
+        },
+        {
+          "w": "earnings",
+          "start": 126.421,
+          "end": 126.77
+        },
+        {
+          "w": "beat",
+          "start": 126.816,
+          "end": 127.071
+        },
+        {
+          "w": "helped",
+          "start": 127.397,
+          "end": 127.675
+        },
+        {
+          "w": "by",
+          "start": 127.733,
+          "end": 127.849
+        },
+        {
+          "w": "tariff",
+          "start": 127.931,
+          "end": 128.267
+        },
+        {
+          "w": "refunds,",
+          "start": 128.325,
+          "end": 129.034
+        },
+        {
+          "w": "and",
+          "start": 129.359,
+          "end": 129.498
+        },
+        {
+          "w": "its",
+          "start": 129.544,
+          "end": 129.672
+        },
+        {
+          "w": "unchanged",
+          "start": 129.765,
+          "end": 130.38
+        },
+        {
+          "w": "full-year",
+          "start": 130.438,
+          "end": 130.833
+        },
+        {
+          "w": "earnings",
+          "start": 130.903,
+          "end": 131.251
+        },
+        {
+          "w": "forecast",
+          "start": 131.309,
+          "end": 131.924
+        },
+        {
+          "w": "may",
+          "start": 132.366,
+          "end": 132.517
+        },
+        {
+          "w": "have",
+          "start": 132.551,
+          "end": 132.667
+        },
+        {
+          "w": "disappointed",
+          "start": 132.702,
+          "end": 133.306
+        },
+        {
+          "w": "investors.",
+          "start": 133.352,
+          "end": 134.142
+        }
+      ],
       "story": "Target and Lowe's earnings",
       "sources": [
         {
@@ -204,6 +1730,143 @@
       "text": "Take-Two shares rose 5% before the bell ahead of its upcoming Grand Theft Auto launch, and its CEO said preorders were well above initial expectations, Invezz reports.",
       "start": 135.257,
       "end": 146.089,
+      "words": [
+        {
+          "w": "Take-Two",
+          "start": 135.257,
+          "end": 135.791
+        },
+        {
+          "w": "shares",
+          "start": 135.872,
+          "end": 136.244
+        },
+        {
+          "w": "rose",
+          "start": 136.337,
+          "end": 136.592
+        },
+        {
+          "w": "5%",
+          "start": 136.673,
+          "end": 137.474
+        },
+        {
+          "w": "before",
+          "start": 137.567,
+          "end": 137.846
+        },
+        {
+          "w": "the",
+          "start": 137.869,
+          "end": 137.939
+        },
+        {
+          "w": "bell",
+          "start": 138.02,
+          "end": 138.287
+        },
+        {
+          "w": "ahead",
+          "start": 138.368,
+          "end": 138.566
+        },
+        {
+          "w": "of",
+          "start": 138.601,
+          "end": 138.647
+        },
+        {
+          "w": "its",
+          "start": 138.682,
+          "end": 138.798
+        },
+        {
+          "w": "upcoming",
+          "start": 138.856,
+          "end": 139.239
+        },
+        {
+          "w": "Grand",
+          "start": 139.286,
+          "end": 139.483
+        },
+        {
+          "w": "Theft",
+          "start": 139.518,
+          "end": 139.727
+        },
+        {
+          "w": "Auto",
+          "start": 139.785,
+          "end": 139.947
+        },
+        {
+          "w": "launch,",
+          "start": 140.017,
+          "end": 140.505
+        },
+        {
+          "w": "and",
+          "start": 141.015,
+          "end": 141.143
+        },
+        {
+          "w": "its",
+          "start": 141.201,
+          "end": 141.329
+        },
+        {
+          "w": "CEO",
+          "start": 141.352,
+          "end": 141.933
+        },
+        {
+          "w": "said",
+          "start": 142.049,
+          "end": 142.223
+        },
+        {
+          "w": "preorders",
+          "start": 142.281,
+          "end": 142.792
+        },
+        {
+          "w": "were",
+          "start": 142.827,
+          "end": 142.966
+        },
+        {
+          "w": "well",
+          "start": 143.012,
+          "end": 143.233
+        },
+        {
+          "w": "above",
+          "start": 143.291,
+          "end": 143.57
+        },
+        {
+          "w": "initial",
+          "start": 143.605,
+          "end": 143.941
+        },
+        {
+          "w": "expectations,",
+          "start": 143.999,
+          "end": 144.94
+        },
+        {
+          "w": "Invezz",
+          "start": 144.986,
+          "end": 145.392
+        },
+        {
+          "w": "reports.",
+          "start": 145.45,
+          "end": 146.089
+        }
+      ],
       "story": "Take Two stock jumps ahead of GTA VI launch: why this analyst sees a 63% upside",
       "sources": [
         {
@@ -218,6 +1881,128 @@
       "text": "Bank of America sees the launch driving growth for Take-Two, and its price target implies 63% upside, a forecast rather than a promised return.",
       "start": 146.786,
       "end": 156.05,
+      "words": [
+        {
+          "w": "Bank",
+          "start": 146.786,
+          "end": 147.029
+        },
+        {
+          "w": "of",
+          "start": 147.088,
+          "end": 147.134
+        },
+        {
+          "w": "America",
+          "start": 147.192,
+          "end": 147.587
+        },
+        {
+          "w": "sees",
+          "start": 147.645,
+          "end": 147.865
+        },
+        {
+          "w": "the",
+          "start": 147.935,
+          "end": 148.005
+        },
+        {
+          "w": "launch",
+          "start": 148.074,
+          "end": 148.411
+        },
+        {
+          "w": "driving",
+          "start": 148.469,
+          "end": 148.864
+        },
+        {
+          "w": "growth",
+          "start": 148.899,
+          "end": 149.131
+        },
+        {
+          "w": "for",
+          "start": 149.166,
+          "end": 149.27
+        },
+        {
+          "w": "Take-Two,",
+          "start": 149.328,
+          "end": 150.036
+        },
+        {
+          "w": "and",
+          "start": 150.361,
+          "end": 150.477
+        },
+        {
+          "w": "its",
+          "start": 150.535,
+          "end": 150.628
+        },
+        {
+          "w": "price",
+          "start": 150.686,
+          "end": 150.953
+        },
+        {
+          "w": "target",
+          "start": 150.988,
+          "end": 151.29
+        },
+        {
+          "w": "implies",
+          "start": 151.325,
+          "end": 151.661
+        },
+        {
+          "w": "63%",
+          "start": 151.743,
+          "end": 152.683
+        },
+        {
+          "w": "upside,",
+          "start": 152.729,
+          "end": 153.24
+        },
+        {
+          "w": "a",
+          "start": 153.449,
+          "end": 153.507
+        },
+        {
+          "w": "forecast",
+          "start": 153.623,
+          "end": 154.227
+        },
+        {
+          "w": "rather",
+          "start": 154.506,
+          "end": 154.761
+        },
+        {
+          "w": "than",
+          "start": 154.808,
+          "end": 154.924
+        },
+        {
+          "w": "a",
+          "start": 154.97,
+          "end": 154.993
+        },
+        {
+          "w": "promised",
+          "start": 155.063,
+          "end": 155.446
+        },
+        {
+          "w": "return.",
+          "start": 155.493,
+          "end": 156.05
+        }
+      ],
       "story": "Take Two stock jumps ahead of GTA VI launch: why this analyst sees a 63% upside",
       "sources": [
         {
@@ -232,6 +2017,138 @@
       "text": "For Take-Two shareholders, the launch is only part of the story: Bank of America sees spending in GTA Online as the franchise’s main long-term profit driver.",
       "start": 157.002,
       "end": 166.743,
+      "words": [
+        {
+          "w": "For",
+          "start": 157.002,
+          "end": 157.153
+        },
+        {
+          "w": "Take-Two",
+          "start": 157.223,
+          "end": 157.571
+        },
+        {
+          "w": "shareholders,",
+          "start": 157.629,
+          "end": 158.418
+        },
+        {
+          "w": "the",
+          "start": 158.802,
+          "end": 158.906
+        },
+        {
+          "w": "launch",
+          "start": 158.976,
+          "end": 159.243
+        },
+        {
+          "w": "is",
+          "start": 159.289,
+          "end": 159.37
+        },
+        {
+          "w": "only",
+          "start": 159.428,
+          "end": 159.591
+        },
+        {
+          "w": "part",
+          "start": 159.649,
+          "end": 159.823
+        },
+        {
+          "w": "of",
+          "start": 159.846,
+          "end": 159.893
+        },
+        {
+          "w": "the",
+          "start": 159.928,
+          "end": 159.997
+        },
+        {
+          "w": "story:",
+          "start": 160.032,
+          "end": 160.578
+        },
+        {
+          "w": "Bank",
+          "start": 161.089,
+          "end": 161.356
+        },
+        {
+          "w": "of",
+          "start": 161.402,
+          "end": 161.46
+        },
+        {
+          "w": "America",
+          "start": 161.518,
+          "end": 161.878
+        },
+        {
+          "w": "sees",
+          "start": 161.936,
+          "end": 162.122
+        },
+        {
+          "w": "spending",
+          "start": 162.145,
+          "end": 162.552
+        },
+        {
+          "w": "in",
+          "start": 162.598,
+          "end": 162.644
+        },
+        {
+          "w": "GTA",
+          "start": 162.726,
+          "end": 163.167
+        },
+        {
+          "w": "Online",
+          "start": 163.248,
+          "end": 163.759
+        },
+        {
+          "w": "as",
+          "start": 164.038,
+          "end": 164.235
+        },
+        {
+          "w": "the",
+          "start": 164.305,
+          "end": 164.374
+        },
+        {
+          "w": "franchise’s",
+          "start": 164.432,
+          "end": 165.036
+        },
+        {
+          "w": "main",
+          "start": 165.117,
+          "end": 165.338
+        },
+        {
+          "w": "long-term",
+          "start": 165.419,
+          "end": 165.837
+        },
+        {
+          "w": "profit",
+          "start": 165.883,
+          "end": 166.209
+        },
+        {
+          "w": "driver.",
+          "start": 166.232,
+          "end": 166.743
+        }
+      ],
       "story": "Take Two stock jumps ahead of GTA VI launch: why this analyst sees a 63% upside",
       "sources": [
         {
@@ -246,6 +2163,118 @@
       "text": "Bitcoin traded at $63,465 on Coinbase, Invezz reports, as more money flowed out of US funds that hold Bitcoin than flowed in.",
       "start": 167.346,
       "end": 176.692,
+      "words": [
+        {
+          "w": "Bitcoin",
+          "start": 167.346,
+          "end": 167.729
+        },
+        {
+          "w": "traded",
+          "start": 167.776,
+          "end": 168.055
+        },
+        {
+          "w": "at",
+          "start": 168.089,
+          "end": 168.159
+        },
+        {
+          "w": "$63,465",
+          "start": 168.205,
+          "end": 170.469
+        },
+        {
+          "w": "on",
+          "start": 170.539,
+          "end": 170.62
+        },
+        {
+          "w": "Coinbase,",
+          "start": 170.69,
+          "end": 171.34
+        },
+        {
+          "w": "Invezz",
+          "start": 171.514,
+          "end": 171.897
+        },
+        {
+          "w": "reports,",
+          "start": 171.956,
+          "end": 172.594
+        },
+        {
+          "w": "as",
+          "start": 173.035,
+          "end": 173.198
+        },
+        {
+          "w": "more",
+          "start": 173.267,
+          "end": 173.418
+        },
+        {
+          "w": "money",
+          "start": 173.453,
+          "end": 173.604
+        },
+        {
+          "w": "flowed",
+          "start": 173.674,
+          "end": 173.952
+        },
+        {
+          "w": "out",
+          "start": 173.976,
+          "end": 174.045
+        },
+        {
+          "w": "of",
+          "start": 174.08,
+          "end": 174.127
+        },
+        {
+          "w": "US",
+          "start": 174.185,
+          "end": 174.417
+        },
+        {
+          "w": "funds",
+          "start": 174.498,
+          "end": 174.788
+        },
+        {
+          "w": "that",
+          "start": 174.835,
+          "end": 174.962
+        },
+        {
+          "w": "hold",
+          "start": 175.009,
+          "end": 175.206
+        },
+        {
+          "w": "Bitcoin",
+          "start": 175.253,
+          "end": 175.671
+        },
+        {
+          "w": "than",
+          "start": 175.787,
+          "end": 175.973
+        },
+        {
+          "w": "flowed",
+          "start": 176.042,
+          "end": 176.332
+        },
+        {
+          "w": "in.",
+          "start": 176.379,
+          "end": 176.692
+        }
+      ],
       "story": "Bitcoin below $64k and XRP back above $1",
       "sources": [
         {
@@ -260,6 +2289,123 @@
       "text": "Citi lowered its Bitcoin target to $99,532, and its analyst now expects less new money to come into Bitcoin in the near term.",
       "start": 177.296,
       "end": 185.841,
+      "words": [
+        {
+          "w": "Citi",
+          "start": 177.296,
+          "end": 177.621
+        },
+        {
+          "w": "lowered",
+          "start": 177.691,
+          "end": 177.946
+        },
+        {
+          "w": "its",
+          "start": 177.969,
+          "end": 178.074
+        },
+        {
+          "w": "Bitcoin",
+          "start": 178.12,
+          "end": 178.445
+        },
+        {
+          "w": "target",
+          "start": 178.492,
+          "end": 178.817
+        },
+        {
+          "w": "to",
+          "start": 178.852,
+          "end": 178.933
+        },
+        {
+          "w": "$99,532,",
+          "start": 179.014,
+          "end": 181.336
+        },
+        {
+          "w": "and",
+          "start": 181.661,
+          "end": 181.801
+        },
+        {
+          "w": "its",
+          "start": 181.847,
+          "end": 181.975
+        },
+        {
+          "w": "analyst",
+          "start": 182.021,
+          "end": 182.404
+        },
+        {
+          "w": "now",
+          "start": 182.451,
+          "end": 182.555
+        },
+        {
+          "w": "expects",
+          "start": 182.613,
+          "end": 182.962
+        },
+        {
+          "w": "less",
+          "start": 183.055,
+          "end": 183.275
+        },
+        {
+          "w": "new",
+          "start": 183.345,
+          "end": 183.461
+        },
+        {
+          "w": "money",
+          "start": 183.519,
+          "end": 183.705
+        },
+        {
+          "w": "to",
+          "start": 183.751,
+          "end": 183.798
+        },
+        {
+          "w": "come",
+          "start": 183.856,
+          "end": 183.995
+        },
+        {
+          "w": "into",
+          "start": 184.03,
+          "end": 184.193
+        },
+        {
+          "w": "Bitcoin",
+          "start": 184.251,
+          "end": 184.669
+        },
+        {
+          "w": "in",
+          "start": 184.947,
+          "end": 185.087
+        },
+        {
+          "w": "the",
+          "start": 185.133,
+          "end": 185.203
+        },
+        {
+          "w": "near",
+          "start": 185.238,
+          "end": 185.4
+        },
+        {
+          "w": "term.",
+          "start": 185.458,
+          "end": 185.841
+        }
+      ],
       "story": "Bitcoin below $64k and XRP back above $1",
       "sources": [
         {
@@ -274,6 +2420,143 @@
       "text": "One thing to watch today: whether XRP can stay above $1 after climbing 4.5% on Wednesday to reclaim that level, with large holders moving tokens off Binance.",
       "start": 187.142,
       "end": 198.415,
+      "words": [
+        {
+          "w": "One",
+          "start": 187.142,
+          "end": 187.316
+        },
+        {
+          "w": "thing",
+          "start": 187.339,
+          "end": 187.467
+        },
+        {
+          "w": "to",
+          "start": 187.501,
+          "end": 187.548
+        },
+        {
+          "w": "watch",
+          "start": 187.583,
+          "end": 187.757
+        },
+        {
+          "w": "today:",
+          "start": 187.803,
+          "end": 188.233
+        },
+        {
+          "w": "whether",
+          "start": 188.558,
+          "end": 188.848
+        },
+        {
+          "w": "XRP",
+          "start": 188.918,
+          "end": 189.313
+        },
+        {
+          "w": "can",
+          "start": 189.429,
+          "end": 189.533
+        },
+        {
+          "w": "stay",
+          "start": 189.58,
+          "end": 189.742
+        },
+        {
+          "w": "above",
+          "start": 189.789,
+          "end": 190.032
+        },
+        {
+          "w": "$1",
+          "start": 190.079,
+          "end": 190.555
+        },
+        {
+          "w": "after",
+          "start": 190.996,
+          "end": 191.275
+        },
+        {
+          "w": "climbing",
+          "start": 191.31,
+          "end": 191.646
+        },
+        {
+          "w": "4.5%",
+          "start": 191.762,
+          "end": 192.888
+        },
+        {
+          "w": "on",
+          "start": 192.935,
+          "end": 192.993
+        },
+        {
+          "w": "Wednesday",
+          "start": 193.051,
+          "end": 193.515
+        },
+        {
+          "w": "to",
+          "start": 193.841,
+          "end": 193.968
+        },
+        {
+          "w": "reclaim",
+          "start": 194.084,
+          "end": 194.514
+        },
+        {
+          "w": "that",
+          "start": 194.572,
+          "end": 194.723
+        },
+        {
+          "w": "level,",
+          "start": 194.781,
+          "end": 195.245
+        },
+        {
+          "w": "with",
+          "start": 195.57,
+          "end": 195.745
+        },
+        {
+          "w": "large",
+          "start": 195.837,
+          "end": 196.104
+        },
+        {
+          "w": "holders",
+          "start": 196.139,
+          "end": 196.453
+        },
+        {
+          "w": "moving",
+          "start": 196.511,
+          "end": 196.743
+        },
+        {
+          "w": "tokens",
+          "start": 196.801,
+          "end": 197.242
+        },
+        {
+          "w": "off",
+          "start": 197.451,
+          "end": 197.672
+        },
+        {
+          "w": "Binance.",
+          "start": 197.741,
+          "end": 198.415
+        }
+      ],
       "story": "Bitcoin below $64k and XRP back above $1",
       "sources": [
         {
@@ -288,6 +2571,113 @@
       "text": "Every figure in this briefing, all 15 of them, was checked against 14 source articles. Your receipts are in the app.",
       "start": 198.926,
       "end": 206.333,
+      "words": [
+        {
+          "w": "Every",
+          "start": 198.926,
+          "end": 199.228
+        },
+        {
+          "w": "figure",
+          "start": 199.297,
+          "end": 199.576
+        },
+        {
+          "w": "in",
+          "start": 199.611,
+          "end": 199.669
+        },
+        {
+          "w": "this",
+          "start": 199.704,
+          "end": 199.82
+        },
+        {
+          "w": "briefing,",
+          "start": 199.878,
+          "end": 200.354
+        },
+        {
+          "w": "all",
+          "start": 200.598,
+          "end": 200.818
+        },
+        {
+          "w": "15",
+          "start": 200.888,
+          "end": 201.283
+        },
+        {
+          "w": "of",
+          "start": 201.353,
+          "end": 201.411
+        },
+        {
+          "w": "them,",
+          "start": 201.469,
+          "end": 201.817
+        },
+        {
+          "w": "was",
+          "start": 202.258,
+          "end": 202.409
+        },
+        {
+          "w": "checked",
+          "start": 202.467,
+          "end": 202.699
+        },
+        {
+          "w": "against",
+          "start": 202.723,
+          "end": 202.955
+        },
+        {
+          "w": "14",
+          "start": 202.99,
+          "end": 203.419
+        },
+        {
+          "w": "source",
+          "start": 203.477,
+          "end": 203.767
+        },
+        {
+          "w": "articles.",
+          "start": 203.791,
+          "end": 204.441
+        },
+        {
+          "w": "Your",
+          "start": 204.766,
+          "end": 204.94
+        },
+        {
+          "w": "receipts",
+          "start": 204.986,
+          "end": 205.346
+        },
+        {
+          "w": "are",
+          "start": 205.381,
+          "end": 205.474
+        },
+        {
+          "w": "in",
+          "start": 205.497,
+          "end": 205.555
+        },
+        {
+          "w": "the",
+          "start": 205.59,
+          "end": 205.66
+        },
+        {
+          "w": "app.",
+          "start": 205.706,
+          "end": 206.333
+        }
+      ],
       "story": "Your receipt",
       "sources": []
     }

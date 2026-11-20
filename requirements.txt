@@ -8,3 +8,4 @@ pydantic
 pyyaml
 python-dotenv
 qrcode[pil]
+imageio-ffmpeg

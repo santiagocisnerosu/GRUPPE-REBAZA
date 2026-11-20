@@ -54,6 +54,9 @@ def build():
         data = json.loads((folder / "transcript.json").read_text(encoding="utf-8"))
         if data["audio"] != "briefing.mp3":
             raise SystemExit(f"Unexpected audio path for {listener}")
+        for line in data["sentences"]:
+            if "words" in line and [word["w"] for word in line["words"]] != line["text"].split():
+                raise SystemExit(f"Karaoke text differs from audited narration for {listener}")
         transcripts[listener] = data
         candidates.update(word_windows(" ".join(line["text"] for line in data["sentences"])))
         for item in data["caught"]:

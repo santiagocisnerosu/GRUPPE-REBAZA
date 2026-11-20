@@ -11,6 +11,13 @@
       "text": "Morning.",
       "start": 0.0,
       "end": 0.534,
+      "words": [
+        {
+          "w": "Morning.",
+          "start": 0.0,
+          "end": 0.534
+        }
+      ],
       "story": "US Dollar ETF (UUP) Hits New 52-Week High",
       "sources": []
     },
@@ -18,6 +25,133 @@
       "text": "Yesterday, the dollar firmed as Fed speakers reinforced expectations of further US rate hikes, with Zacks Investment Research putting the dollar index’s gain at 0.54%.",
       "start": 0.998,
       "end": 12.179,
+      "words": [
+        {
+          "w": "Yesterday,",
+          "start": 0.998,
+          "end": 1.614
+        },
+        {
+          "w": "the",
+          "start": 1.649,
+          "end": 1.741
+        },
+        {
+          "w": "dollar",
+          "start": 1.788,
+          "end": 2.043
+        },
+        {
+          "w": "firmed",
+          "start": 2.113,
+          "end": 2.473
+        },
+        {
+          "w": "as",
+          "start": 2.519,
+          "end": 2.624
+        },
+        {
+          "w": "Fed",
+          "start": 2.705,
+          "end": 2.914
+        },
+        {
+          "w": "speakers",
+          "start": 2.972,
+          "end": 3.39
+        },
+        {
+          "w": "reinforced",
+          "start": 3.495,
+          "end": 4.133
+        },
+        {
+          "w": "expectations",
+          "start": 4.191,
+          "end": 4.946
+        },
+        {
+          "w": "of",
+          "start": 5.027,
+          "end": 5.155
+        },
+        {
+          "w": "further",
+          "start": 5.236,
+          "end": 5.561
+        },
+        {
+          "w": "US",
+          "start": 5.631,
+          "end": 5.956
+        },
+        {
+          "w": "rate",
+          "start": 6.06,
+          "end": 6.293
+        },
+        {
+          "w": "hikes,",
+          "start": 6.339,
+          "end": 6.792
+        },
+        {
+          "w": "with",
+          "start": 7.047,
+          "end": 7.221
+        },
+        {
+          "w": "Zacks",
+          "start": 7.256,
+          "end": 7.558
+        },
+        {
+          "w": "Investment",
+          "start": 7.605,
+          "end": 8.104
+        },
+        {
+          "w": "Research",
+          "start": 8.15,
+          "end": 8.568
+        },
+        {
+          "w": "putting",
+          "start": 8.626,
+          "end": 8.916
+        },
+        {
+          "w": "the",
+          "start": 8.963,
+          "end": 9.033
+        },
+        {
+          "w": "dollar",
+          "start": 9.091,
+          "end": 9.369
+        },
+        {
+          "w": "index’s",
+          "start": 9.427,
+          "end": 9.903
+        },
+        {
+          "w": "gain",
+          "start": 9.985,
+          "end": 10.31
+        },
+        {
+          "w": "at",
+          "start": 10.53,
+          "end": 10.716
+        },
+        {
+          "w": "0.54%.",
+          "start": 10.751,
+          "end": 12.179
+        }
+      ],
       "story": "US Dollar ETF (UUP) Hits New 52-Week High",
       "sources": [
         {
@@ -32,6 +166,123 @@
       "text": "The US Dollar Index is up 5.66% year to date, and expectations of a tighter Fed stance could give the dollar further support.",
       "start": 12.585,
       "end": 21.281,
+      "words": [
+        {
+          "w": "The",
+          "start": 12.585,
+          "end": 12.701
+        },
+        {
+          "w": "US",
+          "start": 12.771,
+          "end": 13.05
+        },
+        {
+          "w": "Dollar",
+          "start": 13.119,
+          "end": 13.398
+        },
+        {
+          "w": "Index",
+          "start": 13.456,
+          "end": 13.839
+        },
+        {
+          "w": "is",
+          "start": 13.909,
+          "end": 14.025
+        },
+        {
+          "w": "up",
+          "start": 14.083,
+          "end": 14.187
+        },
+        {
+          "w": "5.66%",
+          "start": 14.269,
+          "end": 15.697
+        },
+        {
+          "w": "year",
+          "start": 15.766,
+          "end": 15.998
+        },
+        {
+          "w": "to",
+          "start": 16.056,
+          "end": 16.138
+        },
+        {
+          "w": "date,",
+          "start": 16.207,
+          "end": 16.66
+        },
+        {
+          "w": "and",
+          "start": 17.009,
+          "end": 17.171
+        },
+        {
+          "w": "expectations",
+          "start": 17.229,
+          "end": 17.949
+        },
+        {
+          "w": "of",
+          "start": 18.019,
+          "end": 18.111
+        },
+        {
+          "w": "a",
+          "start": 18.17,
+          "end": 18.193
+        },
+        {
+          "w": "tighter",
+          "start": 18.262,
+          "end": 18.646
+        },
+        {
+          "w": "Fed",
+          "start": 18.704,
+          "end": 18.901
+        },
+        {
+          "w": "stance",
+          "start": 18.959,
+          "end": 19.331
+        },
+        {
+          "w": "could",
+          "start": 19.377,
+          "end": 19.551
+        },
+        {
+          "w": "give",
+          "start": 19.598,
+          "end": 19.795
+        },
+        {
+          "w": "the",
+          "start": 19.83,
+          "end": 19.899
+        },
+        {
+          "w": "dollar",
+          "start": 19.957,
+          "end": 20.224
+        },
+        {
+          "w": "further",
+          "start": 20.294,
+          "end": 20.631
+        },
+        {
+          "w": "support.",
+          "start": 20.689,
+          "end": 21.281
+        }
+      ],
       "story": "US Dollar ETF (UUP) Hits New 52-Week High",
       "sources": [
         {
@@ -46,6 +297,113 @@
       "text": "Fed Governor Waller favours a 50 basis point December hike unless the Fed signals another increase in January, according to ActionForex.",
       "start": 21.745,
       "end": 30.627,
+      "words": [
+        {
+          "w": "Fed",
+          "start": 21.745,
+          "end": 21.943
+        },
+        {
+          "w": "Governor",
+          "start": 22.001,
+          "end": 22.337
+        },
+        {
+          "w": "Waller",
+          "start": 22.396,
+          "end": 22.755
+        },
+        {
+          "w": "favours",
+          "start": 22.86,
+          "end": 23.255
+        },
+        {
+          "w": "a",
+          "start": 23.301,
+          "end": 23.336
+        },
+        {
+          "w": "50",
+          "start": 23.44,
+          "end": 23.742
+        },
+        {
+          "w": "basis",
+          "start": 23.824,
+          "end": 24.149
+        },
+        {
+          "w": "point",
+          "start": 24.207,
+          "end": 24.439
+        },
+        {
+          "w": "December",
+          "start": 24.497,
+          "end": 24.938
+        },
+        {
+          "w": "hike",
+          "start": 24.996,
+          "end": 25.414
+        },
+        {
+          "w": "unless",
+          "start": 25.635,
+          "end": 25.948
+        },
+        {
+          "w": "the",
+          "start": 25.983,
+          "end": 26.053
+        },
+        {
+          "w": "Fed",
+          "start": 26.099,
+          "end": 26.285
+        },
+        {
+          "w": "signals",
+          "start": 26.343,
+          "end": 26.738
+        },
+        {
+          "w": "another",
+          "start": 26.819,
+          "end": 27.202
+        },
+        {
+          "w": "increase",
+          "start": 27.272,
+          "end": 27.713
+        },
+        {
+          "w": "in",
+          "start": 27.771,
+          "end": 27.887
+        },
+        {
+          "w": "January,",
+          "start": 27.968,
+          "end": 28.63
+        },
+        {
+          "w": "according",
+          "start": 28.793,
+          "end": 29.269
+        },
+        {
+          "w": "to",
+          "start": 29.327,
+          "end": 29.431
+        },
+        {
+          "w": "ActionForex.",
+          "start": 29.536,
+          "end": 30.627
+        }
+      ],
       "story": "Fed’s Waller Calls for 50bps December Hike Unless January Increase Is Signaled",
       "sources": [
         {
@@ -60,6 +418,153 @@
       "text": "Waller says inflation is spreading and that reversing last year's cuts may not be enough to bring it down, while Warsh argues explicit guidance would limit the Fed's flexibility.",
       "start": 31.173,
       "end": 41.041,
+      "words": [
+        {
+          "w": "Waller",
+          "start": 31.173,
+          "end": 31.452
+        },
+        {
+          "w": "says",
+          "start": 31.498,
+          "end": 31.707
+        },
+        {
+          "w": "inflation",
+          "start": 31.788,
+          "end": 32.311
+        },
+        {
+          "w": "is",
+          "start": 32.369,
+          "end": 32.438
+        },
+        {
+          "w": "spreading",
+          "start": 32.485,
+          "end": 32.984
+        },
+        {
+          "w": "and",
+          "start": 33.24,
+          "end": 33.437
+        },
+        {
+          "w": "that",
+          "start": 33.483,
+          "end": 33.588
+        },
+        {
+          "w": "reversing",
+          "start": 33.634,
+          "end": 34.075
+        },
+        {
+          "w": "last",
+          "start": 34.134,
+          "end": 34.319
+        },
+        {
+          "w": "year's",
+          "start": 34.366,
+          "end": 34.575
+        },
+        {
+          "w": "cuts",
+          "start": 34.633,
+          "end": 34.946
+        },
+        {
+          "w": "may",
+          "start": 35.004,
+          "end": 35.144
+        },
+        {
+          "w": "not",
+          "start": 35.213,
+          "end": 35.364
+        },
+        {
+          "w": "be",
+          "start": 35.422,
+          "end": 35.515
+        },
+        {
+          "w": "enough",
+          "start": 35.562,
+          "end": 35.805
+        },
+        {
+          "w": "to",
+          "start": 35.84,
+          "end": 35.898
+        },
+        {
+          "w": "bring",
+          "start": 35.956,
+          "end": 36.119
+        },
+        {
+          "w": "it",
+          "start": 36.165,
+          "end": 36.235
+        },
+        {
+          "w": "down,",
+          "start": 36.293,
+          "end": 36.769
+        },
+        {
+          "w": "while",
+          "start": 36.99,
+          "end": 37.233
+        },
+        {
+          "w": "Warsh",
+          "start": 37.28,
+          "end": 37.535
+        },
+        {
+          "w": "argues",
+          "start": 37.582,
+          "end": 37.918
+        },
+        {
+          "w": "explicit",
+          "start": 37.988,
+          "end": 38.557
+        },
+        {
+          "w": "guidance",
+          "start": 38.615,
+          "end": 39.045
+        },
+        {
+          "w": "would",
+          "start": 39.079,
+          "end": 39.265
+        },
+        {
+          "w": "limit",
+          "start": 39.335,
+          "end": 39.602
+        },
+        {
+          "w": "the",
+          "start": 39.648,
+          "end": 39.718
+        },
+        {
+          "w": "Fed's",
+          "start": 39.776,
+          "end": 40.043
+        },
+        {
+          "w": "flexibility.",
+          "start": 40.089,
+          "end": 41.041
+        }
+      ],
       "story": "Fed’s Waller Calls for 50bps December Hike Unless January Increase Is Signaled",
       "sources": [
         {
@@ -74,6 +579,118 @@
       "text": "December pricing still centres on a 25 basis point hike, smaller than the move Waller wants if there's no signal for January.",
       "start": 41.506,
       "end": 48.67,
+      "words": [
+        {
+          "w": "December",
+          "start": 41.506,
+          "end": 41.912
+        },
+        {
+          "w": "pricing",
+          "start": 41.959,
+          "end": 42.353
+        },
+        {
+          "w": "still",
+          "start": 42.411,
+          "end": 42.667
+        },
+        {
+          "w": "centres",
+          "start": 42.725,
+          "end": 43.085
+        },
+        {
+          "w": "on",
+          "start": 43.143,
+          "end": 43.213
+        },
+        {
+          "w": "a",
+          "start": 43.259,
+          "end": 43.294
+        },
+        {
+          "w": "25",
+          "start": 43.398,
+          "end": 43.967
+        },
+        {
+          "w": "basis",
+          "start": 44.072,
+          "end": 44.409
+        },
+        {
+          "w": "point",
+          "start": 44.467,
+          "end": 44.711
+        },
+        {
+          "w": "hike,",
+          "start": 44.769,
+          "end": 45.222
+        },
+        {
+          "w": "smaller",
+          "start": 45.512,
+          "end": 45.872
+        },
+        {
+          "w": "than",
+          "start": 45.907,
+          "end": 46.023
+        },
+        {
+          "w": "the",
+          "start": 46.057,
+          "end": 46.127
+        },
+        {
+          "w": "move",
+          "start": 46.174,
+          "end": 46.383
+        },
+        {
+          "w": "Waller",
+          "start": 46.417,
+          "end": 46.65
+        },
+        {
+          "w": "wants",
+          "start": 46.708,
+          "end": 46.975
+        },
+        {
+          "w": "if",
+          "start": 47.021,
+          "end": 47.091
+        },
+        {
+          "w": "there's",
+          "start": 47.126,
+          "end": 47.311
+        },
+        {
+          "w": "no",
+          "start": 47.358,
+          "end": 47.451
+        },
+        {
+          "w": "signal",
+          "start": 47.52,
+          "end": 47.869
+        },
+        {
+          "w": "for",
+          "start": 47.927,
+          "end": 48.031
+        },
+        {
+          "w": "January.",
+          "start": 48.089,
+          "end": 48.67
+        }
+      ],
       "story": "Fed’s Waller Calls for 50bps December Hike Unless January Increase Is Signaled",
       "sources": [
         {
@@ -88,6 +705,118 @@
       "text": "The Bank of Japan held at 1.25%, but Governor Ueda says further hikes are warranted because financial conditions remain accommodative, ActionForex reports.",
       "start": 48.96,
       "end": 59.513,
+      "words": [
+        {
+          "w": "The",
+          "start": 48.96,
+          "end": 49.064
+        },
+        {
+          "w": "Bank",
+          "start": 49.111,
+          "end": 49.32
+        },
+        {
+          "w": "of",
+          "start": 49.378,
+          "end": 49.436
+        },
+        {
+          "w": "Japan",
+          "start": 49.494,
+          "end": 49.854
+        },
+        {
+          "w": "held",
+          "start": 49.924,
+          "end": 50.156
+        },
+        {
+          "w": "at",
+          "start": 50.225,
+          "end": 50.376
+        },
+        {
+          "w": "1.25%,",
+          "start": 50.446,
+          "end": 51.967
+        },
+        {
+          "w": "but",
+          "start": 52.222,
+          "end": 52.373
+        },
+        {
+          "w": "Governor",
+          "start": 52.431,
+          "end": 52.768
+        },
+        {
+          "w": "Ueda",
+          "start": 52.826,
+          "end": 53.105
+        },
+        {
+          "w": "says",
+          "start": 53.163,
+          "end": 53.383
+        },
+        {
+          "w": "further",
+          "start": 53.453,
+          "end": 53.743
+        },
+        {
+          "w": "hikes",
+          "start": 53.801,
+          "end": 54.092
+        },
+        {
+          "w": "are",
+          "start": 54.15,
+          "end": 54.347
+        },
+        {
+          "w": "warranted",
+          "start": 54.382,
+          "end": 54.904
+        },
+        {
+          "w": "because",
+          "start": 55.16,
+          "end": 55.45
+        },
+        {
+          "w": "financial",
+          "start": 55.485,
+          "end": 55.972
+        },
+        {
+          "w": "conditions",
+          "start": 56.019,
+          "end": 56.541
+        },
+        {
+          "w": "remain",
+          "start": 56.599,
+          "end": 56.89
+        },
+        {
+          "w": "accommodative,",
+          "start": 56.948,
+          "end": 57.818
+        },
+        {
+          "w": "ActionForex",
+          "start": 58.039,
+          "end": 58.851
+        },
+        {
+          "w": "reports.",
+          "start": 58.909,
+          "end": 59.513
+        }
+      ],
       "story": "BoJ’s Ueda Backs Further Rate Hikes, Warns Against Suppressing Bond Yields",
       "sources": [
         {
@@ -102,6 +831,138 @@
       "text": "The BoJ is focused on preventing an overshoot of its 2% inflation target and will assess the proposed food tax cut once the details are final.",
       "start": 60.059,
       "end": 68.778,
+      "words": [
+        {
+          "w": "The",
+          "start": 60.059,
+          "end": 60.163
+        },
+        {
+          "w": "BoJ",
+          "start": 60.21,
+          "end": 60.581
+        },
+        {
+          "w": "is",
+          "start": 60.662,
+          "end": 60.755
+        },
+        {
+          "w": "focused",
+          "start": 60.825,
+          "end": 61.208
+        },
+        {
+          "w": "on",
+          "start": 61.255,
+          "end": 61.336
+        },
+        {
+          "w": "preventing",
+          "start": 61.394,
+          "end": 61.835
+        },
+        {
+          "w": "an",
+          "start": 61.881,
+          "end": 61.951
+        },
+        {
+          "w": "overshoot",
+          "start": 62.032,
+          "end": 62.636
+        },
+        {
+          "w": "of",
+          "start": 62.694,
+          "end": 62.764
+        },
+        {
+          "w": "its",
+          "start": 62.822,
+          "end": 62.961
+        },
+        {
+          "w": "2%",
+          "start": 63.066,
+          "end": 63.6
+        },
+        {
+          "w": "inflation",
+          "start": 63.646,
+          "end": 64.122
+        },
+        {
+          "w": "target",
+          "start": 64.18,
+          "end": 64.598
+        },
+        {
+          "w": "and",
+          "start": 64.854,
+          "end": 65.086
+        },
+        {
+          "w": "will",
+          "start": 65.144,
+          "end": 65.283
+        },
+        {
+          "w": "assess",
+          "start": 65.318,
+          "end": 65.608
+        },
+        {
+          "w": "the",
+          "start": 65.655,
+          "end": 65.724
+        },
+        {
+          "w": "proposed",
+          "start": 65.771,
+          "end": 66.212
+        },
+        {
+          "w": "food",
+          "start": 66.27,
+          "end": 66.479
+        },
+        {
+          "w": "tax",
+          "start": 66.525,
+          "end": 66.793
+        },
+        {
+          "w": "cut",
+          "start": 66.851,
+          "end": 67.094
+        },
+        {
+          "w": "once",
+          "start": 67.234,
+          "end": 67.489
+        },
+        {
+          "w": "the",
+          "start": 67.536,
+          "end": 67.605
+        },
+        {
+          "w": "details",
+          "start": 67.663,
+          "end": 68.093
+        },
+        {
+          "w": "are",
+          "start": 68.139,
+          "end": 68.221
+        },
+        {
+          "w": "final.",
+          "start": 68.244,
+          "end": 68.778
+        }
+      ],
       "story": "BoJ’s Ueda Backs Further Rate Hikes, Warns Against Suppressing Bond Yields",
       "sources": [
         {
@@ -116,6 +977,103 @@
       "text": "For Japanese bonds, Ueda warned that volatility could rise if markets see the central bank as financing government spending.",
       "start": 69.242,
       "end": 76.475,
+      "words": [
+        {
+          "w": "For",
+          "start": 69.242,
+          "end": 69.382
+        },
+        {
+          "w": "Japanese",
+          "start": 69.44,
+          "end": 69.939
+        },
+        {
+          "w": "bonds,",
+          "start": 69.997,
+          "end": 70.461
+        },
+        {
+          "w": "Ueda",
+          "start": 70.624,
+          "end": 70.891
+        },
+        {
+          "w": "warned",
+          "start": 70.949,
+          "end": 71.193
+        },
+        {
+          "w": "that",
+          "start": 71.228,
+          "end": 71.355
+        },
+        {
+          "w": "volatility",
+          "start": 71.413,
+          "end": 72.052
+        },
+        {
+          "w": "could",
+          "start": 72.11,
+          "end": 72.307
+        },
+        {
+          "w": "rise",
+          "start": 72.377,
+          "end": 72.841
+        },
+        {
+          "w": "if",
+          "start": 72.887,
+          "end": 73.027
+        },
+        {
+          "w": "markets",
+          "start": 73.096,
+          "end": 73.456
+        },
+        {
+          "w": "see",
+          "start": 73.48,
+          "end": 73.631
+        },
+        {
+          "w": "the",
+          "start": 73.665,
+          "end": 73.735
+        },
+        {
+          "w": "central",
+          "start": 73.793,
+          "end": 74.141
+        },
+        {
+          "w": "bank",
+          "start": 74.199,
+          "end": 74.42
+        },
+        {
+          "w": "as",
+          "start": 74.478,
+          "end": 74.629
+        },
+        {
+          "w": "financing",
+          "start": 74.733,
+          "end": 75.326
+        },
+        {
+          "w": "government",
+          "start": 75.395,
+          "end": 75.825
+        },
+        {
+          "w": "spending.",
+          "start": 75.883,
+          "end": 76.475
+        }
+      ],
       "story": "BoJ’s Ueda Backs Further Rate Hikes, Warns Against Suppressing Bond Yields",
       "sources": [
         {
@@ -130,6 +1088,128 @@
       "text": "UK headline inflation rose to 3.6% in October, in line with expectations, as motor fuel prices climbed 33.2% from a year earlier, ActionForex reports.",
       "start": 76.939,
       "end": 88.584,
+      "words": [
+        {
+          "w": "UK",
+          "start": 76.939,
+          "end": 77.183
+        },
+        {
+          "w": "headline",
+          "start": 77.346,
+          "end": 77.729
+        },
+        {
+          "w": "inflation",
+          "start": 77.764,
+          "end": 78.228
+        },
+        {
+          "w": "rose",
+          "start": 78.286,
+          "end": 78.53
+        },
+        {
+          "w": "to",
+          "start": 78.565,
+          "end": 78.658
+        },
+        {
+          "w": "3.6%",
+          "start": 78.762,
+          "end": 79.981
+        },
+        {
+          "w": "in",
+          "start": 80.039,
+          "end": 80.097
+        },
+        {
+          "w": "October,",
+          "start": 80.144,
+          "end": 80.794
+        },
+        {
+          "w": "in",
+          "start": 81.084,
+          "end": 81.2
+        },
+        {
+          "w": "line",
+          "start": 81.258,
+          "end": 81.467
+        },
+        {
+          "w": "with",
+          "start": 81.502,
+          "end": 81.63
+        },
+        {
+          "w": "expectations,",
+          "start": 81.676,
+          "end": 82.628
+        },
+        {
+          "w": "as",
+          "start": 82.919,
+          "end": 83.081
+        },
+        {
+          "w": "motor",
+          "start": 83.151,
+          "end": 83.406
+        },
+        {
+          "w": "fuel",
+          "start": 83.441,
+          "end": 83.615
+        },
+        {
+          "w": "prices",
+          "start": 83.662,
+          "end": 84.01
+        },
+        {
+          "w": "climbed",
+          "start": 84.068,
+          "end": 84.381
+        },
+        {
+          "w": "33.2%",
+          "start": 84.439,
+          "end": 85.879
+        },
+        {
+          "w": "from",
+          "start": 85.925,
+          "end": 86.065
+        },
+        {
+          "w": "a",
+          "start": 86.111,
+          "end": 86.134
+        },
+        {
+          "w": "year",
+          "start": 86.204,
+          "end": 86.413
+        },
+        {
+          "w": "earlier,",
+          "start": 86.471,
+          "end": 86.959
+        },
+        {
+          "w": "ActionForex",
+          "start": 87.179,
+          "end": 87.957
+        },
+        {
+          "w": "reports.",
+          "start": 88.015,
+          "end": 88.584
+        }
+      ],
       "story": "UK Inflation Rises to 3.6% as Fuel Prices Surge, Core CPI Holds Steady",
       "sources": [
         {
@@ -144,6 +1224,138 @@
       "text": "UK core inflation stayed at 2.8% and services inflation at 3.7%, with easing price growth in restaurants and hotels doing most to pull headline inflation lower.",
       "start": 89.222,
       "end": 100.949,
+      "words": [
+        {
+          "w": "UK",
+          "start": 89.222,
+          "end": 89.466
+        },
+        {
+          "w": "core",
+          "start": 89.629,
+          "end": 89.861
+        },
+        {
+          "w": "inflation",
+          "start": 89.896,
+          "end": 90.372
+        },
+        {
+          "w": "stayed",
+          "start": 90.43,
+          "end": 90.709
+        },
+        {
+          "w": "at",
+          "start": 90.767,
+          "end": 90.871
+        },
+        {
+          "w": "2.8%",
+          "start": 90.929,
+          "end": 91.986
+        },
+        {
+          "w": "and",
+          "start": 92.276,
+          "end": 92.543
+        },
+        {
+          "w": "services",
+          "start": 92.601,
+          "end": 93.019
+        },
+        {
+          "w": "inflation",
+          "start": 93.077,
+          "end": 93.565
+        },
+        {
+          "w": "at",
+          "start": 93.634,
+          "end": 93.785
+        },
+        {
+          "w": "3.7%,",
+          "start": 93.866,
+          "end": 95.248
+        },
+        {
+          "w": "with",
+          "start": 95.503,
+          "end": 95.678
+        },
+        {
+          "w": "easing",
+          "start": 95.736,
+          "end": 96.049
+        },
+        {
+          "w": "price",
+          "start": 96.107,
+          "end": 96.351
+        },
+        {
+          "w": "growth",
+          "start": 96.386,
+          "end": 96.641
+        },
+        {
+          "w": "in",
+          "start": 96.699,
+          "end": 96.815
+        },
+        {
+          "w": "restaurants",
+          "start": 96.885,
+          "end": 97.361
+        },
+        {
+          "w": "and",
+          "start": 97.408,
+          "end": 97.535
+        },
+        {
+          "w": "hotels",
+          "start": 97.605,
+          "end": 98.151
+        },
+        {
+          "w": "doing",
+          "start": 98.441,
+          "end": 98.661
+        },
+        {
+          "w": "most",
+          "start": 98.719,
+          "end": 98.94
+        },
+        {
+          "w": "to",
+          "start": 98.986,
+          "end": 99.056
+        },
+        {
+          "w": "pull",
+          "start": 99.114,
+          "end": 99.3
+        },
+        {
+          "w": "headline",
+          "start": 99.37,
+          "end": 99.799
+        },
+        {
+          "w": "inflation",
+          "start": 99.857,
+          "end": 100.403
+        },
+        {
+          "w": "lower.",
+          "start": 100.473,
+          "end": 100.949
+        }
+      ],
       "story": "UK Inflation Rises to 3.6% as Fuel Prices Surge, Core CPI Holds Steady",
       "sources": [
         {
@@ -158,6 +1370,138 @@
       "text": "Eurozone headline inflation rose to 4.0% in October, matching the preliminary estimate, with energy accounting for 1.89 percentage points of the annual rate, according to ActionForex.",
       "start": 101.413,
       "end": 114.358,
+      "words": [
+        {
+          "w": "Eurozone",
+          "start": 101.413,
+          "end": 101.993
+        },
+        {
+          "w": "headline",
+          "start": 102.04,
+          "end": 102.446
+        },
+        {
+          "w": "inflation",
+          "start": 102.504,
+          "end": 103.004
+        },
+        {
+          "w": "rose",
+          "start": 103.062,
+          "end": 103.317
+        },
+        {
+          "w": "to",
+          "start": 103.363,
+          "end": 103.445
+        },
+        {
+          "w": "4.0%",
+          "start": 103.549,
+          "end": 104.71
+        },
+        {
+          "w": "in",
+          "start": 104.78,
+          "end": 104.884
+        },
+        {
+          "w": "October,",
+          "start": 104.942,
+          "end": 105.639
+        },
+        {
+          "w": "matching",
+          "start": 105.929,
+          "end": 106.324
+        },
+        {
+          "w": "the",
+          "start": 106.37,
+          "end": 106.44
+        },
+        {
+          "w": "preliminary",
+          "start": 106.475,
+          "end": 107.009
+        },
+        {
+          "w": "estimate,",
+          "start": 107.079,
+          "end": 107.648
+        },
+        {
+          "w": "with",
+          "start": 107.81,
+          "end": 107.984
+        },
+        {
+          "w": "energy",
+          "start": 108.042,
+          "end": 108.344
+        },
+        {
+          "w": "accounting",
+          "start": 108.379,
+          "end": 108.82
+        },
+        {
+          "w": "for",
+          "start": 108.878,
+          "end": 109.006
+        },
+        {
+          "w": "1.89",
+          "start": 109.064,
+          "end": 110.179
+        },
+        {
+          "w": "percentage",
+          "start": 110.248,
+          "end": 110.771
+        },
+        {
+          "w": "points",
+          "start": 110.817,
+          "end": 111.165
+        },
+        {
+          "w": "of",
+          "start": 111.386,
+          "end": 111.502
+        },
+        {
+          "w": "the",
+          "start": 111.549,
+          "end": 111.63
+        },
+        {
+          "w": "annual",
+          "start": 111.711,
+          "end": 112.036
+        },
+        {
+          "w": "rate,",
+          "start": 112.106,
+          "end": 112.466
+        },
+        {
+          "w": "according",
+          "start": 112.628,
+          "end": 113.046
+        },
+        {
+          "w": "to",
+          "start": 113.104,
+          "end": 113.255
+        },
+        {
+          "w": "ActionForex.",
+          "start": 113.36,
+          "end": 114.358
+        }
+      ],
       "story": "Eurozone Inflation Confirmed at 4.0% as Energy Surges, Core CPI Revised Higher",
       "sources": [
         {
@@ -172,6 +1516,133 @@
       "text": "Eurozone core inflation was revised up to 2.6% in October, pointing to firmer underlying price pressure as services and non-energy industrial goods inflation edged up.",
       "start": 114.823,
       "end": 125.759,
+      "words": [
+        {
+          "w": "Eurozone",
+          "start": 114.823,
+          "end": 115.403
+        },
+        {
+          "w": "core",
+          "start": 115.449,
+          "end": 115.67
+        },
+        {
+          "w": "inflation",
+          "start": 115.693,
+          "end": 116.169
+        },
+        {
+          "w": "was",
+          "start": 116.227,
+          "end": 116.343
+        },
+        {
+          "w": "revised",
+          "start": 116.401,
+          "end": 116.831
+        },
+        {
+          "w": "up",
+          "start": 116.877,
+          "end": 116.982
+        },
+        {
+          "w": "to",
+          "start": 117.028,
+          "end": 117.086
+        },
+        {
+          "w": "2.6%",
+          "start": 117.191,
+          "end": 118.41
+        },
+        {
+          "w": "in",
+          "start": 118.468,
+          "end": 118.538
+        },
+        {
+          "w": "October,",
+          "start": 118.596,
+          "end": 119.246
+        },
+        {
+          "w": "pointing",
+          "start": 119.536,
+          "end": 119.896
+        },
+        {
+          "w": "to",
+          "start": 119.954,
+          "end": 120.024
+        },
+        {
+          "w": "firmer",
+          "start": 120.128,
+          "end": 120.465
+        },
+        {
+          "w": "underlying",
+          "start": 120.569,
+          "end": 121.046
+        },
+        {
+          "w": "price",
+          "start": 121.115,
+          "end": 121.405
+        },
+        {
+          "w": "pressure",
+          "start": 121.452,
+          "end": 121.823
+        },
+        {
+          "w": "as",
+          "start": 121.881,
+          "end": 122.067
+        },
+        {
+          "w": "services",
+          "start": 122.137,
+          "end": 122.648
+        },
+        {
+          "w": "and",
+          "start": 122.706,
+          "end": 122.868
+        },
+        {
+          "w": "non-energy",
+          "start": 122.95,
+          "end": 123.484
+        },
+        {
+          "w": "industrial",
+          "start": 123.542,
+          "end": 124.076
+        },
+        {
+          "w": "goods",
+          "start": 124.134,
+          "end": 124.354
+        },
+        {
+          "w": "inflation",
+          "start": 124.401,
+          "end": 124.935
+        },
+        {
+          "w": "edged",
+          "start": 125.039,
+          "end": 125.33
+        },
+        {
+          "w": "up.",
+          "start": 125.388,
+          "end": 125.759
+        }
+      ],
       "story": "Eurozone Inflation Confirmed at 4.0% as Energy Surges, Core CPI Revised Higher",
       "sources": [
         {
@@ -186,6 +1657,113 @@
       "text": "US industry data showed crude inventories up 5.28 million barrels on the week and petrol stocks up 5.12 million, Invezz reports.",
       "start": 126.305,
       "end": 135.419,
+      "words": [
+        {
+          "w": "US",
+          "start": 126.305,
+          "end": 126.607
+        },
+        {
+          "w": "industry",
+          "start": 126.676,
+          "end": 127.048
+        },
+        {
+          "w": "data",
+          "start": 127.106,
+          "end": 127.396
+        },
+        {
+          "w": "showed",
+          "start": 127.454,
+          "end": 127.721
+        },
+        {
+          "w": "crude",
+          "start": 127.791,
+          "end": 128.058
+        },
+        {
+          "w": "inventories",
+          "start": 128.093,
+          "end": 128.662
+        },
+        {
+          "w": "up",
+          "start": 128.766,
+          "end": 128.894
+        },
+        {
+          "w": "5.28",
+          "start": 128.998,
+          "end": 130.02
+        },
+        {
+          "w": "million",
+          "start": 130.125,
+          "end": 130.496
+        },
+        {
+          "w": "barrels",
+          "start": 130.554,
+          "end": 130.902
+        },
+        {
+          "w": "on",
+          "start": 130.96,
+          "end": 131.03
+        },
+        {
+          "w": "the",
+          "start": 131.065,
+          "end": 131.135
+        },
+        {
+          "w": "week",
+          "start": 131.193,
+          "end": 131.46
+        },
+        {
+          "w": "and",
+          "start": 131.75,
+          "end": 131.959
+        },
+        {
+          "w": "petrol",
+          "start": 132.017,
+          "end": 132.33
+        },
+        {
+          "w": "stocks",
+          "start": 132.365,
+          "end": 132.679
+        },
+        {
+          "w": "up",
+          "start": 132.737,
+          "end": 132.864
+        },
+        {
+          "w": "5.12",
+          "start": 132.969,
+          "end": 133.828
+        },
+        {
+          "w": "million,",
+          "start": 133.886,
+          "end": 134.269
+        },
+        {
+          "w": "Invezz",
+          "start": 134.304,
+          "end": 134.722
+        },
+        {
+          "w": "reports.",
+          "start": 134.78,
+          "end": 135.419
+        }
+      ],
       "story": "Oil price today: Brent slips as fresh data shows rise in US crude inventory",
       "sources": [
         {
@@ -200,6 +1778,128 @@
       "text": "Brent fell to $92.21 a barrel after the inventory build, with WTI at $84.60 and disruption in the Strait of Hormuz limiting the decline.",
       "start": 135.883,
       "end": 145.926,
+      "words": [
+        {
+          "w": "Brent",
+          "start": 135.883,
+          "end": 136.162
+        },
+        {
+          "w": "fell",
+          "start": 136.22,
+          "end": 136.406
+        },
+        {
+          "w": "to",
+          "start": 136.464,
+          "end": 136.534
+        },
+        {
+          "w": "$92.21",
+          "start": 136.615,
+          "end": 137.985
+        },
+        {
+          "w": "a",
+          "start": 138.147,
+          "end": 138.217
+        },
+        {
+          "w": "barrel",
+          "start": 138.321,
+          "end": 138.681
+        },
+        {
+          "w": "after",
+          "start": 138.763,
+          "end": 139.053
+        },
+        {
+          "w": "the",
+          "start": 139.099,
+          "end": 139.169
+        },
+        {
+          "w": "inventory",
+          "start": 139.227,
+          "end": 139.657
+        },
+        {
+          "w": "build,",
+          "start": 139.715,
+          "end": 140.075
+        },
+        {
+          "w": "with",
+          "start": 140.26,
+          "end": 140.435
+        },
+        {
+          "w": "WTI",
+          "start": 140.493,
+          "end": 141.108
+        },
+        {
+          "w": "at",
+          "start": 141.27,
+          "end": 141.41
+        },
+        {
+          "w": "$84.60",
+          "start": 141.468,
+          "end": 142.478
+        },
+        {
+          "w": "and",
+          "start": 142.768,
+          "end": 142.942
+        },
+        {
+          "w": "disruption",
+          "start": 143.0,
+          "end": 143.523
+        },
+        {
+          "w": "in",
+          "start": 143.569,
+          "end": 143.627
+        },
+        {
+          "w": "the",
+          "start": 143.674,
+          "end": 143.743
+        },
+        {
+          "w": "Strait",
+          "start": 143.79,
+          "end": 144.115
+        },
+        {
+          "w": "of",
+          "start": 144.173,
+          "end": 144.231
+        },
+        {
+          "w": "Hormuz",
+          "start": 144.289,
+          "end": 144.684
+        },
+        {
+          "w": "limiting",
+          "start": 144.788,
+          "end": 145.195
+        },
+        {
+          "w": "the",
+          "start": 145.253,
+          "end": 145.322
+        },
+        {
+          "w": "decline.",
+          "start": 145.38,
+          "end": 145.926
+        }
+      ],
       "story": "Oil price today: Brent slips as fresh data shows rise in US crude inventory",
       "sources": [
         {
@@ -214,6 +1914,113 @@
       "text": "The US 10-year yield was 5.115%, Invezz reports, as expectations of further Fed hikes strengthened the dollar and weighed on bullion.",
       "start": 146.274,
       "end": 155.725,
+      "words": [
+        {
+          "w": "The",
+          "start": 146.274,
+          "end": 146.379
+        },
+        {
+          "w": "US",
+          "start": 146.448,
+          "end": 146.727
+        },
+        {
+          "w": "10-year",
+          "start": 146.832,
+          "end": 147.226
+        },
+        {
+          "w": "yield",
+          "start": 147.284,
+          "end": 147.563
+        },
+        {
+          "w": "was",
+          "start": 147.633,
+          "end": 147.772
+        },
+        {
+          "w": "5.115%,",
+          "start": 147.842,
+          "end": 149.722
+        },
+        {
+          "w": "Invezz",
+          "start": 149.781,
+          "end": 150.164
+        },
+        {
+          "w": "reports,",
+          "start": 150.222,
+          "end": 150.791
+        },
+        {
+          "w": "as",
+          "start": 150.976,
+          "end": 151.139
+        },
+        {
+          "w": "expectations",
+          "start": 151.197,
+          "end": 151.917
+        },
+        {
+          "w": "of",
+          "start": 151.975,
+          "end": 152.044
+        },
+        {
+          "w": "further",
+          "start": 152.103,
+          "end": 152.404
+        },
+        {
+          "w": "Fed",
+          "start": 152.462,
+          "end": 152.672
+        },
+        {
+          "w": "hikes",
+          "start": 152.73,
+          "end": 153.078
+        },
+        {
+          "w": "strengthened",
+          "start": 153.299,
+          "end": 153.833
+        },
+        {
+          "w": "the",
+          "start": 153.868,
+          "end": 153.937
+        },
+        {
+          "w": "dollar",
+          "start": 153.984,
+          "end": 154.274
+        },
+        {
+          "w": "and",
+          "start": 154.344,
+          "end": 154.495
+        },
+        {
+          "w": "weighed",
+          "start": 154.564,
+          "end": 154.831
+        },
+        {
+          "w": "on",
+          "start": 154.878,
+          "end": 154.982
+        },
+        {
+          "w": "bullion.",
+          "start": 155.087,
+          "end": 155.725
+        }
+      ],
       "story": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
       "sources": [
         {
@@ -234,6 +2041,103 @@
       "text": "Spot gold traded at $3,770 an ounce, its lowest in more than a year, after a 6.51% weekly drop.",
       "start": 156.074,
       "end": 164.978,
+      "words": [
+        {
+          "w": "Spot",
+          "start": 156.074,
+          "end": 156.375
+        },
+        {
+          "w": "gold",
+          "start": 156.433,
+          "end": 156.712
+        },
+        {
+          "w": "traded",
+          "start": 156.759,
+          "end": 157.107
+        },
+        {
+          "w": "at",
+          "start": 157.165,
+          "end": 157.316
+        },
+        {
+          "w": "$3,770",
+          "start": 157.374,
+          "end": 159.359
+        },
+        {
+          "w": "an",
+          "start": 159.429,
+          "end": 159.545
+        },
+        {
+          "w": "ounce,",
+          "start": 159.615,
+          "end": 160.114
+        },
+        {
+          "w": "its",
+          "start": 160.404,
+          "end": 160.567
+        },
+        {
+          "w": "lowest",
+          "start": 160.625,
+          "end": 160.938
+        },
+        {
+          "w": "in",
+          "start": 160.996,
+          "end": 161.054
+        },
+        {
+          "w": "more",
+          "start": 161.101,
+          "end": 161.24
+        },
+        {
+          "w": "than",
+          "start": 161.275,
+          "end": 161.403
+        },
+        {
+          "w": "a",
+          "start": 161.449,
+          "end": 161.484
+        },
+        {
+          "w": "year,",
+          "start": 161.588,
+          "end": 162.053
+        },
+        {
+          "w": "after",
+          "start": 162.238,
+          "end": 162.54
+        },
+        {
+          "w": "a",
+          "start": 162.598,
+          "end": 162.622
+        },
+        {
+          "w": "6.51%",
+          "start": 162.703,
+          "end": 164.015
+        },
+        {
+          "w": "weekly",
+          "start": 164.073,
+          "end": 164.421
+        },
+        {
+          "w": "drop.",
+          "start": 164.479,
+          "end": 164.978
+        }
+      ],
       "story": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
       "sources": [
         {
@@ -254,6 +2158,113 @@
       "text": "The Fed held rates in October, but markets now put a 72% probability on a further increase by the January meeting.",
       "start": 165.327,
       "end": 172.791,
+      "words": [
+        {
+          "w": "The",
+          "start": 165.327,
+          "end": 165.431
+        },
+        {
+          "w": "Fed",
+          "start": 165.489,
+          "end": 165.687
+        },
+        {
+          "w": "held",
+          "start": 165.745,
+          "end": 165.942
+        },
+        {
+          "w": "rates",
+          "start": 166.0,
+          "end": 166.244
+        },
+        {
+          "w": "in",
+          "start": 166.29,
+          "end": 166.36
+        },
+        {
+          "w": "October,",
+          "start": 166.406,
+          "end": 167.01
+        },
+        {
+          "w": "but",
+          "start": 167.173,
+          "end": 167.324
+        },
+        {
+          "w": "markets",
+          "start": 167.382,
+          "end": 167.776
+        },
+        {
+          "w": "now",
+          "start": 167.834,
+          "end": 167.974
+        },
+        {
+          "w": "put",
+          "start": 168.032,
+          "end": 168.171
+        },
+        {
+          "w": "a",
+          "start": 168.218,
+          "end": 168.241
+        },
+        {
+          "w": "72%",
+          "start": 168.322,
+          "end": 169.308
+        },
+        {
+          "w": "probability",
+          "start": 169.355,
+          "end": 170.04
+        },
+        {
+          "w": "on",
+          "start": 170.226,
+          "end": 170.377
+        },
+        {
+          "w": "a",
+          "start": 170.411,
+          "end": 170.435
+        },
+        {
+          "w": "further",
+          "start": 170.504,
+          "end": 170.841
+        },
+        {
+          "w": "increase",
+          "start": 170.899,
+          "end": 171.329
+        },
+        {
+          "w": "by",
+          "start": 171.375,
+          "end": 171.491
+        },
+        {
+          "w": "the",
+          "start": 171.549,
+          "end": 171.619
+        },
+        {
+          "w": "January",
+          "start": 171.688,
+          "end": 172.153
+        },
+        {
+          "w": "meeting.",
+          "start": 172.211,
+          "end": 172.791
+        }
+      ],
       "story": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
       "sources": [
         {
@@ -268,6 +2279,153 @@
       "text": "Watch today: the Fed minutes for signs that policymakers were already leaning towards further hikes at the October hold, a tone that could keep the dollar and yields elevated.",
       "start": 173.256,
       "end": 183.438,
+      "words": [
+        {
+          "w": "Watch",
+          "start": 173.256,
+          "end": 173.523
+        },
+        {
+          "w": "today:",
+          "start": 173.581,
+          "end": 174.127
+        },
+        {
+          "w": "the",
+          "start": 174.185,
+          "end": 174.301
+        },
+        {
+          "w": "Fed",
+          "start": 174.382,
+          "end": 174.591
+        },
+        {
+          "w": "minutes",
+          "start": 174.649,
+          "end": 174.962
+        },
+        {
+          "w": "for",
+          "start": 175.009,
+          "end": 175.113
+        },
+        {
+          "w": "signs",
+          "start": 175.171,
+          "end": 175.485
+        },
+        {
+          "w": "that",
+          "start": 175.531,
+          "end": 175.659
+        },
+        {
+          "w": "policymakers",
+          "start": 175.717,
+          "end": 176.425
+        },
+        {
+          "w": "were",
+          "start": 176.483,
+          "end": 176.646
+        },
+        {
+          "w": "already",
+          "start": 176.692,
+          "end": 177.134
+        },
+        {
+          "w": "leaning",
+          "start": 177.238,
+          "end": 177.586
+        },
+        {
+          "w": "towards",
+          "start": 177.656,
+          "end": 178.028
+        },
+        {
+          "w": "further",
+          "start": 178.097,
+          "end": 178.399
+        },
+        {
+          "w": "hikes",
+          "start": 178.445,
+          "end": 178.747
+        },
+        {
+          "w": "at",
+          "start": 178.794,
+          "end": 178.875
+        },
+        {
+          "w": "the",
+          "start": 178.91,
+          "end": 178.98
+        },
+        {
+          "w": "October",
+          "start": 179.038,
+          "end": 179.49
+        },
+        {
+          "w": "hold,",
+          "start": 179.548,
+          "end": 180.001
+        },
+        {
+          "w": "a",
+          "start": 180.35,
+          "end": 180.419
+        },
+        {
+          "w": "tone",
+          "start": 180.489,
+          "end": 180.767
+        },
+        {
+          "w": "that",
+          "start": 180.802,
+          "end": 180.93
+        },
+        {
+          "w": "could",
+          "start": 180.988,
+          "end": 181.174
+        },
+        {
+          "w": "keep",
+          "start": 181.232,
+          "end": 181.441
+        },
+        {
+          "w": "the",
+          "start": 181.499,
+          "end": 181.569
+        },
+        {
+          "w": "dollar",
+          "start": 181.638,
+          "end": 181.928
+        },
+        {
+          "w": "and",
+          "start": 181.987,
+          "end": 182.103
+        },
+        {
+          "w": "yields",
+          "start": 182.207,
+          "end": 182.567
+        },
+        {
+          "w": "elevated.",
+          "start": 182.672,
+          "end": 183.438
+        }
+      ],
       "story": "Gold Hits One-Year Low Ahead of FOMC Minutes as Fed Rate Path Takes Center Stage",
       "sources": [
         {
@@ -288,6 +2446,113 @@
       "text": "Every figure in this briefing, all 21 of them, was checked against 9 source articles. Your receipts are in the app.",
       "start": 183.902,
       "end": 190.915,
+      "words": [
+        {
+          "w": "Every",
+          "start": 183.902,
+          "end": 184.204
+        },
+        {
+          "w": "figure",
+          "start": 184.285,
+          "end": 184.587
+        },
+        {
+          "w": "in",
+          "start": 184.622,
+          "end": 184.68
+        },
+        {
+          "w": "this",
+          "start": 184.727,
+          "end": 184.866
+        },
+        {
+          "w": "briefing,",
+          "start": 184.924,
+          "end": 185.411
+        },
+        {
+          "w": "all",
+          "start": 185.435,
+          "end": 185.632
+        },
+        {
+          "w": "21",
+          "start": 185.69,
+          "end": 186.096
+        },
+        {
+          "w": "of",
+          "start": 186.166,
+          "end": 186.224
+        },
+        {
+          "w": "them,",
+          "start": 186.282,
+          "end": 186.538
+        },
+        {
+          "w": "was",
+          "start": 186.677,
+          "end": 186.816
+        },
+        {
+          "w": "checked",
+          "start": 186.874,
+          "end": 187.176
+        },
+        {
+          "w": "against",
+          "start": 187.211,
+          "end": 187.536
+        },
+        {
+          "w": "9",
+          "start": 187.641,
+          "end": 187.861
+        },
+        {
+          "w": "source",
+          "start": 187.966,
+          "end": 188.279
+        },
+        {
+          "w": "articles.",
+          "start": 188.326,
+          "end": 188.941
+        },
+        {
+          "w": "Your",
+          "start": 189.162,
+          "end": 189.336
+        },
+        {
+          "w": "receipts",
+          "start": 189.382,
+          "end": 189.812
+        },
+        {
+          "w": "are",
+          "start": 189.858,
+          "end": 189.986
+        },
+        {
+          "w": "in",
+          "start": 190.021,
+          "end": 190.079
+        },
+        {
+          "w": "the",
+          "start": 190.125,
+          "end": 190.206
+        },
+        {
+          "w": "app.",
+          "start": 190.288,
+          "end": 190.915
+        }
+      ],
       "story": "Your receipt",
       "sources": []
     }

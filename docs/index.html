@@ -467,6 +467,56 @@
         background: #eaf2e7;
         border-left-color: var(--green);
       }
+      .word {
+        background: linear-gradient(var(--green), var(--green)) left bottom / 0 2px no-repeat;
+        transition: background-size 65ms ease-out;
+      }
+      .word.speaking {
+        background-size: 100% 2px;
+      }
+      .present .word.speaking {
+        background-size: 100% 3px;
+      }
+      .trust {
+        padding: 20px;
+      }
+      .trust h2 {
+        font-size: 1.4rem;
+      }
+      .trust-list {
+        list-style: none;
+        padding: 0;
+        margin: 12px 0;
+      }
+      .trust-list li {
+        display: grid;
+        grid-template-columns: 20px 1fr;
+        gap: 8px;
+        padding: 10px 0;
+        border-top: 1px solid var(--rule);
+        line-height: 1.45;
+      }
+      .trust-detail {
+        display: block;
+        font-size: 0.92rem;
+        margin-top: 3px;
+      }
+      .audit-link {
+        background: none;
+        padding: 4px 0;
+        color: var(--green);
+        font-size: 0.9rem;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      #audit-dialog {
+        background: var(--sheet);
+        border-radius: 12px;
+        padding: 20px;
+      }
+      #audit-dialog .panel-group {
+        margin-top: 14px;
+      }
       .line-time {
         align-self: start;
         color: var(--muted);
@@ -526,10 +576,6 @@
       .chip .icon {
         width: 12px;
         height: 12px;
-      }
-      .audit {
-        display: grid;
-        gap: 14px;
       }
       .panel-group > summary {
         padding: 17px 19px;
@@ -808,10 +854,6 @@
         .layout {
           grid-template-columns: 1fr;
         }
-        .audit {
-          grid-template-columns: 1fr 1fr;
-          align-items: start;
-        }
         .profile {
           padding: 12px;
           gap: 8px;
@@ -1002,9 +1044,6 @@
         .rows {
           max-height: 57dvh;
         }
-        .audit {
-          grid-template-columns: 1fr;
-        }
         .shared {
           margin-top: 18px;
         }
@@ -1159,28 +1198,37 @@
             </div>
             <div class="rows" id="rows"></div>
           </section>
-          <aside class="audit" aria-label="Source checks">
-            <details class="panel-group" id="caught-panel" open>
-              <summary>
-                <span class="summary-main"
-                  ><svg class="icon" aria-hidden="true"><use href="#ico-shield" /></svg>Caught before it
-                  reached your ears</span
-                ><span class="badge" id="caught-count"></span>
-              </summary>
-              <div class="items" id="caught"></div>
-            </details>
-            <details class="panel-group" id="conflict-panel" open>
-              <summary>
-                <span class="summary-main"
-                  ><svg class="icon" aria-hidden="true"><use href="#ico-compare" /></svg>Sources
-                  disagree</span
-                ><span class="badge" id="conflict-count"></span>
-              </summary>
-              <div class="items" id="conflicts"></div>
-            </details>
+          <aside class="panel trust" aria-labelledby="trust-heading">
+            <h2 id="trust-heading">Why you can trust this</h2>
+            <ul class="trust-list" id="trust-list"></ul>
+            <button class="audit-link" id="open-audit" aria-haspopup="dialog">See full audit</button>
           </aside>
         </div>
       </div>
+      <dialog id="audit-dialog" aria-labelledby="audit-title">
+        <header class="ticket-head">
+          <h2 id="audit-title">Full audit</h2>
+          <form method="dialog"><button>Close</button></form>
+        </header>
+        <details class="panel-group" id="caught-panel" open>
+          <summary>
+            <span class="summary-main"
+              ><svg class="icon" aria-hidden="true"><use href="#ico-shield" /></svg>Caught before it
+              reached your ears</span
+            ><span class="badge" id="caught-count"></span>
+          </summary>
+          <div class="items" id="caught"></div>
+        </details>
+        <details class="panel-group" id="conflict-panel" open>
+          <summary>
+            <span class="summary-main"
+              ><svg class="icon" aria-hidden="true"><use href="#ico-compare" /></svg>Sources
+              disagree</span
+            ><span class="badge" id="conflict-count"></span>
+          </summary>
+          <div class="items" id="conflicts"></div>
+        </details>
+      </dialog>
       <section class="shared" id="shared" hidden>
         <h2>One fact, different meanings</h2>
         <div class="facts" id="facts"></div>
@@ -1221,7 +1269,6 @@
       const present = queries.get("present") === "1";
       const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
       document.body.classList.toggle("present", present);
-      if (present) $("conflict-panel").open = false;
       const records = new Map();
       let data,
         chapters = [],
@@ -1359,9 +1406,8 @@
       });
       window.addEventListener("scroll", hideCard, { capture: true, passive: true });
       function figureButton(item) {
-        const b = el("button", item.figure, "fig");
+        const b = el("button", null, "fig");
         b.setAttribute("aria-label", item.figure + ", verified by " + item.outlet + ". Show source");
-        b.append(el("sup", "✓"));
         b.setAttribute("aria-controls", "source-card");
         const open = () => showCard(b, item);
         b.onpointerenter = (e) => {
@@ -1399,13 +1445,37 @@
           }
         }
         hits.sort((a, b) => a.at - b.at || b.end - a.end);
+        let wordEnd = 0;
+        const words = (sentence.words || []).map(({ w }, index) => {
+          const start = text.indexOf(w, wordEnd);
+          wordEnd = start + w.length;
+          return { start, end: wordEnd, index };
+        });
+        function appendRange(target, start, end) {
+          let cursor = start;
+          for (const word of words) {
+            if (word.end <= start || word.start >= end) continue;
+            const left = Math.max(start, word.start),
+              right = Math.min(end, word.end);
+            target.append(text.slice(cursor, left));
+            const span = el("span", text.slice(left, right), "word");
+            span.dataset.word = word.index;
+            target.append(span);
+            cursor = right;
+          }
+          target.append(text.slice(cursor, end));
+        }
         let pos = 0;
         for (const h of hits) {
           if (h.at < pos) continue;
-          parent.append(text.slice(pos, h.at), figureButton(h.item));
+          appendRange(parent, pos, h.at);
+          const button = figureButton(h.item);
+          appendRange(button, h.at, h.end);
+          button.append(el("sup", "✓"));
+          parent.append(button);
           pos = h.end;
         }
-        parent.append(text.slice(pos));
+        appendRange(parent, pos, text.length);
       }
       function jump(t) {
         if (!audio.readyState) return;
@@ -1414,6 +1484,7 @@
       }
       function drawTranscript() {
         active = -1;
+        wordKey = "";
         const lines = data.sentences.map((s) => {
           const row = el("article", null, "line"),
             body = el("div"),
@@ -1525,8 +1596,30 @@
           /* The seek control also works without a decoded waveform. */
         }
       }
+      let wordKey = "",
+        wordFrame;
+      function syncWord() {
+        if (!data) return;
+        const time = audio.currentTime;
+        const line = data.sentences.findLastIndex((s) => s.start <= time && time < s.end);
+        const word =
+          data.sentences[line]?.words?.findIndex((w) => w.start <= time && time < w.end) ?? -1;
+        const key = line + "/" + word;
+        if (key === wordKey) return;
+        wordKey = key;
+        rows.querySelectorAll(".speaking").forEach((node) => node.classList.remove("speaking"));
+        if (word >= 0)
+          rows.children[line]
+            .querySelectorAll('[data-word="' + word + '"]')
+            .forEach((node) => node.classList.add("speaking"));
+      }
+      function animateWord() {
+        syncWord();
+        if (!audio.paused && !audio.ended) wordFrame = requestAnimationFrame(animateWord);
+      }
       function sync() {
         if (!data) return;
+        syncWord();
         const time = audio.currentTime,
           end = runtime();
         $("elapsed").textContent = clock(time);
@@ -1566,7 +1659,81 @@
           );
         }
       }
+      function heardInstead(caught) {
+        return data.receipt.find((item) => {
+          const at = caught.sentence.indexOf(item.figure);
+          if (at < 0 || item.figure === caught.figure) return false;
+          const context = caught.sentence.slice(at).split(/\s+/).slice(0, 6);
+          return (
+            context.length >= 4 &&
+            data.sentences.some(
+              (s) =>
+                s.text.includes(context.join(" ")) && s.sources.some((src) => src.link === item.link),
+            )
+          );
+        });
+      }
+      function drawTrust() {
+        const list = $("trust-list");
+        list.replaceChildren();
+        function summary(icon, label) {
+          const li = el("li"),
+            body = el("div");
+          const marker = el("span", icon, "check");
+          marker.setAttribute("aria-hidden", "true");
+          body.append(el("strong", label));
+          li.append(marker, body);
+          list.append(li);
+          return body;
+        }
+        summary(
+          "✓",
+          data.figures_verified +
+            " of " +
+            data.figures_total +
+            " numbers checked against the original articles",
+        );
+        const blocked = data.caught.filter((c) => c.kind === "invented");
+        if (!blocked.length) {
+          summary("✋", "No numbers needed blocking today");
+        } else {
+          const best = blocked.find((c) => heardInstead(c)) || blocked[0];
+          const used = heardInstead(best);
+          const body = summary(
+            "✋",
+            blocked.length + (blocked.length === 1 ? " number blocked" : " numbers blocked"),
+          );
+          const detail = el("span", null, "trust-detail");
+          detail.append("AI draft: ", el("del", best.figure), " — the article didn't support it.");
+          if (used) {
+            detail.append(
+              " → You heard: ",
+              link(used.figure + " (" + used.outlet + ")", used.link),
+              " ✓",
+            );
+          }
+          body.append(detail);
+        }
+        const conflict = data.conflicts.find((c) => ["a", "b"].includes(c.used));
+        if (conflict) {
+          const used = conflict.used,
+            other = used === "a" ? "b" : "a";
+          const body = summary("⚖", "Sources disagreed");
+          const detail = el("span", null, "trust-detail");
+          detail.append(
+            conflict.measure + " · You heard ",
+            link(conflict["value_" + used], conflict["link_" + used]),
+            " from ",
+            conflict["outlet_" + used],
+            ". Another report gave ",
+            link(conflict["value_" + other], conflict["link_" + other]),
+            ".",
+          );
+          body.append(detail);
+        }
+      }
       function drawAudit() {
+        drawTrust();
         const kinds = ["invented", "copied", "miscited"];
         const labels = {
           invented: "Unverified number blocked",
@@ -1589,18 +1756,7 @@
             else p.textContent = c.sentence || "Licensed wording withheld.";
             row.append(el("h3", labels[c.kind]), p);
             if (c.kind === "invented") {
-              const replacement = data.receipt.find((r) => {
-                const at = c.sentence.indexOf(r.figure);
-                if (at < 0 || r.figure === c.figure) return false;
-                const context = c.sentence.slice(at).split(/\s+/).slice(0, 6);
-                return (
-                  context.length >= 4 &&
-                  data.sentences.some(
-                    (s) =>
-                      s.text.includes(context.join(" ")) && s.sources.some((src) => src.link === r.link),
-                  )
-                );
-              });
+              const replacement = heardInstead(c);
               if (replacement)
                 row.append(
                   link("Heard in the briefing · " + replacement.figure, replacement.link, "used-link"),
@@ -1787,7 +1943,11 @@
           $("play").disabled = true;
         }
       };
-      audio.onplay = audio.onpause = updatePlay;
+      audio.onplay = audio.onpause = () => {
+        updatePlay();
+        cancelAnimationFrame(wordFrame);
+        animateWord();
+      };
       audio.ontimeupdate = audio.onseeked = sync;
       audio.onended = () => {
         updatePlay();
@@ -1806,6 +1966,10 @@
         }
       };
       new ResizeObserver(paintWave).observe($("wave"));
+      $("open-audit").onclick = () => {
+        hideCard();
+        $("audit-dialog").showModal();
+      };
       $("receipt-btn").onclick = () => {
         hideCard();
         $("receipt").showModal();

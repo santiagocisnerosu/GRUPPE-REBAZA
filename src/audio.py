@@ -5,8 +5,12 @@ import hashlib
 import json
 import os
 import re
+import shutil
+import subprocess
 from collections import defaultdict
 from decimal import Decimal
+from pathlib import Path
+from tempfile import TemporaryDirectory
 
 import pandas as pd
 import yaml
@@ -21,20 +25,55 @@ from .script_reports import append_receipt_closing
 
 OUTPUT_FORMAT = "mp3_44100_128"
 NUMBER = r"\d[\d,]*(?:\.\d+)?"
-PERCENT_RANGE = re.compile(rf"({NUMBER})\s*[-\u2013\u2014]\s*({NUMBER})\s*%")
-YEN = re.compile(rf"(?:\u00a5|JPY\s*)\s*({NUMBER}(?:\s+(?:thousand|million|billion|trillion))?)", re.I)
+SPOKEN_SUBSTITUTIONS = re.compile(
+    rf"(?P<low>{NUMBER})\s*(?P<dash>[-–—])\s*(?P<high>{NUMBER})\s*%|"
+    rf"(?P<yen>¥|JPY)\s*(?P<amount>{NUMBER}(?:\s+(?:thousand|million|billion|trillion))?)|"
+    r"(?<=\d)\s*(?:(?P<bps>bps?\b)|(?P<percent>%))", re.I
+)
+
+
+def speech_parts(text):
+    """Yield (spoken fragment, original character offset) before collapsing whitespace."""
+    cursor = 0
+    for m in SPOKEN_SUBSTITUTIONS.finditer(text):
+        for i in range(cursor, m.start()):
+            yield text[i], i
+        if m["low"]:
+            low, high = (Decimal(m[key].replace(",", "")).normalize() for key in ("low", "high"))
+            yield format(low, "f"), m.start("low")
+            yield " to ", m.start("dash")
+            yield format(high, "f"), m.start("high")
+            yield " percent", m.end() - 1
+        elif m["yen"]:
+            for i in range(m.start("amount"), m.end()):
+                yield text[i], i
+            # An attached currency sign belongs to the amount as a whole.
+            prefix_separate = m.end("yen") < m.start("amount")
+            yield " yen", m.start() if prefix_separate else m.end() - 1
+        else:
+            yield (" basis points" if m["bps"] else " percent"), m.end() - 1
+        cursor = m.end()
+    for i in range(cursor, len(text)):
+        yield text[i], i
 
 
 def spoken_text(text):
-    def percent_range(match):
-        a, b = (format(Decimal(value.replace(",", "")).normalize(), "f") for value in match.groups())
-        return f"{a} to {b} percent"
+    return " ".join("".join(part for part, _ in speech_parts(text)).split())
 
-    text = PERCENT_RANGE.sub(percent_range, text)
-    text = YEN.sub(r"\1 yen", text)
-    text = re.sub(r"(?<=\d)\s*bps?\b", " basis points", text, flags=re.I)
-    text = re.sub(r"(?<=\d)\s*%", " percent", text)
-    return " ".join(text.split())
+
+def aligned_words(original, offset, timing):
+    # Both strings can have different lengths (e.g. "3.6%" / "3.6 percent").
+    # Consume the exact submitted non-space characters, retaining their printed token.
+    words = list(re.finditer(r"\S+", original))
+    owner = {i: k for k, w in enumerate(words) for i in range(w.start(), w.end())}
+    intervals = [[] for _ in words]
+    positions = (offset + i for i, char in enumerate(spoken_text(original)) if not char.isspace())
+    for part, index in speech_parts(original):
+        for char in part:
+            if not char.isspace():
+                intervals[owner[index]].append(timing[next(positions)])
+    return [{"w": w[0], "start": min(t[0] for t in times), "end": max(t[1] for t in times)}
+            for w, times in zip(words, intervals, strict=True)]
 
 
 def story_paragraphs(sentences):
@@ -115,6 +154,57 @@ def verified_receipt(script, sources):
     return receipt
 
 
+def normalize_audio(raw, destination):
+    """Master from the cached original, then check the decoded delivery MP3."""
+    ffmpeg = shutil.which("ffmpeg")
+    if not ffmpeg:
+        from imageio_ffmpeg import get_ffmpeg_exe
+        ffmpeg = get_ffmpeg_exe()
+
+    def run(path, *args):
+        return subprocess.run([ffmpeg, "-hide_banner", "-nostdin", "-nostats", "-y",
+                               "-i", str(path), *args], capture_output=True, check=True)
+
+    def measure(path):
+        result = run(path, "-af", "loudnorm=I=-16:TP=-1.5:LRA=11:print_format=json", "-f", "null", "-")
+        report = re.search(rb'\{\s*"input_i".*?\}', result.stderr, re.S)
+        return json.loads(report[0])
+
+    def sample_count(path):
+        # Count decoded samples, excluding the MP3 encoder's gapless delay and padding.
+        return len(run(path, "-ac", "1", "-ar", "44100", "-f", "s16le", "-").stdout) // 2
+
+    with TemporaryDirectory(dir=destination.parent) as scratch:
+        original, encoded = (Path(scratch) / name for name in ("source.mp3", "master.mp3"))
+        original.write_bytes(raw)
+        samples = sample_count(original)
+        before = measure(original)
+        measured = ":".join(f"measured_{k}={before['input_' + k]}" for k in ("i", "tp", "lra", "thresh"))
+        peak_target, trim_gain = -1.5, 0.0
+        for _ in range(6):
+            ceiling = 10 ** (peak_target / 20)
+            filters = (f"loudnorm=I=-16:TP=-1.5:LRA=11:{measured}:offset={before['target_offset']},"
+                       f"aresample=192000,volume={trim_gain:.2f}dB,"
+                       f"alimiter=limit={ceiling:.7f}:level=0:latency=1,"
+                       f"aresample=44100,atrim=end_sample={samples}")
+            run(original, "-af", filters, "-c:a", "libmp3lame", "-b:a", "128k", str(encoded))
+            after = measure(encoded)
+            loudness, peak = float(after["input_i"]), float(after["input_tp"])
+            if abs(loudness + 16) <= 0.10 and peak <= -1.5:
+                break
+            # Lossy encoding can introduce new intersample peaks. Re-render from the original.
+            correction = -16 - loudness
+            peak_target -= max(0, peak + correction + 1.5 + 0.15)
+            trim_gain += correction
+        else:
+            raise ValueError(f"MP3 missed mastering targets: {loudness} LUFS, {peak} dBTP")
+        if sample_count(encoded) != samples:
+            raise ValueError("Mastering changed the decoded duration")
+        encoded.replace(destination)
+    print(f"{destination.parent.name}: {before['input_i']} -> {loudness:.2f} LUFS | "
+          f"{before['input_tp']} -> {peak:.2f} dBTP | {samples / 44100:.3f}s before and after")
+
+
 def build_audio(profile, model, client, sources):
     listener = profile["id"]
     out = ROOT / "out" / listener
@@ -138,6 +228,7 @@ def build_audio(profile, model, client, sources):
         story_id = sentence.get("story_id")
         sentences.append({
             "text": sentence["text"], "start": timing[start][0], "end": timing[end - 1][1],
+            "words": aligned_words(sentence["text"], start, timing),
             "story": "Your receipt" if sentence.get("receipt_closing") else titles.get(story_id, "Briefing"),
             "sources": [sources[i] for i in dict.fromkeys(sentence["article_ids"])],
         })
@@ -149,7 +240,7 @@ def build_audio(profile, model, client, sources):
          "used": entry.get("scripts", {}).get(listener, {}).get("used")}
         for entry in load_json(CACHE_DIR / "conflicts.json")
     ]
-    (out / "briefing.mp3").write_bytes(base64.b64decode(response["audio_base64"], validate=True))
+    normalize_audio(base64.b64decode(response["audio_base64"], validate=True), out / "briefing.mp3")
     write_json(out / "transcript.json", {
         "listener": listener, "name": profile["name"], "date": script["date"], "audio": "briefing.mp3",
         "figures_total": total, "figures_verified": len(receipt), "sources_total": sources_total,

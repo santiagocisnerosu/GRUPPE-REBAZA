@@ -26,7 +26,7 @@ python -m http.server 8000
 
 Abre [la demo local](http://localhost:8000/docs/). La [URL del jurado](https://santiagocisnerosu.github.io/GRUPPE-REBAZA/) funciona cuando GitHub Pages está desplegado desde `main` y la carpeta `/docs`.
 
-Para el video, [abre el modo presentación con Jordan](https://santiagocisnerosu.github.io/GRUPPE-REBAZA/?present=1&listener=jordan). En **Caught before it reached your ears**, el titular decía $64,000 y el recibo del audio respalda $63,465. [Captura de escritorio](pitch/desktop.png) · [Captura de celular](pitch/mobile.png).
+Para el video, [abre el modo presentación con Jordan](https://santiagocisnerosu.github.io/GRUPPE-REBAZA/?present=1&listener=jordan). En **Why you can trust this** se ve la diferencia entre los $64,000 del titular y los $63,465 verificados que se oyen. **See full audit** abre todos los detalles. [Captura de escritorio](pitch/desktop.png) · [Captura de celular](pitch/mobile.png).
 
 ## Regenerar
 
