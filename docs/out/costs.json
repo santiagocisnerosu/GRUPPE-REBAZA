@@ -1,0 +1,82 @@
+{
+  "currency": "USD",
+  "start_record": 635,
+  "api_calls": 62,
+  "unpriced_records": 1,
+  "malformed_log_lines": [
+    653
+  ],
+  "usage": {
+    "input_tokens": 163047,
+    "output_tokens": 20219,
+    "tts_chars": 13454
+  },
+  "actual_by_stage": {
+    "extract_claims": 0.00343,
+    "priya_consequence": 0.002374,
+    "script": 0.293804,
+    "script_repair": 0.195936,
+    "script_repetition": 0.006239,
+    "story_score": 0.007229,
+    "tts": 1.3454
+  },
+  "assumptions": {
+    "observed_articles": 145,
+    "articles_daily_full_dataset": 1740,
+    "days_per_month": 30,
+    "listeners": 10000,
+    "profile_count": 3,
+    "equal_profile_mix": true,
+    "audio_characters": {
+      "mara": {
+        "total": 2826,
+        "personal": 300,
+        "shared": 2526
+      },
+      "jordan": {
+        "total": 3037,
+        "personal": 295,
+        "shared": 2742
+      },
+      "priya": {
+        "total": 2187,
+        "personal": 264,
+        "shared": 1923
+      }
+    },
+    "shared_preparation_cost_observed": 0.91990788,
+    "three_profile_editorial_cost_observed": 0.501783
+  },
+  "scenarios": [
+    {
+      "scenario": "This run (recorded API usage; lower bound)",
+      "with_segment_cache": 1.854412,
+      "without_segment_cache": 1.854412
+    },
+    {
+      "scenario": "Full dataset (1,740 articles, one day, three profile versions)",
+      "with_segment_cache": 12.34567756,
+      "without_segment_cache": 12.34567756
+    },
+    {
+      "scenario": "10x (17,400 articles, one day, three profile versions)",
+      "with_segment_cache": 111.6957286,
+      "without_segment_cache": 111.6957286
+    },
+    {
+      "scenario": "Per listener per month at 10,000 listeners",
+      "with_segment_cache": 0.89577933268,
+      "without_segment_cache": 8.08462203268
+    },
+    {
+      "scenario": "10,000 listeners per month",
+      "with_segment_cache": 8957.7933268,
+      "without_segment_cache": 80846.2203268
+    }
+  ],
+  "notes": [
+    "Rates come from prices.yaml. Dataset preparation scales from 145 observed articles; three profile drafts are generated daily. The monthly model assumes 30 days, one briefing per listener per day, and an equal profile mix.",
+    "Segment reuse is a projection. Each voice and settings combination synthesizes its story segments once daily. Greetings and sign-offs are charged per listener; without reuse every listener incurs the full audio cost. The actual run uses the existing whole-briefing cache and is shown as observed in both columns.",
+    "1 unreadable usage-log line(s) in this run were excluded; the observed total and projections may slightly understate costs."
+  ]
+}

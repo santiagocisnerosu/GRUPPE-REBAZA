@@ -63,5 +63,5 @@ Most teams will build "ChatGPT summary → ElevenLabs voice". We win on trust wi
 ## Working rules for coding agents
 - Small steps; run on the 10-article sample after each change and show the output.
 - Never print full article text (headline + 200 chars max for debugging).
-- No secrets in code; read `.env`. Never commit `data/`, `.env`, or root `out/` audio. The GitHub Pages demo may commit only its checked MP3s and transcriptions under `docs/out/`, plus the player and QR.
+- No secrets in code; read `.env`. Never commit `data/`, `.env`, or root `out/` audio. The GitHub Pages demo may commit its checked MP3s and transcriptions, shared spoken facts and cost report under `docs/out/`, plus the player and QR.
 - Commit small and often; `git pull` before starting.

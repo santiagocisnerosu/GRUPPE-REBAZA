@@ -1,0 +1,53 @@
+[
+  {
+    "measure": "U.S. Dollar Index year-to-date gain",
+    "value": "5.66%",
+    "outlet": "Zacks Investment Research",
+    "headline": "US Dollar ETF (UUP) Hits New 52-Week High",
+    "link": "https://www.zacks.com/stock/news/3031782/us-dollar-etf-uup-hits-new-52-week-high?cid=CS-NEWSTEX-FT-etf_news_and_commentary-3031782",
+    "listeners": {
+      "mara": {
+        "spoken_value": "5.66%",
+        "sentence": "The US Dollar Index is up 5.66% year to date, and expectations of a tighter Fed stance could give the dollar further support."
+      },
+      "priya": {
+        "spoken_value": "5.66%",
+        "sentence": "The US Dollar Index is up 5.66% this year, according to Zacks Investment Research."
+      }
+    }
+  },
+  {
+    "measure": "Annual headline CPI inflation in October",
+    "value": "3.6%",
+    "outlet": "ActionForex",
+    "headline": "UK Inflation Rises to 3.6% as Fuel Prices Surge, Core CPI Holds Steady",
+    "link": "https://www.actionforex.com/live-comments/661264-uk-inflation-rises-to-3-6-as-fuel-prices-surge-core-cpi-holds-steady/",
+    "listeners": {
+      "mara": {
+        "spoken_value": "3.6%",
+        "sentence": "UK headline inflation rose to 3.6% in October, in line with expectations, as motor fuel prices climbed 33.2% from a year earlier, ActionForex reports."
+      },
+      "priya": {
+        "spoken_value": "3.6%",
+        "sentence": "UK inflation rose to 3.6% in October, according to ActionForex, with higher fuel prices pushing up the headline rate."
+      }
+    }
+  },
+  {
+    "measure": "Annual motor fuel inflation in October",
+    "value": "33.2%",
+    "outlet": "ActionForex",
+    "headline": "UK Inflation Rises to 3.6% as Fuel Prices Surge, Core CPI Holds Steady",
+    "link": "https://www.actionforex.com/live-comments/661264-uk-inflation-rises-to-3-6-as-fuel-prices-surge-core-cpi-holds-steady/",
+    "listeners": {
+      "mara": {
+        "spoken_value": "33.2%",
+        "sentence": "UK headline inflation rose to 3.6% in October, in line with expectations, as motor fuel prices climbed 33.2% from a year earlier, ActionForex reports."
+      },
+      "priya": {
+        "spoken_value": "33.2%",
+        "sentence": "At UK pumps, motor fuel prices were up 33.2% from a year earlier."
+      }
+    }
+  }
+]

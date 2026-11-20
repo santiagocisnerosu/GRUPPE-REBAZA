@@ -1,376 +1,1829 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light">
-  <title>Receipts / Audio briefing</title>
-  <style>
-    :root {
-      font-family: "Aptos", "Segoe UI", system-ui, sans-serif;
-      color: #101a16;
-      background: #edf0e9;
-      --ink: #101a16;
-      --paper: #fafbf6;
-      --border: #b8c4b9;
-      --muted: #44554b;
-      --mint: #d7f57d;
-      --forest: #113629;
-      --rust: #91352a;
-    }
-    * { box-sizing: border-box; }
-    body { margin: 0; }
-    button, a, audio { font: inherit; }
-    button { cursor: pointer; }
-    :focus-visible { outline: 3px solid #237b55; outline-offset: 4px; }
-    .dark :focus-visible { outline-color: var(--mint); }
-    [hidden] { display: none !important; }
-    .wrap { width: min(1260px, calc(100% - 64px)); margin-inline: auto; }
-    .dark { background: var(--ink); color: var(--paper); }
-    .masthead { display: flex; justify-content: space-between; align-items: center; padding-block: 22px; border-bottom: 1px solid #4c5f53; }
-    .brand { font-size: 1.45rem; font-weight: 800; letter-spacing: -.05em; }
-    .edition { color: #c9d8ce; font-size: .95rem; font-weight: 650; }
-    .intro { padding-block: 30px 34px; display: grid; grid-template-columns: 1.1fr 1fr; align-items: end; gap: 24px 48px; }
-    .intro h1 { margin: 0 0 18px; font-size: clamp(2.7rem, 5vw, 4.8rem); line-height: .96; letter-spacing: -.07em; font-weight: 800; }
-    .tabs { display: flex; flex-wrap: wrap; gap: 8px; }
-    .tabs button { background: transparent; color: #edf4ea; border: 1px solid #75887a; padding: 8px 18px; min-height: 44px; border-radius: 999px; font-weight: 750; }
-    .tabs button[aria-selected="true"] { color: var(--ink); background: var(--mint); border-color: var(--mint); }
-    .listen { display: grid; gap: 12px; align-self: end; }
-    .listen audio { width: 100%; min-height: 54px; }
-    .verify { color: var(--mint); margin: 0; font-weight: 800; font-size: clamp(1rem, 1.6vw, 1.24rem); }
-    .receipt-button { justify-self: start; background: var(--mint); color: var(--ink); border: 1px solid var(--mint); padding: 9px 17px; min-height: 42px; font-weight: 800; border-radius: 7px; }
-    .receipt-button:disabled { opacity: .45; cursor: default; }
-    .content { display: grid; grid-template-columns: minmax(0, 1.8fr) minmax(280px, 1fr); align-items: start; gap: 20px; padding-block: 24px 42px; }
-    .card { background: var(--paper); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
-    .heading { padding: 17px 20px; margin: 0; font-size: 1.32rem; letter-spacing: -.04em; border-bottom: 1px solid var(--border); }
-    .rows { position: relative; max-height: min(60vh, 690px); min-height: 180px; overflow: auto; overscroll-behavior: contain; scrollbar-gutter: stable; }
-    .line { padding: 12px 16px 14px; border-left: 5px solid transparent; border-bottom: 1px solid #d4ddd3; }
-    .line:last-child { border-bottom: 0; }
-    .line.active { background: #e4f5c4; border-left-color: #17613f; }
-    .jump { display: grid; grid-template-columns: 3.4rem 1fr; width: 100%; align-items: start; gap: 8px; text-align: left; border: 0; background: transparent; padding: 4px 0; color: inherit; font-weight: 660; font-size: clamp(1.06rem, 1.63vw, 1.35rem); line-height: 1.42; }
-    .clock { color: var(--forest); padding-top: .3em; font: 750 .86rem/1.4 ui-monospace, monospace; font-variant-numeric: tabular-nums; }
-    .sources { margin: 8px 0 0 3.9rem; display: flex; flex-wrap: wrap; gap: 6px; }
-    a { color: #164c35; text-underline-offset: .18em; }
-    .chip { background: #e8eee7; color: #173e2b; border: 1px solid #b7c9bd; border-radius: 5px; padding: 5px 8px; font-size: .88rem; font-weight: 650; max-width: 100%; overflow-wrap: anywhere; }
-    .audit { display: grid; gap: 13px; }
-    .audit details { background: var(--paper); border: 1px solid var(--border); border-radius: 12px; }
-    .audit summary { cursor: pointer; color: var(--ink); padding: 15px; font-weight: 800; font-size: 1.1rem; }
-    .count { border-radius: 999px; background: #e8eee7; padding: 3px 8px; color: var(--forest); font-size: .88rem; margin-left: 5px; }
-    .items { max-height: 400px; overflow: auto; padding: 0 15px 12px; }
-    .audit-row { border-top: 1px solid #d4ddd3; padding: 12px 0 8px; }
-    .audit-row p { margin: 5px 0; line-height: 1.4; }
-    .audit-row strong { color: var(--rust); }
-    .blocked-figure { color: #a0221b; font-weight: 800; text-decoration-thickness: 2px; }
-    .audit-row a { display: inline-block; margin: 4px 9px 4px 0; font-weight: 650; }
-    .used { font-weight: 750; color: #1e583e; }
-    .placeholder, .status { padding: 12px 16px; color: var(--muted); }
-    .status { background: #f4eede; border: 1px solid #c6b486; border-radius: 8px; margin: 16px 0 0; color: #3c2c13; font-weight: 650; }
-    dialog { width: min(560px, calc(100% - 28px)); max-height: 88vh; background: #fffef5; color: var(--ink); border: 0; padding: 0; box-shadow: 0 18px 50px #00150e66; }
-    dialog::backdrop { background: #0a1711ba; }
-    .ticket { padding: 22px 26px 26px; font-family: ui-monospace, "Consolas", monospace; }
-    .ticket-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 12px; border-bottom: 2px dashed #718478; }
-    .ticket-header h2 { font-size: 1.55rem; margin: 0; letter-spacing: -.05em; }
-    .ticket-header button { border: 1px solid var(--forest); border-radius: 4px; padding: 7px 11px; background: transparent; color: var(--forest); }
-    .ticket-meta { color: var(--muted); }
-    .receipt-list { list-style: none; padding: 0; }
-    .receipt-list li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px; padding: 11px 0; border-top: 1px dashed #a9b8ab; overflow-wrap: anywhere; }
-    .check { font-weight: 900; color: #156441; }
-    .receipt-list a { display: block; margin-top: 5px; }
-    @media (max-width: 760px) {
-      .wrap { width: calc(100% - 28px); }
-      .intro, .content { grid-template-columns: 1fr; }
-      .intro { gap: 22px; }
-      .content { padding-top: 14px; }
-      .rows { position: relative; max-height: 55vh; }
-      .sources { margin-left: 0; }
-      .jump { grid-template-columns: 2.9rem 1fr; }
-    }
-  </style>
-</head>
-<body>
-  <header class="dark">
-    <div class="wrap">
-      <div class="masthead">
-        <span class="brand">Receipts</span>
-        <time class="edition" id="edition"></time>
-      </div>
-      <div class="intro">
-        <div>
-          <h1>Your morning<br>briefing.</h1>
-          <div class="tabs" role="tablist" aria-label="Listener">
-            <button type="button" role="tab" id="tab-mara" data-listener="mara" aria-selected="true" aria-controls="briefing-panel">Mara</button>
-            <button type="button" role="tab" id="tab-jordan" data-listener="jordan" aria-selected="false" aria-controls="briefing-panel" tabindex="-1">Jordan</button>
-            <button type="button" role="tab" id="tab-priya" data-listener="priya" aria-selected="false" aria-controls="briefing-panel" tabindex="-1">Priya</button>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f8f7f2" />
+    <title>Receipts — Morning briefings</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --paper: #f8f7f2;
+        --sheet: #fffefa;
+        --ink: #18211a;
+        --muted: #5a625a;
+        --rule: #cfd2c8;
+        --green: #226243;
+        --tint: #e7efe4;
+        --mint: #bbebaa;
+        --mono: ui-monospace, "Cascadia Mono", Consolas, "Liberation Mono", monospace;
+        font-family: "Segoe UI", system-ui, sans-serif;
+        color: var(--ink);
+        background: var(--paper);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+      }
+      button,
+      input {
+        font: inherit;
+      }
+      button,
+      summary {
+        cursor: pointer;
+      }
+      button {
+        color: inherit;
+      }
+      a {
+        color: var(--green);
+        text-underline-offset: 3px;
+      }
+      button:focus-visible,
+      summary:focus-visible,
+      a:focus-visible,
+      input:focus-visible {
+        outline: 3px solid #40895e;
+        outline-offset: 3px;
+      }
+      [hidden] {
+        display: none !important;
+      }
+      h1,
+      h2,
+      h3,
+      p,
+      ol {
+        margin: 0;
+      }
+      button {
+        border: 0;
+      }
+      summary {
+        list-style: none;
+      }
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      .wrap {
+        width: min(1440px, calc(100% - 8vw));
+        margin: auto;
+      }
+      .mono,
+      .small,
+      .counter,
+      .time,
+      .fig,
+      .metric,
+      .badge,
+      .chapter-time {
+        font-family: var(--mono);
+        font-variant-numeric: tabular-nums;
+      }
+      .small {
+        font-size: 0.82rem;
+        color: var(--muted);
+      }
+      .icon {
+        width: 1.18em;
+        height: 1.18em;
+        vertical-align: -0.2em;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.65;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        flex: none;
+      }
+      .sprite {
+        position: absolute;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+      }
+      header.mast {
+        border-bottom: 1px solid var(--rule);
+      }
+      .mast .wrap,
+      .between,
+      .brand,
+      .meter,
+      .summary-main,
+      .profile,
+      .play-title,
+      .control,
+      .deckfoot,
+      .ticket-head {
+        display: flex;
+        align-items: center;
+      }
+      .between,
+      .mast .wrap,
+      .deckfoot,
+      .ticket-head {
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .mast .wrap {
+        min-height: 104px;
+      }
+      .brand {
+        gap: 12px;
+      }
+      .brand-mark {
+        width: 48px;
+        height: 56px;
+        color: var(--green);
+      }
+      .wordmark {
+        font-weight: 790;
+        letter-spacing: -0.065em;
+        font-size: 2.35rem;
+        line-height: 1.04;
+      }
+      .tagline {
+        font-size: 0.93rem;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+      .meter {
+        gap: 16px;
+      }
+      .counter {
+        font-size: clamp(2.2rem, 3.1vw, 3.4rem);
+        font-weight: 660;
+        letter-spacing: -0.095em;
+        white-space: nowrap;
+        color: var(--green);
+      }
+      .counter i {
+        font-style: normal;
+        font-weight: 350;
+        color: #94af92;
+      }
+      .meter-copy {
+        line-height: 1.5;
+        font-size: 0.88rem;
+      }
+      .meter-copy strong {
+        display: block;
+      }
+      .verified {
+        color: var(--green);
+      }
+      .check {
+        font-weight: 800;
+        color: var(--green);
+      }
+      main {
+        padding: 30px 0 42px;
+      }
+      h1 {
+        font-size: clamp(2rem, 3.35vw, 3.65rem);
+        letter-spacing: -0.065em;
+        line-height: 1.1;
+        font-weight: 740;
+      }
+      h2 {
+        font-size: 1.7rem;
+        letter-spacing: -0.05em;
+        line-height: 1.15;
+      }
+      h3 {
+        font-size: 1.05rem;
+        letter-spacing: -0.02em;
+      }
+      .edition {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-align: right;
+      }
+      .profiles {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin: 19px 0;
+      }
+      .profile {
+        position: relative;
+        gap: 14px;
+        text-align: left;
+        border: 1px solid var(--rule);
+        border-radius: 12px;
+        padding: 15px 18px;
+        background: var(--sheet);
+        min-width: 0;
+      }
+      .profile:hover {
+        border-color: var(--green);
+      }
+      .profile[aria-pressed="true"] {
+        background: var(--tint);
+        border-color: var(--green);
+        box-shadow: inset 0 0 0 1px var(--green);
+      }
+      .avatar {
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        height: 46px;
+        width: 46px;
+        flex: none;
+        background: #eaebe5;
+        font-weight: 680;
+        font-size: 1.25rem;
+      }
+      .profile[aria-pressed="true"] .avatar {
+        color: white;
+        background: var(--green);
+      }
+      .profile-name {
+        display: block;
+        font-weight: 720;
+        font-size: 1.13rem;
+      }
+      .role {
+        display: block;
+        font-size: 0.94rem;
+        color: var(--muted);
+        margin: 1px 0 5px;
+      }
+      .profile-meta {
+        display: block;
+        color: var(--green);
+        font: 0.82rem var(--mono);
+      }
+      .chosen {
+        display: none;
+        position: absolute;
+        right: 12px;
+        top: 10px;
+        color: var(--green);
+      }
+      .profile[aria-pressed="true"] .chosen {
+        display: block;
+      }
+      .deck {
+        background: #192b22;
+        color: white;
+        border-radius: 16px;
+        overflow: hidden;
+      }
+      .deck-main {
+        display: grid;
+        grid-template-columns: minmax(240px, 0.75fr) minmax(0, 1.8fr);
+        align-items: center;
+        gap: 32px;
+        padding: 24px 28px;
+      }
+      .control {
+        gap: 18px;
+      }
+      .play {
+        background: var(--mint);
+        color: #13291a;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        flex: none;
+      }
+      .play:hover {
+        background: #d1f4c7;
+      }
+      .play .icon {
+        width: 25px;
+        height: 25px;
+        fill: currentColor;
+        stroke-width: 1;
+      }
+      .play:disabled {
+        opacity: 0.6;
+      }
+      .deck h2 {
+        font-size: clamp(1.4rem, 2.1vw, 2.25rem);
+        letter-spacing: -0.055em;
+      }
+      .time {
+        display: block;
+        color: #d1e3d3;
+        font-size: 0.91rem;
+        margin-top: 5px;
+      }
+      .wave-wrap {
+        min-width: 0;
+      }
+      .wave {
+        height: 52px;
+        position: relative;
+        border-radius: 4px;
+        isolation: isolate;
+      }
+      .wave canvas,
+      .wave input,
+      .markers {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+      }
+      .wave input {
+        opacity: 0;
+        cursor: pointer;
+        z-index: 2;
+      }
+      .wave:focus-within {
+        outline: 2px solid var(--mint);
+        outline-offset: 3px;
+      }
+      .markers {
+        pointer-events: none;
+        z-index: 1;
+      }
+      .marker {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        border-left: 1px dashed #daecd4;
+      }
+      .wave::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: var(--at, 0%);
+        border-left: 2px solid white;
+        pointer-events: none;
+      }
+      .deckfoot {
+        padding: 9px 28px;
+        border-top: 1px solid #526456;
+        color: #e0eee1;
+        font-size: 0.9rem;
+      }
+      .current {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .deckfoot .icon {
+        color: var(--mint);
+        margin-right: 7px;
+      }
+      .chapter-toggle {
+        white-space: nowrap;
+        background: none;
+        color: white;
+        padding: 7px 0;
+      }
+      .chapter-toggle .icon {
+        margin: 0 0 0 3px;
+      }
+      .chapters {
+        padding: 4px 24px 16px;
+        list-style: none;
+        max-height: 270px;
+        overflow: auto;
+      }
+      .chapters button {
+        display: flex;
+        align-items: baseline;
+        width: 100%;
+        gap: 16px;
+        text-align: left;
+        background: none;
+        color: #e6eee7;
+        border-top: 1px solid #405446;
+        padding: 9px 4px;
+      }
+      .chapters button[aria-current="true"] {
+        color: var(--mint);
+      }
+      .chapter-time {
+        flex: none;
+        font-size: 0.85rem;
+      }
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.65fr) minmax(320px, 1fr);
+        gap: 24px;
+        margin-top: 24px;
+        align-items: start;
+      }
+      .panel,
+      .panel-group {
+        background: var(--sheet);
+        border: 1px solid var(--rule);
+        border-radius: 14px;
+        min-width: 0;
+      }
+      .panel-head {
+        padding: 18px 21px;
+        border-bottom: 1px solid var(--rule);
+      }
+      .receipt-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 10px 15px;
+        border-radius: 7px;
+        background: var(--ink);
+        color: white;
+        font-weight: 620;
+        white-space: nowrap;
+      }
+      .receipt-btn:hover {
+        background: var(--green);
+      }
+      .rows {
+        position: relative;
+        max-height: 560px;
+        overflow: auto;
+        overscroll-behavior: contain;
+        border-radius: 0 0 14px 14px;
+        scrollbar-color: #b5c4b8 transparent;
+        scrollbar-width: thin;
+      }
+      .line {
+        position: relative;
+        display: grid;
+        grid-template-columns: 3.25rem minmax(0, 1fr);
+        gap: 11px;
+        padding: 13px 18px;
+        border-bottom: 1px solid #e0e1d9;
+        border-left: 3px solid transparent;
+        transition: background 0.2s;
+      }
+      .line:last-child {
+        border-bottom: 0;
+      }
+      .line.active {
+        background: #eaf2e7;
+        border-left-color: var(--green);
+      }
+      .line-time {
+        align-self: start;
+        color: var(--muted);
+        background: none;
+        text-align: left;
+        padding: 5px 0;
+        font: 0.82rem var(--mono);
+      }
+      .line p {
+        font-size: 1.09rem;
+        line-height: 1.65;
+        cursor: pointer;
+      }
+      .fig {
+        font-size: 0.92em;
+        display: inline;
+        padding: 0 3px;
+        border-radius: 4px;
+        color: var(--green);
+        background: #e2eddd;
+        white-space: nowrap;
+        font-weight: 650;
+        line-height: 1.3;
+      }
+      .fig sup {
+        font: 0.62em var(--mono);
+        vertical-align: super;
+        margin-left: 2px;
+      }
+      .sources {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-top: 5px;
+      }
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        max-width: 100%;
+        border: 1px solid var(--rule);
+        border-radius: 4px;
+        padding: 3px 6px;
+        text-decoration: none;
+        color: var(--muted);
+        font-size: 0.78rem;
+      }
+      .chip span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .chip:hover {
+        text-decoration: underline;
+        color: var(--green);
+      }
+      .chip .icon {
+        width: 12px;
+        height: 12px;
+      }
+      .audit {
+        display: grid;
+        gap: 14px;
+      }
+      .panel-group > summary {
+        padding: 17px 19px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.08rem;
+        font-weight: 690;
+        letter-spacing: -0.025em;
+      }
+      .summary-main {
+        gap: 9px;
+      }
+      .summary-main > .icon {
+        color: var(--green);
+      }
+      .badge {
+        border: 1px solid var(--rule);
+        border-radius: 4px;
+        padding: 2px 6px;
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+      details[open] > summary .chev,
+      .chapter-toggle[aria-expanded="true"] .chev {
+        transform: rotate(180deg);
+      }
+      .items {
+        padding: 0 18px 14px;
+        max-height: 325px;
+        overflow: auto;
+      }
+      .audit-row {
+        border-top: 1px solid var(--rule);
+        padding: 12px 0;
+      }
+      .audit-row:last-child {
+        padding-bottom: 0;
+      }
+      .audit-row p {
+        line-height: 1.48;
+        margin-top: 6px;
+      }
+      .diff {
+        border-left: 2px solid #a2aca1;
+        padding-left: 10px;
+        color: var(--muted);
+      }
+      del {
+        color: #9e342e;
+        background: #f9eae7;
+        text-decoration-thickness: 2px;
+      }
+      .compare {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        margin: 9px 0;
+      }
+      .reading {
+        background: #f4f4ed;
+        border-radius: 6px;
+        padding: 9px 11px;
+        overflow-wrap: anywhere;
+      }
+      .reading.used {
+        background: var(--tint);
+        box-shadow: inset 0 0 0 1px #92b998;
+      }
+      .reading strong {
+        font: 650 1.2rem var(--mono);
+        display: block;
+      }
+      .reading a {
+        font-size: 0.86rem;
+      }
+      .explain {
+        font-size: 0.89rem;
+        color: var(--muted);
+      }
+      .shared {
+        margin-top: 26px;
+      }
+      .shared h2 {
+        margin-bottom: 14px;
+      }
+      .facts {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+        gap: 12px;
+      }
+      .fact {
+        padding: 15px;
+      }
+      .fact .metric {
+        font-size: 1.55rem;
+        font-weight: 650;
+        color: var(--green);
+      }
+      .fact h3 {
+        margin: 5px 0 12px;
+      }
+      .angles {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .angles > div + div {
+        border-left: 1px solid var(--rule);
+        padding-left: 12px;
+      }
+      .angles p {
+        margin-top: 5px;
+        font-size: 0.92rem;
+        line-height: 1.5;
+      }
+      mark {
+        color: var(--green);
+        background: var(--tint);
+        font-weight: 700;
+      }
+      .foot {
+        border-top: 1px solid var(--rule);
+        padding: 18px 0 28px;
+      }
+      .foot strong,
+      .foot small {
+        display: block;
+      }
+      .foot small {
+        color: var(--muted);
+        margin-top: 4px;
+      }
+      .popover {
+        position: fixed;
+        z-index: 5;
+        width: min(315px, calc(100vw - 24px));
+        background: var(--sheet);
+        border: 1px solid var(--green);
+        border-radius: 9px;
+        padding: 14px;
+        box-shadow: 0 8px 24px #17271c25;
+      }
+      .popover a {
+        display: block;
+        margin-top: 6px;
+        line-height: 1.4;
+      }
+      .status {
+        margin: 14px 0;
+      }
+      dialog {
+        padding: 0;
+        border: 0;
+        background: transparent;
+        width: min(530px, calc(100% - 32px));
+        max-height: 88dvh;
+        overflow: auto;
+        color: var(--ink);
+      }
+      dialog::backdrop {
+        background: #101b15a8;
+      }
+      .ticket {
+        background: #fffef6;
+        padding: 23px 24px 32px;
+        font-family: var(--mono);
+        border-top: 3px solid var(--ink);
+        mask:
+          linear-gradient(#000 0 0) top/calc(100% + 1px) calc(100% - 9px) no-repeat,
+          conic-gradient(from -45deg at 50% 100%, #000 90deg, transparent 0) bottom/18px 10px repeat-x;
+      }
+      .ticket-head button {
+        background: transparent;
+        border: 1px solid var(--rule);
+        border-radius: 4px;
+        padding: 5px 10px;
+      }
+      .ticket-meta {
+        margin: 8px 0 14px;
+      }
+      .ticket ol {
+        list-style: none;
+        padding: 0;
+        border-block: 2px dashed #849484;
+      }
+      .ticket li {
+        padding: 9px 0;
+        display: grid;
+        align-items: baseline;
+        grid-template-columns: minmax(4ch, auto) 1fr auto;
+        gap: 9px;
+        border-bottom: 1px dotted var(--rule);
+        font-size: 0.88rem;
+        overflow-wrap: anywhere;
+      }
+      .ticket li a {
+        display: block;
+        font-size: 0.8rem;
+      }
+      .ticket-total {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 5px;
+        margin: 13px 0;
+      }
+      .barcode {
+        width: 142px;
+        height: 28px;
+        margin: 14px auto 8px;
+        background: repeating-linear-gradient(
+          90deg,
+          #142019 0 2px,
+          transparent 2px 4px,
+          #142019 4px 5px,
+          transparent 5px 8px,
+          #142019 8px 12px,
+          transparent 12px 15px,
+          #142019 15px 17px,
+          transparent 17px 20px
+        );
+      }
+      .thanks {
+        text-align: center;
+        font-size: 0.83rem;
+        letter-spacing: 0.09em;
+      }
+      dialog[open] .ticket {
+        animation: unfold 0.26s ease-out;
+        transform-origin: top;
+      }
+      @keyframes unfold {
+        from {
+          transform: translateY(-15px) scaleY(0.94);
+          opacity: 0.25;
+        }
+      }
+      .present .shared,
+      .present .foot {
+        display: none;
+      }
+      .present .line p {
+        font-size: 1.45rem;
+      }
+      .present .rows {
+        max-height: 60vh;
+      }
+      .present .deck h2 {
+        font-size: 2.25rem;
+      }
+      .present .profile-name {
+        font-size: 1.28rem;
+      }
+      @media (min-width: 1550px) {
+        main {
+          padding-top: 38px;
+        }
+        .profiles {
+          margin: 22px 0;
+        }
+        .profile {
+          padding: 18px 21px;
+        }
+        .deck-main {
+          padding: 28px 32px;
+        }
+        .line p {
+          font-size: 1.19rem;
+        }
+        .panel-head {
+          padding: 20px 24px;
+        }
+      }
+      @media (max-width: 900px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+        .audit {
+          grid-template-columns: 1fr 1fr;
+          align-items: start;
+        }
+        .profile {
+          padding: 12px;
+          gap: 8px;
+        }
+        .avatar {
+          width: 38px;
+          height: 38px;
+        }
+        .deck-main {
+          gap: 16px;
+        }
+        .wrap {
+          width: calc(100% - 36px);
+        }
+      }
+      @media (max-width: 640px) {
+        .wrap {
+          width: calc(100% - 28px);
+        }
+        .mast .wrap {
+          min-height: 78px;
+          gap: 8px;
+        }
+        .brand {
+          gap: 6px;
+        }
+        .brand-mark {
+          width: 29px;
+          height: 39px;
+        }
+        .wordmark {
+          font-size: 1.6rem;
+        }
+        .tagline {
+          max-width: 170px;
+          font-size: 0.77rem;
+          line-height: 1.2;
+        }
+        .meter {
+          display: block;
+          text-align: right;
+          flex: none;
+        }
+        .counter {
+          font-size: 1.65rem;
+        }
+        .meter-copy {
+          font-size: 0.72rem;
+        }
+        .meter-copy strong {
+          display: inline;
+        }
+        .meter-copy span {
+          display: block;
+        }
+        .meter-copy strong::after {
+          content: "";
+        }
+        main {
+          padding: 19px 0 25px;
+        }
+        h1 {
+          font-size: 1.95rem;
+        }
+        .edition {
+          font-size: 0.72rem;
+          max-width: 92px;
+        }
+        .edition .icon {
+          display: none;
+        }
+        .profiles {
+          grid-template-columns: 1fr;
+          gap: 6px;
+          margin: 13px 0 16px;
+        }
+        .profile {
+          min-height: 57px;
+          gap: 10px;
+          padding: 8px 11px;
+        }
+        .profile-info {
+          display: grid;
+          grid-template-columns: 1fr auto;
+          align-items: center;
+          flex: 1;
+          column-gap: 4px;
+        }
+        .profile-name {
+          font-size: 1rem;
+        }
+        .role {
+          grid-column: 1;
+          font-size: 0.82rem;
+          margin: 0;
+        }
+        .profile-meta {
+          grid-column: 2;
+          grid-row: 1/3;
+          font-size: 0.73rem;
+        }
+        .chosen {
+          display: none !important;
+        }
+        .avatar {
+          width: 34px;
+          height: 34px;
+          font-size: 1rem;
+        }
+        .deck {
+          position: fixed;
+          z-index: 3;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          border-radius: 15px 15px 0 0;
+          padding-bottom: env(safe-area-inset-bottom);
+          box-shadow: 0 -4px 18px #19302320;
+        }
+        .deck-main {
+          grid-template-columns: auto minmax(0, 1fr);
+          gap: 12px;
+          padding: 11px 14px 7px;
+        }
+        .control {
+          gap: 9px;
+        }
+        .play {
+          width: 43px;
+          height: 43px;
+        }
+        .play .icon {
+          width: 19px;
+          height: 19px;
+        }
+        .deck h2,
+        .present .deck h2 {
+          font-size: 1.04rem;
+        }
+        .time {
+          font-size: 0.74rem;
+          margin-top: 3px;
+        }
+        .wave {
+          height: 36px;
+        }
+        .deckfoot {
+          padding: 2px 14px;
+          font-size: 0.78rem;
+          gap: 8px;
+        }
+        .deckfoot .current > .icon {
+          display: none;
+        }
+        .chapter-toggle {
+          min-height: 32px;
+        }
+        .chapters {
+          max-height: 34dvh;
+          padding: 0 14px 10px;
+        }
+        .layout {
+          margin-top: 0;
+          gap: 14px;
+        }
+        .panel-head {
+          padding: 12px;
+        }
+        .panel-head h2,
+        .shared h2 {
+          font-size: 1.35rem;
+        }
+        .receipt-btn {
+          padding: 9px 10px;
+          font-size: 0.84rem;
+        }
+        .line {
+          padding: 10px 10px;
+          grid-template-columns: 2.5rem 1fr;
+          gap: 5px;
+        }
+        .line p {
+          font-size: 1rem;
+        }
+        .line-time {
+          font-size: 0.73rem;
+        }
+        .rows {
+          max-height: 57dvh;
+        }
+        .audit {
+          grid-template-columns: 1fr;
+        }
+        .shared {
+          margin-top: 18px;
+        }
+        .foot {
+          padding-bottom: 12px;
+        }
+        body {
+          padding-bottom: calc(105px + env(safe-area-inset-bottom));
+        }
+        .ticket {
+          padding-inline: 16px;
+        }
+        .ticket-head h2 {
+          font-size: 1.4rem;
+        }
+        .present .line p {
+          font-size: 1.15rem;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+          scroll-behavior: auto !important;
+        }
+      }
+      .line > div {
+        min-width: 0;
+      }
+      .used-link {
+        display: inline-block;
+        margin-top: 6px;
+        font-size: 0.92rem;
+      }
+      .panel-group > summary::after {
+        content: "";
+        width: 7px;
+        height: 7px;
+        flex: none;
+        border: solid var(--muted);
+        border-width: 0 1.5px 1.5px 0;
+        transform: rotate(45deg);
+      }
+      .panel-group[open] > summary::after {
+        transform: rotate(225deg);
+      }
+      .panel-group .badge {
+        margin-left: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="ico-receipt" viewBox="0 0 32 40">
+        <path
+          d="M4 3l4 2 4-2 4 2 4-2 4 2 4-2v34l-4-2-4 2-4-2-4 2-4-2-4 2zM10 12h12m-12 5h8m-7 8 3 3 7-8"
+        />
+      </symbol>
+      <symbol id="ico-play" viewBox="0 0 24 24"><path d="m7 4 13 8-13 8z" /></symbol>
+      <symbol id="ico-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zm8 0h4v14h-4z" /></symbol>
+      <symbol id="ico-chapters" viewBox="0 0 24 24">
+        <path d="M8 6h13M8 12h13M8 18h13M3 6h1m-1 6h1m-1 6h1" />
+      </symbol>
+      <symbol id="ico-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></symbol>
+      <symbol id="ico-date" viewBox="0 0 24 24"><path d="M4 5h16v15H4zM4 10h16M8 3v4m8-4v4" /></symbol>
+      <symbol id="ico-link" viewBox="0 0 24 24"><path d="M13 5h6v6m0-6-9 9m0-7H5v12h12v-5" /></symbol>
+      <symbol id="ico-check" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <path d="m8 12 3 3 5-6" />
+      </symbol>
+      <symbol id="ico-shield" viewBox="0 0 24 24">
+        <path d="M12 3 4 6v5c0 6 5 9 8 10 3-1 8-4 8-10V6zM8.5 12l2.5 2.5 4.5-5" />
+      </symbol>
+      <symbol id="ico-compare" viewBox="0 0 24 24"><path d="M3 7h17l-4-4m5 14H4l4 4" /></symbol>
+    </svg>
+    <header class="mast">
+      <div class="wrap">
+        <div class="brand">
+          <svg class="icon brand-mark" aria-hidden="true"><use href="#ico-receipt" /></svg>
+          <div>
+            <div class="wordmark">Receipts</div>
+            <p class="tagline">Every number, checked against its source.</p>
           </div>
         </div>
-        <div class="listen">
-          <p class="verify" id="stats" aria-live="polite"></p>
-          <audio id="audio" controls preload="metadata" aria-label="Briefing audio" hidden></audio>
-          <button type="button" class="receipt-button" id="open-receipt" disabled>Your receipt</button>
+        <div class="meter" id="meter">
+          <div class="counter" aria-hidden="true">
+            <span id="verified">–</span> <i>/</i> <span id="total">–</span>
+          </div>
+          <div class="meter-copy">
+            <strong>figures verified</strong> <span class="verified" id="invented"></span>
+          </div>
         </div>
       </div>
-    </div>
-  </header>
-
-  <main class="wrap" id="briefing-panel" role="tabpanel" aria-labelledby="tab-mara">
-    <p id="status" class="status" role="status" hidden></p>
-    <div class="content" id="content" hidden>
-      <section class="card" aria-labelledby="transcript-heading">
-        <h2 class="heading" id="transcript-heading">Transcript</h2>
-        <div class="rows" id="rows"></div>
+    </header>
+    <main class="wrap">
+      <div class="between">
+        <h1>Morning briefings</h1>
+        <time id="edition" class="small edition"></time>
+      </div>
+      <div class="profiles" id="profiles" role="group" aria-label="Choose a listener"></div>
+      <p class="status" role="status" id="status">Loading the briefings…</p>
+      <div id="briefing" hidden>
+        <section class="deck" aria-labelledby="deck-title">
+          <audio id="audio" preload="metadata"></audio>
+          <div class="deck-main">
+            <div class="control">
+              <button class="play" id="play" aria-label="Play briefing" disabled></button>
+              <div>
+                <h2 id="deck-title"></h2>
+                <span class="time"><span id="elapsed">0:00</span> / <span id="duration"></span></span>
+              </div>
+            </div>
+            <div class="wave-wrap">
+              <div class="wave" id="wave">
+                <canvas id="signal" aria-hidden="true"></canvas>
+                <div class="markers" id="markers" aria-hidden="true"></div>
+                <input
+                  id="seek"
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="0"
+                  step="0.1"
+                  aria-label="Seek through briefing"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="deckfoot">
+            <span class="current" id="current"></span
+            ><button
+              class="chapter-toggle"
+              id="chapter-toggle"
+              aria-expanded="false"
+              aria-controls="chapters"
+            >
+              Chapters <span id="chapter-count"></span>
+              <svg class="icon chev" aria-hidden="true"><use href="#ico-chevron" /></svg>
+            </button>
+          </div>
+          <ol class="chapters" id="chapters" hidden></ol>
+        </section>
+        <div class="layout">
+          <section class="panel">
+            <div class="panel-head between">
+              <h2>Transcript</h2>
+              <button id="receipt-btn" class="receipt-btn">
+                <svg class="icon" aria-hidden="true"><use href="#ico-receipt" /></svg>Your receipt
+              </button>
+            </div>
+            <div class="rows" id="rows"></div>
+          </section>
+          <aside class="audit" aria-label="Source checks">
+            <details class="panel-group" id="caught-panel" open>
+              <summary>
+                <span class="summary-main"
+                  ><svg class="icon" aria-hidden="true"><use href="#ico-shield" /></svg>Caught before it
+                  reached your ears</span
+                ><span class="badge" id="caught-count"></span>
+              </summary>
+              <div class="items" id="caught"></div>
+            </details>
+            <details class="panel-group" id="conflict-panel" open>
+              <summary>
+                <span class="summary-main"
+                  ><svg class="icon" aria-hidden="true"><use href="#ico-compare" /></svg>Sources
+                  disagree</span
+                ><span class="badge" id="conflict-count"></span>
+              </summary>
+              <div class="items" id="conflicts"></div>
+            </details>
+          </aside>
+        </div>
+      </div>
+      <section class="shared" id="shared" hidden>
+        <h2>One fact, different meanings</h2>
+        <div class="facts" id="facts"></div>
       </section>
-      <aside class="audit" aria-label="Source checks">
-        <details open>
-          <summary>Caught before it reached your ears <span id="caught-count" class="count"></span></summary>
-          <div class="items" id="caught"></div>
-        </details>
-        <details open>
-          <summary>Sources disagree <span id="conflict-count" class="count"></span></summary>
-          <div class="items" id="conflicts"></div>
-        </details>
-      </aside>
-    </div>
-  </main>
-
-  <dialog id="receipt" aria-labelledby="receipt-heading">
-    <article class="ticket">
-      <header class="ticket-header"><h2 id="receipt-heading">Your receipt</h2><form method="dialog"><button>Close</button></form></header>
-      <p class="ticket-meta" id="ticket-meta"></p>
-      <ol class="receipt-list" id="ticket-lines"></ol>
-    </article>
-  </dialog>
-
-  <script>
-    const AGENT_ID = "";
-    const audio = document.querySelector("#audio");
-    const rows = document.querySelector("#rows");
-    const tabs = [...document.querySelectorAll("[role=tab]")];
-    const receipt = document.querySelector("#receipt");
-    const receiptButton = document.querySelector("#open-receipt");
-    const status = document.querySelector("#status");
-    const content = document.querySelector("#content");
-    const labels = {
-      number_not_in_cited_facts: "Figure missing from the cited evidence",
-      copied_sequence_of_8_words: "Copied wording",
-      repeated_number: "Repeated figure",
-      repeated_meaning: "Repeated meaning",
-      word_budget: "Exceeded the script word budget",
-      missing_or_unknown_fact_id: "Missing or unknown citation"
-    };
-    let request;
-    let audioObjectUrl;
-    let active = -1;
-    let lines = [];
-    let transcript = [];
-
-    function element(tag, value, className) {
-      const node = document.createElement(tag);
-      if (value !== undefined) node.textContent = value;
-      if (className) node.className = className;
-      return node;
-    }
-
-    function sourceLink(label, href, className) {
-      let url;
-      try { url = new URL(href); } catch { return element("span", label, className); }
-      if (!["http:", "https:"].includes(url.protocol)) return element("span", label, className);
-      const node = element("a", label, className);
-      node.href = url.href;
-      node.target = "_blank";
-      node.rel = "noopener noreferrer";
-      return node;
-    }
-
-    function clock(seconds) {
-      const total = Math.floor(seconds);
-      return Math.floor(total / 60) + ":" + String(total % 60).padStart(2, "0");
-    }
-
-    function syncTranscript() {
-      const time = audio.currentTime + 0.015;
-      const next = transcript.findIndex((line, index) =>
-        time >= line.start && (time < (transcript[index + 1]?.start ?? line.end))
-      );
-      if (next === active) return;
-      if (active >= 0) {
-        lines[active].classList.remove("active");
-        lines[active].removeAttribute("aria-current");
-      }
-      active = next;
-      if (next < 0) return;
-      const line = lines[next];
-      line.classList.add("active");
-      line.setAttribute("aria-current", "true");
-      const top = line.offsetTop;
-      if (top < rows.scrollTop || top + line.offsetHeight > rows.scrollTop + rows.clientHeight) {
-        rows.scrollTo({ top: Math.max(0, top - 14), behavior: "smooth" });
-      }
-    }
-
-    function drawTranscript(data) {
-      transcript = data.sentences;
-      active = -1;
-      lines = transcript.map((sentence) => {
-        const line = element("article", undefined, "line");
-        const jump = element("button", undefined, "jump");
-        jump.type = "button";
-        jump.append(element("span", clock(sentence.start), "clock"), element("span", sentence.text));
-        jump.addEventListener("click", () => {
-          audio.currentTime = sentence.start;
-          syncTranscript();
-        });
-        line.append(jump);
-        if (sentence.sources.length) {
-          const sources = element("div", undefined, "sources");
-          sentence.sources.forEach((s) => sources.append(sourceLink(s.outlet + " / " + s.headline, s.link, "chip")));
-          line.append(sources);
-        }
-        return line;
-      });
-      rows.replaceChildren(...lines);
-      rows.scrollTop = 0;
-    }
-
-    function drawChecks(data) {
-      document.querySelector("#caught-count").textContent = data.caught.length;
-      document.querySelector("#conflict-count").textContent = data.conflicts.length;
-      const order = ["invented", "copied", "miscited"];
-      const caughtLabels = {
-        invented: "Invented number blocked",
-        copied: "Licensed text blocked",
-        miscited: "Citation fixed"
+    </main>
+    <footer class="foot" id="foot" hidden>
+      <div class="wrap"><strong id="cost"></strong><small id="cost-detail"></small></div>
+    </footer>
+    <div id="source-card" class="popover" role="region" aria-label="Figure source" hidden></div>
+    <dialog id="receipt" aria-labelledby="ticket-title">
+      <article class="ticket">
+        <div class="ticket-head">
+          <h2 id="ticket-title">Your receipt</h2>
+          <form method="dialog"><button>Close</button></form>
+        </div>
+        <p class="ticket-meta small" id="ticket-meta"></p>
+        <ol id="ticket-lines"></ol>
+        <div class="ticket-total" id="totals"></div>
+        <div class="barcode" aria-hidden="true"></div>
+        <p class="thanks">THANK YOU FOR LISTENING</p>
+      </article>
+    </dialog>
+    <script>
+      "use strict";
+      const AGENT_ID = "";
+      const base = new URL("./out/", location.href);
+      const $ = (id) => document.getElementById(id);
+      const audio = $("audio"),
+        rows = $("rows"),
+        seek = $("seek"),
+        card = $("source-card");
+      const roles = {
+        mara: "London rates & FX trader",
+        jordan: "Tech investor",
+        priya: "UK online retailer",
       };
-      const caught = [...data.caught].sort((a, b) => order.indexOf(a.kind) - order.indexOf(b.kind)).map((item) => {
-        const card = element("div", undefined, "audit-row");
-        const label = caughtLabels[item.kind] ?? labels[item.reason] ?? item.reason.replaceAll("_", " ");
-        card.append(element("strong", label));
-        const sentence = element("p");
-        const text = item.sentence || "Licensed wording withheld.";
-        const at = item.figure == null ? -1 : text.indexOf(item.figure);
-        if (at >= 0) {
-          sentence.append(document.createTextNode(text.slice(0, at)),
-            element("del", item.figure, "blocked-figure"),
-            document.createTextNode(text.slice(at + item.figure.length)));
-        } else {
-          sentence.textContent = text;
+      const queries = new URLSearchParams(location.search);
+      const present = queries.get("present") === "1";
+      const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      document.body.classList.toggle("present", present);
+      if (present) $("conflict-panel").open = false;
+      const records = new Map();
+      let data,
+        chapters = [],
+        active = -1,
+        currentChapter = -1,
+        peaks,
+        objectUrl;
+      let mediaRequest, counterFrame, cardAnchor, closeTimer;
+
+      function el(tag, text, cls) {
+        const n = document.createElement(tag);
+        if (text != null) n.textContent = text;
+        if (cls) n.className = cls;
+        return n;
+      }
+      function icon(name) {
+        const n = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        const use = document.createElementNS(n.namespaceURI, "use");
+        use.setAttribute("href", "#ico-" + name);
+        n.setAttribute("class", "icon");
+        n.setAttribute("aria-hidden", "true");
+        n.append(use);
+        return n;
+      }
+      function link(label, url, cls) {
+        let dest;
+        try {
+          dest = new URL(url);
+        } catch {
+          return el("span", label, cls);
         }
-        card.append(sentence);
-        return card;
-      });
-      const conflicts = data.conflicts.map((item) => {
-        const card = element("div", undefined, "audit-row");
-        card.append(
-          element("strong", item.measure),
-          element("p", item.value_a + " vs " + item.value_b),
-          sourceLink(item.outlet_a + " / " + item.value_a, item.link_a),
-          sourceLink(item.outlet_b + " / " + item.value_b, item.link_b),
-          element("p", item.used ? "Used in this briefing: " + item["value_" + item.used] : "Neither figure used", "used")
+        if (!["https:", "http:"].includes(dest.protocol)) return el("span", label, cls);
+        const a = el("a", label, cls);
+        a.href = dest.href;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        return a;
+      }
+      async function json(relative) {
+        const response = await fetch(new URL(relative, base));
+        if (!response.ok) throw Error("Couldn't load " + relative);
+        return response.json();
+      }
+      function clock(s) {
+        s = Math.max(0, Math.floor(s || 0));
+        return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0");
+      }
+      function runtime() {
+        return Number.isFinite(audio.duration) ? audio.duration : data?.sentences.at(-1)?.end || 0;
+      }
+      function status(message) {
+        $("status").textContent = message;
+        $("status").hidden = !message;
+      }
+      function meter() {
+        const { figures_verified: v, figures_total: t } = data;
+        $("invented").textContent = t - v + " invented";
+        $("meter").setAttribute(
+          "aria-label",
+          v + " of " + t + " figures verified, " + (t - v) + " invented",
         );
-        return card;
+        cancelAnimationFrame(counterFrame);
+        const start = performance.now();
+        function update(now) {
+          const f = reducedMotion ? 1 : Math.min(1, (now - start) / 550);
+          $("verified").textContent = Math.round(v * f);
+          $("total").textContent = Math.round(t * f);
+          if (f < 1) counterFrame = requestAnimationFrame(update);
+        }
+        counterFrame = requestAnimationFrame(update);
+      }
+      function makeProfile(id, role) {
+        const b = el("button", null, "profile");
+        b.dataset.listener = id;
+        b.setAttribute("aria-pressed", "false");
+        const name = id[0].toUpperCase() + id.slice(1);
+        const info = el("span", null, "profile-info"),
+          meta = el("span", "Loading…", "profile-meta");
+        info.append(el("span", name, "profile-name"), el("span", role, "role"), meta);
+        const check = el("span", null, "chosen");
+        check.append(icon("check"));
+        b.append(el("span", name[0], "avatar"), info, check);
+        $("profiles").append(b);
+        records.set(
+          id,
+          json(id + "/transcript.json")
+            .then((d) => {
+              meta.textContent = clock(d.sentences.at(-1)?.end) + " · " + d.figures_total + " figures";
+              return d;
+            })
+            .catch(() => {
+              meta.textContent = "Unavailable";
+              return null;
+            }),
+        );
+        b.onclick = () => selectListener(id);
+      }
+      function hideCard() {
+        clearTimeout(closeTimer);
+        card.hidden = true;
+        cardAnchor = null;
+      }
+      function scheduleHide() {
+        clearTimeout(closeTimer);
+        closeTimer = setTimeout(hideCard, 220);
+      }
+      function showCard(button, item) {
+        clearTimeout(closeTimer);
+        cardAnchor = button;
+        const title = link(item.headline, item.link);
+        title.append(" ", icon("link"));
+        card.replaceChildren(el("strong", item.outlet), title);
+        card.hidden = false;
+        const r = button.getBoundingClientRect(),
+          w = card.offsetWidth,
+          h = card.offsetHeight;
+        card.style.left = Math.max(8, Math.min(r.left, innerWidth - w - 8)) + "px";
+        card.style.top =
+          (r.top > h + 8 ? r.top - h - 5 : Math.min(innerHeight - h - 8, r.bottom + 5)) + "px";
+      }
+      card.onpointerenter = () => clearTimeout(closeTimer);
+      card.onpointerleave = scheduleHide;
+      card.onfocusin = () => clearTimeout(closeTimer);
+      card.onfocusout = scheduleHide;
+      document.addEventListener("pointerdown", (e) => {
+        if (!card.contains(e.target) && !e.target.closest(".fig")) hideCard();
       });
-      document.querySelector("#caught").replaceChildren(...(caught.length ? caught : [element("p", "No issues caught.")]));
-      document.querySelector("#conflicts").replaceChildren(...(conflicts.length ? conflicts : [element("p", "No conflicting figures reported.")]));
-    }
-
-    function drawReceipt(data) {
-      document.querySelector("#ticket-meta").textContent = data.name + " / " + data.date + " / " + data.receipt.length + " verified figures";
-      document.querySelector("#ticket-lines").replaceChildren(...data.receipt.map((item) => {
-        const entry = element("li");
-        const detail = element("div");
-        detail.append(element("strong", item.figure), element("div", item.measures),
-          sourceLink(item.outlet + " / " + item.headline, item.link));
-        entry.append(element("span", "\u2713", "check"), detail);
-        return entry;
-      }));
-    }
-
-    async function loadListener(tab) {
-      request?.abort();
-      request = new AbortController();
-      const current = request;
-      const listener = tab.dataset.listener;
-      tabs.forEach((node) => {
-        node.setAttribute("aria-selected", String(node === tab));
-        node.tabIndex = node === tab ? 0 : -1;
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && cardAnchor) {
+          const b = cardAnchor;
+          hideCard();
+          b.focus();
+          hideCard();
+        }
       });
-      document.querySelector("#briefing-panel").setAttribute("aria-labelledby", tab.id);
-      audio.pause();
-      audio.removeAttribute("src");
-      audio.load();
-      if (audioObjectUrl) URL.revokeObjectURL(audioObjectUrl);
-      audioObjectUrl = undefined;
-      audio.hidden = true;
-      content.hidden = true;
-      receiptButton.disabled = true;
-      document.querySelector("#stats").textContent = "";
-      document.querySelector("#edition").textContent = "";
-      status.textContent = "Loading " + tab.textContent + "â€¦";
-      status.hidden = false;
-      try {
-        const url = new URL("./out/" + listener + "/transcript.json", location.href);
-        const response = await fetch(url, { signal: current.signal, cache: "no-store" });
-        if (response.status === 404) {
-          status.textContent = tab.textContent + "â€™s audio hasnâ€™t been generated yet.";
+      window.addEventListener("scroll", hideCard, { capture: true, passive: true });
+      function figureButton(item) {
+        const b = el("button", item.figure, "fig");
+        b.setAttribute("aria-label", item.figure + ", verified by " + item.outlet + ". Show source");
+        b.append(el("sup", "✓"));
+        b.setAttribute("aria-controls", "source-card");
+        const open = () => showCard(b, item);
+        b.onpointerenter = (e) => {
+          if (e.pointerType === "mouse") open();
+        };
+        b.onpointerleave = scheduleHide;
+        b.onfocus = open;
+        b.onblur = scheduleHide;
+        b.onclick = (e) => {
+          e.stopPropagation();
+          open();
+        };
+        b.onkeydown = (e) => {
+          if (e.key === "Tab" && !e.shiftKey && cardAnchor === b) {
+            e.preventDefault();
+            card.querySelector("a")?.focus();
+          }
+        };
+        return b;
+      }
+      function evidenceText(parent, sentence) {
+        const sources = new Set(sentence.sources.map((s) => s.link)),
+          text = sentence.text;
+        const hits = [];
+        for (const item of data.receipt) {
+          if (!sources.has(item.link) || !item.figure) continue;
+          for (
+            let from = 0, at;
+            (at = text.indexOf(item.figure, from)) !== -1;
+            from = at + item.figure.length
+          ) {
+            const end = at + item.figure.length;
+            if (/[\w$£€¥]/.test(text[at - 1] || "") || /^[\w%]|^[.,]\d/.test(text.slice(end))) continue;
+            hits.push({ at, end, item });
+          }
+        }
+        hits.sort((a, b) => a.at - b.at || b.end - a.end);
+        let pos = 0;
+        for (const h of hits) {
+          if (h.at < pos) continue;
+          parent.append(text.slice(pos, h.at), figureButton(h.item));
+          pos = h.end;
+        }
+        parent.append(text.slice(pos));
+      }
+      function jump(t) {
+        if (!audio.readyState) return;
+        audio.currentTime = t;
+        sync();
+      }
+      function drawTranscript() {
+        active = -1;
+        const lines = data.sentences.map((s) => {
+          const row = el("article", null, "line"),
+            body = el("div"),
+            p = el("p");
+          const time = el("button", clock(s.start), "line-time");
+          time.setAttribute("aria-label", "Seek to " + clock(s.start));
+          time.onclick = p.onclick = () => jump(s.start);
+          evidenceText(p, s);
+          body.append(p);
+          if (s.sources.length) {
+            const cites = el("div", null, "sources");
+            for (const source of s.sources) {
+              const label = source.outlet + " · " + source.headline;
+              const a = link("", source.link, "chip");
+              a.title = label;
+              a.append(icon("link"), el("span", label));
+              cites.append(a);
+            }
+            body.append(cites);
+          }
+          row.append(time, body);
+          return row;
+        });
+        rows.replaceChildren(...lines);
+        rows.scrollTop = 0;
+      }
+      function drawChapters() {
+        chapters = [];
+        currentChapter = -1;
+        for (const s of data.sentences) {
+          if (s.story !== chapters.at(-1)?.title) chapters.push({ title: s.story, start: s.start });
+        }
+        $("chapter-count").textContent = "(" + chapters.length + ")";
+        $("chapters").replaceChildren(
+          ...chapters.map((c) => {
+            const li = el("li"),
+              b = el("button");
+            b.append(el("span", clock(c.start), "chapter-time"), el("span", c.title));
+            b.onclick = () => {
+              jump(c.start);
+              toggleChapters(false);
+              $("chapter-toggle").focus();
+            };
+            li.append(b);
+            return li;
+          }),
+        );
+      }
+      function toggleChapters(open) {
+        $("chapters").hidden = !open;
+        $("chapter-toggle").setAttribute("aria-expanded", String(open));
+      }
+      $("chapter-toggle").onclick = () => toggleChapters($("chapters").hidden);
+      function drawMarkers() {
+        const duration = runtime();
+        $("markers").replaceChildren(
+          ...chapters.slice(1).map((c) => {
+            const tick = el("span", null, "marker");
+            tick.style.left = (100 * c.start) / duration + "%";
+            return tick;
+          }),
+        );
+      }
+      function paintWave() {
+        const canvas = $("signal"),
+          w = canvas.clientWidth,
+          h = canvas.clientHeight;
+        if (!w || !h) return;
+        const dpr = devicePixelRatio || 1;
+        if (canvas.width !== Math.round(w * dpr) || canvas.height !== Math.round(h * dpr)) {
+          canvas.width = Math.round(w * dpr);
+          canvas.height = Math.round(h * dpr);
+        }
+        const ctx = canvas.getContext("2d");
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.clearRect(0, 0, w, h);
+        const ratio = audio.currentTime / (runtime() || 1);
+        $("wave").style.setProperty("--at", 100 * ratio + "%");
+        for (let x = 0; x < w; x += 4) {
+          const level = peaks
+            ? peaks[Math.min(peaks.length - 1, Math.floor((x / w) * peaks.length))]
+            : 0;
+          const size = Math.max(3, level * (h - 4));
+          ctx.fillStyle = x / w < ratio ? "#bbebaa" : "#83a58c";
+          ctx.fillRect(x, (h - size) / 2, 2.5, size);
+        }
+      }
+      async function decodeWave(blob, signal) {
+        try {
+          const decoder = new OfflineAudioContext(1, 1, 16000);
+          const buffer = await decoder.decodeAudioData(await blob.arrayBuffer());
+          if (signal.aborted) return;
+          const samples = buffer.getChannelData(0),
+            bins = new Float32Array(640);
+          const stride = Math.max(1, Math.floor(samples.length / bins.length));
+          for (let i = 0; i < bins.length; i++) {
+            let sum = 0,
+              n = 0;
+            for (let j = i * stride; j < (i + 1) * stride; j += 12) {
+              sum += samples[j] * samples[j];
+              n++;
+            }
+            bins[i] = Math.sqrt(sum / n);
+          }
+          const max = Math.max(...bins, 0.001);
+          peaks = bins.map((v) => Math.sqrt(v / max));
+          paintWave();
+        } catch {
+          /* The seek control also works without a decoded waveform. */
+        }
+      }
+      function sync() {
+        if (!data) return;
+        const time = audio.currentTime,
+          end = runtime();
+        $("elapsed").textContent = clock(time);
+        $("duration").textContent = clock(end);
+        seek.max = end;
+        seek.value = time;
+        seek.setAttribute("aria-valuetext", clock(time) + " of " + clock(end));
+        paintWave();
+        const i = data.sentences.findLastIndex((s) => s.start <= time + 0.015);
+        if (i !== active) {
+          rows.children[active]?.classList.remove("active");
+          rows.children[active]?.removeAttribute("aria-current");
+          active = i;
+          const line = rows.children[i];
+          if (line) {
+            line.classList.add("active");
+            line.setAttribute("aria-current", "true");
+            if (
+              line.offsetTop < rows.scrollTop ||
+              line.offsetTop + line.offsetHeight > rows.scrollTop + rows.clientHeight
+            )
+              rows.scrollTo({
+                top: Math.max(0, line.offsetTop - 12),
+                behavior: reducedMotion || audio.seeking ? "instant" : "smooth",
+              });
+          }
+        }
+        const ch = Math.max(
+          0,
+          chapters.findLastIndex((c) => c.start <= time + 0.015),
+        );
+        if (ch !== currentChapter && chapters[ch]) {
+          currentChapter = ch;
+          $("current").replaceChildren(icon("chapters"), document.createTextNode(chapters[ch].title));
+          [...$("chapters").querySelectorAll("button")].forEach((b, i) =>
+            b.setAttribute("aria-current", String(i === ch)),
+          );
+        }
+      }
+      function drawAudit() {
+        const kinds = ["invented", "copied", "miscited"];
+        const labels = {
+          invented: "Unverified number blocked",
+          copied: "Licensed text blocked",
+          miscited: "Citation fixed",
+        };
+        $("caught-count").textContent = data.caught.length;
+        const caught = [...data.caught]
+          .sort((a, b) => kinds.indexOf(a.kind) - kinds.indexOf(b.kind))
+          .map((c) => {
+            const row = el("div", null, "audit-row"),
+              p = el("p", null, "diff"),
+              at = c.figure ? c.sentence.indexOf(c.figure) : -1;
+            if (at >= 0)
+              p.append(
+                c.sentence.slice(0, at),
+                el("del", c.figure),
+                c.sentence.slice(at + c.figure.length),
+              );
+            else p.textContent = c.sentence || "Licensed wording withheld.";
+            row.append(el("h3", labels[c.kind]), p);
+            if (c.kind === "invented") {
+              const replacement = data.receipt.find((r) => {
+                const at = c.sentence.indexOf(r.figure);
+                if (at < 0 || r.figure === c.figure) return false;
+                const context = c.sentence.slice(at).split(/\s+/).slice(0, 6);
+                return (
+                  context.length >= 4 &&
+                  data.sentences.some(
+                    (s) =>
+                      s.text.includes(context.join(" ")) && s.sources.some((src) => src.link === r.link),
+                  )
+                );
+              });
+              if (replacement)
+                row.append(
+                  link("Heard in the briefing · " + replacement.figure, replacement.link, "used-link"),
+                );
+            }
+            return row;
+          });
+        $("caught").replaceChildren(...(caught.length ? caught : [el("p", "No issues caught.")]));
+        $("conflict-count").textContent = data.conflicts.length;
+        const conflicts = data.conflicts.map((c) => {
+          const row = el("div", null, "audit-row"),
+            compare = el("div", null, "compare");
+          for (const side of ["a", "b"]) {
+            const used = c.used === side,
+              reading = el("div", null, "reading" + (used ? " used" : ""));
+            reading.append(
+              el("strong", c["value_" + side]),
+              link(c["outlet_" + side], c["link_" + side]),
+            );
+            if (used) reading.append(el("div", "✓ Used in audio", "small"));
+            compare.append(reading);
+          }
+          const reason = c.used
+            ? "The script cites this source. Story rank, then source order, determines which reading goes to the writer."
+            : "Neither reading was cited in this briefing.";
+          row.append(el("h3", c.measure), compare, el("p", reason, "explain"));
+          return row;
+        });
+        $("conflicts").replaceChildren(
+          ...(conflicts.length ? conflicts : [el("p", "No conflicting figures reported.")]),
+        );
+      }
+      function drawReceipt() {
+        $("ticket-meta").textContent = data.name + " / " + data.date;
+        $("ticket-lines").replaceChildren(
+          ...data.receipt.map((r) => {
+            const li = el("li"),
+              detail = el("div", r.measures),
+              a = link(r.outlet, r.link);
+            a.title = r.headline;
+            detail.append(a);
+            li.append(el("strong", r.figure), detail, el("span", "✓", "check"));
+            return li;
+          }),
+        );
+        const totals = {
+          FIGURES: data.figures_total,
+          VERIFIED: data.figures_verified,
+          INVENTED: data.figures_total - data.figures_verified,
+          SOURCES: data.sources_total,
+        };
+        $("totals").replaceChildren(
+          ...Object.entries(totals).flatMap(([k, v]) => [el("span", k), el("strong", v)]),
+        );
+      }
+      async function extras() {
+        const [shared, costs] = await Promise.allSettled([
+          json("shared_facts.json"),
+          json("costs.json"),
+        ]);
+        if (shared.status === "fulfilled") {
+          const facts = shared.value
+            .filter((f) => f.listeners.mara && f.listeners.priya)
+            .map((f) => {
+              const box = el("article", null, "panel fact"),
+                angles = el("div", null, "angles");
+              for (const id of ["mara", "priya"]) {
+                const angle = el("div"),
+                  s = f.listeners[id],
+                  p = el("p");
+                const at = s.sentence.indexOf(s.spoken_value);
+                if (at >= 0)
+                  p.append(
+                    s.sentence.slice(0, at),
+                    el("mark", s.spoken_value),
+                    s.sentence.slice(at + s.spoken_value.length),
+                  );
+                else p.textContent = s.sentence;
+                angle.append(el("strong", id === "mara" ? "Mara" : "Priya"), p);
+                angles.append(angle);
+              }
+              const title = el("h3");
+              title.append(link(f.measure, f.link));
+              box.append(el("span", f.value, "metric"), title, angles);
+              return box;
+            });
+          $("facts").replaceChildren(...facts);
+          $("shared").hidden = !facts.length;
+        }
+        if (costs.status === "fulfilled") {
+          const report = costs.value,
+            monthly = report.scenarios.find((s) => s.scenario.startsWith("Per listener per month"));
+          if (!monthly || !Number.isFinite(monthly.with_segment_cache)) return;
+          const fmt = new Intl.NumberFormat("en-US", { style: "currency", currency: report.currency });
+          const price = fmt.format(monthly.with_segment_cache);
+          const headline =
+            report.currency === "USD" && monthly.with_segment_cache < 1 ? "Under $1" : price;
+          $("cost").textContent = headline + " per listener per month · costs measured, not estimated";
+          $("cost-detail").textContent =
+            price +
+            " projected from recorded API usage with shared audio at " +
+            report.assumptions.listeners.toLocaleString("en-US") +
+            " listeners.";
+          $("foot").hidden = false;
+        }
+      }
+      function updatePlay() {
+        const paused = audio.paused;
+        $("play").replaceChildren(icon(paused ? "play" : "pause"));
+        $("play").setAttribute("aria-label", paused ? "Play briefing" : "Pause briefing");
+      }
+      async function selectListener(id) {
+        mediaRequest?.abort();
+        mediaRequest = new AbortController();
+        const signal = mediaRequest.signal;
+        audio.pause();
+        audio.removeAttribute("src");
+        audio.load();
+        if (objectUrl) URL.revokeObjectURL(objectUrl);
+        objectUrl = null;
+        peaks = null;
+        data = null;
+        hideCard();
+        toggleChapters(false);
+        $("play").disabled = true;
+        $("briefing").hidden = true;
+        cancelAnimationFrame(counterFrame);
+        $("verified").textContent = "–";
+        $("total").textContent = "–";
+        $("invented").textContent = "";
+        $("edition").textContent = "";
+        document
+          .querySelectorAll(".profile")
+          .forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.listener === id)));
+        status("Loading briefing…");
+        try {
+          const record = await records.get(id);
+          if (signal.aborted) return;
+          if (!record) throw Error("Transcript unavailable");
+          data = record;
+          drawTranscript();
+          drawChapters();
+          drawAudit();
+          drawReceipt();
+          meter();
+          const date = $("edition");
+          date.dateTime = data.date;
+          date.replaceChildren(
+            icon("date"),
+            new Intl.DateTimeFormat("en-GB", {
+              day: "numeric",
+              month: "short",
+              year: "numeric",
+              timeZone: "UTC",
+            }).format(new Date(data.date + "T00:00:00Z")),
+          );
+          $("deck-title").textContent = data.name + "’s briefing";
+          $("briefing").hidden = false;
+          sync();
+          drawMarkers();
+          updatePlay();
+          const response = await fetch(new URL(id + "/" + data.audio, base), { signal });
+          if (!response.ok) throw Error("Audio unavailable");
+          const blob = await response.blob();
+          if (signal.aborted) return;
+          objectUrl = URL.createObjectURL(blob);
+          audio.src = objectUrl;
+          status("");
+          decodeWave(blob, signal);
+        } catch {
+          if (!signal.aborted)
+            status("This briefing could not be loaded. Check the local server or refresh the page.");
+        }
+      }
+      audio.onloadedmetadata = () => {
+        if (!data || audio.currentSrc !== objectUrl) return;
+        $("play").disabled = false;
+        drawMarkers();
+        sync();
+      };
+      audio.onerror = () => {
+        if (objectUrl && audio.error) {
+          status("Audio could not be played.");
+          $("play").disabled = true;
+        }
+      };
+      audio.onplay = audio.onpause = updatePlay;
+      audio.ontimeupdate = audio.onseeked = sync;
+      audio.onended = () => {
+        updatePlay();
+        sync();
+      };
+      seek.oninput = () => jump(Number(seek.value));
+      $("play").onclick = async () => {
+        if (!audio.paused) {
+          audio.pause();
           return;
         }
-        if (!response.ok) throw new Error("Transcript request failed");
-        const data = await response.json();
-        const audioResponse = await fetch(new URL(data.audio, url), { signal: current.signal });
-        if (!audioResponse.ok) throw new Error("Audio request failed");
-        // The basic Python server does not support byte-range seeking.
-        const audioFile = await audioResponse.blob();
-        if (current.signal.aborted) return;
-        drawTranscript(data);
-        drawChecks(data);
-        drawReceipt(data);
-        const invented = data.figures_total - data.figures_verified;
-        document.querySelector("#stats").textContent =
-          data.figures_verified + " of " + data.figures_total + " figures verified Â· " +
-          data.sources_total + " sources Â· " + invented + " invented";
-        const date = document.querySelector("#edition");
-        date.dateTime = data.date;
-        date.textContent = new Intl.DateTimeFormat("en-GB", {
-          dateStyle: "long", timeZone: "UTC"
-        }).format(new Date(data.date + "T00:00:00Z"));
-        audioObjectUrl = URL.createObjectURL(audioFile);
-        audio.src = audioObjectUrl;
-        audio.hidden = false;
-        content.hidden = false;
-        receiptButton.disabled = false;
-        status.hidden = true;
-        syncTranscript();
-      } catch (error) {
-        if (!current.signal.aborted) {
-          status.textContent = "Couldnâ€™t load this briefing. Open the player through the local HTTP server.";
+        try {
+          await audio.play();
+        } catch {
+          status("Playback could not start. Try Play again.");
         }
+      };
+      new ResizeObserver(paintWave).observe($("wave"));
+      $("receipt-btn").onclick = () => {
+        hideCard();
+        $("receipt").showModal();
+      };
+      $("receipt").onclick = (e) => {
+        if (e.target === $("receipt")) $("receipt").close();
+      };
+      Object.entries(roles).forEach(([id, role]) => makeProfile(id, role));
+      selectListener(Object.hasOwn(roles, queries.get("listener")) ? queries.get("listener") : "mara");
+      extras();
+      if (AGENT_ID.trim()) {
+        const widget = el("elevenlabs-convai");
+        widget.setAttribute("agent-id", AGENT_ID.trim());
+        const embed = el("script");
+        embed.src = "https://unpkg.com/@elevenlabs/convai-widget-embed";
+        embed.async = true;
+        document.body.append(widget, embed);
       }
-    }
-
-    audio.addEventListener("timeupdate", syncTranscript);
-    audio.addEventListener("seeked", syncTranscript);
-    receiptButton.addEventListener("click", () => receipt.showModal());
-    tabs.forEach((tab, index) => {
-      tab.addEventListener("click", () => loadListener(tab));
-      tab.addEventListener("keydown", (event) => {
-        const offset = { ArrowLeft: -1, ArrowRight: 1 }[event.key];
-        if (!offset && !["Home", "End"].includes(event.key)) return;
-        event.preventDefault();
-        const next = event.key === "Home" ? tabs[0] : event.key === "End" ? tabs.at(-1)
-          : tabs[(index + offset + tabs.length) % tabs.length];
-        next.focus();
-        loadListener(next);
-      });
-    });
-
-    if (AGENT_ID.trim()) {
-      const widget = document.createElement("elevenlabs-convai");
-      widget.setAttribute("agent-id", AGENT_ID.trim());
-      const embed = document.createElement("script");
-      embed.src = "https://unpkg.com/@elevenlabs/convai-widget-embed";
-      embed.async = true;
-      document.body.append(widget, embed);
-    }
-    loadListener(tabs[0]);
-  </script>
-</body>
+    </script>
+  </body>
 </html>

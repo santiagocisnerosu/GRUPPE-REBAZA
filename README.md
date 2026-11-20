@@ -26,6 +26,8 @@ python -m http.server 8000
 
 Abre [la demo local](http://localhost:8000/docs/). La [URL del jurado](https://santiagocisnerosu.github.io/GRUPPE-REBAZA/) funciona cuando GitHub Pages está desplegado desde `main` y la carpeta `/docs`.
 
+Para el video, [abre el modo presentación con Jordan](https://santiagocisnerosu.github.io/GRUPPE-REBAZA/?present=1&listener=jordan). En **Caught before it reached your ears**, el titular decía $64,000 y el recibo del audio respalda $63,465. [Captura de escritorio](pitch/desktop.png) · [Captura de celular](pitch/mobile.png).
+
 ## Regenerar
 
 Usa Python 3.11 o posterior, instala `requirements.txt`, coloca los archivos autorizados en `data/raw/` y configura `.env` con las claves y modelos de OpenAI y ElevenLabs. Guarda el número de líneas de `data/cache/costs.jsonl` antes de empezar para sustituir `N` en el reporte de costos. Usa cero si el registro todavía no existe.

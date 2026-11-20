@@ -32,7 +32,14 @@ def redact_sentence(text, overlaps):
 
 def build():
     docs = ROOT / "docs"
-    expected = {"index.html", "qr.png"}
+    output = ROOT / "out"
+    shared = json.loads((output / "shared_facts.json").read_text(encoding="utf-8"))
+    costs = output / "costs.json"
+    expected = {"index.html", "qr.png", "out/shared_facts.json"}
+    if costs.is_file():
+        expected.add("out/costs.json")
+    elif (docs / "out/costs.json").is_file():
+        (docs / "out/costs.json").unlink()
     expected.update(f"out/{listener}/{name}" for listener in LISTENERS for name in PUBLIC_FILES)
     unexpected = {p.relative_to(docs).as_posix() for p in docs.rglob("*") if p.is_file()} - expected
     if unexpected:
@@ -53,6 +60,15 @@ def build():
             candidates.update(word_windows(item["sentence"]))
         for item in (*data["receipt"], *data["conflicts"]):
             candidates.update(word_windows(item.get("measures", item.get("measure", ""))))
+
+    for fact in shared:
+        candidates.update(word_windows(fact["measure"]))
+        for listener, entry in fact["listeners"].items():
+            sentences = transcripts[listener]["sentences"]
+            if not any(line["text"] == entry["sentence"]
+                       and any(s["link"] == fact["link"] for s in line["sources"])
+                       for line in sentences):
+                raise SystemExit(f"Shared fact does not match {listener}'s sourced narration")
 
     articles = pd.read_parquet(CACHE_DIR / "articles.parquet", columns=["text"])
     overlap = set()
@@ -84,6 +100,15 @@ def build():
         raise SystemExit("Could not identify the player's data path")
     docs.mkdir(exist_ok=True)
     (docs / "index.html").write_text(html.replace('"../out/"', '"./out/"'), encoding="utf-8")
+    (docs / "out").mkdir(exist_ok=True)
+    for fact in shared:
+        _, changed = redact_sentence(fact["measure"], overlap)
+        if changed:
+            fact["measure"] = "Measurement described in the linked source."
+            redacted_measures += 1
+    write_json(docs / "out/shared_facts.json", shared)
+    if costs.is_file():
+        shutil.copyfile(costs, docs / "out/costs.json")
     for listener, transcript in transcripts.items():
         destination = docs / "out" / listener
         destination.mkdir(parents=True, exist_ok=True)
